@@ -1,0 +1,157 @@
+.table{
+    width:100%;
+    //width:215%;
+    overflow-x:auto;
+}
+
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
+
+
+#page-content-wrapper {
+    //position: absolute;
+    padding: 10px;
+    //width: 100%;
+    width:100%;
+    float: right;
+    overflow-x: hidden;
+ }
+ #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0px;
+ }
+.bgcolor{
+    background-color: #F0F0F0;
+    padding: 15px;
+    font-weight: bold;
+}
+.multirow{
+    padding-top: 20px;
+    padding-bottom: 20px;;
+} 
+// .fulltableview{
+//     width:90%;
+//     overflow-x:scroll;
+// }
+.searchsty{
+    padding-left:0px;
+    padding-right: 5px;
+}
+.looprows{
+    padding: 15px;
+    border-bottom: 1px solid #ced4da;
+}
+.reqbg1 p{
+    background-color: pink;
+    padding: 15px;
+    border-radius: 30%;
+    width: 80%;
+}
+.reqbg2 p{
+    background-color: green;
+    padding: 15px;
+    border-radius: 30%;
+    width: 80%;
+}
+.reqbg3 p{
+    background-color: palegoldenrod;
+    padding: 15px;
+    border-radius: 30%;
+    width: 80%;
+}
+
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+    float: right !important;
+}
+.ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #17a2b8 !important;
+    color: #fefefe;
+    cursor: default;
+}
+
+@media only screen and (max-width: 800px) {
+    .loopindiv{
+        //font-weight: bold;
+       padding: 10px;
+       
+        
+    }
+  }
+
+  .norecords{
+    color: #17a2b8;
+    padding-top: 3%;
+  }
+  .heading{
+    color: #17a2b8;
+    padding-left: 2%;
+  }
+
+  .bell {
+    display: inline-block;
+    position: relative;
+    //background-color: #eee;
+    width: 48px;
+    height: 42px;
+    text-align: center;
+    padding-top: 6px;
+}
+.bell img {
+    //width: 24px;
+    //height: 24px;
+    padding-top: 10px;
+}
+.bellnumbers {
+    font-size:12px;
+    background-color:#17a2b8;
+    width:16px;
+    line-height: 16px;
+    text-align: center;
+    color:#fff;
+    z-index: 2;
+    border-radius: 3px;
+    position: absolute;
+    //left: 28px;
+    left: 0;
+}
+.widthclass{
+    width:150px;
+}
+
+// .sticky-col {
+//     position: sticky;
+//     position: -webkit-sticky;    
+//     background-color: white;
+// }
+
+.sticky-col :nth-child(odd){
+    position: sticky;
+    position: -webkit-sticky;    
+    background-color: #CCC;
+}
+.first-col {
+	width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+	left: 0px;    
+}
+
+.second-col {
+	width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+	left: 100px;    
+}
+
+.wrapper {
+	position: relative;
+	overflow: auto;
+   	//border: 1px solid black;
+  	white-space: nowrap;
+}

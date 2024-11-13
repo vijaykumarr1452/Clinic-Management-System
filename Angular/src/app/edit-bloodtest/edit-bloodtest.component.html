@@ -1,0 +1,464 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<app-sidenav></app-sidenav> 	
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div  class="col-md-12 fright" >
+
+        <div class="login-form">
+           
+            <form name="bloodTestForm" id="bloodTestForm"  [formGroup]="bloodTestForm" (ngSubmit)="updatebloodTest(bloodTestForm.value)" >
+                 <h2 class="text-center"> BLOOD TEST REPORT</h2> 
+                 <div class="form-row">
+                    <div class="form-group col-md-3">
+                             <label for="haematology">HAEMATOLOGY </label>
+                      <input type="text" id="haematology" name="haematology" class="form-control"   placeholder="haematology" 
+                      required  formControlName="haematology"  >
+            
+                    </div>
+                  
+                  </div>
+
+  
+            <!-- <div class="form-group col-md-3"> -->
+                <h4 class="text-center"> CBC</h4> 
+                <!-- <label for="typelifestyle" class="text-center">CBC</label> -->
+                <br/>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                             <label for="hemoglobin">Hemoglobin </label>
+                      <input type="text" id="hemoglobin" name="hemoglobin" class="form-control"   placeholder="hemoglobin" 
+                      required  formControlName="hemoglobin"  >
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="tlc">Total Laucocyte count (TLC) </label>
+                 <input type="text" id="tlc" name="tlc" class="form-control"   placeholder="tlc" 
+                 required  formControlName="tlc"  >
+               </div>
+               <div class="form-group col-md-3">
+                <label for="leucocyteCount">Differential Leucocyte Count </label>
+         <input type="text" id="leucocyteCount" name="leucocyteCount" class="form-control"   placeholder="leucocyteCount" 
+         required  formControlName="leucocyteCount"  >
+       </div>
+      <div class="form-group col-md-3">
+       <label for="neutrophil">Neutrophil </label>
+<input type="text" id="neutrophil" name="neutrophil" class="form-control"   placeholder="neutrophil" 
+required  formControlName="neutrophil"  >
+</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="lymphocyte">Lymphocyte </label>
+            <input type="text" id="lymphocyte" name="lymphocyte" class="form-control"   placeholder="lymphocyte" 
+            required  formControlName="lymphocyte"  >
+        </div>
+        <div class="form-group col-md-3">
+            <label for="Monocyte">Monocyte </label>
+            <input type="text" id="Monocyte" name="Monocyte" class="form-control"   placeholder="Monocyte" 
+            required  formControlName="Monocyte"  >
+        </div>
+        <div class="form-group col-md-3">
+            <label for="Eosinophil">Eosinophil </label>
+            <input type="text" id="Eosinophil" name="Eosinophil" class="form-control"   placeholder="Eosinophil" 
+            required  formControlName="Eosinophil"  >
+        </div>
+        <div class="form-group col-md-3">
+            <label for="Basophil">Basophil </label>
+            <input type="text" id="Basophil" name="Basophil" class="form-control"   placeholder="Basophil" 
+            required  formControlName="Basophil"  >
+        </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="pcv">Packed cell volume (PCV)</label>
+        <input type="text" id="pcv" name="pcv" class="form-control"   placeholder="pcv" 
+        required  formControlName="pcv">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="rbc">Total RBC count</label>
+        <input type="text" id="rbc" name="rbc" class="form-control"   placeholder="rbc" 
+        required  formControlName="rbc">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="plateletscount">Platelets count</label>
+        <input type="text" id="plateletscount" name="plateletscount" class="form-control"   placeholder="plateletscount" 
+        required  formControlName="plateletscount">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="mcv">MCV</label>
+        <input type="text" id="mcv" name="mcv" class="form-control"   placeholder="mcv" 
+        required  formControlName="mcv">
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="mch">MCH</label>
+        <input type="text" id="mch" name="mch" class="form-control"   placeholder="mch" 
+        required  formControlName="mch">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="mchc">MCHC</label>
+        <input type="text" id="mchc" name="mchc" class="form-control"   placeholder="mchc" 
+        required  formControlName="mchc">
+    </div> <div class="form-group col-md-3">
+        <label for="esr">ESR</label>
+        <input type="text" id="esr" name="esr" class="form-control"   placeholder="esr" 
+        required  formControlName="esr">
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-3">
+             <label for="biochemistry">BIOCHEMISTRY </label>
+      <input type="text" id="biochemistry" name="biochemistry" class="form-control"   placeholder="biochemistry" 
+      required  formControlName="biochemistry"  >
+    </div>
+  
+  </div>   
+  <div class="form-group">
+    <button type="button" (click)="adduser()"  class="btn btn-primary mb-2" > ADD CBC </button>
+
+    <div formArrayName="cbc" *ngFor="let item of bloodTestForm.get('cbc')['controls']; let i = index;" >
+        <div [formGroupName]=i>
+            <input formControlName="name" class="form-control col-md-3" placeholder="">  
+            <button type="button" class="btn btn-primary mb" (click)="removecbc(i)">Remove</button>
+      </div>
+        </div>
+  </div> 
+  
+  <!-- <button type="button" class="btn btn-primary mb-2" (click)="addComment(k,Observations.type)">Add</button> -->
+
+<h4 class="text-center"> LIVER FUNCTION TEST</h4>     
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="Bilirubintotal">Bilirubin total </label>
+ <input type="text" id="Bilirubintotal" name="Bilirubintotal" class="form-control"   placeholder="Bilirubintotal" 
+ required  formControlName="biochemistry"  >
+</div> <div class="form-group col-md-3">
+    <label for="AlkalinePhosphatase">Alkaline Phosphatase </label>
+<input type="text" id="AlkalinePhosphatase" name="AlkalinePhosphatase" class="form-control"   placeholder="AlkalinePhosphatase" 
+required  formControlName="biochemistry"  >
+</div> <div class="form-group col-md-3">
+    <label for="Directbilirubin">Direct bilirubin </label>
+<input type="text" id="Directbilirubin" name="Directbilirubin" class="form-control"   placeholder="Directbilirubin" 
+required  formControlName="biochemistry"  >
+</div> <div class="form-group col-md-3">
+    <label for="Indirectbilirubin">Indirect bilirubin  </label>
+<input type="text" id="Indirectbilirubin" name="Indirectbilirubin" class="form-control"   placeholder="Indirectbilirubin" 
+required  formControlName="Indirectbilirubin"  >
+</div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="ggt">Gamma Glutamyl Transferase (GGT)</label>
+ <input type="text" id="ggt" name="ggt" class="form-control"   placeholder="ggt" 
+ required  formControlName="ggt"  >
+</div> <div class="form-group col-md-3">
+    <label for="sgot">S.G.O.T </label>
+<input type="text" id="sgot" name="sgot" class="form-control"   placeholder="sgot" 
+required  formControlName="sgot"  >
+</div> <div class="form-group col-md-3">
+    <label for="sgpt">S.G.P.T</label>
+<input type="text" id="sgpt" name="sgpt" class="form-control"   placeholder="sgpt" 
+required  formControlName="sgpt"  >
+</div> <div class="form-group col-md-3">
+    <label for="Proteintotal">Protein total   </label>
+<input type="text" id="Proteintotal" name="Proteintotal" class="form-control"   placeholder="Proteintotal" 
+required  formControlName="Proteintotal"  >
+</div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="Albuminserum">Albumin serum </label>
+ <input type="text" id="Albuminserum" name="Albuminserum" class="form-control"   placeholder="Albuminserum" 
+ required  formControlName="Albuminserum"  >
+</div> <div class="form-group col-md-3">
+    <label for="SerumALBGlobulinratio">Serum ALB/Globulin ratio </label>
+<input type="text" id="SerumALBGlobulinratio" name="SerumALBGlobulinratio" class="form-control"   placeholder="SerumALBGlobulinratio" 
+required  formControlName="SerumALBGlobulinratio"  >
+</div> <div class="form-group col-md-3">
+    <label for="SerumGlobulin">Serum Globulin</label>
+<input type="text" id="SerumGlobulin" name="SerumGlobulin" class="form-control"   placeholder="SerumGlobulin" 
+required  formControlName="SerumGlobulin"  >
+
+</div>
+</div>
+<div class="form-group">
+    <button type="button" (click)="addliver()"  class="btn btn-primary mb-2" > ADD LIVER FUNCTION </button>
+
+    <div formArrayName="liver" *ngFor="let item of bloodTestForm.get('liver')['controls']; let i = index;" >
+        <div [formGroupName]="i">
+            <input formControlName="name" class="form-control col-md-3" placeholder="">  
+            <button type="button" class="btn btn-primary mb" (click)="removeliver(i)">Remove</button>
+      </div>
+        </div>
+  </div>
+<h4 class="text-center"> LIPID PROFILE</h4>  
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="TotalCholesterol">Total Cholesterol</label>
+ <input type="text" id="TotalCholesterol" name="TotalCholesterol" class="form-control"   placeholder="TotalCholesterol" 
+ required  formControlName="TotalCholesterol"  >
+</div> <div class="form-group col-md-3">
+    <label for="Triglyceride">Trigly ceride </label>
+<input type="text" id="Triglyceride" name="Triglyceride" class="form-control"   placeholder="Triglyceride" 
+required  formControlName="Triglyceride"  >
+</div> <div class="form-group col-md-3">
+    <label for="hdl">HDL (High Density Lipoprotein)</label>
+<input type="text" id="hdl" name="hdl" class="form-control"   placeholder="hdl" 
+required  formControlName="hdl"  >
+</div> <div class="form-group col-md-3">
+    <label for="hdlratio">LDL  : HDL ratio  </label>
+<input type="text" id="hdlratio" name="hdlratio" class="form-control"   placeholder="hdlratio" 
+required  formControlName="hdlratio"  >
+</div>
+</div> 
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="tc">TC : HDL ratio </label>
+ <input type="text" id="tc" name="tc" class="form-control"   placeholder="tc" 
+ required  formControlName="tc"  >
+</div> <div class="form-group col-md-3">
+    <label for="nonhdl">Non HDL Cholesterol</label>
+<input type="text" id="nonhdl" name="nonhdl" class="form-control"   placeholder="nonhdl" 
+required  formControlName="nonhdl"  >
+</div> <div class="form-group col-md-3">
+    <label for="ldl">LDL ( Low Density Lipoprotein)</label>
+<input type="text" id="ldl" name="hdl" class="form-control"   placeholder="ldl" 
+required  formControlName="ldl"  >
+</div> <div class="form-group col-md-3">
+    <label for="vldl">VLDL (Very Low Density Liproprotein) </label>
+<input type="text" id="vldl" name="vldl" class="form-control"   placeholder="vldl" 
+required  formControlName="vldl"  >
+</div>
+</div> 
+
+<div class="form-group">
+    <button type="button" (click)="addlipid()"  class="btn btn-primary mb-2" > ADD LIPID PROFILE</button>
+
+    <div formArrayName="lipid" *ngFor="let item of bloodTestForm.get('lipid')['controls']; let i = index;" >
+        <div [formGroupName]="i">
+            <input formControlName="name" class="form-control col-md-3" placeholder="">  
+            <button type="button" class="btn btn-primary mb" (click)="removelipid(i)">Remove</button>      </div>
+        </div>
+  </div>
+<h4 class="text-center"> RENAL FUNCTION TEST</h4>  
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="Bloodurea">Blood urea </label>
+ <input type="text" id="Bloodurea" name="Bloodurea" class="form-control"   placeholder="Bloodurea" 
+ required  formControlName="Bloodurea"  >
+</div>
+ <div class="form-group col-md-3">
+    <label for="srCreatinine">Sr Creatinine</label>
+<input type="text" id="srCreatinine" name="srCreatininesrCreatinine" class="form-control"   placeholder="srCreatinine" 
+required  formControlName="srCreatinine"  >
+</div> <div class="form-group col-md-3">
+    <label for="uricacid">Uric acid</label>
+<input type="text" id="uricacid" name="uricacid" class="form-control"   placeholder="uricacid" 
+required  formControlName="uricacid"  >
+</div> <div class="form-group col-md-3">
+    <label for="Bloodureanitrogen">Blood urea nitrogen </label>
+<input type="text" id="Bloodureanitrogen" name="Bloodureanitrogen" class="form-control"   placeholder="Bloodureanitrogen" 
+required  formControlName="Bloodureanitrogen"  >
+</div>
+</div> 
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="bun">BUN : Sr. Creatinine ratio</label>
+ <input type="text" id="bun" name="bun" class="form-control"   placeholder="bun" 
+ required  formControlName="bun"  >
+</div>
+ <div class="form-group col-md-3">
+    <label for="SrCalcium">Sr. Calcium</label>
+<input type="text" id="SrCalcium" name="SrCalcium" class="form-control"   placeholder="SrCalcium" 
+required  formControlName="SrCalcium"  >
+</div> <div class="form-group col-md-3">
+    <label for="uricacid">Uric acid</label>
+<input type="text" id="uricacid" name="uricacid" class="form-control"   placeholder="uricacid" 
+required  formControlName="uricacid"  >
+</div> <div class="form-group col-md-3">
+    <label for="bloodsugarrandom">BLOOD SUGAR RANDOM </label>
+<input type="text" id="bloodsugarrandom" name="bloodsugarrandom" class="form-control"   placeholder="bloodsugarrandom" 
+required  formControlName="bloodsugarrandom"  >
+</div>
+</div> 
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="hbalc">HbA1c – Glycosylated Haemogobin</label>
+ <input type="text" id="hbalc" name="hbalc" class="form-control"   placeholder="hbalc" 
+ required  formControlName="hbalc"  >
+</div>
+ <div class="form-group col-md-3">
+    <label for="Estimatedaverage">Estimated average </label>
+<input type="text" id="Estimatedaverage" name="Estimatedaverage" class="form-control"   placeholder="Estimatedaverage" 
+required  formControlName="Estimatedaverage"  >
+</div> <div class="form-group col-md-3">
+    <label for="psa">PSA – Prostrate Specific (Serum)</label>
+<input type="text" id="psa" name="psa" class="form-control"   placeholder="psa" 
+required  formControlName="psa"  >
+</div>
+
+</div> 
+<div class="form-group">
+    <button type="button" (click)="addrenal()"  class="btn btn-primary mb-2" > ADD RENAL FUNCTION </button>
+
+    <div formArrayName="renal" *ngFor="let item of bloodTestForm.get('renal')['controls']; let i = index;" >
+        <div [formGroupName]="i">
+            <input formControlName="name" class="form-control col-md-3" placeholder="">  
+            <button type="button" class="btn btn-primary mb" (click)="removerenal(i)">Remove</button>
+      </div>
+        </div>
+  </div>
+
+<h4 class="text-center"> THROID PANEL</h4>  
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="TotalTriiodothyronine">TotalTriiodothyronine (T3)</label>
+ <input type="text" id="TotalTriiodothyronine" name="TotalTriiodothyronine" class="form-control"   placeholder="TotalTriiodothyronine" 
+ required  formControlName="TotalTriiodothyronine"  >
+</div>
+ <div class="form-group col-md-3">
+    <label for="TotalThyroxine">Total Thyroxine(T4)</label>
+<input type="text" id="TotalThyroxine" name="TotalThyroxine" class="form-control"   placeholder="TotalThyroxine" 
+required  formControlName="TotalThyroxine"  >
+</div> <div class="form-group col-md-3">
+    <label for="tsh">Thyroid Simulating Hormone(TSH)</label>
+<input type="text" id="tsh" name="tsh" class="form-control"   placeholder="tsh" 
+required  formControlName="tsh"  >
+</div>
+</div> 
+<div class="form-group">
+    <button type="button" (click)="addthroidpanel()"  class="btn btn-primary mb-2" > ADD THROID PANEL</button>
+
+    <div formArrayName="throidpanel" *ngFor="let item of bloodTestForm.get('throidpanel')['controls']; let i = index;" >
+        <div [formGroupName]="i">
+            <input formControlName="name" class="form-control col-md-3" placeholder="">  
+            <button type="button" class="btn btn-primary mb" (click)="removethroidpanel(i)">Remove</button>      </div>
+        </div>
+  </div>
+<h4 class="text-center"> ELECTROLYTES</h4>  
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="Sodium">Sodium</label>
+ <input type="text" id="Sodium" name="Sodium" class="form-control"   placeholder="Sodium" 
+ required  formControlName="Sodium"  >
+</div>
+ <div class="form-group col-md-3">
+    <label for="Potassium">Potassium</label>
+<input type="text" id="Potassium" name="Potassium" class="form-control"   placeholder="Potassium" 
+required  formControlName="Potassium"  >
+</div> <div class="form-group col-md-3">
+    <label for="Chlorides">Chlorides</label>
+<input type="text" id="Chlorides" name="Chlorides" class="form-control"   placeholder="Chlorides" 
+required  formControlName="Chlorides"  >
+</div>
+<div class="form-group col-md-3">
+    <label for="Iron">Iron</label>
+<input type="text" id="Iron" name="Iron" class="form-control"   placeholder="Iron" 
+required  formControlName="Iron"  >
+</div>
+</div> 
+
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="tibc">Total iron binding capacity(TIBC)</label>
+ <input type="text" id="tibc" name="tibc" class="form-control"   placeholder="tibc" 
+ required  formControlName="tibc"  >
+</div>
+ <div class="form-group col-md-3">
+    <label for="TransferrinSaturation">% Transferrin Saturation</label>
+<input type="text" id="TransferrinSaturation" name="TransferrinSaturation" class="form-control"   placeholder="TransferrinSaturation" 
+required  formControlName="TransferrinSaturation"  >
+</div> <div class="form-group col-md-3">
+    <label for="B12level">Chlorides</label>
+<input type="text" id="B12level" name="B12level" class="form-control"   placeholder="B12level" 
+required  formControlName="B12level" >
+</div>
+
+</div> 
+<div class="form-group">
+    <button type="button" (click)="addelectrolytes()"  class="btn btn-primary mb-2" > ADD ELECTROLYTES</button>
+
+    <div formArrayName="electrolytes" *ngFor="let item of bloodTestForm.get('electrolytes')['controls']; let i = index;" >
+        <div [formGroupName]="i">
+            <input formControlName="name" class="form-control col-md-3" placeholder="">  
+            <button type="button" class="btn btn-primary mb" (click)="removeelectrolytes(i)">Remove</button>      </div>
+        </div>
+  </div>
+
+<h4 class="text-center"> VITAMINS</h4>  
+<div class="form-row">
+   <div class="form-group col-md-3">
+    <label for="B12level">Vitamin B12 level</label>
+<input type="text" id="B12level" name="B12level" class="form-control"   placeholder="B12level" 
+required  formControlName="B12level"  >
+   </div>
+<div class="form-group col-md-3">
+    <label for="oh">25 Hydroxy (OH) </label>
+<input type="text" id="oh" name="oh" class="form-control"   placeholder="oh" 
+required  formControlName="oh"  >
+</div>
+<div class="form-group col-md-3">
+<label for="d2">Vitamin D2</label>
+<input type="text" id="d2" name="d2" class="form-control"   placeholder="d2" 
+required  formControlName="d2"  >
+</div>
+<div class="form-group col-md-3">
+    <label for="d3">Vitamin D3</label>
+    <input type="text" id="d3" name="d3" class="form-control"   placeholder="d3" 
+    required  formControlName="d3"  >
+    </div>
+
+</div> 
+<div class="form-row">
+    <div class="form-group col-md-3">
+     <label for="dtotal">Vitamin D Total</label>
+ <input type="text" id="dtotal" name="dtotal" class="form-control"   placeholder="dtotal"  required  formControlName="dtotal"  >
+    </div>
+ <div class="form-group col-md-3">
+     <label for="egfr">Est. Glomerular Filtration Rate (eGFR) </label>
+ <input type="text" id="egfr" name="egfr" class="form-control"   placeholder="egfr" 
+ required  formControlName="egfr"  >
+ </div>
+ </div>
+ <div class="form-group">
+    <button type="button" (click)="addvitamins()"  class="btn btn-primary mb-2" > ADD VITAMINS</button>
+
+    <div formArrayName="vitamins" *ngFor="let item of bloodTestForm.get('vitamins')['controls']; let i = index;" >
+        <div [formGroupName]="i">
+            <input formControlName="name" class="form-control col-md-3" placeholder="">  
+            <button type="button" class="btn btn-primary mb" (click)="removevitamin(i)">Remove</button>      </div>
+        </div>
+  </div>
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <button type="submit" class="btn btn-primary  btn-block"  >Submit</button>
+      </div>
+      <!-- <div class="form-group col-md-6">
+         <button type="button" class="btn btn-danger  btn-block" (click)="lifeStyleForm.resetForm({})">Reset</button>
+      </div>         -->
+  
+
+  </div>
+ 
+            </form> 
+     
+      </div>
+			
+	
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+<!-- <app-footer></app-footer> -->

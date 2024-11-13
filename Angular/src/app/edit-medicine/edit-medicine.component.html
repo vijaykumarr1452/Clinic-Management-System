@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<app-sidenav></app-sidenav> 	
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div  class="col-md-11 fright" >
+              <h1 class="head-title">Medicine Form</h1> 
+		   
+              
+            <div class="float-container">
+
+              <div class="add-form">
+
+                 <div class="add-formin">
+
+                  <form  name="editMedicineForm"   #editMedicineForm="ngForm" (ngSubmit)="editMedicine()"   >
+     
+        
+                 <div class="form-group">
+                     <label >Name of the Medicine</label>
+                     <input  type="text" id="medicinename" name="medicinename" class="form-control" required [(ngModel)]="updform.medicinename" #medicinename="ngModel" autocomplete="off" 
+                     placeholder="Medicine Name" value="" >
+                 </div>
+
+                 <div class="form-group">
+                    <label >Generic Name</label>
+                    <input  type="text" id="genericname" name="genericname" class="form-control" required [(ngModel)]="updform.genericname" #genericname="ngModel" autocomplete="off" 
+                    placeholder="Generic Name" value="" >
+                 </div>
+
+                 <div class="form-group">
+                    <label >Type of Medicine</label>
+                   
+                    <select id="typeofmedicine" name="typeofmedicine" class="form-control" [(ngModel)]="updform.typeofmedicine" #typeofmedicine="ngModel" >
+                        <option value="">Select Type of Medicine</option>
+                         <option *ngFor="let typeofmedicine of this.typemedicine" [value]="typeofmedicine">{{typeofmedicine}}</option> 
+                    </select>
+
+                 </div>
+                
+                 <div class="form-group">
+                    <label >Unit of Measurement</label>
+                    <select id="unitofmeasurement" name="unitofmeasurement" class="form-control" [(ngModel)]="updform.unitofmeasurement" #unitofmeasurement="ngModel" >
+                        <option value="">Select Unit of Measurement</option>
+                           <option *ngFor="let unitofmeasurement of this.unitmeasurement" [value]="unitofmeasurement">{{unitofmeasurement}}</option> 
+                    </select>
+                 </div>
+
+                 <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-primary  btn-block"  >Submit</button>
+                    </div>
+                    <!-- <div class="form-group col-md-6">
+                  <button type="button" class="btn btn-danger  btn-block" (click)="addMedicineForm.resetForm({})">Reset</button>
+                    </div>         -->
+                
+          
+                  </div>
+               
+           
+              </form>
+
+             </div>
+
+             </div>
+          </div>
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+ <!-- <app-footer></app-footer> -->

@@ -1,0 +1,246 @@
+// #page-content-wrapper {
+//     //position: absolute;
+//     padding: 15px;
+//     //width: 100%;
+//     width:100%;
+//     float: right;
+//  }
+#page-content-wrapper {
+  //position: absolute;
+  padding: 15px;
+  //width: 100%;
+  width:100%;
+  overflow-x: hidden;
+  margin-top:-200px;
+}
+ .fright{
+  float:right;
+ }
+
+ #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0px;
+ }
+.bgcolor{
+    background-color: #F0F0F0;
+    padding: 15px;
+    font-weight: bold;
+}
+.multirow{
+    padding-top: 20px;
+    padding-bottom: 20px;;
+} 
+// .fulltableview{
+//     width:90%;
+//     overflow-x:scroll;
+// }
+.searchsty{
+    padding-left:0px;
+    padding-right: 5px;
+}
+.looprows{
+    padding: 15px;
+    border-bottom: 1px solid #ced4da;
+}
+.reqbg1 p{
+    background-color: pink;
+    padding: 15px;
+    border-radius: 30%;
+    width: 80%;
+}
+.reqbg2 p{
+    background-color: green;
+    padding: 15px;
+    border-radius: 30%;
+    width: 80%;
+}
+.reqbg3 p{
+    background-color: palegoldenrod;
+    padding: 15px;
+    border-radius: 30%;
+    width: 80%;
+}
+
+///////////////////////////////////////////
+
+.tablestyle{
+  width:85%;
+  //margin: 0 auto;
+  //border:1px solid #eee;
+  margin-left: 12%;
+}
+.tablestyleinn td{
+  padding: 10px;
+}
+
+//////////////////////////////////////
+
+
+/*-------------------------------*/
+/*      TABS        */
+/*-------------------------------*/
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #17a2b8;
+
+}
+a {
+  color: #17a2b8;
+  text-decoration: none;
+  background-color: transparent;
+}
+.nav-pills { border-bottom: 1px solid #DDD; }
+.nav-pills > li {
+  width: 15%;
+  text-align: center;
+}
+
+.nav-pills > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+      border-bottom-color: rgb(221, 221, 221);
+  border-bottom-color: transparent;
+}
+
+.nav-pills > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+
+
+///////////////////////////////////////
+@media only screen and (max-width: 800px) {
+    .loopindiv{
+        //font-weight: bold;
+       padding: 10px;
+       
+        
+    }
+  }
+
+  
+//////////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+
+/**
+ * Tabs
+ */
+ .tabs {
+	display: flex;
+	flex-wrap: wrap; // make sure it wraps
+}
+.tabs label {
+	order: 1; // Put the labels first
+	display: block;
+  //padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
+	margin-right: 0.2rem;
+	cursor: pointer;
+  background: #17a2b8;
+  font-weight: bold;
+  transition: background ease 0.2s;
+  color: #000;
+}
+.tabs .tab {
+  order: 99; // Put the tabs last
+  flex-grow: 1;
+	width: 100%;
+	display: none;
+  padding: 1rem;
+  background: #fff;
+}
+.tabs input[type="radio"] {
+	display: none;
+}
+.tabs input[type="radio"]:checked + label {
+	background: #fff;
+}
+.tabs input[type="radio"]:checked + label + .tab {
+	display: block;
+}
+
+@media (max-width: 45em) {
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+  }
+}
+
+/**
+ * Generic Styling
+*/
+// body {
+//   background: #eee;
+//   min-height: 100vh;
+// 	box-sizing: border-box;
+// 	padding-top: 10vh;
+//   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+//   font-weight: 300;
+//   line-height: 1.5;
+//   max-width: 60rem;
+//   margin: 0 auto;
+//   font-size: 112%;
+// }
+
+.text-head{
+  text-align: left;
+}
+
+////////////////////////////////////////
+
+.tabs1 {
+	display: flex;
+	flex-wrap: wrap; // make sure it wraps
+}
+.tabs1 label {
+	order: 1; // Put the labels first
+	display: block;
+  //padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
+	margin-right: 0.2rem;
+	cursor: pointer;
+  background: #17a2b8;
+  font-weight: bold;
+  transition: background ease 0.2s;
+  color: #000;
+}
+.tabs1 .tab {
+  order: 99; // Put the tabs last
+  flex-grow: 1;
+	width: 100%;
+	display: none;
+  padding: 1rem;
+  background: #fff;
+}
+.tabs1 input[type="radio"] {
+	display: none;
+}
+.tabs1 input[type="radio"]:checked + label {
+	background: #fff;
+}
+.tabs1 input[type="radio"]:checked + label + .tab {
+	display: block;
+}
+
+@media (max-width: 45em) {
+  .tabs1 .tab,
+  .tabs1 label {
+    order: initial;
+  }
+  .tabs1 label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+  }
+}

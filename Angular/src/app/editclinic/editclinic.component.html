@@ -1,0 +1,415 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<!-- <app-sidenav></app-sidenav> 	 -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div  class="col-md-12 " >
+               
+              <h2 class="text-center">Edit Clinic</h2> 
+              <div class="login-form">
+                <form  name="updateClinicForm"  #updateClinicForm="ngForm"  (ngSubmit)="updateClinic(updateClinicForm.value)"  >
+                    
+               
+              
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Role</label>
+                        <select id="role" name="role" class="form-control" required [(ngModel)]="updform.role" #role="ngModel"  >
+                            <option value="">Select User Role</option>
+                              <option *ngFor="let r of roles" [value]="r">{{r}}</option>
+                        </select>
+                            <div *ngIf="role.errors && role.touched" class="alert alert-danger" > 
+                              <div *ngIf="role.errors.required">Role is required.</div>
+                            </div>    
+            
+                    </div>
+                        <div class="form-group col-md-6"  >
+                            <label for="name">Name Of Clinic/Doctor</label>
+                            <input  id="name" name="name" class="form-control" required [(ngModel)]="updform.name" #name="ngModel" placeholder="Name Of Clinic/Doctor" >
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                              <div *ngIf="name.errors.required">
+                                Name is required.
+                              </div>
+                              </div>
+                          </div>
+                          
+                   
+                 
+                  </div>
+
+
+                  <div class="form-row"  >
+
+                    <div class="form-group col-md-4">
+                      <label for="type">Type Of Registration : &nbsp; &nbsp; </label> <br/>
+                      <!-- <input type="radio" id="type" name="type" [value]="HOSPITAL" [(ngModel)]="type" />  &nbsp; HOSPITAL
+                      <input type="radio" id="type" name="type" [value]="CLINIC" [(ngModel)]="type" />  &nbsp; CLINIC
+                          -->
+      
+                      <select id="type" name="type" class="form-control" required [(ngModel)]="updform.type" #type="ngModel"  >
+                        <option value="">Select Type Of Registration</option>
+                          <option *ngFor="let ty of typess" [value]="ty">{{ty}}</option>
+                    </select>
+          
+                    </div>
+      
+                    <div class="form-group col-md-4">
+                        <label for="specialities">Hospital / Clinic Speciality</label>
+                       
+
+                        <angular2-multiselect [data]="this.specialityList" [(ngModel)]="selectedItems" [settings]="settings"  
+                        (onSelect)="onItemSelect($event)"   name="specialities" id="specialities" class="Checkbox"
+                        (onDeSelect)="OnItemDeSelect($event)" 
+                        (onSelectAll)="onSelectAll($event)" 
+                        (onDeSelectAll)="onDeSelectAll($event)"  >
+                          <c-item>
+                                  <ng-template let-item="item">
+                                    <label style="color: #495057;min-width: 150px;font-weight: 500">{{item.itemName}}</label> 
+                                  </ng-template>
+                          </c-item>  
+                        </angular2-multiselect> 
+                          
+            
+                    </div>
+                        <div class="form-group col-md-4"  >
+                            <label for="clinictype">Hospital / Clinic Type </label>
+                            <select id="clinictype" name="clinictype" class="form-control" required [(ngModel)]="updform.clinictype" #clinictype="ngModel"  >
+                              <option value="">Select Hospital / Clinic Type</option>
+                              <option *ngFor="let ct of this.typeList" [value]="ct['it']">{{ct['itemName']}}</option>
+                          </select>
+                           
+                          </div>
+                          
+                   
+                 
+                  </div>
+            
+                  <div class="form-group"  *ngIf="updform.role === 'DOCTOR'" >
+                    <label for="clinicId">Please Select Clinic</label>
+                   <select id="clinicId" name="clinicId" class="form-control" required [(ngModel)]="updform.clinicId" #clinicId="ngModel" >
+                     <option value="">Select Clinic</option>
+                       <option *ngFor="let list of AllClinicList" [value]="list.id">{{list.name}}</option>
+                     </select>
+                     <div *ngIf="clinicId.errors && clinicId.touched" class="alert alert-danger">
+                       <div *ngIf="clinicId.errors.required">Clinic is required.</div>
+                     </div>    
+            
+                </div>   
+            
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                       <label for="email">Email Id</label> 
+                      <input type="email" placeholder="Email Id" name="email" class="form-control" id="email" 
+                               required [(ngModel)]="updform.email" #email="ngModel" >
+                      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                      <div *ngIf="email.errors.required">
+                          Email is required.
+                      </div>
+                      </div>         
+                  </div>
+    
+                  <div class="form-group col-md-4"  >
+                    <label for="phonenumber">Phone Number</label> 
+                    <input type="phonenumber" placeholder="Phone Number" name="phonenumber" class="form-control" id="phonenumber" 
+                    required [(ngModel)]="updform.phonenumber" #phonenumber="ngModel" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+                   
+                  </div>
+          
+                  <div class="form-group col-md-4">
+                      <label for="mobNo">Mobile Number</label> 
+                     <input type="text" class="form-control" name="mobNo" id="mobNo" placeholder="Mobile Number" 
+                     required [(ngModel)]="updform.mobNo" #mobNo="ngModel" maxlength="10"  oninput="this.value=this.value.replace(/[^0-9]/g,'');"   >
+                     <div *ngIf="mobNo.invalid && (mobNo.dirty || mobNo.touched)" class="alert alert-danger">
+                         <div *ngIf="mobNo.errors.required">
+                           Mobile Number is required.
+                         </div>
+                         </div>
+                 </div>
+          
+                </div>
+
+                <div class="form-row">
+                              
+                  <div class="form-group col-md-4"  >
+                    <label for="emergencynumber">Emergency Number</label> 
+                    <input type="emergencynumber" placeholder="Emergency Number" name="emergencynumber" class="form-control" id="emergencynumber" 
+                    required [(ngModel)]="updform.emergencynumber" #emergencynumber="ngModel" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+                   
+                  </div>
+    
+                  <div class="form-group col-md-4"  >
+                    <label for="emergencymobnumber">Emergency Mobile Number</label> 
+                    <input type="emergencymobnumber" placeholder="Emergency Mobile Number" name="emergencymobnumber" class="form-control" id="emergencymobnumber" 
+                    required [(ngModel)]="updform.emergencymobnumber" #emergencymobnumber="ngModel" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+                   
+                  </div>
+    
+                  <div class="form-group col-md-4"  >
+                    <label for="whatsappno">Whats App Number</label> 
+                    <input type="whatsappno" placeholder="Whats App Number" name="whatsappno" class="form-control" id="whatsappno" 
+                    required [(ngModel)]="updform.whatsappno" #whatsappno="ngModel" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+                   
+                  </div>
+            
+          
+                </div> 
+            
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                      <label for="username">User Name</label> 
+                       <input type="text"  placeholder="Username" name="username" class="form-control" id="username"
+                              required [(ngModel)]="updform.username" #username="ngModel" >
+                      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                      <div *ngIf="username.errors.required">
+                        UserName is required.
+                      </div>
+                      </div>        
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="password">Password</label> 
+                     <input type="password" placeholder="Password" name="password" class="form-control" id="password" 
+                     required [(ngModel)]="updform.password" #password="ngModel" maxlength="15" >
+                     <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                      <div *ngIf="password.errors.required">
+                        Password is required.
+                      </div>
+                      </div>
+                  </div>
+    
+                  <div class="form-group col-md-4">
+                    <label for="cpassword">Confirm Password</label> 
+                   <input type="password" placeholder="Confirm Password" name="cpassword" class="form-control" id="cpassword" 
+                   required [(ngModel)]="updform.cpassword" #cpassword="ngModel" maxlength="15" >
+                   <div *ngIf="cpassword.invalid && (cpassword.dirty || cpassword.touched)" class="alert alert-danger">
+                    <div *ngIf="cpassword.errors.required">
+                      Confirm Password is required.
+                    </div>
+                    </div>
+                </div>
+    
+                </div>
+
+                <div class="form-row">
+
+                  <div class="form-group col-md-4">
+                    <label for="country">Select Country</label> 
+                    <select id="country" name="country" class="form-control" required 
+                    [(ngModel)]="updform.country" #country="ngModel" (ngModelChange)="onCountrySelect(updform.country)" >
+                      <option value="">Select Country</option>
+                        <option *ngFor="let country of countryList" [value]="country['id']">{{country['itemName']}}</option>
+                      </select>
+                      <div *ngIf="country.errors && country.touched" class="alert alert-danger">
+                        <div *ngIf="country.errors.required">Country is required.</div>
+                      </div>    
+                </div>
+               
+                      <div class="form-group col-md-4">
+                          <label for="state">Select State</label> 
+                          <select id="state" name="state" class="form-control" required [(ngModel)]="updform.state" #state="ngModel" >
+                          <option value="">Select State</option>
+                          <option *ngFor="let state of filteredCities" [value]="state['key']">{{state['value']}}</option>
+                          </select>
+                          <div *ngIf="state.errors && state.touched" class="alert alert-danger">
+                          <div *ngIf="state.errors.required">State is required.</div>
+                          </div>    
+                      </div>
+                      
+                      <div class="form-group col-md-4"  >
+                        <label for="district">District</label> 
+                        <input type="text" placeholder="District" name="district" class="form-control" id="district" 
+                        required [(ngModel)]="updform.district" #district="ngModel"  >
+                       
+                      </div>
+                      
+                </div> 
+            
+                <div class="form-row">
+        
+                  <div class="form-group col-md-4"  >
+                    <label for="city">City / Village Name</label> 
+                    <input type="text" placeholder="City" name="city" class="form-control" id="city" 
+                    required [(ngModel)]="updform.city" #city="ngModel"  >
+                   
+                  </div>
+          
+                  <div class="form-group col-md-4"  >
+                    <label for="citycode">City / Village Code</label> 
+                    <input type="text" placeholder="City / Village Code" name="citycode" class="form-control" id="citycode" 
+                    required [(ngModel)]="updform.citycode" #citycode="ngModel"  >
+                   
+                  </div>
+                  <div class="form-group col-md-4"  >
+                    <label for="machine">Name of the Machine</label> 
+                    <input type="text" placeholder="machine" name="machine" class="form-control" id="machine" 
+                    required [(ngModel)]="updform.machine" #machine="ngModel"  >
+                   
+                  </div>
+                  <div class="form-group col-md-4"  >
+                    <label for="reference">Name of the Reference Person</label> 
+                    <input type="text" placeholder="reference" name="reference" class="form-control" id="reference" 
+                    required [(ngModel)]="updform.reference" #reference="ngModel"  >
+                   
+                  </div>
+                 
+                  <div class="form-group col-md-4"  >
+                    <label for="pincode">Pincode</label> 
+                    <input type="text" placeholder="Pincode" name="pincode" class="form-control" id="pincode" 
+                    required [(ngModel)]="updform.pincode" #pincode="ngModel" maxlength="6" >
+                   
+                  </div>
+                </div>   
+                <div class="form-row">
+
+                  <div class="form-group col-md-6">
+                    <label for="logo">Clinic/Doctor Logo &nbsp; &nbsp;</label>
+                    <input name="logoImage"
+                        id="logoImage" 
+                        type="file"  #UploadFileInput
+                        (change)="onLogoChange($event)">
+                   
+                </div>
+              
+                  <div class="form-group col-md-6" >
+                      <label for="file">Hospital/Clinic Photo &nbsp; &nbsp;</label>
+                      <input  id="profileImage" name="profileImage"  type="file"   (change)="onFileChange($event)">
+                     
+                  </div>
+                </div> 
+                
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="address">Address</label> 
+                      <textarea id="address" name="address"  class="form-control" placeholder="Address" 
+                    required [(ngModel)]="updform.address" #address="ngModel"  ></textarea>
+                    <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+                        <div *ngIf="address.errors.required">
+                          Address is required.
+                        </div>
+                        </div>   
+                  </div>
+          
+                  <div class="form-group col-md-6">
+                    <label for="otherdetails">Other Details</label> 
+                    <textarea id="otherdetails" name="otherdetails"  class="form-control" placeholder="Other Details" 
+                  required [(ngModel)]="updform.otherdetails" #otherdetails="ngModel"  ></textarea>
+                 
+                </div>
+                                        
+            </div> 
+          
+          
+                <div class="form-row" *ngIf="updform.role === 'CLINIC'"  >
+                  <div class="form-group col-md-6">
+                      <label for="url">Website Url</label> 
+                      <input type="text" placeholder="Website Url" name="url" class="form-control" id="url" 
+                      required [(ngModel)]="updform.url" #url="ngModel"  >
+                      
+                  </div>
+          
+                  <div class="form-group col-md-6">
+                    <label for="ambulance">Ambulance Service Available  </label>  <br/>         
+                    <input name="ambulance"  [(ngModel)]="ambulance" type="radio" [value]="true" [checked]="ambulance"/> Yes
+                    <input name="ambulance"[(ngModel)]="ambulance" type="radio" [value]="false" [checked]="!ambulance"/> No
+          
+                  </div>
+          
+              </div> 
+          
+          
+              <div class="form-row" >
+                <div class="form-group col-md-6" *ngIf="updform.ambulancephno!='' ">
+                    <label for="ambulancephno">Ambulance Phone Number</label> 
+                    <input type="text" placeholder="Ambulance Phone Number" name="ambulancephno" class="form-control" id="ambulancephno" 
+                    required [(ngModel)]="updform.ambulancephno" #ambulancephno="ngModel"  >
+                    
+                </div>
+
+                <!-- <div class="form-group col-md-6">
+                  <label for="googlemaplocation">Google Map Location </label> 
+                  <input type="text" placeholder="Google Map Location " name="googlemaplocation" class="form-control" id="googlemaplocation" 
+                  required [(ngModel)]="updform.googlemaplocation" #googlemaplocation="ngModel"  >
+                  
+              </div> -->
+          
+            </div> 
+
+            <div class="form-group col-md-6" *ngIf="updform.role === 'CLINIC'">
+              <label for="services">Service Available </label> 
+            
+              <angular2-multiselect [data]="this.serviceList" [(ngModel)]="selectedItems1" [settings]="servicessettings"  
+              (onSelect)="onItemSelect($event)"   name="services" id="services" class="Checkbox"
+              (onDeSelect)="OnItemDeSelect($event)" 
+              (onSelectAll)="onSelectAll($event)" 
+              (onDeSelectAll)="onDeSelectAll($event)"  >
+                <c-item>
+                        <ng-template let-item="item">
+                          <label style="color: #495057;min-width: 150px;font-weight: 500">{{item.itemName}}</label> 
+                        </ng-template>
+                </c-item>  
+              </angular2-multiselect> 
+          </div>
+
+          
+            
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <button type="submit" class="btn btn-primary  btn-block"  >Submit</button>
+                      </div>
+                      <div class="form-group col-md-6">
+                    <button type="button" class="btn btn-danger  btn-block" (click)="updateClinicForm.resetForm({})">Reset</button>
+                      </div>        
+                  
+            
+                    </div>
+                    <div class="form-row" >
+                      <div class="form-group col-md-6" *ngIf="updform.logoImagesId!='' ">
+                          <!-- <label for="logoImagesId">Ambulance Phone Number</label>  -->
+                          <input type="hidden" placeholder="Ambulance Phone Number" name="logoImagesId" class="form-control" id="logoImagesId" 
+                          required [(ngModel)]="updform.logoImagesId" #logoImagesId="ngModel"  >
+                          
+                      </div>
+      
+                      <!-- <div class="form-group col-md-6">
+                        <label for="googlemaplocation">Google Map Location </label> 
+                        <input type="text" placeholder="Google Map Location " name="googlemaplocation" class="form-control" id="googlemaplocation" 
+                        required [(ngModel)]="updform.googlemaplocation" #googlemaplocation="ngModel"  >
+                        
+                    </div> -->
+                
+                  </div>   <div class="form-row" >
+                    <div class="form-group col-md-6" *ngIf="updform.profileImagesId!='' ">
+                        <!-- <label for="profileImagesId">Ambulance Phone Number</label>  -->
+                        <input type="hidden" placeholder="Ambulance Phone Number" name="profileImagesId" class="form-control" id="profileImagesId" 
+                        required [(ngModel)]="updform.profileImagesId" #profileImagesId="ngModel"  >
+                        
+                    </div>
+    
+                    <!-- <div class="form-group col-md-6">
+                      <label for="googlemaplocation">Google Map Location </label> 
+                      <input type="text" placeholder="Google Map Location " name="googlemaplocation" class="form-control" id="googlemaplocation" 
+                      required [(ngModel)]="updform.googlemaplocation" #googlemaplocation="ngModel"  >
+                      
+                  </div> -->
+              
+                </div> 
+            </form>
+            
+            </div>
+               
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+ <!-- <app-footer></app-footer> -->
+

@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<app-sidenav></app-sidenav> 	
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div  class="col-md-12 fright" >
+                
+                
+<form name="patientForm"  #patientForm="ngForm"  >
+      
+
+
+    <div class="row fright">
+      <div class="col-md-7  "> <h1>All Medicines List </h1> </div>
+      <div class="col-md-3  searchsty">
+        <input type="text" [(ngModel)]="searchString"  [ngModelOptions]="{standalone: true}" 
+                  class="form-control" placeholder="Search ......"  [(ngModel)]="filter" />
+      </div>
+      <div class="col-md-2 searchsty">
+        <button type="submit" class="btn btn-warning  " (click)="getResultData()"  >Get Search Results</button>
+      </div>
+      </div>
+   
+   
+<table class="table">
+  <thead>
+    
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Medicine Name/No</th>
+      <th scope="col">Generic Name</th>
+      <th scope="col">Type of Medicine</th>
+      <th scope="col">Unit of Measurement</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+     
+    <tr *ngFor="let alllist of AllMedicineList  |filter:filter | paginate: { itemsPerPage: 10, currentPage: p };index as i">
+        <td scope="row">{{ alllist.id}}</td>
+        <td>{{ alllist.medicinename | titlecase }}</td>
+        <td>{{ alllist.genericname | titlecase}}</td>
+        <td>{{ alllist.typeofmedicine}}</td>
+        <td>{{ alllist.unitofmeasurement }}</td>
+        <td><button type="button" class="btn btn-primary btn-sm" (click)="goToEditMedicine(alllist)"  >Edit</button>   </td>
+        <td> <button type="button" class="btn btn-danger btn-sm" (click)="goToDeleteMedicine(alllist)" >delete</button></td>
+      </tr>
+  </tbody>
+    
+</table>
+<ul class="pagination">  
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>  
+  </ul> 
+
+</form>
+
+	
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+<!-- <app-footer></app-footer> -->

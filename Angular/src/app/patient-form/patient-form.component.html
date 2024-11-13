@@ -1,0 +1,278 @@
+<app-nav></app-nav>
+<app-sidenav></app-sidenav>
+<!-- Page Content -->
+<div id="page-content-wrapper">
+  <div class="container-fluid xyz">
+     <div class="row">
+        <div class="col-lg-12">
+         
+          <div class="patient-form">
+            <form name="patientForm" #patientForm="ngForm" (ngSubmit)="patientform(patientForm.value)" >
+                <h2 class="text-center">Patient Form</h2>
+        
+                <div class="form-row">
+        
+                  <div class="form-group col-md-4">
+                    <label for="requirement">Requirement</label>
+                    <!-- <input type="text" id="requirement" name="requirement" class="form-control"  
+                    required [(ngModel)]="patform.requirement" #requirement="ngModel" placeholder="Requirement " > -->
+
+                    <select id="requirement" name="requirement" class="form-control" required [(ngModel)]="patform.requirement"
+                     #requirement="ngModel"  >
+                      <option value="">Select Requirement</option>
+                        <option *ngFor="let req of requirements" [value]="req">{{req}}</option>
+                  </select>
+                    <div *ngIf="requirement.invalid && (requirement.dirty || requirement.touched)" class="alert alert-danger">
+                      <div *ngIf="requirement.errors.required">
+                        Requirement Field is required.
+                      </div>
+                      </div>
+                </div>
+        
+                  <div class="form-group col-md-4">
+                    <label for="reportbase">Report Base</label>
+                    <input type="text" id="reportbase" name="reportbase" class="form-control"  
+                    required [(ngModel)]="patform.reportbase" #reportbase="ngModel" placeholder="Report Base " >
+
+                    <div *ngIf="reportbase.invalid && (reportbase.dirty || reportbase.touched)" class="alert alert-danger">
+                      <div *ngIf="reportbase.errors.required">
+                        Report Base Field is required.
+                      </div>
+                      </div>
+                  </div>
+        
+                    <div class="form-group col-md-4">
+                        <label for="patientname">Patient Name</label>
+                      <input type="text"  id="patientname" name="patientname" class="form-control"  
+                      required [(ngModel)]="patform.patientname" #patientname="ngModel" placeholder="Patient Name " >            
+
+                      <div *ngIf="patientname.invalid && (patientname.dirty || patientname.touched)" class="alert alert-danger">
+                        <div *ngIf="patientname.errors.required">
+                          Patient Name is required.
+                        </div>
+                        </div>
+
+                    </div>
+                    
+                  </div>
+        
+                  <div class="form-row">
+        
+                    <div class="form-group col-md-4">
+                      <label for="gender" >Gender</label>
+                      <div>
+                          <label class="radio-inline">
+                              <input type="radio" name="gender" id="gender" value="Male" 
+                              required [(ngModel)]="patform.gender" #gender="ngModel" >
+                              Male
+                          </label> &nbsp;
+                          <label class="radio-inline">
+                              <input type="radio" name="gender" id="gender" value="Female" 
+                              required [(ngModel)]="patform.gender" #gender="ngModel" >
+                            Female
+                          </label>
+                        </div>    
+
+                        <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert alert-danger">
+                          <div *ngIf="gender.errors.required">
+                            Gender is required.
+                          </div>
+                          </div>
+
+                  </div>
+                    <div class="form-group col-md-4">
+                      <label for="age">Age </label>
+                      <input type="text" id="age" name="age" class="form-control"    placeholder="Age " 
+                      required [(ngModel)]="patform.age" #age="ngModel" >    
+                      
+                      <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert alert-danger">
+                        <div *ngIf="age.errors.required">
+                          Age is required.
+                        </div>
+                        </div>
+
+                  </div>
+                  
+                  <div class="form-group col-md-4">
+                    <label for="height">Height </label>
+                    <input type="text" id="height" name="height" class="form-control"   placeholder="Height " 
+                    required [(ngModel)]="patform.height" #height="ngModel" >
+
+                    <div *ngIf="height.invalid && (height.dirty || height.touched)" class="alert alert-danger">
+                      <div *ngIf="height.errors.required">
+                        height is required.
+                      </div>
+                      </div>
+
+                </div>
+                
+                  </div>
+        
+                  <div class="form-row">
+                    
+                    <div class="form-group col-md-4">
+                      <label for="weight">Weight</label>
+                      <input type="text" id="weight" name="weight" class="form-control" placeholder="Weight " 
+                      required [(ngModel)]="patform.weight" #weight="ngModel" >
+                    </div>
+                 
+                    <div class="form-group col-md-4">
+                      <label for="dob">Date Of Birth </label>
+                      <input type="date"  id="dob" name="dob" class="form-control"  placeholder="DOB " 
+                      required [(ngModel)]="patform.dob" #dob="ngModel" [max]="getToday()" >                 
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="caseId">Case Id</label>
+                      <input type="text" id="caseId" name="caseId" class="form-control" placeholder="Case Id " 
+                      required [(ngModel)]="patform.caseId" #caseId="ngModel">
+                  </div>
+        
+                  </div>
+        
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="window">Window</label>
+                        <input type="text"  id="window" name="window" class="form-control"  placeholder="Window " 
+                        required [(ngModel)]="patform.window" #window="ngModel">  
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="testtype">Test Type</label>
+                      <!-- <select name="testtype" id="testtype" class="form-control" required [(ngModel)]="patform.testtype" 
+                            #testtype="ngModel">
+                        <option value="0">Select Test</option>
+                          <option value="echo">Echo</option>
+                          <option value="X-ray">X-ray</option>
+                          <option value="Scanning">Scanning</option>
+                      </select>               -->
+                      <select id="testtype" name="testtype" class="form-control" required [(ngModel)]="patform.testtype" 
+                      #testtype="ngModel"  >
+                        <option value="">Select Test Type</option>
+                          <option *ngFor="let tt of testtypes" [value]="tt">{{tt}}</option>
+                    </select>
+                    </div>
+        
+                    <div class="form-group col-md-4">
+                        <label for="testdate">Test Date </label>
+                        <input type="date" id="testdate" name="testdate" class="form-control" placeholder="Test Date " 
+                        required [(ngModel)]="patform.testdate" #testdate="ngModel" [max]="getToday()">
+                    </div>
+        
+                   
+                  </div>
+        
+                  
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="updatedate">Update Date</label>
+                      <input type="date" id="updatedate" name="updatedate" class="form-control"  placeholder="Update Date " 
+                      required [(ngModel)]="patform.updatedate" #updatedate="ngModel" [max]="getToday()" >
+                  </div>
+                    <div class="form-group col-md-4">
+                        <label for="examinedate">Examine Date</label>
+                        <input type="date" id="examinedate" name="examinedate" class="form-control" placeholder="Examine Date " 
+                        required [(ngModel)]="patform.examinedate" #examinedate="ngModel" [max]="getToday()" >
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="reportnew" >Report New</label>
+                      <div>
+                          <label class="radio-inline">
+                              <input type="radio" name="reportnew" id="reportnew" value="Yes"  
+                              required [(ngModel)]="patform.reportnew" #reportnew="ngModel"  >
+                              Yes
+                          </label>  &nbsp;
+                          <label class="radio-inline">
+                              <input type="radio" name="reportnew" id="reportnew" value="No" 
+                              required [(ngModel)]="patform.reportnew" #reportnew="ngModel"  >
+                            No
+                          </label>
+                        </div>    
+                  </div>
+                  </div>
+                  <div class="form-row">
+                  <div class="form-group col-md-4">
+                      <label for="reportdate">Date of Report</label>
+                      <input type="date" id="reportdate" name="reportdate" class="form-control" placeholder="Report Date " 
+                      required [(ngModel)]="patform.reportdate" #reportdate="ngModel" [max]="getToday()">
+                  </div>
+        
+                  <div class="form-group col-md-4">
+                    <label for="supplimentaryreport">Supplimentary Report</label>
+                      <div>
+                          <label class="radio-inline">
+                              <input type="radio" name="supplimentaryreport" id="supplimentaryreport" value="Yes" 
+                              required [(ngModel)]="patform.supplimentaryreport" #supplimentaryreport="ngModel" >
+                              Yes
+                          </label>  &nbsp;
+                          <label class="radio-inline">
+                              <input type="radio" name="supplimentaryreport" id="supplimentaryreport" value="No"  
+                              required [(ngModel)]="patform.supplimentaryreport" #supplimentaryreport="ngModel" >
+                            No
+                          </label>
+                        </div>  
+        
+                </div>
+        
+                <div class="form-group col-md-4">
+                  <label for="supplimentarytdate">Date of Supplimentary Report</label>
+                  <input type="date" id="supplimentarytdate" name="supplimentarytdate" class="form-control" [max]="getToday()"
+                   placeholder="Supplimentary Date "  required [(ngModel)]="patform.supplimentarytdate" #supplimentarytdate="ngModel" >
+                </div>
+                  </div>
+                 
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="status">Status of Case</label>
+                      <select id="status" name="status" class="form-control" required [(ngModel)]="patform.status" #status="ngModel"  >
+                        <option value="">Select Status</option>
+                          <option *ngFor="let st of statuss" [value]="st">{{st}}</option>
+                    </select>
+                    <!-- <select name="status" id="status" class="form-control" 
+                    required [(ngModel)]="patform.status" #status="ngModel">
+                      <option value="0">Select Test</option>
+                        <option value="open">OPEN</option>
+                        <option value="closed">Closed</option>
+                    </select>               -->
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="propreport">Date of Prop Report</label>
+                    <input type="date" id="propreport" name="propreport" class="form-control" placeholder="Prop Date " 
+                    required [(ngModel)]="patform.propreport" #propreport="ngModel" [max]="getToday()">
+                  </div>
+        
+                  
+                  <div class="form-group col-md-4">
+                    <label for="submitdate">Date of Submit</label>
+                    <input type="date" id="submitdate" name="submitdate" class="form-control"   placeholder="SubmitDate "
+                    required [(ngModel)]="patform.submitdate" #submitdate="ngModel" [max]="getToday()" >
+                  </div>
+        
+                  </div>  
+        
+                  <div class="form-row">
+                    <div class="form-group col-md-3"></div>
+                    <div class="form-group col-md-3">
+                      <button type="submit" class="btn btn-primary  btn-block"  >Submit</button>
+                      </div>
+                      <div class="form-group col-md-3">
+                    <button type="button" class="btn btn-danger  btn-block" (click)="patientForm.resetForm({})" >Reset</button>
+                      </div>        
+                      <div class="form-group col-md-3"></div>
+        
+                    </div>
+        
+            </form>
+        
+        
+        </div>
+           
+          
+            
+           
+        </div>
+     </div>
+  </div>
+</div>
+<!-- /#page-content-wrapper -->
+<app-footer></app-footer>
+
+

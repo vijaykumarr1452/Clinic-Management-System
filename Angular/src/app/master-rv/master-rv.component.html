@@ -1,0 +1,248 @@
+<form name="observationsForm" #observationsForm="ngForm" (ngSubmit)="saveRightVentricleData()">
+  <div class="observe">
+    <div id="container">
+      <h3 class="head-title"> Right Ventricle </h3>
+
+      <div class="total-container">
+
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm div-border">
+              <!-- <h3><label class="head-title">Right Ventricle</label></h3> -->
+              <div class="form-row">
+
+                <div class="form-group  col-md-4">
+                  <label>Right Ventricle </label>
+                </div>
+                <div class="form-group col-md-6">
+
+                  <select [(ngModel)]="updform.selectRight_Ventricle" name="selectRight_Ventricle" placeholder="select"
+                    (ngModelChange)="onOptionsSelected('Right_Ventricle',updform.selectRight_Ventricle)"
+                    class="form-control">
+                    <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                    <option *ngFor="let sta of rightVentricle" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                  </select>
+                </div>
+
+              </div>
+              <div class="form-row">
+
+                <div class="form-group  col-md-4">
+                  <label>Cavity Size </label>
+                </div>
+                <div class="form-group col-md-6">
+                  <select [(ngModel)]="updform.selectCavity_Size" name="selectCavity_Size" placeholder="select"
+                    (ngModelChange)="onOptionsSelected('Cavity_Size',updform.selectCavity_Size)" class="form-control">
+                    <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                    <option *ngFor="let sta of cavitySize" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <div class="form-row">
+
+                <div class="form-group  col-md-4">
+                  <label>Wall Thickness </label>
+                </div>
+                <div class="form-group col-md-6">
+                  <select [(ngModel)]="updform.selectWall_Thickness" name="selectWall_Thickness" placeholder="select"
+                    (ngModelChange)="onOptionsSelected('Wall_Thickness',updform.selectWall_Thickness)"
+                    class="form-control">
+                    <option [ngValue]="undefined">Not Applicable(N/A)</option>
+                    <option *ngFor="let sta of wallThickness" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                  </select>
+
+                </div>
+
+              </div>
+
+
+              <div class="form-row">
+
+                <div class="form-group  col-md-4">
+                  <label>Global Systolic Function </label>
+                </div>
+                <div class="form-group col-md-6">
+                  <select [(ngModel)]="updform.selectGlobal_Systolic_Function" name="selectGlobal_Systolic_Function"
+                    placeholder="select"
+                    (ngModelChange)="onOptionsSelected('Global_Systolic_Function',updform.selectGlobal_Systolic_Function)"
+                    class="form-control">
+                    <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                    <option *ngFor="let sta of globalSystolicFunction" [ngValue]="sta.itemName">{{sta.itemName}}
+                    </option>
+                  </select>
+
+                </div>
+
+              </div>
+              <!-- <div class="col-sm div-border"> -->
+
+              <!-- <h3> <label class="head-title">Segment Wall Analysis</label></h3> -->
+
+
+              <div class="form-row">
+
+                <div class="form-group  col-md-4">
+                  <label> Segment Wall Analysis </label>
+                </div>
+                <div class="form-group col-md-6">
+                  <select [(ngModel)]="updform.selectSegmental_Wall_Analysis" name="selectSegmental_Wall_Analysis"
+                    placeholder="select"
+                    (ngModelChange)="onOptionsSelected('Segmental_Wall_Analysis',updform.selectSegmental_Wall_Analysis)"
+                    class="form-control">
+                    <option [ngValue]="undefined">Not Applicable(N/A)</option>
+                    <option *ngFor="let sta of segmentWallAnalysis" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                  </select>
+
+                </div>
+
+              </div>
+
+              <!-- <div class="form-row">
+  
+                <div class="form-group  col-md-4">
+                  <label>  Free Wall </label>  
+                </div>
+                <div class="form-group col-md-4">
+                  <select [(ngModel)]="updform.selectSegmental_Wall_Analysis_Free_Wall" name="selectSegmental_Wall_Analysis_Free_Wall" placeholder="select" 
+            (ngModelChange)="onOptionsSelected('Segmental_Wall_Analysis_Free_Wall',updform.selectSegmental_Wall_Analysis_Free_Wall)" class="form-control">
+            <option  [ngValue]="undefined">Not Applicable(N/A)</option>
+            <option *ngFor="let sta of segmentWallAnalysisFreeWall" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+            </select>
+  
+              </div>
+  
+              </div> -->
+
+
+              <div class="form-row">
+
+                <div class="form-group  col-md-4">
+                  <label> Septum </label>
+                </div>
+                <div class="form-group col-md-6">
+                  <select [(ngModel)]="updform.selectSeptum" name="selectSeptum" placeholder="select"
+                    (ngModelChange)="onOptionsSelected('Septum',updform.selectSeptum)" class="form-control">
+                    <option [ngValue]="undefined">Not Applicable(N/A)</option>
+                    <option *ngFor="let sta of segmentWallAnalysisSeptum" [ngValue]="sta.itemName">{{sta.itemName}}
+                    </option>
+                  </select>
+
+                </div>
+
+              </div>
+
+              <div class="form-row">
+
+                <div class="form-group  col-md-4">
+                  <label> Septum – other – pl
+                    specify</label>
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="text" id="Septum_Other_Details" name="Septum_Other_Details" class="form-control"
+                    placeholder="Other (Specify) Value" [(ngModel)]="updform.Septum_Other_Details"
+                    #Septum_Other_Details="ngModel">
+
+                </div>
+
+              </div>
+
+              <div class="form-row">
+
+                <div class="form-group  col-md-4">
+                  <label> Apex</label>
+                </div>
+                <div class="form-group col-md-6">
+                  <select [(ngModel)]="updform.selectApex" name="selectApex" placeholder="select"
+                    (ngModelChange)="onOptionsSelected('Apex',updform.selectApex)" class="form-control">
+                    <option [ngValue]="undefined">Not Applicable(N/A)</option>
+                    <option *ngFor="let sta of segmentWallAnalysisApex" [ngValue]="sta.itemName">{{sta.itemName}}
+                    </option>
+                  </select>
+
+                </div>
+
+              </div>
+
+
+              <!-- </div> -->
+
+              <!-- <div class="col-sm div-border"> -->
+
+              <!-- <h3><label class="head-title">Miscellaneous</label></h3> -->
+
+
+              <div class="form-row">
+
+                <div class="form-group  col-md-4">
+                  <label> Miscellaneous</label>
+                </div>
+                <div class="form-group col-md-6">
+                  <select [(ngModel)]="updform.selectMiscellaneous" name="selectMiscellaneous" placeholder="select"
+                    (ngModelChange)="onOptionsSelected('Miscellaneous',updform.selectMiscellaneous)"
+                    class="form-control">
+                    <option [ngValue]="undefined">Not Applicable(N/A)</option>
+                    <option *ngFor="let sta of miscellaneous" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                  </select>
+
+                </div>
+
+              </div>
+
+              <!-- </div> -->
+
+            </div>
+
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+        <br />
+        <br />
+
+
+
+
+
+
+
+
+
+        <div id="overlay">
+          <div class="loader"></div>
+
+        </div>
+
+
+        <div class="form-row center">
+          <!-- <div class="form-group col-md-2" ></div> -->
+          <div class="form-group col-md-2">
+            <button type="button" class="btn btn-warning  btn-block" onclick="$('#tabtwo').trigger('click')"
+              (click)="getAddPage('left VentricalObservation')">Previous</button>
+          </div>
+          <div class="form-group col-md-2">
+            <button type="submit" class="btn btn-primary  btn-block" id="btnSubmit">Submit</button>
+          </div>
+          <div class="form-group col-md-2">
+            <button type="button" class="btn btn-danger  btn-block" onclick="$('#tabfour').trigger('click')"
+              (click)="getAddPage('leftAtriumObservation')">Next</button>
+          </div>
+          <!-- <div class="form-group col-md-4" ></div> -->
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</form>

@@ -1,0 +1,538 @@
+<form  name="observationsForm"   #observationsForm="ngForm"  (ngSubmit)="saveAortaitemNameData()">
+  <div class="observe">
+    <div id="container">
+      <h3 class="head-title">  AORTA </h3> 
+      <div class="total-container">
+        <div class="form-row">
+         
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <div>
+              <div class="col-sm div-border">
+                <h3><label class="head-title">AORTA</label></h3>
+                <div class="form-row">
+                  <div class="form-group  col-md-4">
+                    <label>Aorta Structure </label>  
+                  </div>
+                  <div class="form-group col-md-4">
+                    <select [(ngModel)]="updform.selectStructure" name="selectStructure" id="selectStructure"   
+            (ngModelChange)="onOptionsSelected('Structure',updform.selectStructure)" class="form-control">
+             <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+            <option *ngFor="let sta of aorta" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+            </select>
+    
+                </div>
+    
+                </div>
+          
+                <div class="form-row">
+                  <div class="form-group  col-md-4">
+                    <label>Dilatation </label>  
+                  </div>
+                  <div class="form-group col-md-4">
+                    <select [(ngModel)]="updform.selectDialation" name="selectDialation" id="selectDialation"   
+            (ngModelChange)="onOptionsSelected('Dialation',updform.selectDialation)" class="form-control">
+             <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+            <option *ngFor="let sta of dialation" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+            </select>
+    
+                </div>
+    
+                </div>
+    
+                <div class="form-row">
+    
+                  <div class="form-group  col-md-4">
+                    <label> Aneurysm Location</label>  
+                  </div>
+                  <div class="form-group col-md-4">
+                    <select [(ngModel)]="updform.selectAneurysm_Location" name="selectAneurysm_Location" id="selectAneurysm_Location"   
+                    (ngModelChange)="onOptionsSelected('Aneurysm_Location',updform.selectAneurysm_Location)" class="form-control">
+                     <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                    <option *ngFor="let sta of aneurysm" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                    </select> 
+    
+                </div>
+    
+                </div>
+    
+             
+            <div class="form-row"  >
+
+              <div class="form-group  col-md-4">
+                <label for="Aneurysm_Location_Dimensions">Dimensions – pl specify</label>  
+              </div>
+              <div class="form-group col-md-4">
+                <input type="text" id="Aneurysm_Location_Dimensions" name="Aneurysm_Location_Dimensions" class="form-control"                 
+                placeholder="Dimensions" [(ngModel)]="updform.Aneurysm_Location_Dimensions" 
+                #Aneurysm_Location_Dimensions="ngModel"  >
+
+            </div>
+
+            </div>
+
+        
+
+             
+              </div>
+              </div>
+              <div>
+                <div class="col-sm div-border">
+          
+                  <h3><label class="head-title"> GRAFT</label></h3>
+            
+            
+                  <div class="form-row">
+  
+                    <div class="form-group  col-md-4">
+                      <label> Type </label>  
+                    </div>
+                    <div class="form-group col-md-4">
+                     
+                      <select [(ngModel)]="updform.selectGraft_type" name="selectGraft_type" id="selectGraft_type"   
+                      (ngModelChange)="onOptionsSelected('Graft_type',updform.selectGraft_type)" class="form-control">
+                       <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                      <option *ngFor="let sta of graftType" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                      </select>
+                  </div>
+      
+                  </div>
+      
+                  <div class="form-row">
+      
+                    <div class="form-group  col-md-4">
+                      <label>  Location </label>  
+                    </div>
+                    <div class="form-group col-md-4">
+                      <select [(ngModel)]="updform.selectGraft_Location" name="selectGraft_Location" id="selectGraft_Location"   
+              (ngModelChange)="onOptionsSelected('Graft_Location',updform.selectGraft_Location)" class="form-control">
+               <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+              <option *ngFor="let sta of graftLocation" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+              </select>
+      
+                  </div>
+      
+                  </div>
+      
+               
+             
+  
+             
+            
+                </div>
+              </div>
+              <div>
+                <div class="col-sm div-border">
+          
+                  <h3> <label class="head-title"> PLAQUE</label></h3>
+            
+            
+                  <div class="form-row">
+  
+                    <div class="form-group  col-md-4">
+                      <label>  Location</label>  
+                    </div>
+                    <div class="form-group col-md-4">
+                      <select [(ngModel)]="updform.selectPlaque_location" name="selectPlaque_location" id="selectPlaque_location"   
+              (ngModelChange)="onOptionsSelected('Plaque_location',updform.selectPlaque_location)" class="form-control">
+               <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+              <option *ngFor="let sta of plaqueLocation" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+              </select>
+      
+                  </div>
+      
+                  </div>
+      
+                  <div class="form-row">
+      
+                    <div class="form-group  col-md-4">
+                      <label>  Characteristics</label>  
+                    </div>
+                    <div class="form-group col-md-4">
+                      <select [(ngModel)]="updform.selectPlaque_characteristics" name="selectPlaque_characteristics" id="selectPlaque_characteristics"   
+                      (ngModelChange)="onOptionsSelected('Plaque_characteristics',updform.selectPlaque_characteristics)" class="form-control">
+                       <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                      <option *ngFor="let sta of plaqueCharacteristics" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                      </select>
+      
+                  </div>
+      
+                  </div>
+      
+               
+              <div class="form-row">
+  
+                <div class="form-group  col-md-4">
+                  <label>  Size </label>  
+                </div>
+                <div class="form-group col-md-4">
+                  <select [(ngModel)]="updform.selectPlaque_Size" name="selectPlaque_Size" id="selectPlaque_Size"   
+                  (ngModelChange)="onOptionsSelected('Plaque_Size',updform.selectPlaque_Size)" class="form-control">
+                   <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                  <option *ngFor="let sta of plaqueSize" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                  </select> 
+  
+              </div>
+  
+              </div>
+  
+              <div class="form-row"  >
+  
+                <div class="form-group  col-md-4">
+                  <label> Dimensions – pl specify </label>  
+                </div>
+                <div class="form-group col-md-4">
+                  <input type="text" id="Plaque_Dimensions" name="Plaque_Dimensions" class="form-control"                 
+                  placeholder="Dimensions" [(ngModel)]="updform.Plaque_Dimensions" 
+                  #Plaque_Dimensions="ngModel"  > 
+  
+              </div>
+  
+              </div>
+  
+              <div class="form-row">
+  
+                <div class="form-group  col-md-4">
+                  <label> Mobility</label>  
+                </div>
+                <div class="form-group col-md-4">
+                  <select [(ngModel)]="updform.selectPlaque_mobility" name="selectPlaque_mobility" id="selectPlaque_mobility"   
+              (ngModelChange)="onOptionsSelected('Plaque_Mobility',updform.selectPlaque_mobility)" class="form-control">
+               <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+              <option *ngFor="let sta of plaqueMobility" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+              </select>
+  
+              </div>
+  
+              </div>
+                
+                 
+                </div>
+              </div>
+              <div>
+               
+              </div>
+              </div>
+          <div class="col-sm-6">
+         
+          <div>
+            <div class="col-sm div-border">
+              <h3><label class="head-title"> DISSECTION</label></h3>
+        
+              <div class="form-row">
+        
+                <div class="form-group  col-md-4">
+                  <label>  Location </label>  
+                </div>
+                <div class="form-group col-md-4">
+                  <select [(ngModel)]="updform.selectDissection_Location" name="selectDissection_Location" id="selectDissection_Location"   
+                  (ngModelChange)="onOptionsSelected('Dissection_Location',updform.selectDissection_Location)" class="form-control">
+                   <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                  <option *ngFor="let sta of dissectionLocation" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                  </select> 
+        
+              </div>
+        
+              </div>
+        
+              <div class="form-row">
+        
+                <div class="form-group  col-md-4">
+                  <label>  Entry site</label>  
+                </div>
+                <div class="form-group col-md-4">
+                  <select [(ngModel)]="updform.selectDissection_Entry_Site" name="selectDissection_Entry_Site" id="selectDissection_Entry_Site"   
+                  (ngModelChange)="onOptionsSelected('Dissection_Entry_Site',updform.selectDissection_Entry_Site)" class="form-control">
+                   <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                  <option *ngFor="let sta of dissectionEntrySite" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                  </select> 
+        
+              </div>
+        
+              </div>
+        
+           
+          <div class="form-row">
+        
+            <div class="form-group  col-md-4">
+              <label> Exit Point  </label>  
+            </div>
+            <div class="form-group col-md-4">
+              <select [(ngModel)]="updform.selectDissection_Exit_Point" name="selectDissection_Exit_Point" id="selectDissection_Exit_Point"   
+              (ngModelChange)="onOptionsSelected('Dissection_Exit_Point',updform.selectDissection_Exit_Point)" class="form-control">
+               <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+              <option *ngFor="let sta of dissectionExitPoint" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+              </select>
+        
+          </div>
+        
+          </div>
+        
+          <div class="form-row"  >
+        
+            <div class="form-group  col-md-4">
+              <label> Describe – specify</label>  
+            </div>
+            <div class="form-group col-md-4">
+              <input type="text" id="Dissection_Exit_Point_Details" name="Dissection_Exit_Point_Details" class="form-control"                 
+          placeholder="Describe" [(ngModel)]="updform.Dissection_Exit_Point_Details" 
+          #Dissection_Exit_Point_Details="ngModel"  >
+        
+          </div>
+        
+          </div>
+        
+          <div class="form-row"  >
+        
+            <div class="form-group  col-md-4">
+              <label> Multiple describe – specify</label>  
+            </div>
+            <div class="form-group col-md-4">
+              <input type="text" id="Dissection_Exit_Point_Multiple_Details" name="Dissection_Exit_Point_Multiple_Details" class="form-control"                 
+          placeholder=" Multiple (describe)" [(ngModel)]="updform.Dissection_Exit_Point_Multiple_Details" 
+          #Dissection_Exit_Point_Multiple_Details="ngModel"  >
+        
+          </div>
+        
+          </div>
+           
+          <div class="form-row">
+        
+            <div class="form-group  col-md-4">
+              <label>  False Lumen</label>  
+            </div>
+            <div class="form-group col-md-4">
+              <select [(ngModel)]="updform.selectDissection_False_Lumen" name="selectDissection_False_Lumen" id="selectDissection_False_Lumen"   
+          (ngModelChange)="onOptionsSelected('Dissection_False_Lumen',updform.selectDissection_False_Lumen)" class="form-control">
+           <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+          <option *ngFor="let sta of dissectionFalseLumen" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+          </select>
+        
+          </div>
+        
+          </div>
+        
+          <div class="form-row">
+        
+            <div class="form-group  col-md-4">
+              <label>  Intramural Hematoma</label>  
+            </div>
+            <div class="form-group col-md-4">
+              <select [(ngModel)]="updform.selectDissection_Intramural_Hematoma" name="selectDissection_Intramural_Hematoma" id="selectDissection_Intramural_Hematoma"   
+              (ngModelChange)="onOptionsSelected('Dissection_Intramural_Hematoma',updform.selectDissection_Intramural_Hematoma)" class="form-control">
+               <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+              <option *ngFor="let sta of dissectionIntramuralHematoma" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+              </select>
+        
+          </div>
+        
+          </div>
+        
+          <div class="form-row">
+        
+            <div class="form-group  col-md-4">
+              <label>  Classification</label>  
+            </div>
+            <div class="form-group col-md-4">
+              <select [(ngModel)]="updform.selectDissection_Classification" name="selectDissection_Classification" id="selectDissection_Classification"   
+          (ngModelChange)="onOptionsSelected('Dissection_Classification',updform.selectDissection_Classification)" class="form-control">
+           <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+          <option *ngFor="let sta of dissectionClassification" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+          </select>
+        
+          </div>
+        
+          </div>
+        
+          <div class="form-row"  >
+        
+            <div class="form-group  col-md-4">
+              <label> Others - Pl Specify</label>  
+            </div>
+            <div class="form-group col-md-4">
+              <input type="text" id="Dissection_Classification_Others_Details" name="Dissection_Classification_Others_Details" class="form-control"                 
+          placeholder="OthersSpecify" [(ngModel)]="updform.Dissection_Classification_Others_Details" 
+          #Dissection_Classification_Others_Details="ngModel"  > 
+        
+          </div>
+        
+          </div>
+          <!-- <div class="col-sm div-border"> -->
+
+            <!-- <h3> <label class="head-title"> COARCTATION</label></h3> -->
+      
+      
+            <!-- <div class="form-row">
+      
+              <div class="form-group  col-md-4">
+                <label> Coartation</label>  
+              </div>
+              <div class="form-group col-md-4">
+                <select [(ngModel)]="updform.selectCoarctation" name="selectCoarctation" id="selectCoarctation"   
+                (ngModelChange)="onOptionsSelected('Coarctation',updform.selectCoarctation)" class="form-control">
+                 <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                <option *ngFor="let sta of coarctation" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                </select>
+      
+            </div>
+      
+            </div> -->
+      
+            <div class="form-row" *ngIf="updform.selectCoarctation=== 'Minimal diameter'" >
+      
+              <div class="form-group  col-md-4">
+                <label> Describe</label>  
+              </div>
+              <div class="form-group col-md-4">
+                <input type="text" id="Coarctation_Minimal_Diameter" name="Coarctation_Minimal_Diameter" class="form-control"                 
+                placeholder="Describe" [(ngModel)]="updform.Coarctation_Minimal_Diameter" 
+                #Coarctation_Minimal_Diameter="ngModel"  > 
+      
+            </div>
+      
+            </div>  <div class="form-row" *ngIf="updform.selectCoarctation=== 'Peak gradient'" >
+      
+              <div class="form-group  col-md-4">
+                <label> Describe </label>  
+              </div>
+              <div class="form-group col-md-4">
+               
+                <input type="text" id="Coarctation_Peak_Gradient" name="Coarctation_Peak_Gradient" class="form-control"                 
+                placeholder="Describe" [(ngModel)]="updform.Coarctation_Peak_Gradient" 
+                #Coarctation_Peak_Gradient="ngModel"  >
+            </div>
+      
+            </div>
+      
+            <div class="form-row" >
+      
+              <div class="form-group  col-md-4">
+                <label> Coarctation</label>  
+              </div>
+              <div class="form-group col-md-4">
+                <select [(ngModel)]="updform.selectDissection_Coarctation" name="selectDissection_Coarctation" id="selectDissection_Coarctation"   
+                (ngModelChange)="onOptionsSelected('Dissection_Coarctation',updform.selectDissection_Coarctation)" class="form-control">
+                 <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                <option *ngFor="let sta of coarctationLocation" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                </select>  
+      
+            </div>
+      
+            </div> 
+             <!-- <div class="form-row">
+      
+              <div class="form-group  col-md-4">
+                <label> Transposition </label>  
+              </div>
+              <div class="form-group col-md-4">
+                <select [(ngModel)]="updform.selectTransposition" name="selectTransposition" id="selectTransposition"   
+        (ngModelChange)="onOptionsSelected('Transposition',updform.selectTransposition)" class="form-control">
+         <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of transposition" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+      
+            </div>
+      
+            </div> -->
+      
+            <!-- <div class="form-row">
+      
+              <div class="form-group  col-md-4">
+                <label> Corrected Transposition</label>  
+              </div>
+              <div class="form-group col-md-4">
+                <select [(ngModel)]="updform.selectCorrected_Transposition" name="selectCorrected_Transposition" id="selectCorrected_Transposition"   
+                (ngModelChange)="onOptionsSelected('Corrected_Transposition',updform.selectCorrected_Transposition)" class="form-control">
+                 <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                <option *ngFor="let sta of correctedTransposition" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                </select> 
+      
+            </div>
+      
+            </div> -->
+          
+           
+          <!-- </div> -->
+         
+        
+            </div>
+          </div>
+          </div>         
+
+   
+          
+            </div>  
+          
+          </div>
+          
+          <br/>
+          <br/>
+
+
+
+
+
+          <!------------------------------------->
+
+          
+          
+        </div>
+
+
+        
+      </div> 
+
+<br/>
+<br/>
+
+
+
+              
+<div class="container-fluid">
+  <div class="row">
+
+
+
+    
+
+
+   
+
+  </div>  
+
+</div>
+
+<br/>
+<br/>
+
+             
+      <div id="overlay">
+        <div class="loader"></div>
+         
+    </div> 
+
+
+      <div class="form-row"   >
+        <div class="form-group col-md-2" ></div>
+
+        <div class="form-group col-md-2" >
+          <button type="button" class="btn btn-warning  btn-block" onclick="$('#tabnine').trigger('click')" 
+            (click)="getAddPage('pulmonicValveObservation')"  >Previous</button>
+        </div>
+        <div class="form-group col-md-2" >
+          <button type="submit" class="btn btn-primary  btn-block" id="btnSubmit" >Submit</button>
+        </div>
+        <div class="form-group col-md-2" >
+          <button type="button" class="btn btn-danger  btn-block" onclick="$('#tabeleven').trigger('click')"
+          (click)="getAddPage('pericardiumObservation')"  >Next</button>
+        </div>
+        <div class="form-group col-md-4" ></div>
+      </div> 
+    </div>
+  </div>
+</form>
+  
+  
+  

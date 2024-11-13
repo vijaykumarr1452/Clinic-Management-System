@@ -1,0 +1,137 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<app-sidenav></app-sidenav> 	
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div  class="col-md-12 fright" >
+
+        <div class="login-form">
+            <form  name="kinPatientForm"   #kinPatientForm="ngForm" (ngSubmit)="updateKin()"   enctype="multipart/form-data">
+            
+          <h2 class="text-center">Kin Registration Form</h2> 
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="patientname">Patient Name/No </label>
+                <input  id="patientname" name="patientname" class="form-control" required [(ngModel)]="updform.patientname" #patientname="ngModel" placeholder="Patient Name/No" >
+                    <div *ngIf="patientname.errors && patientname.touched" class="alert alert-danger" > 
+                      <div *ngIf="patientname.errors.required">Patient Name is required.</div>
+                    </div>    
+    
+            </div>
+            <div class="form-group col-md-6">
+                <label for="kinname"> Name of the Kin</label>
+                <input  id="kinname" name="kinname" class="form-control" required [(ngModel)]="updform.kinname" #kinname="ngModel" placeholder="Kin Name" >
+                    <div *ngIf="kinname.errors && kinname.touched" class="alert alert-danger" > 
+                      <div *ngIf="kinname.errors.required"> Kin Name is required.</div>
+                    </div>    
+    
+            </div>
+           
+                                   
+          </div>
+        
+          <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label for="kinno">Phone Number of the Kin</label>
+                <input  id="kinno" name="kinno" class="form-control" required [(ngModel)]="updform.kinno" #kinno="ngModel" placeholder="Phone Number of the Kin" >
+                    <div *ngIf="kinno.errors && kinno.touched" class="alert alert-danger" > 
+                      <div *ngIf="kinno.errors.required">Phone Number of the Kin is required.</div>
+                    </div>    
+    
+            </div>
+
+              <div class="form-group col-md-6">
+                  <label for="fdoctor">Name of the Family Doctor</label>
+                  <input  id="fdoctor" name="fdoctor" class="form-control" required [(ngModel)]="updform.fdoctor" #fdoctor="ngModel" placeholder="Name of the Family Doctor" >
+                      <!-- <div *ngIf="fdoctor.errors && fdoctor.touched" class="alert alert-danger" > 
+                        <div *ngIf="fdoctor.errors.required">Name of Family is required.</div>
+                      </div>     -->
+      
+              </div>
+                
+            </div>
+      
+          <div class="form-row">
+
+            <div class="form-group col-md-6"  >
+                <label for="phfdoctor">Phone Number of the Family Doctor</label>
+                <input  id="phfdoctor" name="phfdoctor" class="form-control" required [(ngModel)]="updform.phfdoctor" #phfdoctor="ngModel" placeholder="Phone Number of the Family Doctor" >                   
+                <!-- <div *ngIf="phfdoctor.invalid && (phfdoctor.dirty || phfdoctor.touched)" class="alert alert-danger">
+                  <div *ngIf="phfdoctor.errors.required">
+                      Phone Number of the Family Doctor is required.
+                  </div>
+                  </div> -->
+              </div>
+              
+
+            <div class="form-group col-md-6"  >
+                <label for="emaildoc">Email of the family doctor</label>
+                <input  id="emaildoc" name="emaildoc" class="form-control" required [(ngModel)]="updform.emaildoc" #emaildoc="ngModel" placeholder="Email of the Family Doctor" >                                       
+                <div *ngIf="emaildoc.invalid && (emaildoc.dirty || emaildoc.touched)" class="alert alert-danger">
+                  <div *ngIf="emaildoc.errors.required">
+                    Email of the family doctor is required.
+                  </div>
+                  </div>
+              </div>          
+      
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="emailkin">Email Id of the Kin</label> 
+                    <input  id="emailkin" name="emailkin" class="form-control" required [(ngModel)]="updform.emailkin" #emailkin="ngModel" placeholder="Email Id of the Kin" >                                       
+                   <!-- <div *ngIf="emailkin.invalid && (emailkin.dirty || emailkin.touched)" class="alert alert-danger">
+                   <div *ngIf="emailkin.errors.required">
+                       Email Id of the Kin is required.
+                   </div>
+                   </div>          -->
+               </div>
+               
+             
+                <div class="form-group col-md-6">
+                    <label for="datefirstvisit">Date of First Visit</label> 
+                   <input type="date" class="form-control" name="datefirstvisit" id="datefirstvisit" placeholder="Date of First Visit" 
+                   required [(ngModel)]="updform.datefirstvisit" #datefirstvisit="ngModel"  [max]="getToday()" >
+                   <!-- <div *ngIf="datefirstvisit.invalid && (datefirstvisit.dirty || datefirstvisit.touched)" class="alert alert-danger">
+                       <div *ngIf="datefirstvisit.errors.required">
+                         Date Of First Visit is required.
+                       </div>
+                       </div> -->
+               </div>
+           
+          
+            </div>
+         
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary  btn-block"  >Submit</button>
+                </div>
+                <div class="form-group col-md-6">
+              <button type="button" class="btn btn-danger  btn-block" (click)="kinPatientForm.resetForm({})">Reset</button>
+                </div>        
+            
+      
+              </div>
+      </form> 
+     
+      </div>
+			
+	
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+<!-- <app-footer></app-footer> -->

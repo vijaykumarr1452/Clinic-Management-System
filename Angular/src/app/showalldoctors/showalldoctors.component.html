@@ -1,0 +1,45 @@
+
+<div class="col-lg-12">
+  
+  <div class="row">
+    <div class="col-md-7  "> <h1>All Doctors List </h1>  </div>
+    <div class="col-md-2 searchsty"></div>
+    <div class="col-md-3  searchsty">
+      <input type="text" [(ngModel)]="searchString"  [ngModelOptions]="{standalone: true}" 
+                class="form-control" placeholder="Search ......"   [(ngModel)]="filter" />
+    </div>
+    <!-- <div class="col-md-2 searchsty">
+      <button type="submit" class="btn btn-warning  " (click)="getResultData()"  >Get Search Results</button>
+    </div> -->
+    </div>
+
+  <div class="row">
+  <div class="col-md-2  bgcolor">Code</div>
+  <div class="col-md-2  bgcolor">Name</div>
+  <div class="col-md-2  bgcolor">  Phone Number</div>
+  <div class="col-md-2  bgcolor">Email</div>
+  <div class="col-md-2 bgcolor">Edit</div>
+  <div class="col-md-2 bgcolor"> Delete</div>
+</div>
+<div *ngIf="!AllDoctorList || AllDoctorList.length === 0">
+   <h4 class="norecords"> No Records Found </h4> 
+</div>
+<div class="row looprows" *ngFor="let alllist of AllDoctorList |filter:filter | paginate: { id:'showalldoctors',itemsPerPage: 10, currentPage: p };index as i">
+  <div class="col-md-2 loopindiv">D {{alllist.id}}</div>
+  <div class="col-md-2  loopindiv">{{ alllist.name }}</div>
+  <div class="col-md-2 loopindiv">{{ alllist.mobNo }}</div>
+  <div class="col-md-2 loopindiv">{{ alllist.email }}</div>
+  <div class="col-md-2 loopindiv">
+    <button type="button" class="btn btn-primary btn-sm" (click)="goToEditDoctor(alllist)"  >Edit</button>    
+  </div>
+  <div class="col-md-2 loopindiv">
+    <button type="button" class="btn btn-danger btn-sm" (click)="goToDeleteDoctor(alllist)" >delete</button>
+  </div>
+  
+</div>  
+<ul class="pagination">  
+  <pagination-controls id='showalldoctors'(pageChange)="p = $event" ></pagination-controls>  
+  </ul> 
+
+  
+</div>

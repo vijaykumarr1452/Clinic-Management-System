@@ -1,0 +1,44 @@
+<div class="form-row">
+  <div class="form-group col-md-12">
+    <div>
+
+      <!-- <h2 align="center">Adult Echocardiography Procedure Report</h2> -->
+
+      <div>
+
+
+        <table style="width:80%" align="center">
+          <thead>
+            <th>Finding State</th>
+            <th>Name of the measurement</th>
+            <th>Value</th>
+            <th>Other details</th> 
+          </thead>
+          <ng-container *ngIf="m1 != undefined">
+                      <tbody *ngFor="let Measurements of m1.findings">
+                        
+            <tr *ngFor="let Measurements1 of (Measurements.finding_data);let k =index;let even = even">
+              
+              <ng-container *ngIf="k%2 === 1 " >
+                
+                <td height="50">{{Measurements.finding_site}}</td>
+                <td height="50">{{Measurements1.header}}</td>
+                <td height="50">{{(Measurements1.value)}}</td>
+                <td height="50" >
+                <span *ngFor="let Measurements2 of (Measurements1.List);let l =index;let even = even">
+                <a *ngIf= "!(Measurements2.header === 'Measurement Method' || Measurements2.header ==='Selection Status')"><a >({{Measurements2.header}}={{Measurements2.value}})<br></a>   </a>
+                <!-- <ng-template #elseBlock> <td height="80" ></td></ng-template>   -->
+                <!-- <td height="80">{{Measurements1.List[0].header}}={{Measurements.image_mode}}</td>           -->
+              </span>
+            </td>
+              </ng-container>
+            
+            </tr>
+          </tbody>
+        </ng-container>
+        </table>
+
+      </div>
+    </div>
+
+  </div> 

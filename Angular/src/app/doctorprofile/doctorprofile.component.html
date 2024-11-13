@@ -1,0 +1,352 @@
+<app-nav></app-nav>
+<div class="container-fluid" >
+   <!-- Page Content -->
+ <div id="page-content-wrapper">
+   <div class="container-fluid xyz">
+      <div class="row">
+         <div class="col-lg-12">
+            <!-- <h1>Welcome {{ role  | titlecase }}  Dashboard </h1> -->
+
+            
+            <div class="float-container">
+                 <div class="head-sty">
+                   <h2>PROFILE</h2>
+                 </div>
+                
+                 <div class="login-form">
+                  <form  name="updateProfile"  #updateProfile="ngForm" (ngSubmit)="updateProfileData()" >
+                
+                  <div class="form-row">
+                     
+                     <div class="form-group col-md-12" style="text-align: center;">
+                       
+                        <img  src="assets/images/profile-pic.png"  name="Logo" class="img-responsive"   >   
+                        
+                    </div>
+                    <div class="form-group col-md-12" style="text-align: center;">  
+                     <label for="name">Logo</label>
+                 </div>
+
+                      <div class="form-group col-md-6">
+                          <label for="name">Role</label>
+                          <select id="role" name="role" class="form-control" required [(ngModel)]="profileform.role" #role="ngModel"  >
+                              <option value="">Select User Role</option>
+                                <option *ngFor="let r of roles" [value]="r">{{r}}</option>
+                          </select>
+                              <div *ngIf="role.errors && role.touched" class="alert alert-danger" > 
+                                <div *ngIf="role.errors.required">Role is required.</div>
+                              </div>    
+              
+                      </div>
+                          <div class="form-group col-md-6"  >
+                              <label for="name">Name Of Clinic/Doctor</label>
+                              <input  id="name" name="name" class="form-control" required [(ngModel)]="profileform.name" #name="ngModel" placeholder="Name Of Clinic/Doctor" >
+                              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                                <div *ngIf="name.errors.required">
+                                  Name is required.
+                                </div>
+                                </div>
+                            </div>
+                            
+                     
+                   
+                    </div>
+              
+                    <div class="form-row" *ngIf="profileform.role === 'CLINIC'" >
+
+                      <div class="form-group col-md-4">
+                        <label for="type">Type Of Registration : &nbsp; &nbsp; </label> <br/>
+                        <!-- <input type="radio" id="type" name="type" [value]="HOSPITAL" [(ngModel)]="type" />  &nbsp; HOSPITAL
+                        <input type="radio" id="type" name="type" [value]="CLINIC" [(ngModel)]="type" />  &nbsp; CLINIC
+                            -->
+        
+                        <select id="type" name="type" class="form-control" required [(ngModel)]="profileform.type" #type="ngModel"  >
+                          <option value="">Select Type Of Registration</option>
+                            <option *ngFor="let ty of typess" [value]="ty">{{ty}}</option>
+                      </select>
+            
+                      </div>
+        
+                      <div class="form-group col-md-4">
+                          <label for="speciality">Hospital / Clinic Speciality</label>
+                          <select id="speciality" name="speciality" class="form-control" required [(ngModel)]="profileform.speciality" #speciality="ngModel"  >
+                              <option value="">Select Speciality</option>
+                                <option *ngFor="let sp of specialitys" [value]="sp">{{sp}}</option>
+                          </select>
+                            
+              
+                      </div>
+                          <div class="form-group col-md-4"  >
+                              <label for="clinictype">Hospital / Clinic Type </label>
+                              <select id="clinictype" name="clinictype" class="form-control" required [(ngModel)]="profileform.clinictype" #clinictype="ngModel"  >
+                                <option value="">Select Hospital / Clinic Type</option>
+                                  <option *ngFor="let ct of clinictypes" [value]="ct">{{ct}}</option>
+                            </select>
+                             
+                            </div>
+                            
+                     
+                   
+                    </div>
+              
+                    
+              
+                    <div class="form-row" *ngIf="profileform.role === 'DOCTOR'"  >
+        
+                      <div class="form-group col-md-4">
+                        <label for="clinicId">Please Select Clinic</label>
+                          <select id="clinicId" name="clinicId" class="form-control" required [(ngModel)]="profileform.clinicId" #clinicId="ngModel" >
+                            <option value="">Select Clinic</option>
+                              <option *ngFor="let list of AllClinicList" [value]="list.id">{{list.name}}</option>
+                            </select>
+                            <div *ngIf="clinicId.errors && clinicId.touched" class="alert alert-danger">
+                              <div *ngIf="clinicId.errors.required">Clinic is required.</div>
+                            </div>    
+            
+                      </div>
+        
+                      <div class="form-group col-md-4">
+                          <label for="qualification">Qualification Of Doctor</label>
+                          <input type="text" id="qualification" name="qualification" class="form-control" required [(ngModel)]="profileform.qualification" #qualification="ngModel" placeholder=" Qualification Of Doctor" >
+                             
+              
+                      </div>
+                          <div class="form-group col-md-4"  >
+                              <label for="specialitydoctor">Speciality Of Doctor </label>
+                              <input type="text" id="specialitydoctor" name="specialitydoctor" class="form-control" required [(ngModel)]="profileform.specialitydoctor" #specialitydoctor="ngModel" placeholder="Speciality Of Doctor" >
+                             
+                            </div>
+                            
+                     
+                   
+                    </div>
+        
+                    <div class="form-row" *ngIf="profileform.role === 'DOCTOR'"  >
+        
+                      <div class="form-group col-md-4">
+                        <label for="degreedoctor">Degree of the Doctor</label>
+                        <input type="text" id="degreedoctor" name="degreedoctor" class="form-control" required [(ngModel)]="profileform.degreedoctor" #degreedoctor="ngModel" 
+                        placeholder=" Degree Of the Doctor" >
+                              
+            
+                      </div>
+        
+                      <div class="form-group col-md-4">
+                          <label for="timingsdays">Timings days </label>
+                          <input type="text" id="timingsdays" name="timingsdays" class="form-control" required [(ngModel)]="profileform.timingsdays"
+                           #timingsdays="ngModel" placeholder=" Timings days" >
+                             
+              
+                      </div>
+                          <div class="form-group col-md-4"  >
+                              <label for="timingshours">Timings hours  </label>
+                              <input type="text" id="timingshours" name="timingshours" class="form-control" required [(ngModel)]="profileform.timingshours"
+                               #timingshours="ngModel" placeholder="Timings hours" >
+                             
+                            </div>
+                            
+                     
+                   
+                    </div>
+                                   
+                  <div class="form-row">
+                      <div class="form-group col-md-4">
+                           <label for="email">Email Id</label> 
+                          <input type="email" placeholder="Email Id" name="email" class="form-control" id="email" 
+                                   required [(ngModel)]="profileform.email" #email="ngModel" >
+                          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                          <div *ngIf="email.errors.required">
+                              Email is required.
+                          </div>
+                          </div>         
+                      </div>
+        
+                      <div class="form-group col-md-4"  >
+                        <label for="phonenumber">Phone Number</label> 
+                        <input type="phonenumber" placeholder="Phone Number" name="phonenumber" class="form-control" id="phonenumber" 
+                        required [(ngModel)]="profileform.phonenumber" #phonenumber="ngModel" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+                       
+                      </div>
+              
+                      <div class="form-group col-md-4">
+                          <label for="mobNo">Mobile Number</label> 
+                         <input type="text" class="form-control" name="mobNo" id="mobNo" placeholder="Mobile Number" 
+                         required [(ngModel)]="profileform.mobNo" #mobNo="ngModel" maxlength="10"  oninput="this.value=this.value.replace(/[^0-9]/g,'');"   >
+                         <div *ngIf="mobNo.invalid && (mobNo.dirty || mobNo.touched)" class="alert alert-danger">
+                             <div *ngIf="mobNo.errors.required">
+                               Mobile Number is required.
+                             </div>
+                             </div>
+                     </div>
+              
+                    </div>
+        
+                    <div class="form-row" *ngIf="profileform.role === 'CLINIC'">
+                                      
+                      <div class="form-group col-md-4"  >
+                        <label for="emergencynumber">Emergency Number</label> 
+                        <input type="emergencynumber" placeholder="Emergency Number" name="emergencynumber" class="form-control" id="emergencynumber" 
+                        required [(ngModel)]="profileform.emergencynumber" #emergencynumber="ngModel" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+                       
+                      </div>
+        
+                      <div class="form-group col-md-4"  >
+                        <label for="emergencymobnumber">Emergency Mobile Number</label> 
+                        <input type="emergencymobnumber" placeholder="Emergency Mobile Number" name="emergencymobnumber" class="form-control" id="emergencymobnumber" 
+                        required [(ngModel)]="profileform.emergencymobnumber" #emergencymobnumber="ngModel" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+                       
+                      </div>
+        
+                      <div class="form-group col-md-4"  >
+                        <label for="whatsappno">Whats App Number</label> 
+                        <input type="whatsappno" placeholder="Whats App Number" name="whatsappno" class="form-control" id="whatsappno" 
+                        required [(ngModel)]="profileform.whatsappno" #whatsappno="ngModel" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+                       
+                      </div>
+                
+              
+                    </div> 
+                       
+        
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                          <label for="username">User Name</label> 
+                           <input type="text"  placeholder="Username" name="username" class="form-control" id="username"
+                                  required [(ngModel)]="profileform.username" #username="ngModel" >
+                          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                          <div *ngIf="username.errors.required">
+                            UserName is required.
+                          </div>
+                          </div>        
+                      </div>
+                      <div class="form-group col-md-4">
+                          <label for="password">Password</label> 
+                         <input type="password" placeholder="Password" name="password" class="form-control" id="password" 
+                         required [(ngModel)]="profileform.password" #password="ngModel" maxlength="15" >
+                         <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                          <div *ngIf="password.errors.required">
+                            Password is required.
+                          </div>
+                          </div>
+                      </div>
+        
+                      <div class="form-group col-md-4">
+                        <label for="cpassword">Confirm Password</label> 
+                       <input type="password" placeholder="Confirm Password" name="cpassword" class="form-control" id="cpassword" 
+                       required [(ngModel)]="profileform.password" #cpassword="ngModel" maxlength="15" >
+                       <div *ngIf="cpassword.invalid && (cpassword.dirty || cpassword.touched)" class="alert alert-danger">
+                        <div *ngIf="cpassword.errors.required">
+                          Confirm Password is required.
+                        </div>
+                        </div>
+                    </div>
+        
+                    </div>
+                              
+                     <div class="form-row">
+        
+                      <div class="form-group col-md-4">
+                        <label for="country">Select Country</label> 
+                        <select id="country" name="country" class="form-control" required [(ngModel)]="profileform.country" #country="ngModel" >
+                          <option value="">Select Country</option>
+                            <option *ngFor="let c of countrys" [value]="c">{{c}}</option>
+                          </select>
+                          <div *ngIf="country.errors && country.touched" class="alert alert-danger">
+                            <div *ngIf="country.errors.required">Country is required.</div>
+                          </div>    
+                    </div>
+                   
+                          <div class="form-group col-md-4">
+                              <label for="state">Select State</label> 
+                              <select id="state" name="state" class="form-control" required [(ngModel)]="profileform.state" #state="ngModel" >
+                              <option value="">Select State</option>
+                              <option *ngFor="let s of states" [value]="s">{{s}}</option>
+                              </select>
+                              <div *ngIf="state.errors && state.touched" class="alert alert-danger">
+                              <div *ngIf="state.errors.required">State is required.</div>
+                              </div>    
+                          </div>
+                                          
+                          <div class="form-group col-md-4"  >
+                            <label for="pincode">Pincode</label> 
+                            <input type="text" placeholder="Pincode" name="pincode" class="form-control" id="pincode" 
+                            required [(ngModel)]="profileform.pincode" #pincode="ngModel" maxlength="6" >
+                           
+                          </div>
+                          
+                    </div> 
+        
+                      
+              <div class="form-row" *ngIf="profileform.role === 'CLINIC'">
+        
+                <div class="form-group col-md-4"  >
+                  <label for="district">District</label> 
+                  <input type="text" placeholder="District" name="district" class="form-control" id="district" 
+                  required [(ngModel)]="profileform.district" #district="ngModel"  >
+                 
+                </div>
+                
+                <div class="form-group col-md-4"  >
+                  <label for="city">City / Village Name</label> 
+                  <input type="text" placeholder="City" name="city" class="form-control" id="city" 
+                  required [(ngModel)]="profileform.city" #city="ngModel"  >
+                 
+                </div>
+        
+                <div class="form-group col-md-4"  >
+                  <label for="citycode">City / Village Code</label> 
+                  <input type="text" placeholder="City / Village Code" name="citycode" class="form-control" id="citycode" 
+                  required [(ngModel)]="profileform.citycode" #citycode="ngModel"  >
+                 
+                </div>
+        
+               
+               
+              </div>   
+        
+              
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="address">Address</label> 
+                    <textarea id="address" name="address"  class="form-control" placeholder="Address" 
+                  required [(ngModel)]="profileform.address" #address="ngModel"  ></textarea>
+                  <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+                      <div *ngIf="address.errors.required">
+                        Address is required.
+                      </div>
+                      </div>   
+                </div>
+        
+                <div class="form-group col-md-6">
+                  <label for="otherdetails">Other Details</label> 
+                  <textarea id="otherdetails" name="otherdetails"  class="form-control" placeholder="Other Details" 
+                required [(ngModel)]="profileform.otherdetails" #otherdetails="ngModel"  ></textarea>
+               
+              </div>
+                
+          </div>                  
+              
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <button type="submit" class="btn btn-primary  btn-block"  >Update Form</button>
+                        </div>
+                        <div class="form-group col-md-6">
+                      <button type="button" class="btn btn-danger  btn-block" (click)="updateProfile.resetForm({})">Reset</button>
+                        </div>        
+                    
+              
+                      </div>
+              </form>
+              
+              </div>
+               
+                
+             </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+</div>
+ <!-- <app-footer></app-footer> -->

@@ -1,0 +1,66 @@
+
+<form name="updatedocpatientForm"  #updatedocpatientForm="ngForm"  >
+ 
+  <div class="row">
+    <div class="col-md-6  "> </div>
+    <!-- <input type="text" [(ngModel)]="searchString"  [ngModelOptions]="{standalone: true}" 
+      class="form-control" placeholder="Search ......"   [(ngModel)]="filter" /> -->
+    <div class="col-md-2  searchsty">
+      <b>Pending Cases : {{pending}}</b>
+    </div>
+    <div class="col-md-2 searchsty">
+     <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+     
+    </div>
+    </div>  
+   
+      <div class="wrapper"  style="min-height: 300px;">
+<table class="table">
+  <thead>
+    
+    <tr>
+      <th scope="col"  >S.No</th>
+      <th scope="col">Name of the Patient</th>
+      <th scope="col">Date of Echo</th>
+      <th scope="col">Assig Doctor</th>
+      <th scope="col">No. of Files</th>
+      <th scope="col">Assign Confirm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="!AllClinicPatientsList || AllClinicPatientsList.length === 0">
+      <td colspan="9"> <h4 class="norecords"> No Records Found </h4> </td>
+    </tr>
+     
+    <tr *ngFor="let alllist of AllClinicPatientsList |filter:filter | paginate: {id:'allpatients', itemsPerPage: 5, currentPage: p };index as s " >
+      <td scope="row" > {{ s+1 }}</td>
+      <td scope="row">{{ alllist.patientname | titlecase }}</td>
+      <td scope="row"> {{ alllist.testdate | date:'MM-dd-yyyy'}} </td>
+      <td scope="row">
+        <select class="custom-select"   [(ngModel)]="AllClinicPatientsList[s].docId"  [ngModelOptions]="{standalone: true}" style="width: 150px;" >
+          <option  [value]="item.id"  *ngFor="let item of AllClinicPatientsList[s].doctorList"  >
+                {{ item.name }}
+            </option>
+      </select>
+      </td>
+      <td scope="row">{{ alllist.length }}</td>
+      <td><button type="submit" class="btn btn-primary  btn-block" (click)="goToUpdatePatientDoc(alllist,s)"  style="width: 110px;"  >Assign Now</button></td>
+    </tr>
+  </tbody>
+
+  
+  
+</table>
+
+</div>
+
+<ul class="pagination">  
+  <pagination-controls maxSize='5' id='allpatients'(pageChange)="p = $event" ></pagination-controls>  
+  </ul> 
+
+</form>
+
+<!-- /#page-content-wrapper -->
+
+<!-- <app-footer></app-footer> -->
+

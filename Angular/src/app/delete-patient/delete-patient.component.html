@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+<!-- <form name="updatedocpatientForm"  #updatedocpatientForm="ngForm"  > -->
+
+<!-- <div class="row">
+    <div class="col-md-6  "> <input type="text" [(ngModel)]="searchString"  [ngModelOptions]="{standalone: true}" 
+      class="form-control" placeholder="Search ......"   [(ngModel)]="filter" /></div>
+    <div class="col-md-2  searchsty">
+      <b>Pending Cases : {{pending}}</b>
+    </div>
+    <div class="col-md-2 searchsty">
+     <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+
+<!-- </div>
+    </div> -->
+<!-- <div class="form-group col-md-4">
+
+      <select class="form-control" #sel1 (change)="changed(sel1.value,sel1)">
+        <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+      <option value="m">m</option>
+      <option value="f">f</option>
+    </select>
+    </div> -->
+
+<div class="row">
+
+  <div class="form-group col-md-4">
+    <h3>Clinic </h3>
+
+    <select class="form-control" #sel (change)="changed(sel.value)">
+      <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+      <option *ngFor="let sta of clinicDataObj" [value]="sta.id">{{sta.name}}</option>
+    </select>
+
+  </div>
+
+
+
+  <div class="form-group col-md-4">
+    <h3>From Date </h3>
+
+    <!-- <input type="date" id="birthday" name="birthday"> -->
+    <input type="text" class="form-control" id="datepicker" #dp="bsDatepicker" placeholder="From Date" bsDatepicker
+      [(ngModel)]="testdate1" value="{{ testdate1 | date:'dd-MM-yyyy'}}" (ngModelChange)="filterDate()">
+  </div>
+  <div class="form-group col-md-4">
+    <h3>To Date </h3>
+
+    <input type="text" class="form-control" placeholder="To Date" #dp1="bsDatepicker" bsDatepicker
+      [(ngModel)]="testdate2" value="{{ testdate2 | date:'dd-MM-yyyy'}}" (ngModelChange)="filterDate()">
+  </div>
+</div>
+<!-- <button (click)="filterDate()">Filter</button> -->
+<!-- {{testdate1}} -->
+<div class="wrapper">
+  <table class="table">
+    <thead>
+
+      <tr>
+        <th scope="col">Code</th>
+        <!-- <th scope="col" class="sticky-col second-col">Requirement</th> -->
+        <!-- <th scope="col" class="sticky-col third-col" >Reports</th> -->
+        <th scope="col">Patient Name</th>
+        <th scope="col">Gender</th>
+        <!-- <th scope="col">Age</th> -->
+        <!-- <th scope="col">Status</th> -->
+        <th scope="col">Test Date</th>
+        <th scope="col"  >Clinic Name</th>
+
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="!duplicateArray || duplicateArray.length === 0">
+        <td colspan="9">
+          <h4 class="norecords"> No Records Found </h4>
+        </td>
+      </tr>
+
+      <tr *ngFor="let alllist of duplicateArray  | paginate: { id:'delete', itemsPerPage: 5, currentPage: p }">
+        <!-- <ng-template *ngIif="alllist != 'undefined'"> -->
+        <td scope="row">PATIENT {{alllist.id}}</td>
+      
+        <td scope="row">{{ alllist.patientname | titlecase }}</td>
+        <td scope="row">{{ alllist.gender}}</td>
+        <!-- <td scope="row" >{{ alllist.age}}</td>  -->
+        <!-- <td scope="row" >{{ alllist.status | titlecase}}</td>  -->
+        <td scope="row">{{ alllist.testdate| date:'MM-dd-yyyy'}}</td>
+        <td scope="row">{{ alllist.clinicName}}</td>
+
+        <!-- <td scope="row" > {{}}    </td> -->
+
+        <td>
+          <div class="col-md-2 loopindiv">
+            <button type="button" class="btn btn-primary" (click)="openModal(template,alllist)">Delete</button>
+            <!-- <button type="button" class="btn btn-danger btn-sm" (click)="goToDeletePatient(alllist)">delete</button> -->
+          </div>
+        </td>
+        <!-- </ng-template> -->
+      </tr>
+    </tbody>
+   
+
+
+  </table>
+
+</div>
+
+<ul class="pagination1">
+  <pagination-controls id='delete'maxSize="5" (pageChange)="p = $event"></pagination-controls>
+</ul>
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Do you want to confirm?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+  </div>
+</ng-template>
+

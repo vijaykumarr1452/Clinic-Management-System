@@ -1,0 +1,231 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<app-sidenav></app-sidenav> 	
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div  class="col-md-12 fright" >
+
+        <div class="login-form">
+            <form  name="otherDetailForm"   #otherDetailForm="ngForm" (ngSubmit)="registerOtherdetails(otherDetailForm.value)"   enctype="multipart/form-data">
+            
+          <h2 class="text-center"> Other Details Form</h2> 
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="patientId">Patient Name/No </label>
+                <select id="patientId" name="patientId" class="form-control" required [(ngModel)]="addform.patientId" #patientId="ngModel" >
+                  <option value="">Select Patient Name</option>
+                    <option *ngFor="let list of AllPatientList" [value]="list.id">{{list.firstname}} {{list.lastname}}</option>
+                  </select>
+                  <div *ngIf="patientId.errors && patientId.touched" class="alert alert-danger">
+                    <div *ngIf="patientId.errors.required">Patient Name is required.</div>
+                  </div>   
+    
+            </div>
+            <div class="form-group col-md-4"  >
+                <label for="refferedby">Select Referred By</label> 
+            <select id="refferedby" name="refferedby" class="form-control" required [(ngModel)]="addform.refferedby" #refferedby="ngModel" >
+                <option value="">Select Referred By</option>
+              <option *ngFor="let Doctors of this.AllDoctorsList" [value]="Doctors.id">
+                {{Doctors.name}}
+              </option>
+                </select>
+             
+            </div>
+
+            <div class="form-group col-md-4"  >
+                <label for="nameofclinic">Name of Clinic/Hospital</label> 
+            <select id="nameofclinic" name="nameofclinic" class="form-control" required [(ngModel)]="addform.nameofclinic" #nameofclinic="ngModel" >
+                <option value="">Select Name of Clinic/Hospital</option>
+              <option *ngFor="let Clinics of this.AllClinicsList" [value]="Clinics.id">
+                {{Clinics.name}}
+              </option>
+                </select>
+             
+            </div>
+
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label for="followup">Date of First Visit</label> 
+               <input type="date" class="form-control" name="followup" id="followup" placeholder="Date of First Visit" 
+               required [(ngModel)]="addform.followup" #followup="ngModel" [max]="getToday()"  >
+             
+           </div>           
+
+           <div class="form-group col-md-4">
+            <label for="weightinkgs">Weight (in Kgs)</label>
+            <input type="text" id="weightinkgs" name="weightinkgs" class="form-control" placeholder="Weight " 
+            required [(ngModel)]="addform.weightinkgs" #weightinkgs="ngModel" >
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="heightincms">Height (in Cms)</label>
+            <input type="text" id="heightincms" name="heightincms" class="form-control"   placeholder="Height " 
+            required [(ngModel)]="addform.heightincms" #heightincms="ngModel" (blur)="calculateBsa(this.heightincms)" >
+
+            <div *ngIf="heightincms.invalid && (heightincms.dirty || heightincms.touched)" class="alert alert-danger">
+              <div *ngIf="heightincms.errors.required">
+                height is required.
+              </div>
+              </div>
+
+        </div>
+                
+            </div>
+
+
+          
+          <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label for="bloodgroup"> Blood Group</label> 
+                <select id="bloodgroup" name="bloodgroup" class="form-control" required [(ngModel)]="addform.bloodgroup" #bloodgroup="ngModel" >
+                    <option value="">Select Blood Group</option>
+                  <option *ngFor="let bgroup of bloodgroups" [value]="bgroup">
+                    {{bgroup}}
+                  </option>
+                    </select>
+           </div>
+
+           <div class="form-group col-md-4">
+            <label for="hipdiameter">Hip Diameter (in cms) </label>
+            <input type="text" id="hipdiameter" name="hipdiameter" class="form-control" placeholder="Hip Diameter " 
+            required [(ngModel)]="addform.hipdiameter" #weight="ngModel" >
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="waistdiameter">Waist Diameter (in cms)</label>
+            <input type="text" id="waistdiameter" name="waistdiameter" class="form-control"   placeholder="Waist Diameter " 
+            required [(ngModel)]="addform.waistdiameter" #waistdiameter="ngModel" >
+
+            <div *ngIf="waistdiameter.invalid && (waistdiameter.dirty || waistdiameter.touched)" class="alert alert-danger">
+              <div *ngIf="waistdiameter.errors.required">
+                waistdiameter is required.
+              </div>
+              </div>
+
+        </div>
+                
+            </div>
+      
+            
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label for="bpsystolic">BP Systolic</label>
+                    <input type="text" id="bpsystolic" name="bpsystolic" class="form-control"   placeholder="BP Systolic"
+                    required [(ngModel)]="addform.bpsystolic" #bpsystolic="ngModel" >
+                  </div>
+
+               
+              <div class="form-group col-md-4"  >
+                <label for="bpdiastolic">BP Diastolic</label>
+                <input type="text"  id="bpdiastolic" name="bpdiastolic" class="form-control" 
+                required [(ngModel)]="addform.bpdiastolic" #bpdiastolic="ngModel" placeholder="Bp Diastolic" >
+               
+              </div>    
+                            
+                <div class="form-group col-md-4">
+                    <label for="pulserate">Pulse Rate</label> 
+                   <input type="text" class="form-control" name="pulserate" id="pulserate" placeholder="Pulse Rate" 
+                   required [(ngModel)]="addform.pulserate" #pulserate="ngModel"   >
+                 
+               </div>
+           
+          
+            </div>
+                
+
+              <div class="form-row">
+
+                <div class="form-group col-md-4">
+                  <label for="SPO2">SPO2 %</label> 
+                 <input type="text" class="form-control" name="SPO2" id="SPO2" placeholder="SPO" 
+                 required [(ngModel)]="addform.SPO2" #SPO2="ngModel"   >
+               
+             </div>
+                  
+             <div class="form-group col-md-4">
+              <label for="temperature">Temperature in Faherenite</label>
+              <input type="text" id="temperature" name="temperature" class="form-control" placeholder="Temperature " 
+              required [(ngModel)]="addform.temperature" #temperature="ngModel">
+            </div>
+
+            <div class="form-group col-md-4">
+              <label for="allergy">Allergy</label>
+              <br/>
+                <input name="allergy"  [(ngModel)]="addform.allergy" type="radio" value="true" [checked]="allergy"/> Yes
+                <input name="allergy"[(ngModel)]="addform.allergy" type="radio" value="false" [checked]="!allergy"/> No
+      
+            </div>
+
+         
+
+    
+              </div> 
+
+              <div class="form-row">
+
+                <div class="form-group col-md-4"  *ngIf="addform.allergy == 'true'">
+                  <label for="allergyspecification">Allergy Specification</label> 
+                  <input type="text" class="form-control" name="allergyspecification" id="allergyspecification" placeholder="Allergy Specification" 
+                  required [(ngModel)]="addform.allergyspecification" #allergyspecification="ngModel"  >
+                
+               
+              </div>
+
+                <div class="form-group col-md-4">
+                  <label for="scars">Scars of Operations</label>
+                  <input type="text" id="scars" name="scars" class="form-control" placeholder="Scars of Operations" 
+                  required [(ngModel)]="addform.scars" #scars="ngModel">
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="bmi">BMI</label>
+                  <input type="text" id="bmi" name="bmi" class="form-control" placeholder="BMI " 
+                  required [(ngModel)]="addform.bmi" #bmi="ngModel">
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="bsa">BSA</label>
+                  <input type="text" id="bsa" name="bsa" class="form-control" placeholder="BSA " 
+                  required [(ngModel)]="addform.bsa" #bsa="ngModel">      
+              </div>
+             
+              </div>
+            
+         
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary  btn-block"  >Submit</button>
+                </div>
+                <div class="form-group col-md-6">
+                   <button type="button" class="btn btn-danger  btn-block" (click)="otherDetailForm.resetForm({})">Reset</button>
+                </div>        
+            
+      
+              </div>
+      </form> 
+     
+      </div>
+			
+	
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+<!-- <app-footer></app-footer> -->

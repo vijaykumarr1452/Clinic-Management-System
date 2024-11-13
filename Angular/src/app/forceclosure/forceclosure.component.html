@@ -1,0 +1,150 @@
+
+<form name="updatedocpatientForm"  #updatedocpatientForm="ngForm"  >
+ 
+
+      <div class="row">
+
+        <div class="form-group col-md-4">
+          <h3>Clinic </h3>
+      
+          <select class="form-control" #sel (change)="changed(sel.value)">
+            <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+            <option *ngFor="let sta of clinicDataObj" [value]="sta.id">{{sta.name}}</option>
+          </select>
+      
+        </div>
+      
+      
+      
+        <div class="form-group col-md-4">
+          <h3>From Date </h3>
+      
+          <!-- <input type="date" id="birthday" name="birthday"> -->
+          <input type="text" class="form-control" id="datepicker" #dp="bsDatepicker" placeholder="From Date" bsDatepicker
+            [(ngModel)]="testdate1" value="{{ testdate1 | date:'dd-MM-yyyy'}}" (ngModelChange)="filterDate()">
+        </div>
+        <div class="form-group col-md-4">
+          <h3>To Date </h3>
+      
+          <input type="text" class="form-control" placeholder="To Date" #dp1="bsDatepicker" bsDatepicker
+            [(ngModel)]="testdate2" value="{{ testdate2 | date:'dd-MM-yyyy'}}" (ngModelChange)="filterDate()">
+        </div>
+      </div>
+      <div class="wrapper">
+<table class="table">
+  <thead>  
+    
+    <tr>
+      <th scope="col" class="sticky-col first-col" >Code</th>
+      <!-- <th scope="col" class="sticky-col second-col">Requirement</th> -->
+      <!-- <th scope="col" class="sticky-col third-col" >Reports</th> -->
+      <th scope="col" class="sticky-col fourth-col" >Patient Name</th>
+      <th scope="col" class="sticky-col fifth-col">Gender</th>
+      <th scope="col" class="sticky-col sixth-col">Age</th>
+      <th scope="col">Height</th>
+      <th scope="col">Weight</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Clinic ID</th>
+      <th scope="col">Echo ID</th>
+      <!-- <th scope="col">Case ID</th> -->
+      <th scope="col">E.W</th>
+      <th scope="col">Protocol</th>
+      <th scope="col">Test Type</th>
+      <th scope="col">Test Date</th>
+      <th scope="col">BSA</th>
+      <th scope="col">BMI</th>
+      <th scope="col">BMI Type</th>
+      <!-- <th scope="col">Doctor</th> -->
+      <th scope="col">Report <i class="fa fa-check" aria-hidden="true"></i></th>
+      <th scope="col">Report <i class="fa fa-arrow-circle-up"></i> </th>
+      <th scope="col">Supp. Report <i class="fa fa-arrow-circle-up"></i></th>
+      <th scope="col">Status</th>
+      <th scope="col">Remark</th>
+      <th scope="col">MobileNumber</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="!duplicateArray || duplicateArray.length === 0">
+      <td colspan="9"> <h4 class="norecords"> No Records Found </h4> </td>
+    </tr>
+     
+    <tr *ngFor="let alllist of duplicateArray |filter:filter | paginate: { id:'forceclosure', itemsPerPage: 5, currentPage: p };index as i " >
+      <td scope="row" class="sticky-col first-col">PATIENT {{alllist.id}}</td>
+      <!-- <td scope="row" class="sticky-col second-col">
+        <div class="loopindiv reqbg1" *ngIf="alllist.requirement === 'Very Urgent'">
+          <p>{{ alllist.requirement }}</p></div>
+
+          <div class="loopindiv reqbg2" *ngIf="alllist.requirement === 'With in a Day'">
+            <p>{{ alllist.requirement }}</p></div>  
+
+            <div class="loopindiv reqbg3" *ngIf="alllist.requirement === 'Routine'">
+              <p>{{ alllist.requirement }}</p></div>   
+      </td> -->
+    <!-- <td scope="row" class="sticky-col third-col"> 
+        <span class="bell">
+          <a *ngIf="alllist.totalCount > 0 ;else other_content"  (click)="goToViewObservations(alllist); " style="cursor: pointer;" ><img  src="assets/images/mail.png"  name="Reports" class="img-responsive1"   ></a>
+           <ng-template #other_content>
+            <a><img  src="assets/images/mail.png"  name="Reports" class="img-responsive1"   ></a>
+          </ng-template>
+
+          <span *ngIf="alllist.totalCount > 0" class="bellnumbers">1</span>
+
+        </span>  
+      </td> -->
+      <td scope="row" class="sticky-col fourth-col">{{ alllist.patientname | titlecase }}</td>
+      <td scope="row" class="sticky-col fifth-col">{{ alllist.gender}}</td>
+      <td scope="row" class="sticky-col sixth-col">{{ alllist.age}}</td> 
+      <td scope="row">{{ alllist.height}}</td>
+      <td scope="row">{{ alllist.weight}}</td>
+      <td scope="row">{{ alllist.dob | date:'dd-MM-yyyy'}}</td>
+      <td scope="row"> CLINIC {{ alllist.clinicId }} </td>
+      <td scope="row"> {{ alllist.echoid}} </td>
+      <!-- <td scope="row"> {{ alllist.caseId}} </td> -->
+      <td scope="row"> {{ alllist.ew}} </td>
+      <td scope="row"> {{ alllist.protocol}} </td>
+      <td scope="row"> {{ alllist.testtype}} </td>
+      <td scope="row"> {{ alllist.testdate | date:'MM-dd-yyyy'}} </td>
+      <td scope="row"> {{ alllist.bsa}} </td>
+      <td scope="row"> {{ alllist.bmi}} </td>
+      <td scope="row"> {{ alllist.bmitype}} </td>
+      <!-- <td scope="row"> 
+        <select class="custom-select"   [(ngModel)]="AllClinicPatientsList[i].docId"  [ngModelOptions]="{standalone: true}" style="width: 150px;" >
+          <option  [value]="item.id"  *ngFor="let item of AllClinicPatientsList[i].doctorList"  >
+                {{ item.name }}
+            </option>
+      </select>
+      </td> -->
+      <td scope="row"> {{ alllist.reportnew}} </td>
+      <td scope="row"> {{ alllist.reportdate | date:'dd-MM-yyyy' }} </td>
+      <td scope="row"> {{ alllist.supplimentarytdate | date:'dd-MM-yyyy'}} </td>
+      <td scope="row"> {{ alllist.status | titlecase }} </td>
+      <td scope="row"> {{ alllist.reason}} </td>
+      <td scope="row">{{ alllist.mobileno }}</td>
+     <td><button type="submit" class="btn btn-primary  btn-block" (click)="openModal(template,alllist)"    >Forceclose Case</button></td>
+  
+    </tr>
+  </tbody>
+
+  
+  
+</table>
+
+</div>
+
+<ul class="pagination">  
+  <pagination-controls id='forceclosure' (pageChange)="p = $event" ></pagination-controls>  
+  </ul> 
+  <ng-template #template>
+    <div class="modal-body text-center">
+      <p>Are you sure to Forceclose case?</p>
+      <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
+      <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+    </div>
+  </ng-template>
+</form>
+
+<!-- /#page-content-wrapper -->
+
+<!-- <app-footer></app-footer> -->
+

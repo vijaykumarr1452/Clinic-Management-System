@@ -1,0 +1,1129 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<app-sidenav></app-sidenav> 	
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div  class="col-md-12 fright" >
+
+        <div class="login-form">
+           
+              <form name="lifeStyleForm" id="lifeStyleForm"  [formGroup]="lifeStyleForm" (ngSubmit)="registerLifeStyle(lifeStyleForm.value)" >
+          <h2 class="text-center"> Life Style Form</h2> 
+
+          <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="patientId">Patient Name/No </label>
+                <select id="patientId" name="patientId" class="form-control" required formControlName="patientId" >
+                  <option value="">Select Patient Name</option>
+                    <option *ngFor="let list of AllPatientList" [value]="list.id">{{list.firstname}} {{list.lastname}}</option>
+                  </select>
+                  <!-- <div *ngIf="patientId.errors && patientId.touched" class="alert alert-danger">
+                    <div *ngIf="patientId.errors.required">Patient Name is required.</div>
+                  </div>    -->
+    
+            </div>
+            <div class="form-group col-md-3">
+                <label for="typelifestyle">Type of Life Style </label>
+                <br/>
+    
+                <input name="typelifestyle"  formControlName="typelifestyle" type="radio" [value]="true" [checked]="typelifestyle"/> Active
+                <input name="typelifestyle"formControlName="typelifestyle" type="radio" [value]="false" [checked]="!typelifestyle"/> Sedentary
+      
+              </div>
+
+            <div class="form-group col-md-3"  >
+                <label for="smoking">Smoking</label>             
+                <br/>
+    
+                <input name="smoking"  formControlName="smoking" type="radio" [value]="true" [checked]="smoking"/> Yes
+                <input name="smoking"formControlName="smoking" type="radio" [value]="false" [checked]="!smoking"/> No
+      
+            </div>
+
+            <div class="form-group col-md-3">
+              <label for="tobaccochewing">Tobacco Chewing</label>             
+              <br/>
+  
+              <input name="tobaccochewing"  formControlName="tobaccochewing" type="radio" [value]="true" [checked]="tobaccochewing"/> Yes
+              <input name="tobaccochewing" formControlName="tobaccochewing" type="radio" [value]="false" [checked]="!tobaccochewing"/> No
+    
+          </div>
+
+          </div>
+
+         
+          <div class="form-row">
+            
+            <div class="form-group col-md-3">
+                <label for="alcoholconsumption">Alcohol Consumption</label>             
+                <br/>
+    
+                <input name="alcoholconsumption"  formControlName="alcoholconsumption" type="radio" value="true" [checked]="alcoholconsumption"/> Yes
+                <input name="alcoholconsumption"  formControlName="alcoholconsumption" type="radio" value="false" [checked]="!alcoholconsumption"/> No
+      
+            </div>
+
+            <div class="form-group col-md-3"  *ngIf=" lifeStyleForm.get('alcoholconsumption').value == 'true'"  >
+
+                <label for="glassbeer ">No of Glasses of Beer </label>
+                <input type="text" id="glassbeer" name="glassbeer" class="form-control"   placeholder="No of Glasses Beer" 
+                required   formControlName="glassbeer" >
+    
+            </div> 
+
+            <div class="form-group col-md-3" *ngIf=" lifeStyleForm.get('alcoholconsumption').value == 'true'" >
+
+              <label for="brandypegs">No of brandy pegs a day </label>
+              <input type="text" id="brandypegs" name="brandypegs" class="form-control"   placeholder="No of brandy pegs a day " 
+              required  formControlName="brandypegs"  >
+  
+          </div> 
+
+          <div class="form-group col-md-3" *ngIf=" lifeStyleForm.get('alcoholconsumption').value == 'true'" >
+
+              <label for="whiskypegs">No of whisky pegs a day </label>
+              <input type="text" id="whiskypegs" name="whiskypegs" class="form-control"   placeholder="No of whisky pegs  a day" 
+              required  formControlName="whiskypegs"  >
+  
+          </div> 
+            
+          </div>    
+
+          <div class="form-row" *ngIf=" lifeStyleForm.get('alcoholconsumption').value == 'true'" >
+
+            <div class="form-group col-md-3">
+
+                <label for="localalcoholpegs">No of local alcoholic pegs a day </label>
+                <input type="text" id="localalcoholpegs" name="localalcoholpegs" class="form-control"   placeholder="No of local alcoholic pegs a day" 
+                required  formControlName="localalcoholpegs" >
+    
+            </div> 
+
+            <div class="form-group col-md-3">
+
+              <label for="wineglasses">No of wine glasses per day</label>
+              <input type="text" id="wineglasses" name="wineglasses" class="form-control"   placeholder="No of wine glasses per day" 
+              required  formControlName="wineglasses"  >
+  
+          </div> 
+
+          </div>  
+          
+          
+          
+  <hr/>
+
+
+  <div class="form-row">
+
+    <div class="form-group col-md-3">
+      <label for="excercise">Excercise</label>             
+      <br/>
+
+      <input name="excercise"   formControlName="excercise" type="radio" value="true" [checked]="excercise"/> Yes
+      <input name="excercise" formControlName="excercise" type="radio" value="false" [checked]="!excercise"/> No
+
+    </div> 
+
+    <div class="form-group col-md-3" *ngIf=" lifeStyleForm.get('excercise').value == 'true'" >
+
+      <label for="aerobicexercise">Aerobic exercise in minutes per day</label>
+      <input type="text" id="aerobicexercise" name="aerobicexercise" class="form-control"   placeholder="Aerobic exercise in minutes per day" 
+      required  formControlName="aerobicexercise" >
+
+  </div>
+  
+  <div class="form-group col-md-3">
+
+    <label for="walking">Walking  </label>
+    <input type="text" id="walking" name="walking" class="form-control"   placeholder="Walking" 
+    required  formControlName="walking"  >
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="yoga">Yoga</label>             
+    <input type="text" id="yoga" name="yoga" class="form-control"   placeholder="Yoga" 
+    required  formControlName="yoga" >
+
+  </div> 
+
+  </div>  
+
+  <div class="form-row">
+
+    <div class="form-group col-md-3">
+
+      <label for="cycling">Cycling</label>
+      <input type="text" id="cycling" name="cycling" class="form-control"   placeholder="Cycling" 
+      required  formControlName="cycling"  >
+
+  </div>
+  
+  <div class="form-group col-md-3" *ngIf=" lifeStyleForm.get('excercise').value == 'true'">
+
+    <label for="cardiacexercises">Cardiac exercises</label>
+    <input type="text" id="cardiacexercises" name="cardiacexercises" class="form-control"   placeholder="Cardiac Exercises" 
+    required  formControlName="cardiacexercises"  >
+
+</div>
+
+<div class="form-group col-md-3" *ngIf=" lifeStyleForm.get('excercise').value == 'true'">
+  <label for="otherexercises">Other exercises</label>             
+  <input type="text" id="otherexercises" name="otherexercises" class="form-control"   placeholder="Other Exercises" 
+  required  formControlName="otherexercises"  >
+</div>
+
+<div class="form-group col-md-3">
+  <label for="smoker">Smoker</label>             
+  <br/>
+
+  <input name="smoker"   formControlName="smoker" type="radio" value="true" [checked]="smoker"/> Yes
+  <input name="smoker" formControlName="smoker" type="radio" value="false" [checked]="!smoker"/> No
+
+</div>
+
+  </div> 
+
+  <div class="form-row">
+
+    <div class="form-group col-md-3">
+      <label for="physicalactivity">Physical activity</label>             
+      <br/>
+
+      <input name="physicalactivity"   formControlName="physicalactivity" type="radio" value="sedentary" [checked]="physicalactivity"/> Sedentary
+      <input name="physicalactivity" formControlName="physicalactivity" type="radio" value="light" [checked]="!physicalactivity"/> Light
+      <input name="physicalactivity" formControlName="physicalactivity" type="radio" value="moderate" [checked]="!physicalactivity"/> Moderate
+      <input name="physicalactivity" formControlName="physicalactivity" type="radio" value="good" [checked]="!physicalactivity"/> Good
+
+    </div>
+
+    
+  <div class="form-group col-md-3">
+    <label for="sleep">Sleep</label>             
+    <br/>
+
+    <input name="sleep"   formControlName="sleep" type="radio" value="deepsleep" [checked]="sleep"/> Deep Sleep
+    <input name="sleep" formControlName="sleep" type="radio" value="notsoundsleep" [checked]="!sleep"/> Not Sound Sleep
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="panchewing">Pan chewing </label>             
+    <br/>
+
+    <input name="panchewing"   formControlName="panchewing" type="radio" value="true" [checked]="panchewing"/> Yes
+    <input name="panchewing" formControlName="panchewing" type="radio" value="false" [checked]="!panchewing"/> No
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="regyoga">Yoga</label>             
+    <br/>
+
+    <input name="regyoga"   formControlName="regyoga" type="radio" value="regular " [checked]="regyoga"/> Regular 
+    <input name="regyoga" formControlName="regyoga" type="radio" value="irregular " [checked]="!regyoga"/> Irregular 
+    <input name="regyoga" formControlName="regyoga" type="radio" value="no" [checked]="!regyoga"/> No
+
+  </div>
+
+  </div> 
+
+<hr/>
+
+    <h4 class="text-center">Cancer</h4>
+
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="typecancer">Type of Cancer </label>        
+
+        <input type="text" id="typecancer" name="typecancer" class="form-control"   placeholder="Type Of Cancer" 
+        required  formControlName="typecancer"  >
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="chemotherapy">Chemotherapy</label>             
+        <br/>
+    
+        <input name="chemotherapy"   formControlName="chemotherapy" type="radio" value="true" [checked]="chemotherapy"/> Yes
+        <input name="chemotherapy" formControlName="chemotherapy" type="radio" value="false" [checked]="!chemotherapy"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="radiationtherapy">Radiation therapy</label>             
+        <br/>
+    
+        <input name="radiationtherapy"   formControlName="radiationtherapy" type="radio" value="true " [checked]="radiationtherapy"/> Yes 
+        <input name="radiationtherapy" formControlName="radiationtherapy" type="radio" value="false " [checked]="!radiationtherapy"/> No 
+       
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="therapy">Therapy</label>             
+        <br/>
+    
+        <input name="therapy"   formControlName="therapy" type="radio" value="true " [checked]="therapy"/> Yes 
+        <input name="therapy" formControlName="therapy" type="radio" value="false " [checked]="!therapy"/> No 
+       
+      </div>
+
+
+    </div>
+
+    <hr/>
+
+    <h4 class="text-center">Heart Related</h4>
+
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="heartattack">Heart attack</label>        
+        <br/>
+    
+        <input name="heartattack"   formControlName="heartattack" type="radio" value="true" [checked]="heartattack"/> Yes
+        <input name="heartattack" formControlName="heartattack" type="radio" value="false" [checked]="!heartattack"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="bypasssurgery">Bypass surgery</label>             
+        <br/>
+    
+        <input name="bypasssurgery"   formControlName="bypasssurgery" type="radio" value="true" [checked]="bypasssurgery"/> Yes
+        <input name="bypasssurgery" formControlName="bypasssurgery" type="radio" value="false" [checked]="!bypasssurgery"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="angiography">Angiography</label>             
+        <br/>
+    
+        <input name="angiography"   formControlName="angiography" type="radio" value="true " [checked]="angiography"/> Yes 
+        <input name="angiography" formControlName="angiography" type="radio" value="false " [checked]="!angiography"/> No 
+       
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="angioplasty">Angioplasty</label>        
+        <br/>
+    
+        <input name="angioplasty"   formControlName="angioplasty" type="radio" value="true" [checked]="angioplasty"/> Yes
+        <input name="angioplasty" formControlName="angioplasty" type="radio" value="false" [checked]="!angioplasty"/> No
+    
+      </div>
+
+    </div>
+
+    <div  class="form-row">
+    
+      <div class="form-group col-md-3">
+        <label for="valvesurgery">Valve surgery</label>             
+        <br/>
+    
+        <input name="valvesurgery"   formControlName="valvesurgery" type="radio" value="true" [checked]="valvesurgery"/> Yes
+        <input name="valvesurgery" formControlName="valvesurgery" type="radio" value="false" [checked]="!valvesurgery"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="irregularpulse">Irregular pulse</label>             
+        <br/>
+    
+        <input name="irregularpulse"   formControlName="irregularpulse" type="radio" value="true " [checked]="irregularpulse"/> Yes 
+        <input name="irregularpulse" formControlName="irregularpulse" type="radio" value="false " [checked]="!irregularpulse"/> No 
+       
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="heartmurmur"> Heart murmur</label>        
+        <br/>
+    
+        <input name="heartmurmur"   formControlName="heartmurmur" type="radio" value="true" [checked]="heartmurmur"/> Yes
+        <input name="heartmurmur" formControlName="heartmurmur" type="radio" value="false" [checked]="!heartmurmur"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="admissionheartproblem">Admission for heart problem</label>             
+        <br/>
+    
+        <input name="admissionheartproblem"   formControlName="admissionheartproblem" type="radio" value="true" [checked]="admissionheartproblem"/> Yes
+        <input name="admissionheartproblem" formControlName="admissionheartproblem" type="radio" value="false" [checked]="!admissionheartproblem"/> No
+    
+      </div>
+    </div>
+
+    <hr/>
+
+    <h4 class="text-center">Ear Related</h4>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="eardischarge">Ear discharge</label>        
+        <br/>
+    
+        <input name="eardischarge"   formControlName="eardischarge" type="radio" value="true" [checked]="eardischarge"/> Yes
+        <input name="eardischarge" formControlName="eardischarge" type="radio" value="false" [checked]="!eardischarge"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="earpain">Ear pain</label>             
+        <br/>
+    
+        <input name="earpain"   formControlName="earpain" type="radio" value="true" [checked]="earpain"/> Yes
+        <input name="earpain" formControlName="earpain" type="radio" value="false" [checked]="!earpain"/> No
+    
+      </div>
+    
+    </div>
+
+
+
+    <hr/>
+
+    <h4 class="text-center">Eye Related</h4>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="vision ">Vision </label>        
+        <br/>
+    
+        <input name="vision"   formControlName="vision" type="radio" value="good" [checked]="vision"/> Good
+        <input name="vision" formControlName="vision" type="radio" value="bad" [checked]="!vision"/> Bad
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="spectacles">Use of Spectacles</label>             
+        <br/>
+    
+        <input name="spectacles"   formControlName="spectacles" type="radio" value="true" [checked]="spectacles"/> Yes
+        <input name="spectacles" formControlName="spectacles" type="radio" value="false" [checked]="!spectacles"/> No
+    
+      </div>
+    
+    </div>
+
+    <hr/>
+    <h4 class="text-center">Kidney  Related</h4>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="chronickidneydisease"> Chronic kidney disease </label>        
+        <br/>
+    
+        <input name="chronickidneydisease"   formControlName="chronickidneydisease" type="radio" value="true" [checked]="chronickidneydisease"/> Yes
+        <input name="chronickidneydisease" formControlName="chronickidneydisease" type="radio" value="false" [checked]="!chronickidneydisease"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="abnormalurinefindings">Abnormal urine findings</label>             
+        <br/>
+    
+        <input name="abnormalurinefindings"   formControlName="abnormalurinefindings" type="radio" value="true" [checked]="abnormalurinefindings"/> Yes
+        <input name="abnormalurinefindings"   formControlName="abnormalurinefindings" type="radio" value="false" [checked]="!abnormalurinefindings"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="dialysis">Dialysis</label>             
+        <br/>
+    
+        <input name="dialysis"   formControlName="dialysis" type="radio" value="true " [checked]="dialysis"/> Yes 
+        <input name="dialysis" formControlName="dialysis" type="radio" value="false " [checked]="!dialysis"/> No 
+       
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="difficultyinpassingurine ">Difficulty in passing urine </label>        
+        <br/>
+    
+        <input name="difficultyinpassingurine"   formControlName="difficultyinpassingurine" type="radio" value="true" [checked]="difficultyinpassingurine"/> Yes
+        <input name="difficultyinpassingurine"  formControlName="difficultyinpassingurine" type="radio" value="false" [checked]="!difficultyinpassingurine"/> No
+    
+      </div>
+
+    </div>
+
+    <div  class="form-row">
+      
+      <div class="form-group col-md-3">
+        <label for="painwhilepassingurine">Pain while passing urine</label>             
+        <br/>
+    
+        <input name="painwhilepassingurine"   formControlName="painwhilepassingurine" type="radio" value="true" [checked]="painwhilepassingurine"/> Yes
+        <input name="painwhilepassingurine"   formControlName="painwhilepassingurine" type="radio" value="false" [checked]="!painwhilepassingurine"/> No
+    
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="prostrate">Prostrate</label>             
+        <br/>
+    
+        <input name="prostrate"   formControlName="prostrate" type="radio" value="true" [checked]="prostrate"/> Yes
+        <input name="prostrate"   formControlName="prostrate" type="radio" value="false" [checked]="!prostrate"/> No
+    
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="hernia ">Hernia</label>        
+        <br/>
+    
+        <input name="hernia"   formControlName="hernia" type="radio" value="true" [checked]="hernia"/> Yes
+        <input name="hernia"  formControlName="hernia" type="radio" value="false" [checked]="!hernia"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="scarsofoperation">Scars of operation</label>             
+        <br/>
+    
+        <input name="scarsofoperation"   formControlName="scarsofoperation" type="radio" value="true" [checked]="scarsofoperation"/> Yes
+        <input name="scarsofoperation"   formControlName="scarsofoperation" type="radio" value="false" [checked]="!scarsofoperation"/> No
+    
+      </div>
+
+    </div>
+
+    <hr/>
+    <h4 class="text-center">Liver  Related</h4>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="enlargedliver">Enlarged liver</label>        
+        <br/>
+    
+        <input name="enlargedliver"   formControlName="enlargedliver" type="radio" value="true" [checked]="enlargedliver"/> Yes
+        <input name="enlargedliver"   formControlName="enlargedliver" type="radio" value="false" [checked]="!enlargedliver"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="cirrhosisofliver">Cirrhosis of liver</label>             
+        <br/>
+    
+        <input name="cirrhosisofliver"   formControlName="cirrhosisofliver" type="radio" value="true" [checked]="cirrhosisofliver"/> Yes
+        <input name="cirrhosisofliver"   formControlName="cirrhosisofliver" type="radio" value="false" [checked]="!cirrhosisofliver"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="chronicliverdisease">Chronic liver disease</label>             
+        <br/>
+    
+        <input name="chronicliverdisease"   formControlName="chronicliverdisease" type="radio" value="true " [checked]="chronicliverdisease"/> Yes 
+        <input name="chronicliverdisease"   formControlName="chronicliverdisease" type="radio" value="false " [checked]="!chronicliverdisease"/> No 
+       
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="cancerofliver">Cancer of liver</label>             
+        <br/> 
+    
+        <input name="cancerofliver"   formControlName="cancerofliver" type="radio" value="true " [checked]="cancerofliver"/> Yes 
+        <input name="cancerofliver"   formControlName="cancerofliver" type="radio" value="false " [checked]="!cancerofliver"/> No 
+       
+      </div>
+    
+    
+    </div>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="chronicalcoholicliverdisease">Chronic alcoholic liver disease</label>        
+        <br/>
+    
+        <input name="chronicalcoholicliverdisease"   formControlName="chronicalcoholicliverdisease" type="radio" value="true" [checked]="chronicalcoholicliverdisease"/> Yes
+        <input name="chronicalcoholicliverdisease"   formControlName="chronicalcoholicliverdisease" type="radio" value="false" [checked]="!chronicalcoholicliverdisease"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="hepatitis">Hepatitis</label>             
+        <br/>
+    
+        <input name="hepatitis"   formControlName="hepatitis" type="radio" value="true" [checked]="hepatitis"/> Yes
+        <input name="hepatitis"   formControlName="hepatitis" type="radio" value="false" [checked]="!hepatitis"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="hepatitisc">Hepatitis C</label>             
+        <br/>
+    
+        <input name="hepatitisc"   formControlName="hepatitisc" type="radio" value="true " [checked]="hepatitisc"/> Yes 
+        <input name="hepatitisc"   formControlName="hepatitisc" type="radio" value="false " [checked]="!hepatitisc"/> No 
+       
+      </div>
+    
+    </div>
+
+<hr/>
+<h4 class="text-center">Others  </h4>
+
+<div  class="form-row">
+
+  <div class="form-group col-md-3">
+    <label for="sexuallytransmitteddisease">Sexually transmitted disease</label>        
+    <br/>
+
+    <input name="sexuallytransmitteddisease"   formControlName="sexuallytransmitteddisease" type="radio" value="true" [checked]="sexuallytransmitteddisease"/> Yes
+    <input name="sexuallytransmitteddisease"   formControlName="sexuallytransmitteddisease" type="radio" value="false" [checked]="!sexuallytransmitteddisease"/> No
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="asthma">Asthma</label>             
+    <br/>
+
+    <input name="asthma"   formControlName="asthma" type="radio" value="true" [checked]="asthma"/> Yes
+    <input name="asthma"   formControlName="asthma" type="radio" value="false" [checked]="!asthma"/> No
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="bronchitis">Bronchitis</label>             
+    <br/>
+
+    <input name="bronchitis"   formControlName="bronchitis" type="radio" value="true " [checked]="bronchitis"/> Yes 
+    <input name="bronchitis"   formControlName="bronchitis" type="radio" value="false " [checked]="!bronchitis"/> No 
+   
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="tuberculosis">Tuberculosis</label>             
+    <br/>
+
+    <input name="tuberculosis"   formControlName="tuberculosis" type="radio" value="true " [checked]="tuberculosis"/> Yes 
+    <input name="tuberculosis"   formControlName="tuberculosis" type="radio" value="false " [checked]="!tuberculosis"/> No 
+   
+  </div>
+
+</div>
+
+<div  class="form-row">
+
+  <div class="form-group col-md-3">
+    <label for="pneumonia">Pneumonia</label>        
+    <br/>
+
+    <input name="pneumonia"   formControlName="pneumonia" type="radio" value="true" [checked]="pneumonia"/> Yes
+    <input name="pneumonia"   formControlName="pneumonia" type="radio" value="false" [checked]="!pneumonia"/> No
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="emphysema">Emphysema</label>             
+    <br/>
+
+    <input name="emphysema"   formControlName="emphysema" type="radio" value="true" [checked]="emphysema"/> Yes
+    <input name="emphysema"   formControlName="emphysema" type="radio" value="false" [checked]="!emphysema"/> No
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="chronicobstructivepulmonarydisease">BronchiChronic obstructive pulmonary diseasetis</label>             
+    <br/>
+
+    <input name="chronicobstructivepulmonarydisease"   formControlName="chronicobstructivepulmonarydisease" type="radio" value="true " [checked]="chronicobstructivepulmonarydisease"/> Yes 
+    <input name="chronicobstructivepulmonarydisease"   formControlName="chronicobstructivepulmonarydisease" type="radio" value="false " [checked]="!chronicobstructivepulmonarydisease"/> No 
+   
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="cough">Cough</label>             
+    <br/>
+
+    <input name="cough"   formControlName="cough" type="radio" value="true " [checked]="cough"/> Yes 
+    <input name="cough"   formControlName="cough" type="radio" value="false " [checked]="!cough"/> No 
+   
+  </div>
+
+</div>
+
+<div  class="form-row">
+
+  <div class="form-group col-md-3">
+    <label for="shortnessofbreath">Shortness of breath</label>        
+    <br/>
+
+    <input name="shortnessofbreath"   formControlName="shortnessofbreath" type="radio" value="true" [checked]="shortnessofbreath"/> Yes
+    <input name="shortnessofbreath"   formControlName="shortnessofbreath" type="radio" value="false" [checked]="!shortnessofbreath"/> No
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="bloodinsputam">Blood in sputam</label>             
+    <br/>
+
+    <input name="bloodinsputam"   formControlName="bloodinsputam" type="radio" value="true" [checked]="bloodinsputam"/> Yes
+    <input name="bloodinsputam"   formControlName="bloodinsputam" type="radio" value="false" [checked]="!bloodinsputam"/> No
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="epilepsy">Epilepsy</label>             
+    <br/>
+
+    <input name="epilepsy"   formControlName="epilepsy" type="radio" value="true " [checked]="epilepsy"/> Yes 
+    <input name="epilepsy"   formControlName="epilepsy" type="radio" value="false " [checked]="!epilepsy"/> No 
+   
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="blackouts">Blackouts</label>             
+    <br/>
+
+    <input name="blackouts"   formControlName="blackouts" type="radio" value="true " [checked]="blackouts"/> Yes 
+    <input name="blackouts"   formControlName="blackouts" type="radio" value="false " [checked]="!blackouts"/> No 
+   
+  </div>
+
+</div>  
+<div  class="form-row">
+
+  <div class="form-group col-md-3">
+    <label for="paralysis">Paralysis</label>        
+    <br/>
+
+    <input name="paralysis"   formControlName="paralysis" type="radio" value="true" [checked]="paralysis"/> Yes
+    <input name="paralysis"   formControlName="paralysis" type="radio" value="false" [checked]="!paralysis"/> No
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="anxiety">Anxiety</label>             
+    <br/>
+
+    <input name="anxiety"   formControlName="anxiety" type="radio" value="true" [checked]="anxiety"/> Yes
+    <input name="anxiety"   formControlName="anxiety" type="radio" value="false" [checked]="!anxiety"/> No
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="depression">Depression</label>             
+    <br/>
+
+    <input name="depression"   formControlName="depression" type="radio" value="true " [checked]="depression"/> Yes 
+    <input name="depression"   formControlName="depression" type="radio" value="false " [checked]="!depression"/> No 
+   
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="bloodinstool">Blood in stool</label>             
+    <br/>
+
+    <input name="bloodinstool"   formControlName="bloodinstool" type="radio" value="true " [checked]="bloodinstool"/> Yes 
+    <input name="bloodinstool"   formControlName="bloodinstool" type="radio" value="false " [checked]="!bloodinstool"/> No 
+   
+  </div>
+
+</div>  
+
+
+<hr/>
+<h4 class="text-center">Endocrine Disorder</h4>
+
+<div  class="form-row">
+
+  <div class="form-group col-md-3">
+    <label for="goitre">Goitre</label>        
+    <br/>
+
+    <input name="goitre"   formControlName="goitre" type="radio" value="true" [checked]="goitre"/> Yes
+    <input name="goitre"   formControlName="goitre" type="radio" value="false" [checked]="!goitre"/> No
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="hypothrodism">Hypothrodism</label>             
+    <br/>
+
+    <input name="hypothrodism"   formControlName="hypothrodism" type="radio" value="true" [checked]="hypothrodism"/> Yes
+    <input name="hypothrodism"   formControlName="hypothrodism" type="radio" value="false" [checked]="!hypothrodism"/> No
+
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="hyperthyrodism">Hyper thyrodism</label>             
+    <br/>
+
+    <input name="hyperthyrodism"   formControlName="hyperthyrodism" type="radio" value="true " [checked]="hyperthyrodism"/> Yes 
+    <input name="hyperthyrodism"   formControlName="hyperthyrodism" type="radio" value="false " [checked]="!hyperthyrodism"/> No 
+   
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="thyroditis">Thyroditis</label>             
+    <br/> 
+
+    <input name="thyroditis"   formControlName="thyroditis" type="radio" value="true " [checked]="thyroditis"/> Yes 
+    <input name="thyroditis"   formControlName="thyroditis" type="radio" value="false " [checked]="!thyroditis"/> No 
+   
+  </div>
+
+
+</div>
+
+<div  class="form-row">
+
+  <div class="form-group col-md-3">
+    <label for="allergies">Allergies</label>        
+    <br/>
+
+    <input name="allergies"   formControlName="allergies" type="radio" value="true" [checked]="allergies"/> Yes
+    <input name="allergies"   formControlName="allergies" type="radio" value="false" [checked]="!allergies"/> No
+
+  </div>
+
+</div>
+
+<hr/>
+    <h4 class="text-center">Virology</h4>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="malaria">Malaria</label>        
+        <br/>
+    
+        <input name="malaria"   formControlName="malaria" type="radio" value="true" [checked]="malaria"/> Yes
+        <input name="malaria"   formControlName="malaria" type="radio" value="false" [checked]="!malaria"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="filaria">Filaria</label>             
+        <br/>
+    
+        <input name="filaria"   formControlName="filaria" type="radio" value="true" [checked]="filaria"/> Yes
+        <input name="filaria"   formControlName="filaria" type="radio" value="false" [checked]="!filaria"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="kalaazar">Kala Azar</label>             
+        <br/>
+    
+        <input name="kalaazar"   formControlName="kalaazar" type="radio" value="true " [checked]="kalaazar"/> Yes 
+        <input name="kalaazar"   formControlName="kalaazar" type="radio" value="false " [checked]="!kalaazar"/> No 
+       
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="swineflu">Swine flu</label>             
+        <br/> 
+    
+        <input name="swineflu"   formControlName="swineflu" type="radio" value="true " [checked]="swineflu"/> Yes 
+        <input name="swineflu"   formControlName="swineflu" type="radio" value="false " [checked]="!swineflu"/> No 
+       
+      </div>
+    
+    
+    </div>
+
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="covid19">Covid 19</label>        
+        <br/>
+    
+        <input name="covid19"   formControlName="covid19" type="radio" value="true" [checked]="covid19"/> Yes
+        <input name="covid19"   formControlName="covid19" type="radio" value="false" [checked]="!covid19"/> No
+    
+      </div>
+    
+    </div>
+
+    <hr/>
+    <h4 class="text-center">Disease of Muscles </h4>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="myopathy">Myopathy</label>        
+        <br/>
+    
+        <input name="myopathy"   formControlName="myopathy" type="radio" value="true" [checked]="myopathy"/> Yes
+        <input name="myopathy"   formControlName="myopathy" type="radio" value="false" [checked]="!myopathy"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="rheumatism">Rheumatism</label>             
+        <br/>
+    
+        <input name="rheumatism"   formControlName="rheumatism" type="radio" value="true" [checked]="rheumatism"/> Yes
+        <input name="rheumatism"   formControlName="rheumatism" type="radio" value="false" [checked]="!rheumatism"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="arthrities">Arthrities</label>             
+        <br/>
+    
+        <input name="arthrities"   formControlName="arthrities" type="radio" value="true " [checked]="arthrities"/> Yes 
+        <input name="arthrities"   formControlName="arthrities" type="radio" value="false " [checked]="!arthrities"/> No 
+       
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="gout">Gout</label>             
+        <br/> 
+    
+        <input name="gout"   formControlName="gout" type="radio" value="true " [checked]="gout"/> Yes 
+        <input name="gout"   formControlName="gout" type="radio" value="false " [checked]="!gout"/> No 
+       
+      </div>
+    
+    
+    </div>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="osteoporosis">Osteoporosis</label>        
+        <br/>
+    
+        <input name="osteoporosis"   formControlName="osteoporosis" type="radio" value="true" [checked]="osteoporosis"/> Yes
+        <input name="osteoporosis"   formControlName="osteoporosis" type="radio" value="false" [checked]="!osteoporosis"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="bonefractures">Bone fractures</label>             
+        <br/>
+    
+        <input name="bonefractures"   formControlName="bonefractures" type="radio" value="true" [checked]="bonefractures"/> Yes
+        <input name="bonefractures"   formControlName="bonefractures" type="radio" value="false" [checked]="!bonefractures"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="slippeddisc">Slipped disc</label>             
+        <br/>
+    
+        <input name="slippeddisc"   formControlName="slippeddisc" type="radio" value="true " [checked]="slippeddisc"/> Yes 
+        <input name="slippeddisc"   formControlName="slippeddisc" type="radio" value="false " [checked]="!slippeddisc"/> No 
+       
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="physicaldeformity">Physical deformity</label>             
+        <br/> 
+    
+        <input name="physicaldeformity"   formControlName="physicaldeformity" type="radio" value="true " [checked]="physicaldeformity"/> Yes 
+        <input name="physicaldeformity"   formControlName="physicaldeformity" type="radio" value="false " [checked]="!physicaldeformity"/> No 
+       
+      </div>
+    
+    
+    </div>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="congentialdeformity">Congential deformity</label>        
+        <br/>
+    
+        <input name="congentialdeformity"   formControlName="congentialdeformity" type="radio" value="true" [checked]="congentialdeformity"/> Yes
+        <input name="congentialdeformity"   formControlName="congentialdeformity" type="radio" value="false" [checked]="!congentialdeformity"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="handicap">Handicap</label>             
+        <br/>
+    
+        <input name="handicap"   formControlName="handicap" type="radio" value="true" [checked]="handicap"/> Yes
+        <input name="handicap"   formControlName="handicap" type="radio" value="false" [checked]="!handicap"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="spousehavingHIV  ">Spouse having HIV  </label>             
+        <br/>
+    
+        <input name="spousehavingHIV"   formControlName="spousehavingHIV" type="radio" value="true " [checked]="spousehavingHIV"/> Yes 
+        <input name="spousehavingHIV"   formControlName="spousehavingHIV" type="radio" value="false " [checked]="!spousehavingHIV"/> No 
+       
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="spousehavinghepatitisB">Spouse having Hepatitis B</label>             
+        <br/> 
+    
+        <input name="spousehavinghepatitisB"   formControlName="spousehavinghepatitisB" type="radio" value="true " [checked]="spousehavinghepatitisB"/> Yes 
+        <input name="spousehavinghepatitisB"   formControlName="spousehavinghepatitisB" type="radio" value="false " [checked]="!spousehavinghepatitisB"/> No 
+       
+      </div>
+    
+    
+    </div>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="spousehavinghepatatisC">Spouse having Hepatatis C</label>        
+        <br/>
+    
+        <input name="spousehavinghepatatisC"   formControlName="spousehavinghepatatisC" type="radio" value="true" [checked]="spousehavinghepatatisC"/> Yes
+        <input name="spousehavinghepatatisC"   formControlName="spousehavinghepatatisC" type="radio" value="false" [checked]="!spousehavinghepatatisC"/> No
+    
+      </div>
+    
+    </div>
+
+    <hr/>
+    <h4 class="text-center">Female</h4>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="pregancy">Pregancy</label>        
+        <br/>
+    
+        <input name="pregancy"   formControlName="pregancy" type="radio" value="true" [checked]="pregancy"/> Yes
+        <input name="pregancy"   formControlName="pregancy" type="radio" value="false" [checked]="!pregancy"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="postmenopause">Post menopause</label>             
+        <br/>
+    
+        <input name="postmenopause"   formControlName="postmenopause" type="radio" value="true" [checked]="postmenopause"/> Yes
+        <input name="postmenopause"   formControlName="postmenopause" type="radio" value="false" [checked]="!postmenopause"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="hysterectomy">Hysterectomy</label>             
+        <br/>
+    
+        <input name="hysterectomy"   formControlName="hysterectomy" type="radio" value="true " [checked]="hysterectomy"/> Yes 
+        <input name="hysterectomy"   formControlName="hysterectomy" type="radio" value="false " [checked]="!hysterectomy"/> No 
+       
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="mamography">Mamography</label>             
+        <br/> 
+    
+        <input name="mamography"   formControlName="mamography" type="radio" value="true " [checked]="mamography"/> Yes 
+        <input name="mamography"   formControlName="mamography" type="radio" value="false " [checked]="!mamography"/> No 
+       
+      </div>
+    
+    
+    </div>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="papsmear">Pap Smear</label>        
+        <br/>
+    
+        <input name="papsmear"   formControlName="papsmear" type="radio" value="true" [checked]="papsmear"/> Yes
+        <input name="papsmear"   formControlName="papsmear" type="radio" value="false" [checked]="!papsmear"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="uterusremoved">Uterus removed</label>             
+        <br/>
+    
+        <input name="uterusremoved"   formControlName="uterusremoved" type="radio" value="true" [checked]="uterusremoved"/> Yes
+        <input name="uterusremoved"   formControlName="uterusremoved" type="radio" value="false" [checked]="!uterusremoved"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="anyothergynaeproblem">Any other Gynae problem</label>             
+        <br/>
+    
+        <input name="anyothergynaeproblem"   formControlName="anyothergynaeproblem" type="radio" value="true " [checked]="anyothergynaeproblem"/> Yes 
+        <input name="anyothergynaeproblem"   formControlName="anyothergynaeproblem" type="radio" value="false " [checked]="!anyothergynaeproblem"/> No 
+       
+      </div>
+    
+    
+    </div>
+
+    <hr/>
+    <h4 class="text-center">Abnormalities</h4>
+
+    <div  class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="nervous">Nervous</label>        
+        <br/>
+    
+        <input name="nervous"   formControlName="nervous" type="radio" value="true" [checked]="nervous"/> Yes
+        <input name="nervous"   formControlName="nervous" type="radio" value="false" [checked]="!nervous"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="jointandmusclepain">Joint and muscle pain</label>             
+        <br/>
+    
+        <input name="jointandmusclepain"   formControlName="jointandmusclepain" type="radio" value="true" [checked]="jointandmusclepain"/> Yes
+        <input name="jointandmusclepain"   formControlName="jointandmusclepain" type="radio" value="false" [checked]="!jointandmusclepain"/> No
+    
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label for="bodydeformity">Body deformity</label>             
+        <br/>
+    
+        <input name="bodydeformity"   formControlName="bodydeformity" type="radio" value="true " [checked]="bodydeformity"/> Yes 
+        <input name="bodydeformity"   formControlName="bodydeformity" type="radio" value="false " [checked]="!bodydeformity"/> No 
+       
+      </div>
+    
+    </div>
+         
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary  btn-block"  >Submit</button>
+                </div>
+                <!-- <div class="form-group col-md-6">
+                   <button type="button" class="btn btn-danger  btn-block" (click)="lifeStyleForm.resetForm({})">Reset</button>
+                </div>         -->
+            
+      
+            </div>
+      </form> 
+     
+      </div>
+			
+	
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+<!-- <app-footer></app-footer> -->

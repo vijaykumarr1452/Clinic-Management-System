@@ -1,0 +1,350 @@
+<app-nav></app-nav>
+<!-- <app-sidenav></app-sidenav> -->
+<!-- Page Content -->
+<div id="page-content-wrapper">
+  <div class="container-fluid xyz">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="patient-form">
+          <form name="viewpatientForm" [formGroup]="viewpatientForm" id="viewpatientForm">
+            <!--  (ngSubmit)="updatePatient()" -->
+            <h2 class="text-center">Patient Form</h2>
+
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="patientname">Patient Name</label>
+                <input type="text" id="patientname" name="patientname" class="form-control" required
+                  formControlName="patientname" placeholder="Patient Name ">
+
+                <!-- <div *ngIf="patientname.invalid && (patientname.dirty || patientname.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="patientname.errors.required">
+                    Patient Name is required.
+                  </div>
+                </div> -->
+
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="dob">Date Of Birth </label>
+                <input type="date" id="dob" name="dob" class="form-control" placeholder="DOB " [max]="getToday()"
+                  required formControlName="dob" (blur)="calculateAge(this.viewpatientForm.get('dob').value)">
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="age">Age </label>
+                <input type="text" id="age" name="age" class="form-control" placeholder="Age " required
+                  formControlName="age">
+
+                <!-- <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert alert-danger"> 
+                  <div *ngIf="age.errors.required">
+                    Age is required.
+                  </div>
+                </div> -->
+
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+
+              <div class="form-group col-md-4">
+                <label for="mobileno">Mobile Number</label>
+                <input type="text" id="mobileno" name="mobileno" class="form-control" placeholder="Mobile Number "
+                  required formControlName="mobileno">
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="submitdate">Date of Registration</label>
+                <input type="date" id="submitdate" name="submitdate" class="form-control"
+                  placeholder="Registration Date " required formControlName="testdate" [max]="getToday()">
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="ew">Echo Window</label>
+                <select id="ew" name="ew" class="form-control" formControlName="ew">
+                  <!-- <option [value]="null">Select EW</option>  -->
+                  <option>Good</option>
+                  <option>Bad</option>
+                  <!-- <option *ngFor="let ew of ews" [ngValue]='ew.label' >{{ew.value}}</option> -->
+                </select>
+
+
+              </div>
+
+
+            </div>
+
+            <div class="form-row">
+
+
+              <div class="form-group col-md-4">
+                <label for="protocol">Protocol</label>
+                <select id="protocol" name="protocol" class="form-control" required formControlName="protocol">
+                  <option>Transthoracic</option>
+                  <option>Ultra Sound</option>
+                  <!-- <option *ngFor="let prot of protocols" [value]="prot">{{prot}}</option> -->
+                </select>
+
+              </div>
+
+
+              <div class="form-group col-md-4">
+                <label for="testtype">Test Type</label>
+                <select name="testtype" id="testtype" class="form-control" required formControlName="testtype">
+                  <!-- <option value="null">Select Test</option> -->
+                  <!-- <option *ngFor="let prot of echo" [value]="echo">{{prot}}</option> -->
+                  <option>ECHO</option>
+                  <option>X-ray</option>
+                  <option>Ultra Sound</option>
+                </select>
+
+
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="height">Height (in Cms)</label>
+                <input type="number" id="height" name="height" min='0' class="form-control" placeholder="Height "
+                  required formControlName="height" (blur)="calculateBsa(this.viewpatientForm.get('height').value)"
+                  oninput="this.value = 
+                    !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
+
+                <div
+                  *ngIf="viewpatientForm.controls.height.invalid && (viewpatientForm.controls.height.dirty || viewpatientForm.controls.height.touched)"
+                  class="alert alert-danger">
+                  height is required.
+                  <div *ngIf="viewpatientForm.controls.height.errors.required">
+                    height is required.
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="weight">Weight (in Kgs)</label>
+                <input type="number" id="weight" name="weight" max='200' class="form-control" placeholder="Weight "
+                  required formControlName="weight" (blur)="calculateBsa(this.viewpatientForm.get('weight').value)"
+                  oninput="this.value = 
+                      !!this.value && Math.abs(this.value) <= 200 ? Math.abs(this.value) : null">
+              </div>
+
+
+              <div class="form-group col-md-4">
+                <label for="bsa">BSA</label>
+                <input type="text" id="bsa" name="bsa" class="form-control" placeholder="BSA " required
+                  formControlName="bsa">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="bmi">BMI</label>
+                <input type="text" id="bmi" name="bmi" class="form-control" placeholder="BMI " required
+                  formControlName="bmi">
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+
+              <div class="form-group col-md-4">
+                <label for="requirement">Requirement</label>
+                <select id="requirement" name="requirement" class="form-control" required formControlName="requirement">
+                  <option>Very Urgent</option>
+                  <option>With in a Day</option>
+                  <option>Routine</option>
+                  <!-- <option *ngFor="let req of requirements" [value]="req">{{req}}</option> -->
+                </select>
+
+                <!-- <div *ngIf="requirement.invalid && (requirement.dirty || requirement.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="requirement.errors.required">
+                    Requirement Field is required.
+                  </div>
+                </div> -->
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="bpdiastolic">BP : Diastolic </label>
+                <input type="text" id="bpdiastolic" name="bpdiastolic" class="form-control" placeholder="BP Diastolic"
+                  required formControlName="bpdiastolic" oninput="this.value = 
+                      !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="bpsystolic">BP : Systolic</label>
+                <input type="text" id="bpsystolic" name="bpsystolic" class="form-control" placeholder="BP Systolic"
+                  required formControlName="bpsystolic" oninput="this.value = 
+                      !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
+                  ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01">
+                <div class="alert alert-danger"
+                  *ngIf="viewpatientForm.controls.bpsystolic.errors && viewpatientForm.controls.bpsystolic.errors.greaterThan ">
+                  <div>BP Systolic should be greaterThan BP Diastolic</div>
+                </div>
+              </div>
+
+
+              <!-- <div *ngIf="bpdiastolic.invalid && (bpdiastolic.dirty || bpdiastolic.touched)" class="alert alert-danger">
+                      <div *ngIf="bpdiastolic.errors.required">
+                        Requirement Field is required.
+                      </div>
+                      </div> -->
+            </div>
+
+
+            <div class="form-row">
+
+              <div class="form-group col-md-4">
+                <label for="ef">E.F%</label>
+                <input type="number" id="ef" name="ef" class="form-control" placeholder="ef " required
+                  formControlName="ef" onfocus="if (this.value!=='') this.value='';" min="0"
+                  oninput="this.value = Math.abs(this.value)">
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="tapse">TAPSE (in cm2 )</label>
+                <input type="number" id="tapse" name="tapse" class="form-control" placeholder="Tapse" required
+                  formControlName="tapse" onfocus="if (this.value!=='') this.value='';" min="0"
+                  oninput="this.value = Math.abs(this.value)">
+              </div>
+
+
+              <div class="form-group col-md-4">
+                <label for="mapse">MAPSE (in cm2 )</label>
+                <input type="number" id="mapse" name="mapse" class="form-control" placeholder="Mapse" required
+                  formControlName="mapse" onfocus="if (this.value!=='') this.value='';" min="0"
+                  oninput="this.value = Math.abs(this.value)">
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group col-md-4">
+                <label for="reason">Clinic Observations</label>
+
+                <select id="reason" name="reason" class="form-control" formControlName="reason">
+                  <option value="null">Select Clinic Observations</option>
+                  <option *ngFor="let reason of clinicObservation" [value]="reason['itemName']">{{reason['itemName']}}
+                  </option>
+                </select>
+
+
+
+
+
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="reasonForEcho">Reason for Echo</label>
+
+                <!-- <select id="reasonForEcho" name="reasonForEcho" class="form-control" formControlName="reasonForEcho">
+                  <option value="null">Select Reason for visit</option>
+                  <option *ngFor="let reason of reasonForEcho" [value]="reason['itemName']">{{reason['itemName']}}
+                  </option>
+                </select> -->
+ <angular2-multiselect [data]="this.reasonForEcho"  [settings]="settings"  formControlName="reasonForEcho"
+      (onSelect)="onItemSelect($event)"   name="speciality" id="speciality" class="Checkbox"
+      (onDeSelect)="OnItemDeSelect($event)" 
+      (onSelectAll)="onSelectAll($event)" 
+      (onDeSelectAll)="onDeSelectAll($event)"  >
+        <c-item>
+                <ng-template let-item="item">
+                  <label style="color: #495057;min-width: 150px;font-weight: 500">{{item.itemName}}</label> 
+                </ng-template>
+        </c-item>  
+      </angular2-multiselect> 
+
+              </div>
+
+
+
+
+
+
+              <div class="form-group col-md-4">
+                <label for="referenceDoctor">Reference Doctor</label>
+
+                <select id="referenceDoctor" name="referenceDoctor" class="form-control"
+                  formControlName="referenceDoctor">
+                  <option value="null">Select Reference Doctor</option>
+                  <option *ngFor="let reason1 of referenceDoctor1" [value]="reason1['itemName']">{{reason1['itemName']}}
+                  </option>
+                </select>
+
+
+
+              </div>
+              <!-- <div class="form-group col-md-6">
+                      <label for="sendreport"> Send Report </label>
+                      <div>
+                        <label class="radio-inline">
+                            <input type="radio" name="sendreport" id="sendreport" value="sms"  
+                            required formControlName="sendreport" #sendreport="formControlName"  >
+                            Send Sms
+                        </label>  &nbsp;
+                        <label class="radio-inline">
+                            <input type="radio" name="sendreport" id="sendreport" value="email" 
+                            required formControlName="sendreport" #sendreport="formControlName"  >
+                          Send Email
+                        </label>
+                      </div>    
+                    </div> -->
+
+            </div>
+
+            <!-- <div class="form-row">
+
+              <div class="form-group col-md-6">
+                <label for="reason">Observation of the Clinic </label>
+
+                <textarea id="reason" name="reason" cols="25" rows="5" class="form-control"
+                  placeholder="Reason to Visit" formControlName="reason" required
+                  ></textarea>
+              </div>
+
+
+
+              <input type="hidden" name="docId" id="docId" value="docId" required formControlName="docId"
+                
+              >
+
+            </div> -->
+
+            <div class="form-row">
+              <!-- <div class="form-group col-md-3"></div> -->
+              <div class="form-group col-md-4">
+                <!-- <button type="submit" class="btn btn-primary  btn-block" name="Save" id="Save"  (ngSubmit)="updatePatient('Save')" >Save</button> -->
+                <input type="button" class="btn btn-primary" (click)="updatePatient()" value="Save" />
+              </div>
+
+              <div class="form-group col-md-4">
+                <input type="button" class="btn btn-primary" (click)="updatePatient1()" value="submit" />
+              </div>
+              <div class="form-group col-md-3">
+                <!-- <button type="submit" class="btn btn-danger  btn-block" name="Submit" id="Submit" (ngSubmit)="updatePatient('Submit')"  >Submit</button> -->
+                <!-- (click)="goToSendDetails(patientDataObject)" -->
+
+                <input type="button" class="btn btn-danger" (click)="goToSendDetails()"
+                  value="Send Notification" />
+
+              </div>&nbsp;&nbsp;
+
+            </div>
+
+          </form>
+
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /#page-content-wrapper -->
+<app-footer></app-footer>

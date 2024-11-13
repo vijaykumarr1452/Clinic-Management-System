@@ -1,0 +1,461 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<app-sidenav></app-sidenav> 	
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div  class="col-md-12 fright" >
+
+        <div class="login-form">
+            <form  name="familyDetailForm"   #familyDetailForm="ngForm" (ngSubmit)="updateFamilydetails()"   enctype="multipart/form-data">
+            
+          <h2 class="text-center">Family History Form</h2> 
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="patientno">Patient Name/No </label>
+                <select id="patientno" name="patientno" class="form-control" required [(ngModel)]="updform.patientno" #patientno="ngModel" >
+                  <option value="">Select Patient Name</option>
+                    <option *ngFor="let list of AllPatientList" [value]="list.id">{{list.firstname}} {{list.lastname}}</option>
+                  </select>
+                  <div *ngIf="patientno.errors && patientno.touched" class="alert alert-danger">
+                    <div *ngIf="patientno.errors.required">Patient Name is required.</div>
+                  </div>   
+    
+            </div>
+            <div class="form-group col-md-4"  >
+                <label for="diabetic">Is the Patient Diabetic </label> 
+                <br/>
+                <input name="diabetic"  [(ngModel)]="updform.diabetic" type="radio" value="true" [checked]="diabetic"/> Yes
+                <input name="diabetic"[(ngModel)]="updform.diabetic" type="radio" value="false" [checked]="!diabetic" /> No
+      
+            </div>
+
+            <div class="form-group col-md-4"  >
+                <label for="detectiondate">Date of Detection</label> 
+                <input type="date" class="form-control" name="detectiondate" id="detectiondate" placeholder="Date of First Visit" 
+                required [(ngModel)]="updform.detectiondate" #detectiondate="ngModel" [max]="getToday()"  >
+              
+             
+            </div>
+
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group col-md-4">
+
+                <label for="diabetictype">Type of Diabetic</label>                
+                <select id="diabetictype" name="diabetictype" class="form-control" required [(ngModel)]="updform.diabetictype" #diabetictype="ngModel" >
+                    <option value="">Select Type of Diabetic</option>
+                      <option *ngFor="let list of diabetictypes" [value]="list">{{list}}</option>
+                    </select>
+                    <!-- <div *ngIf="diabetictype.errors && diabetictype.touched" class="alert alert-danger">
+                      <div *ngIf="diabetictype.errors.required">Diabetic type is required.</div>
+                    </div>   -->
+
+           </div>           
+
+           <div class="form-group col-md-4">
+            <label for="yearsofdiabetic">No. of years that you are Diabetic</label>
+            <input type="text" id="yearsofdiabetic" name="yearsofdiabetic" class="form-control" placeholder="Years that you are Diabetic " 
+            required [(ngModel)]="updform.yearsofdiabetic" #yearsofdiabetic="ngModel" >
+          </div>
+
+           <div class="form-group col-md-4">
+            <label for="diabeticcoma">Diabetic coma</label>
+            <input type="text" id="diabeticcoma" name="diabeticcoma" class="form-control"   placeholder="Diabetic coma " 
+            required [(ngModel)]="updform.diabeticcoma" #diabeticcoma="ngModel" >
+
+            <!-- <div *ngIf="diabeticcoma.invalid && (diabeticcoma.dirty || diabeticcoma.touched)" class="alert alert-danger">
+              <div *ngIf="diabeticcoma.errors.required">
+                diabeticcoma is required.
+              </div>
+              </div> -->
+
+        </div> 
+                
+            </div>
+
+          
+          <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label for="gangreon"> Gangreon</label> 
+                <input type="text" id="gangreon" name="gangreon" class="form-control"   placeholder="Gangreon " 
+            required [(ngModel)]="updform.gangreon" #gangreon="ngModel"  >
+
+           </div>
+
+            <div class="form-group col-md-4">
+            <label for="diabeticcomplication">Admission for diabetic related complication  </label>
+            <br/>
+
+            <input name="diabeticcomplication"  [(ngModel)]="updform.diabeticcomplication" type="radio" value="true" [checked]="diabeticcomplication"/> Yes
+            <input name="diabeticcomplication"[(ngModel)]="updform.diabeticcomplication" type="radio" value="false" [checked]="!diabeticcomplication"/> No
+  
+          </div>
+
+         <div class="form-group col-md-4">
+            <label for="period ">Period </label>
+            <input type="text" id="period" name="period" class="form-control"   placeholder="Period" 
+            required [(ngModel)]="updform.period" #period ="ngModel" >
+
+            <!-- <div *ngIf="period.invalid && (period.dirty || period.touched)" class="alert alert-danger">
+              <div *ngIf="period.errors.required">
+                Period  is required.
+              </div>
+              </div> -->
+
+        </div> 
+                
+            </div> 
+      
+            
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label for="familydiabetic">History of diabetic in family</label>                   
+                    <br/>
+                    <input name="familydiabetic"  [(ngModel)]="updform.familydiabetic" type="radio" value="true" [checked]="familydiabetic"/> Yes
+                    <input name="familydiabetic"[(ngModel)]="updform.familydiabetic" type="radio" value="false" [checked]="!familydiabetic"/> No
+  
+                </div>
+
+               
+              <div class="form-group col-md-4"  >
+                <label for="fatherdiabetc">Is father diabetic</label>
+                <br/>
+                    <input name="fatherdiabetc"  [(ngModel)]="updform.fatherdiabetc" type="radio" value="true" [checked]="fatherdiabetc"/> Yes
+                    <input name="fatherdiabetc"[(ngModel)]="updform.fatherdiabetc" type="radio" value="false" [checked]="!fatherdiabetc"/> No
+  
+              </div>    
+                            
+                <div class="form-group col-md-4">
+                    <label for="familydiabetictype">Type of diabetic</label> 
+
+                    <select id="familydiabetictype" name="familydiabetictype" class="form-control" required [(ngModel)]="updform.familydiabetictype" #familydiabetictype="ngModel" >
+                    <option value="">Select Type of Diabetic</option>
+                    <option *ngFor="let list of familydiabetictypes" [value]="list">{{list}}</option>
+                    </select>
+
+               </div>
+           
+          
+            </div>
+                
+
+             <div class="form-row">
+
+                <div class="form-group col-md-4"  >
+                    <label for="motherdiabetic">Is Mother diabetic</label>
+                    <br/>
+                        <input name="motherdiabetic"  [(ngModel)]="updform.motherdiabetic" type="radio" value="true" [checked]="motherdiabetic"/> Yes
+                        <input name="motherdiabetic"[(ngModel)]="updform.motherdiabetic" type="radio" value="false" [checked]="!motherdiabetic"/> No
+      
+                  </div>    
+                                
+                    <div class="form-group col-md-4">
+                        <label for="motherdiabetictype">Type of diabetic</label> 
+    
+                        <select id="motherdiabetictype" name="motherdiabetictype" class="form-control" required [(ngModel)]="updform.motherdiabetictype" #motherdiabetictype="ngModel" >
+                        <option value="">Select Type of Diabetic</option>
+                        <option *ngFor="let list of familydiabetictypes" [value]="list">{{list}}</option>
+                        </select>
+    
+                   </div>
+
+            <div class="form-group col-md-4">
+              <label for="siblingdiabetic">Is sibling diabetic </label>
+              <br/>
+            <input name="siblingdiabetic"  [(ngModel)]="updform.siblingdiabetic" type="radio" value="true" [checked]="siblingdiabetic"/> Yes
+            <input name="siblingdiabetic"[(ngModel)]="updform.siblingdiabetic" type="radio" value="false" [checked]="!siblingdiabetic"/> No
+      
+            </div>
+
+    
+              </div> 
+
+             <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label for="siblingdiabetictype">Type of diabetic</label> 
+    
+                    <select id="siblingdiabetictype" name="siblingdiabetictype" class="form-control" required [(ngModel)]="updform.siblingdiabetictype" #siblingdiabetictype="ngModel" >
+                    <option value="">Select Type of Diabetic</option>
+                    <option *ngFor="let list of familydiabetictypes" [value]="list">{{list}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4"  >
+                    <label for="cardiachistory">History of cardiac cases in family</label>
+                    <br/>
+                        <input name="cardiachistory"  [(ngModel)]="updform.cardiachistory" type="radio" value="true" [checked]="cardiachistory"/> Yes
+                        <input name="cardiachistory"[(ngModel)]="updform.cardiachistory" type="radio" value="false" [checked]="!cardiachistory"/> No
+      
+                  </div> 
+
+                  <div class="form-group col-md-4"  >
+                    <label for="cardiacdeath">Death in the family due to cardiac arrest</label>
+                    <br/>
+                        <input name="cardiacdeath"  [(ngModel)]="updform.cardiacdeath" type="radio" value="true" [checked]="cardiacdeath"/> Yes
+                        <input name="cardiacdeath"[(ngModel)]="updform.cardiacdeath" type="radio" value="false" [checked]="!cardiacdeath"/> No
+      
+                  </div> 
+
+             
+              </div>
+            
+              <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label for="relationship">Its relationship with the patient</label> 
+    
+                    <select id="relationship" name="relationship" class="form-control" required [(ngModel)]="updform.relationship" #relationship="ngModel" >
+                    <option value="">Select Type of Relationship wit Patient</option>
+                    <option *ngFor="let list of relationsships" [value]="list">{{list}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4"  >
+                    <label for="Hypertension"> History of Hypertension in family</label>
+                    <br/>
+                        <input name="Hypertension"  [(ngModel)]="updform.hypertension" type="radio" value="true" [checked]="hypertension"/> Yes
+                        <input name="Hypertension"[(ngModel)]="updform.hypertension" type="radio" value="false" [checked]="!hypertension"/> No
+      
+                  </div> 
+
+                  <div class="form-group col-md-4"  >
+                    <label for="Hypertensiondeath">Death in the family due to hypertension</label>
+                    <br/>
+                        <input name="Hypertensiondeath"  [(ngModel)]="updform.hypertensiondeath" type="radio" value="true" [checked]="hypertensiondeath"/> Yes
+                        <input name="Hypertensiondeath"[(ngModel)]="updform.hypertensiondeath" type="radio" value="false" [checked]="!hypertensiondeath"/> No
+      
+                  </div> 
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-4">
+                        <label for="relationshipwithpatient">Its relationship with the patient</label> 
+        
+                        <select id="relationshipwithpatient" name="relationshipwithpatient" class="form-control" required [(ngModel)]="updform.relationshipwithpatient" #relationshipwithpatient="ngModel" >
+                        <option value="">Select Type of Relationship wit Patient</option>
+                        <option *ngFor="let list of relationsships" [value]="list">{{list}}</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group col-md-4"  >
+                        <label for="kidneyproblem"> History of kidney problems in family</label>
+                        <br/>
+                            <input name="kidneyproblem"  [(ngModel)]="updform.kidneyproblem" type="radio" value="true" [checked]="kidneyproblem"/> Yes
+                            <input name="kidneyproblem"[(ngModel)]="updform.kidneyproblem" type="radio" value="false" [checked]="!kidneyproblem"/> No
+          
+                      </div> 
+    
+                      <div class="form-group col-md-4"  >
+                        <label for="kidneyproblemdeath">Death in the family due to kidney failure</label>
+                        <br/>
+                            <input name="kidneyproblemdeath"  [(ngModel)]="updform.kidneyproblemdeath" type="radio" value="true" [checked]="kidneyproblemdeath"/> Yes
+                            <input name="kidneyproblemdeath"[(ngModel)]="updform.kidneyproblemdeath" type="radio" value="false" [checked]="!kidneyproblemdeath"/> No
+          
+                      </div> 
+    
+                    </div>
+
+              <div class="form-row">
+
+                    <div class="form-group col-md-4">
+                        <label for="kidneyproblemdeathinfamilyrelation">Its relationship with the patient</label> 
+        
+                        <select id="kidneyproblemdeathinfamilyrelation" name="kidneyproblemdeathinfamilyrelation" class="form-control" required [(ngModel)]="updform.kidneyproblemdeathinfamilyrelation" #kidneyproblemdeathinfamilyrelation="ngModel" >
+                        <option value="">Select Type of Relationship wit Patient</option>
+                        <option *ngFor="let list of relationsships" [value]="list">{{list}}</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group col-md-4"  >
+                        <label for="liverfailureinfamily"> History of liver failure  in family</label>
+                        <br/>
+                            <input name="liverfailureinfamily"  [(ngModel)]="updform.liverfailureinfamily" type="radio" value="true" [checked]="liverfailureinfamily"/> Yes
+                            <input name="liverfailureinfamily"[(ngModel)]="updform.liverfailureinfamily" type="radio" value="false" [checked]="!liverfailureinfamily"/> No
+          
+                      </div> 
+    
+                      <div class="form-group col-md-4"  >
+                        <label for="liverfailuredeath">Death in the family due to liver failure</label>
+                        <br/>
+                            <input name="liverfailuredeath"  [(ngModel)]="updform.liverfailuredeath" type="radio" value="true" [checked]="liverfailuredeath"/> Yes
+                            <input name="liverfailuredeath"[(ngModel)]="updform.liverfailuredeath" type="radio" value="false" [checked]="!liverfailuredeath"/> No
+          
+                      </div> 
+    
+                    </div>  
+                    
+                    
+                    <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                            <label for="liverfailuredeathrelation">Its relationship with the patient</label> 
+            
+                            <select id="liverfailuredeathrelation" name="liverfailuredeathrelation" class="form-control" required [(ngModel)]="updform.liverfailuredeathrelation" #liverfailuredeathrelation="ngModel" >
+                            <option value="">Select Type of Relationship wit Patient</option>
+                            <option *ngFor="let list of relationsships" [value]="list">{{list}}</option>
+                            </select>
+                        </div>
+        
+                        <div class="form-group col-md-4"  >
+                            <label for="thyroidhistory"> History of thyroid problems in family</label>
+                            <br/>
+                                <input name="thyroidhistory"  [(ngModel)]="updform.thyroidhistory" type="radio" value="true" [checked]="thyroidhistory"/> Yes
+                                <input name="thyroidhistory"[(ngModel)]="updform.thyroidhistory" type="radio" value="false" [checked]="!thyroidhistory"/> No
+              
+                          </div> 
+        
+                          <div class="form-group col-md-4"  >
+                            <label for="thyroidhistorydeath">Death in the family due to thyroid</label>
+                            <br/>
+                                <input name="thyroidhistorydeath"  [(ngModel)]="updform.thyroidhistorydeath" type="radio" value="true" [checked]="thyroidhistorydeath"/> Yes
+                                <input name="thyroidhistorydeath"[(ngModel)]="updform.thyroidhistorydeath" type="radio" value="false" [checked]="!thyroidhistorydeath"/> No
+              
+                          </div> 
+        
+                        </div>
+                
+                        
+                        <div class="form-row">
+
+                            <div class="form-group col-md-4">
+                                <label for="thyroidhistorydeathrelation">Its relationship with the patient</label> 
+                
+                                <select id="thyroidhistorydeathrelation" name="thyroidhistorydeathrelation" class="form-control" required [(ngModel)]="updform.thyroidhistorydeathrelation" #thyroidhistorydeathrelation="ngModel" >
+                                <option value="">Select Type of Relationship wit Patient</option>
+                                <option *ngFor="let list of relationsships" [value]="list">{{list}}</option>
+                                </select>
+                            </div>
+            
+                            <div class="form-group col-md-4"  >
+                                <label for="strokehistory"> History of Stroke problems in family</label>
+                                <br/>
+                                    <input name="strokehistory"  [(ngModel)]="updform.strokehistory" type="radio" value="true" [checked]="strokehistory"/> Yes
+                                    <input name="strokehistory"[(ngModel)]="updform.strokehistory" type="radio" value="false" [checked]="!strokehistory"/> No
+                  
+                              </div> 
+            
+                              <div class="form-group col-md-4"  >
+                                <label for="strokehistorydeath">Death in the family due to stroke</label>
+                                <br/>
+                                    <input name="strokehistorydeath"  [(ngModel)]="updform.strokehistorydeath" type="radio" value="true" [checked]="strokehistorydeath"/> Yes
+                                    <input name="strokehistorydeath"[(ngModel)]="updform.strokehistorydeath" type="radio" value="false" [checked]="!strokehistorydeath"/> No
+                  
+                              </div> 
+            
+                            </div>
+
+       
+                            
+                            <div class="form-row">
+
+                                <div class="form-group col-md-4">
+                                    <label for="strokehistorydeathrelation">Its relationship with the patient</label> 
+                    
+                                    <select id="strokehistorydeathrelation" name="strokehistorydeathrelation" class="form-control" required [(ngModel)]="updform.strokehistorydeathrelation" #strokehistorydeathrelation="ngModel" >
+                                    <option value="">Select Type of Relationship wit Patient</option>
+                                    <option *ngFor="let list of relationsships" [value]="list">{{list}}</option>
+                                    </select>
+                                </div>
+                
+                                <div class="form-group col-md-4"  >
+                                    <label for="cancerhistory"> History of cancer problems in family</label>
+                                    <br/>
+                                        <input name="cancerhistory"  [(ngModel)]="updform.cancerhistory" type="radio" value="true" [checked]="cancerhistory"/> Yes
+                                        <input name="cancerhistory"[(ngModel)]="updform.cancerhistory" type="radio" value="false" [checked]="!cancerhistory"/> No
+                      
+                                  </div> 
+                
+                                  <div class="form-group col-md-4"  >
+                                    <label for="cancerhistorydeath">Death in the family due to cancer</label>
+                                    <br/>
+                                        <input name="cancerhistorydeath"  [(ngModel)]="updform.cancerhistorydeath" type="radio" value="true" [checked]="cancerhistorydeath"/> Yes
+                                        <input name="cancerhistorydeath"[(ngModel)]="updform.cancerhistorydeath" type="radio" value="false" [checked]="!cancerhistorydeath"/> No
+                      
+                                  </div> 
+                
+                                </div>  
+
+
+                                
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-4">
+                                        <label for="cancerhistorydeathrelation">Its relationship with the patient</label> 
+                        
+                                        <select id="cancerhistorydeathrelation" name="cancerhistorydeathrelation" class="form-control" required [(ngModel)]="updform.cancerhistorydeathrelation" #cancerhistorydeathrelation="ngModel" >
+                                        <option value="">Select Type of Relationship wit Patient</option>
+                                        <option *ngFor="let list of relationsships" [value]="list">{{list}}</option>
+                                        </select>
+                                    </div>
+                    
+                                    <div class="form-group col-md-4"  >
+                                        <label for="mentaldisorderhistory"> History of mental disorder in family</label>
+                                        <br/>
+                                            <input name="mentaldisorderhistory"  [(ngModel)]="updform.mentaldisorderhistory" type="radio" value="true" [checked]="mentaldisorderhistory"/> Yes
+                                            <input name="mentaldisorderhistory"[(ngModel)]="updform.mentaldisorderhistory" type="radio" value="false" [checked]="!mentaldisorderhistory"/> No
+                          
+                                      </div> 
+                    
+                                      <div class="form-group col-md-4"  >
+                                        <label for="mentaldisorderhistorydeath">Death in the family due to mental disorder</label>
+                                        <br/>
+                                            <input name="mentaldisorderhistorydeath"  [(ngModel)]="updform.mentaldisorderhistorydeath" type="radio" value="true" [checked]="mentaldisorderhistorydeath"/> Yes
+                                            <input name="mentaldisorderhistorydeath"[(ngModel)]="updform.mentaldisorderhistorydeath" type="radio" value="false" [checked]="!mentaldisorderhistorydeath"/> No
+                          
+                                      </div> 
+                    
+                                    </div> 
+                                    
+                                    
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-4">
+                                            <label for="mentaldisorderhistorydeathrelation">Its relationship with the patient</label> 
+                            
+                                            <select id="mentaldisorderhistorydeathrelation" name="mentaldisorderhistorydeathrelation" class="form-control" required [(ngModel)]="updform.mentaldisorderhistorydeathrelation" #mentaldisorderhistorydeathrelation="ngModel" >
+                                            <option value="">Select Type of Relationship wit Patient</option>
+                                            <option *ngFor="let list of relationsships" [value]="list">{{list}}</option>
+                                            </select>
+                                        </div>
+                                        
+                                        </div>
+         <!------------------>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary  btn-block"  >Submit</button>
+                </div>
+                <div class="form-group col-md-6">
+                   <button type="button" class="btn btn-danger  btn-block" (click)="familyDetailForm.resetForm({})">Reset</button>
+                </div>        
+            
+      
+              </div>
+      </form> 
+     
+      </div>
+			
+	
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+<!-- <app-footer></app-footer> -->

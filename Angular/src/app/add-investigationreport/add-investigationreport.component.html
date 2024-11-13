@@ -1,0 +1,878 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">    
+<app-nav></app-nav>
+<div id="wrapper">   
+    <app-sidenav></app-sidenav> 
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div class="col-md-12 fright">
+
+                <div class="login-form">
+                    <form name="investigationReport" id="investigationReport"  [formGroup]="investigationReport" (ngSubmit)="registerInvestigationReport(investigationReport.value)" >
+                        <h2 class="text-center"> Investigation Reports</h2>
+                        <hr>
+                        
+                        <h5 class="text-center">BLOOD - HEMATOLOGY</h5>
+                      
+                        <div class="form-row">
+                            
+                            <div class="form-group col-md-3">
+                                <label for="hbcounts ">HB Count </label>
+                                <input type="text" id="hbcounts" name="hbcounts" class="form-control"   placeholder="HB Count" 
+                                required   formControlName="hbcounts" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="tccounts ">TC Count </label>
+                                <input type="text" id="tccounts" name="tccounts" class="form-control"   placeholder="TC Count" 
+                                required   formControlName="tccounts" >
+                            </div> 
+
+                            <div class="form-group col-md-3">
+                                <label for="dccounts ">DC Count </label>
+                                <input type="text" id="dccounts" name="dccounts" class="form-control"   placeholder="DC Count" 
+                                required   formControlName="dccounts" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="esrcounts ">ESR Count </label>
+                                <input type="text" id="esrcounts" name="esrcounts" class="form-control"   placeholder="ESR Count" 
+                                required   formControlName="esrcounts" >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="bloodgroup ">Blood Group </label>
+                                <input type="text" id="bloodgroup" name="bloodgroup" class="form-control"   placeholder="Blood Group" 
+                                required   formControlName="bloodgroup" >
+
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="completeHaemogram ">Complete Haemogram</label>
+                                <input type="text" id="completeHaemogram" name="completeHaemogram" class="form-control"   placeholder="Complete Haemogram" 
+                                required   formControlName="completeHaemogram" >
+
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="rbc">RBC </label>
+                                <input type="text" id="rbc" name="rbc" class="form-control"   placeholder="RBC" 
+                                required   formControlName="rbc" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="pcv ">PCV </label>
+                                <input type="text" id="pcv" name="pcv" class="form-control"   placeholder="PCV" 
+                                required   formControlName="pcv" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="indices ">INDICES </label>
+                                <input type="text" id="indices" name="indices" class="form-control"   placeholder="INDICES" 
+                                required   formControlName="indices" >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="peripheralSmearReport ">Peripheral Smear Report </label>
+                                <input type="text" id="peripheralSmearReport" name="peripheralSmearReport" class="form-control"   placeholder="Peripheral Smear Report" 
+                                required   formControlName="peripheralSmearReport" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="srIron  ">Sr. Iron  </label>
+                                <input type="text" id="srIron" name="srIron" class="form-control"   placeholder="Sr.Iron" 
+                                required   formControlName="srIron" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="tibc ">TIBC </label>
+                                <input type="text" id="tibc" name="tibc" class="form-control"   placeholder="TIBC" 
+                                required   formControlName="tibc" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="plateletCount ">Platelet Count </label>
+                                <input type="text" id="plateletCount" name="plateletCount" class="form-control"   placeholder="Platelet Count" 
+                                required   formControlName="plateletCount" >
+                            </div>
+                            <div class="form-group col-md-6"  >
+                                <label for="hamatology ">BLOOD - HEMATOLOGY</label>
+                                <input    formControlName="hamatology"   id="hamatology"    type="file"   class="form-control"  (change)="onHamatologyChange($event)">
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        <h5 class="text-center">SEROLOGY  </h5>
+                        <div class="form-row">                            
+                            <div class="form-group col-md-3">
+                                <label for="hev ">HEV </label>
+                                <input type="text" id="hev" name="hev" class="form-control"   placeholder="HEV" 
+                                required   formControlName="hev" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="dengue ">Dengue </label>
+                                <input type="text" id="dengue" name="dengue" class="form-control"   placeholder="Dengue" 
+                                required   formControlName="dengue" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="chickenGuinea ">Chicken Guinea </label>
+                                <input type="text" id="chickenGuinea" name="chickenGuinea" class="form-control"   placeholder="Chicken Guinea" 
+                                required   formControlName="chickenGuinea" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="leptospira ">Leptospira </label>
+                                <input type="text" id="leptospira" name="leptospira" class="form-control"   placeholder="Leptospira" 
+                                required   formControlName="leptospira" >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="tbig">TBIG  </label>
+                                <input type="text" id="tbig" name="tbig" class="form-control"   placeholder="TBIG " 
+                                required   formControlName="tbig" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="qigm">QIGM </label>
+                                <input type="text" id="qigm" name="qigm" class="form-control"   placeholder="QIGM" 
+                                required   formControlName="qigm" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="pFal">ICT for P.Fal</label>
+                                <input type="text" id="pFal" name="pFal" class="form-control"   placeholder="ICT for P.Fal" 
+                                required   formControlName="pFal" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="pVivax ">ICT for  P Vivax </label>
+                                <input type="text" id="pVivax" name="pVivax" class="form-control"   placeholder="ICT for P Vivax" 
+                                required   formControlName="pVivax" >
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="smp ">S.M.P </label>
+                                <input type="text" id="smp" name="smp" class="form-control"   placeholder="S.M.P" 
+                                required   formControlName="smp" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="cReactiveProtein ">C-Reactive protein </label>
+                                <input type="text" id="cReactiveProtein" name="cReactiveProtein" class="form-control"   placeholder="C-Reactive protein" 
+                                required   formControlName="cReactiveProtein" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="rheumatoidFactor ">Rheumatoid Factor</label>
+                                <input type="text" id="rheumatoidFactor" name="rheumatoidFactor" class="form-control"   placeholder="Rheumatoid Factor" 
+                                required   formControlName="rheumatoidFactor" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="antiStreptolysinOTitre ">Anti Streptolysin ‘O’ titre</label>
+                                <input type="text" id="antiStreptolysinOTitre" name="antiStreptolysinOTitre" class="form-control"   placeholder="Anti Streptolysin ‘O’ titre" 
+                                required   formControlName="antiStreptolysinOTitre" >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="vdrl ">VDRL (RPR) </label>
+                                <input type="text" id="smp" name="vdrl" class="form-control"   placeholder="VDRL (RPR)" 
+                                required   formControlName="vdrl" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="widalTest ">Widal Test </label>
+                                <input type="text" id="widalTest" name="widalTest" class="form-control"   placeholder="Widal Test" 
+                                required   formControlName="widalTest" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="pregancyCardTest ">Pregancy Card Test </label>
+                                <input type="text" id="pregancyCardTest" name="pregancyCardTest" class="form-control"   placeholder="Pregancy Card Test" 
+                                required   formControlName="pregancyCardTest" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="hiv1 ">HIV 1 </label>
+                                <input type="text" id="hiv1" name="hiv1" class="form-control"   placeholder="HIV1" 
+                                required   formControlName="hiv1" >
+                            </div> 
+                        </div>
+                        <div class="form-row">
+                            
+                            <div class="form-group col-md-3">
+                                <label for="hiv2 ">HIV 2 </label>
+                                <input type="text" id="hiv2" name="hiv2" class="form-control"   placeholder="HIV2" 
+                                required   formControlName="hiv2" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="hbs ">Hbs Av (Hep B)</label>
+                                <input type="text" id="hbs" name="hbs" class="form-control"   placeholder="Hbs Av (Hep B)" 
+                                required   formControlName="hbs" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="hcv ">HCV (hepatitis C Virus)</label>
+                                <input type="text" id="hcv" name="hcv" class="form-control"   placeholder="HCV (hepatitis C Virus)" 
+                                required   formControlName="hcv" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="ppd ">PPD (Montaus Test)</label>
+                                <input type="text" id="ppd" name="ppd" class="form-control"   placeholder="PPD (Montaus Test)" 
+                                required   formControlName="ppd" >
+                            </div>
+                            <div class="form-group col-md-6"  >
+                                <label for="serology ">SEROLOGY </label>
+                                <input    formControlName="serology"   id="serology"    type="file"   class="form-control"  (change)="onSerologyChange($event)">
+                            </div>
+                        </div>
+                      
+                        <hr>
+                        <h5 class="text-center">DIABETES PROFILE  </h5>
+                        <div class="form-row">                            
+                            <div class="form-group col-md-3">
+                                <label for="fbsl ">FBSL </label>
+                                <input type="text" id="fbsl" name="fbsl" class="form-control"   placeholder="FBSL" 
+                                required   formControlName="fbsl" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="rbsl ">RBSL </label>
+                                <input type="text" id="rbsl" name="rbsl" class="form-control"   placeholder="RBSL " 
+                                required   formControlName="rbsl" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="ppbsl ">PPBSL </label>
+                                <input type="text" id="ppbsl" name="ppbsl" class="form-control"   placeholder="PPBSL" 
+                                required   formControlName="ppbsl" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="glycosylated ">Glycosylated hb (HbA1C) </label>
+                                <input type="text" id="glycosylated" name="glycosylated" class="form-control"   placeholder="Glycosylated hb (HbA1C)" 
+                                required   formControlName="glycosylated" >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="lipidProfile ">Lipid profile </label>
+                                <input type="text" id="lipidProfile" name="lipidProfile" class="form-control"   placeholder="Lipid profile" 
+                                required   formControlName="lipidProfile" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="srCholesterol">Sr. Cholesterol</label>
+                                <input type="text" id="srCholesterol" name="srCholesterol" class="form-control"   placeholder="Sr. Cholesterol" 
+                                required   formControlName="srCholesterol" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="srTriglycerides">Sr. Triglycerides </label>
+                                <input type="text" id="srTriglycerides" name="srTriglycerides" class="form-control"   placeholder="Sr. Triglycerides" 
+                                required   formControlName="srTriglycerides" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="hdlCholestrol ">HDL Cholestrol</label>
+                                <input type="text" id="hdlCholestrol" name="hdlCholestrol" class="form-control"   placeholder="HDL Cholestrol" 
+                                required   formControlName="hdlCholestrol" >
+                            </div>
+                            <div class="form-group col-md-6"  >
+                                <label for="diabetes ">DIABETES PROFILE  </label>
+                                <input    formControlName="diabetes"   id="diabetes"    type="file"   class="form-control"  (change)="onDiabetesChange($event)">
+                            </div>
+                        </div>
+                         
+                        <hr>
+                        <h5 class="text-center">LIVER PROFLE  </h5>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="srBillirubin ">Sr.Billirubin </label>
+                                <input type="text" id="srBillirubin" name="srBillirubin" class="form-control"   placeholder="Sr.Billirubin" 
+                                required   formControlName="srBillirubin" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="directBillirubin ">Direct Billirubin </label>
+                                <input type="text" id="directBillirubin" name="directBillirubin" class="form-control"   placeholder="Direct Billirubin" 
+                                required   formControlName="directBillirubin" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="indirectBillirubin ">Indirect Billirubin </label>
+                                <input type="text" id="indirectBillirubin" name="indirectBillirubin" class="form-control"   placeholder="Indirect Billirubin" 
+                                required   formControlName="indirectBillirubin" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="sgot ">SGOT</label>
+                                <input type="text" id="sgot" name="sgot" class="form-control"   placeholder="SGOT" 
+                                required   formControlName="sgot" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="sgpt ">SGPT</label>
+                                <input type="text" id="sgpt" name="sgpt" class="form-control"   placeholder="SGPT" 
+                                required   formControlName="sgpt" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="totalProtein ">Total Protein</label>
+                                <input type="text" id="totalProtein" name="totalProtein" class="form-control"   placeholder="Total Protein" 
+                                required   formControlName="totalProtein" >
+                            </div>
+                            
+                            <div class="form-group col-md-3">
+                                <label for="albumin ">Albumin</label>
+                                <input type="text" id="albumin" name="albumin" class="form-control"   placeholder="Albumin" 
+                                required   formControlName="albumin" >
+                            </div>
+                            
+                            <div class="form-group col-md-3">
+                                <label for="globulin ">Globulin</label>
+                                <input type="text" id="globulin" name="globulin" class="form-control"   placeholder="Globulin" 
+                                required   formControlName="globulin" >
+                            </div>
+                        </div>
+                        <div class="form-row">                        
+                            
+                            <div class="form-group col-md-3">
+                                <label for="alkalinePhosphate ">Alkaline Phosphate</label>
+                                <input type="text" id="alkalinePhosphate" name="alkalinePhosphate" class="form-control"   placeholder="Alkaline Phosphate" 
+                                required   formControlName="alkalinePhosphate" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="amylase ">Amylase</label>
+                                <input type="text" id="amylase" name="amylase" class="form-control"   placeholder="Amylase" 
+                                required   formControlName="amylase" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="ggtp">GGTP</label>
+                                <input type="text" id="ggtp" name="ggtp" class="form-control"   placeholder="GGTP" 
+                                required   formControlName="ggtp" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="srProtein ">Sr.Protein</label>
+                                <input type="text" id="srProtein" name="srProtein" class="form-control"   placeholder="Sr.Protein" 
+                                required   formControlName="srProtein" >
+                            </div>   
+                            <div class="form-group col-md-3">
+                                <label for="ammonia">Ammonia</label>
+                                <input type="text" id="ammonia" name="ammonia" class="form-control"   placeholder="Ammonia" 
+                                required   formControlName="ammonia" >
+                            </div> 
+                            <div class="form-group col-md-6"  >
+                                <label for="liver ">LIVER PROFLE  </label>
+                                <input    formControlName="liver"   id="liver"    type="file"   class="form-control"  (change)="onLiverChange($event)">
+                            </div>          
+                        </div>
+                         
+                        <hr>
+                        <h5 class="text-center">COAGULATION PROFILE  </h5>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="bleeding">Bleeding</label>
+                                <input type="text" id="bleeding" name="bleeding" class="form-control"   placeholder="Bleeding" 
+                                required   formControlName="bleeding" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="clottingTime">Clotting Time</label>
+                                <input type="text" id="clottingTime" name="clottingTime" class="form-control"   placeholder="Clotting Time" 
+                                required   formControlName="clottingTime" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="prothrombinTime ">Prothrombin Time </label>
+                                <input type="text" id="prothrombinTime" name="prothrombinTime" class="form-control"   placeholder="Prothrombin Time " 
+                                required   formControlName="prothrombinTime" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="inr">INR</label>
+                                <input type="text" id="inr" name="inr" class="form-control"   placeholder="INR" 
+                                required   formControlName="inr" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="aptt">APTT</label>
+                                <input type="text" id="aptt" name="aptt" class="form-control"   placeholder="APTT" 
+                                required   formControlName="aptt" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="plateletCount1">Platelet Count</label>
+                                <input type="text" id="plateletCount1" name="plateletCount1" class="form-control"   placeholder="Platelet Count" 
+                                required   formControlName="plateletCount1" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="fdp">FDP</label>
+                                <input type="text" id="fdp" name="fdp" class="form-control"   placeholder="FDP" 
+                                required   formControlName="fdp" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="cdDimer">CD-Dimer</label>
+                                <input type="text" id="cdDimer" name="cdDimer" class="form-control"   placeholder="CD-Dimer" 
+                                required   formControlName="cdDimer" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="ada">ADA</label>
+                                <input type="text" id="ada" name="ada" class="form-control"   placeholder="ADA" 
+                                required   formControlName="ada" >
+                            </div>
+                            <div class="form-group col-md-6"  >
+                                <label for="coagulation ">COAGULATION PROFILE  </label>
+                                <input    formControlName="coagulation"   id="coagulation"    type="file"   class="form-control"  (change)="onCoagulationChange($event)">
+                            </div>
+                        </div>
+                         
+                        <hr>
+                        <h5 class="text-center">CARDIAC PROFILE  </h5>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="cpkTotal">CPK – Total</label>
+                                <input type="text" id="cpkTotal" name="cpkTotal" class="form-control"   placeholder="CPK – Total" 
+                                required   formControlName="cpkTotal" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="ckMb">CK – MB</label>
+                                <input type="text" id="ckMb" name="ckMb" class="form-control"   placeholder="CK – MB" 
+                                required   formControlName="ckMb" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="sgot1">SGOT</label>
+                                <input type="text" id="sgot1" name="sgot1" class="form-control"   placeholder="SGOT" 
+                                required   formControlName="sgot1" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="ldh">LDH</label>
+                                <input type="text" id="ldh" name="ldh" class="form-control"   placeholder="LDH" 
+                                required   formControlName="ldh" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="troponinITest">Troponin I test</label>
+                                <input type="text" id="troponinITest" name="troponinITest" class="form-control"   placeholder="Troponin I test" 
+                                required   formControlName="troponinITest" >
+                            </div>
+                            <div class="form-group col-md-6"  >
+                                <label for="cardiac ">CARDIAC PROFILE  </label>
+                                <input    formControlName="cardiac"   id="cardiac"    type="file"   class="form-control"  (change)="onCardiacChange($event)">
+                            </div>
+                        </div>
+                         
+                        <hr>
+                        <h5 class="text-center">CLINICAL PATHALOGY   </h5>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="bloodCulture ">Blood culture And Sensitivity </label>
+                                <input type="text" id="bloodCulture" name="bloodCulture" class="form-control"   placeholder="Blood culture " 
+                                required   formControlName="bloodCulture" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="urineRoutine ">Urine Routine And Microscopy </label>
+                                <input type="text" id="urineRoutine" name="urineRoutine" class="form-control"   placeholder="Urine Routine " 
+                                required   formControlName="urineRoutine" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="urineSugar">Urine Sugar And Albumin </label>
+                                <input type="text" id="urineSugar" name="urineSugar" class="form-control"   placeholder="Urine Sugar" 
+                                required   formControlName="urineSugar" >
+                            </div>                           
+
+                            <div class="form-group col-md-3">
+                                <label for="urineCulture">Urine Culture And Sensitivity </label>
+                                <input type="text" id="urineCulture" name="urineCulture" class="form-control"   placeholder="Urine Culture" 
+                                required   formControlName="urineCulture" >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="hoursUrineProteins">24 Hours Urine Proteins</label>
+                                <input type="text" id="hoursUrineProteins" name="hoursUrineProteins" class="form-control"   placeholder="24 Hours Urine Proteins" 
+                                required   formControlName="hoursUrineProteins" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="hoursUrineCreatine">24 Hours Urine Creatine</label>
+                                <input type="text" id="hoursUrineCreatine" name="hoursUrineCreatine" class="form-control"   placeholder="24 Hours Urine Creatine" 
+                                required   formControlName="hoursUrineCreatine" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="spotUrineForPcRatio">Spot Urine for P/C Ratio</label>
+                                <input type="text" id="spotUrineForPcRatio" name="spotUrineForPcRatio" class="form-control"   placeholder="Spot Urine for P/C Ratio" 
+                                required   formControlName="spotUrineForPcRatio" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="StoolRoutine">Stool Routine And Microscopy</label>
+                                <input type="text" id="StoolRoutine" name="StoolRoutine" class="form-control"   placeholder="Stool Routine" 
+                                required   formControlName="StoolRoutine" >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="stoolCulture ">Stool Culture And Sensitivity </label>
+                                <input type="text" id="stoolCulture" name="stoolCulture" class="form-control"   placeholder="Stool culture " 
+                                required   formControlName="stoolCulture" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="stoolForOccultBlood">Stool For Occult Blood</label>
+                                <input type="text" id="stoolForOccultBlood" name="stoolForOccultBlood" class="form-control"   placeholder="Stool For Occult Blood" 
+                                required   formControlName="stoolForOccultBlood" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="stoolForReducingSubs">Stool For Reducing Subs</label>
+                                <input type="text" id="stoolForReducingSubs" name="stoolForReducingSubs" class="form-control"   placeholder="Stool For Reducing Subs" 
+                                required   formControlName="stoolForReducingSubs" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="sputumForAFB">Sputum For AFB</label>
+                                <input type="text" id="sputumForAFB" name="sputumForAFB" class="form-control"   placeholder="Sputum For AFB" 
+                                required   formControlName="sputumForAFB" >
+                            </div>
+                            <div class="form-group col-md-6"  >
+                                <label for="clinical ">CLINICAL PATHALOGY    </label>
+                                <input    formControlName="clinical"   id="clinical"    type="file"   class="form-control"  (change)="onClinicalChange($event)">
+                            </div>
+                        </div>
+                         
+                        <hr>
+                        <h5 class="text-center">KIDNEY PROFILE  </h5>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="bloodUrea">Blood Urea</label>
+                                <input type="text" id="bloodUrea" name="bloodUrea" class="form-control"   placeholder="Blood Urea" 
+                                required   formControlName="bloodUrea" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="srCreatinine">Sr.Creatinine</label>
+                                <input type="text" id="srCreatinine" name="srCreatinine" class="form-control"   placeholder="Sr.Creatinine" 
+                                required   formControlName="srCreatinine" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="srUricAcid">Sr.Uric Acid</label>
+                                <input type="text" id="srUricAcid" name="srUricAcid" class="form-control"   placeholder="Sr.Uric acid" 
+                                required   formControlName="srUricAcid" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="bun">B.U.N</label>
+                                <input type="text" id="bun" name="bun" class="form-control"   placeholder="B.U.N" 
+                                required   formControlName="bun" >
+                            </div>
+
+                        </div>
+                        <div class="form-row">                            
+                            <div class="form-group col-md-3">
+                                <label for="srSodium">Sr.Sodium</label>
+                                <input type="text" id="srSodium" name="srSodium" class="form-control"   placeholder="Sr.Sodium" 
+                                required   formControlName="srSodium" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="srPotassium">Sr.Potassium</label>
+                                <input type="text" id="srPotassium" name="srPotassium" class="form-control"   placeholder="Sr.Potassium" 
+                                required   formControlName="srPotassium" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="srChloride">Sr.Chloride</label>
+                                <input type="text" id="srChloride" name="srChloride" class="form-control"   placeholder="Sr.Chloride" 
+                                required   formControlName="srChloride" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="srCalcium">Sr. Calcium</label>
+                                <input type="text" id="srCalcium" name="srCalcium" class="form-control"   placeholder="Sr. Calcium" 
+                                required   formControlName="srCalcium" >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="srPhosphorous">Sr. Phosphorous</label>
+                                <input type="text" id="srPhosphorous" name="srPhosphorous" class="form-control"   placeholder="Sr. Phosphorous" 
+                                required   formControlName="srPhosphorous" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="vitaminD3">Vitamin D3</label>
+                                <input type="text" id="vitaminD3" name="vitaminD3" class="form-control"   placeholder="Vitamin D3" 
+                                required   formControlName="vitaminD3" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="vitaminB12">Vitamin B12</label>
+                                <input type="text" id="vitaminB12" name="vitaminB12" class="form-control"   placeholder="Vitamin B12" 
+                                required   formControlName="vitaminB12" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="psa">PSA</label>
+                                <input type="text" id="psa" name="psa" class="form-control"   placeholder="PSA" 
+                                required   formControlName="psa" >
+                            </div>
+                            <div class="form-group col-md-6"  >
+                                <label for="kidney ">KIDNEY PROFILE    </label>
+                                <input    formControlName="kidney"   id="kidney"    type="file"   class="form-control"  (change)="onKidneyChange($event)">
+                            </div>
+                        </div>
+                         
+                        <hr>
+                        <h5 class="text-center">SPECIAL INVESTIGATION  </h5>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="abg">ABG</label>
+                                <input type="text" id="abg" name="abg" class="form-control"   placeholder="ABG" 
+                                required   formControlName="abg" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="vbg">VBG</label>
+                                <input type="text" id="vbg" name="vbg" class="form-control"   placeholder="VBG" 
+                                required   formControlName="vbg" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="papSmear">PAP Smear</label>
+                                <input type="text" id="papSmear" name="papSmear" class="form-control"   placeholder="PAP Smear" 
+                                required   formControlName="papSmear" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="fnac">FNAC</label>
+                                <input type="text" id="fnac" name="fnac" class="form-control"   placeholder="FNAC" 
+                                required   formControlName="fnac" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="freeT3">Free T3</label>
+                                <input type="text" id="freeT3" name="freeT3" class="form-control"   placeholder="Free T3" 
+                                required   formControlName="freeT3" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="freeT4">Free T4</label>
+                                <input type="text" id="freeT4" name="freeT4" class="form-control"   placeholder="Free T4" 
+                                required   formControlName="freeT4" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="freeTSH">Free TSH</label>
+                                <input type="text" id="freeTSH" name="freeTSH" class="form-control"   placeholder="Free TSH" 
+                                required   formControlName="freeTSH" >
+                            </div>
+                            
+                            <div class="form-group col-md-3">
+                                <label for="ipth">IPTH</label>
+                                <input type="text" id="ipth" name="ipth" class="form-control"   placeholder="IPTH" 
+                                required   formControlName="ipth" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="compliment4">Compliment 4</label>
+                                <input type="text" id="compliment4" name="compliment4" class="form-control"   placeholder="Compliment 4" 
+                                required   formControlName="compliment4" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="ana">ANA</label>
+                                <input type="text" id="ana" name="ana" class="form-control"   placeholder="ANA" 
+                                required   formControlName="ana" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="anca">ANCA</label>
+                                <input type="text" id="anca" name="anca" class="form-control"   placeholder="ANCA" 
+                                required   formControlName="anca" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="antiDsDna">Anti-DS DNA</label>
+                                <input type="text" id="antiDsDna" name="antiDsDna" class="form-control"   placeholder="Anti-DS DNA" 
+                                required   formControlName="antiDsDna" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="dDimerTest">D-Dimer Test</label>
+                                <input type="text" id="dDimerTest" name="dDimerTest" class="form-control"   placeholder="D-Dimer Test" 
+                                required   formControlName="dDimerTest" >
+                            </div>
+                            <div class="form-group col-md-6"  >
+                                <label for="special ">SPECIAL INVESTIGATION  </label>
+                                <input    formControlName="special"   id="special"    type="file"   class="form-control"  (change)="onSpecialChange($event)">
+                            </div>
+                        </div>
+                         
+                        <hr>
+                        <h5 class="text-center">DIAGNOSTIC  </h5>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="abdominalUltrasound">Abdominal Ultrasound</label>
+                                <input type="text" id="abdominalUltrasound" name="abdominalUltrasound" class="form-control"   placeholder="Abdominal Ultrasound" 
+                                required   formControlName="abdominalUltrasound" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="sonomammography">Sonomammography</label>
+                                <input type="text" id="sonomammography" name="sonomammography" class="form-control"   placeholder="Sonomammography" 
+                                required   formControlName="sonomammography" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="carotidDoppler">Carotid Doppler</label>
+                                <input type="text" id="carotidDoppler" name="carotidDoppler" class="form-control"   placeholder="Carotid Doppler" 
+                                required   formControlName="carotidDoppler" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="dopplerPeripheralArterial">Doppler Peripheral Arterial</label>
+                                <input type="text" id="dopplerPeripheralArterial" name="dopplerPeripheralArterial" class="form-control"   placeholder="Doppler Peripheral Arterial" 
+                                required   formControlName="dopplerPeripheralArterial" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="dopplerPeripheralVenous">Doppler peripheral Venous</label>
+                                <input type="text" id="dopplerPeripheralVenous" name="dopplerPeripheralVenous" class="form-control"   placeholder="Doppler peripheral Venous" 
+                                required   formControlName="dopplerPeripheralVenous" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="echocardigraphy">Echocardigraphy</label>
+                                <input type="text" id="echocardigraphy" name="echocardigraphy" class="form-control"   placeholder="Echocardigraphy" 
+                                required   formControlName="echocardigraphy" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="stressTest">Stress Test</label>
+                                <input type="text" id="stressTest" name="stressTest" class="form-control"   placeholder="Stress Test" 
+                                required   formControlName="stressTest" >
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="ultrasound">Ultra Sound</label>
+                                <input type="text" id="ultrasound" name="ultrasound" class="form-control"   placeholder="Ultra Sound" 
+                                required   formControlName="ultrasound" >
+
+                            </div>
+
+                        </div>
+                         
+                       
+                        <div class="form-row">
+                           
+
+                            <div class="form-group col-md-3">
+                                <label for="xray">X Ray</label>
+                                <input type="text" id="xray" name="xray" class="form-control"   placeholder="X-Ray" 
+                                required   formControlName="xray" >
+
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="ctscan">CT Scan</label>
+                                <input type="text" id="ctscan" name="ctscan" class="form-control"   placeholder="CTScan" 
+                                required   formControlName="ctscan" >
+
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="mri">MRI</label>
+                                <input type="text" id="mri" name="mri" class="form-control"   placeholder="MRI" 
+                                required   formControlName="mri" >
+
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="tmt">TMT</label>
+                                <input type="text" id="tmt" name="tmt" class="form-control"   placeholder="TMT" 
+                                required   formControlName="tmt" >
+
+                            </div>
+
+                            
+                        </div>
+                        
+                        
+                        <div class="form-row">
+                           
+                            <div class="form-group col-md-3">
+                                <label for="vision">Vision</label>
+                                <input type="text" id="vision" name="vision" class="form-control"   placeholder="Vision" 
+                                required   formControlName="vision" >
+
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="renal">Renal</label>
+                                <input type="text" id="renal" name="renal" class="form-control"   placeholder="Renal" 
+                                required   formControlName="renal" >
+
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="physiotherapy">Physiotherapy</label>
+                                <input type="text" id="physiotherapy" name="physiotherapy" class="form-control"   placeholder="Physiotherapy" 
+                                required   formControlName="physiotherapy" >
+
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="feteldoppler">Fetel Doppler</label>
+                                <input type="text" id="feteldoppler" name="feteldoppler" class="form-control"   placeholder="Fetel Doppler" 
+                                required   formControlName="feteldoppler" >
+
+                            </div>
+
+                            
+                        </div>
+                        
+                        
+                        <div class="form-row">
+                           
+                            <div class="form-group col-md-3">
+                                <label for="bonedensity">Bone Density</label>
+                                <input type="text" id="bonedensity" name="bonedensity" class="form-control"   placeholder="Bone Density" 
+                                required   formControlName="bonedensity" >
+
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="bodycomposition">Body Composition </label>
+                                <br/>
+                    
+                                <input name="bodycomposition" id="bodycomposition"  formControlName="bodycomposition" type="radio" [value]="true" /> Fat
+                                <input name="bodycomposition" id="bodycomposition" formControlName="bodycomposition" type="radio" [value]="false"/> Non-Fat
+                      
+                              </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="surgery">Surgery</label>
+                                <input type="text" id="surgery" name="surgery" class="form-control"   placeholder="Surgery" 
+                                required   formControlName="surgery" >
+
+                            </div>
+                            <div class="form-group col-md-6"  >
+                                <label for="diagostic ">DIAGNOSTIC  </label>
+                                <input    formControlName="diagostic"   id="diagostic"    type="file"   class="form-control"  (change)="onDiagnosticChange($event)">
+                            </div>
+                          
+
+                            
+                        </div>
+                         
+                            
+                        <div class="form-row">
+                            <div class="form-group col-md-4"></div>
+                            <div class="form-group col-md-4">
+                              <button type="submit" class="btn btn-primary  btn-block"  >Submit</button>
+                              </div>
+                              <div class="form-group col-md-4"></div>
+                              <!-- <div class="form-group col-md-6">
+                                 <button type="button" class="btn btn-danger  btn-block" (click)="lifeStyleForm.resetForm({})">Reset</button>
+                              </div>         -->
+                          
+                    
+                          </div>
+
+                        
+                        
+
+
+                    </form>
+
+
+                </div>
+            </div>
+
+
+        </div>
+</div>

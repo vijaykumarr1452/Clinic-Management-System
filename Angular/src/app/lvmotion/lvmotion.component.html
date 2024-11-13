@@ -1,0 +1,326 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LVMotion</title>
+</head>
+<div>
+<div  *ngIf = "lvmotiondata != null">
+  <img class="pic" *ngIf ="isValid"  src="{{lvmotiondata}}"   name="Logo" class="img-responsive"   > 
+</div>
+<div id="capture" *ngIf = "lvmotiondata === null || !isValid">
+  <div class="pic" id="aki1"><img src="../../assets/Aki/aki1.png" alt="aki1"></div>
+  <div class="pic" id="aki2"><img src="../../assets/Aki/aki2.png" alt="aki2"></div>
+  <div class="pic" id="aki3"><img src="../../assets/Aki/aki3.png" alt="aki3"></div>
+  <div class="pic" id="aki4"><img src="../../assets/Aki/aki4.png" alt="aki4"></div>
+  <div class="pic" id="aki5"><img src="../../assets/Aki/aki5.png" alt="aki5"></div>
+  <div class="pic" id="aki6"><img src="../../assets/Aki/aki6.png" alt="aki6"></div>
+  <div class="pic" id="aki7"><img src="../../assets/Aki/aki7.png" alt="aki7"></div>
+  <div class="pic" id="aki8"><img src="../../assets/Aki/aki8.png" alt="aki8"></div>
+  <div class="pic" id="aki9"><img src="../../assets/Aki/aki9.png" alt="aki9"></div>
+  <div class="pic" id="aki10"><img src="../../assets/Aki/aki10.png" alt="aki10"></div>
+  <div class="pic" id="aki11"><img src="../../assets/Aki/aki11.png" alt="aki11"></div>
+  <div class="pic" id="aki12"><img src="../../assets/Aki/aki12.png" alt="aki12"></div>
+  <div class="pic" id="aki13"><img src="../../assets/Aki/aki13.png" alt="aki13"></div>
+  <div class="pic" id="aki14"><img src="../../assets/Aki/aki14.png" alt="aki14"></div>
+  <div class="pic" id="aki15"><img src="../../assets/Aki/aki15.png" alt="aki15"></div>
+  <div class="pic" id="aki16"><img src="../../assets/Aki/aki16.png" alt="aki16"></div>
+  <div class="pic" id="aki17"><img src="../../assets/Aki/aki17.png" alt="aki17"></div>
+  <div class="pic" id="ane1"><img src="../../assets/Ane/ane1.png" alt="ane1"></div>
+  <div class="pic" id="ane2"><img src="../../assets/Ane/ane2.png" alt="ane2"></div>
+  <div class="pic" id="ane3"><img src="../../assets/Ane/ane3.png" alt="ane3"></div>
+  <div class="pic" id="ane4"><img src="../../assets/Ane/ane4.png" alt="ane4"></div>
+  <div class="pic" id="ane5"><img src="../../assets/Ane/ane5.png" alt="ane5"></div>
+  <div class="pic" id="ane6"><img src="../../assets/Ane/ane6.png" alt="ane6"></div>
+  <div class="pic" id="ane7"><img src="../../assets/Ane/ane7.png" alt="ane7"></div>
+  <div class="pic" id="ane8"><img src="../../assets/Ane/ane8.png" alt="ane8"></div>
+  <div class="pic" id="ane9"><img src="../../assets/Ane/ane9.png" alt="ane9"></div>
+  <div class="pic" id="ane10"><img src="../../assets/Ane/ane10.png" alt="ane10"></div>
+  <div class="pic" id="ane11"><img src="../../assets/Ane/ane11.png" alt="ane11"></div>
+  <div class="pic" id="ane12"><img src="../../assets/Ane/ane12.png" alt="ane12"></div>
+  <div class="pic" id="ane13"><img src="../../assets/Ane/ane13.png" alt="ane13"></div>
+  <div class="pic" id="ane14"><img src="../../assets/Ane/ane14.png" alt="ane14"></div>
+  <div class="pic" id="ane15"><img src="../../assets/Ane/ane15.png" alt="ane15"></div>
+  <div class="pic" id="ane16"><img src="../../assets/Ane/ane16.png" alt="ane16"></div>
+  <div class="pic" id="ane17"><img src="../../assets/Ane/ane17.png" alt="ane17"></div>
+  <div class="pic" id="dsy1"><img src="../../assets/dsy/dsy1.png" alt="dsy1"></div>
+  <div class="pic" id="dsy2"><img src="../../assets/dsy/dsy2.png" alt="dsy2"></div>
+  <div class="pic" id="dsy3"><img src="../../assets/dsy/dsy3.png" alt="dsy3"></div>
+  <div class="pic" id="dsy4"><img src="../../assets/dsy/dsy4.png" alt="dsy4"></div>
+  <div class="pic" id="dsy5"><img src="../../assets/dsy/dsy5.png" alt="dsy5"></div>
+  <div class="pic" id="dsy6"><img src="../../assets/dsy/dsy6.png" alt="dsy6"></div>
+  <div class="pic" id="dsy7"><img src="../../assets/dsy/dsy7.png" alt="dsy7"></div>
+  <div class="pic" id="dsy8"><img src="../../assets/dsy/dsy8.png" alt="dsy8"></div>
+  <div class="pic" id="dsy9"><img src="../../assets/dsy/dsy9.png" alt="dsy9"></div>
+  <div class="pic" id="dsy10"><img src="../../assets/dsy/dsy10.png" alt="dsy10"></div>
+  <div class="pic" id="dsy11"><img src="../../assets/dsy/dsy11.png" alt="dsy11"></div>
+  <div class="pic" id="dsy12"><img src="../../assets/dsy/dsy12.png" alt="dsy12"></div>
+  <div class="pic" id="dsy13"><img src="../../assets/dsy/dsy13.png" alt="dsy13"></div>
+  <div class="pic" id="dsy14"><img src="../../assets/dsy/dsy14.png" alt="dsy14"></div>
+  <div class="pic" id="dsy15"><img src="../../assets/dsy/dsy15.png" alt="dsy15"></div>
+  <div class="pic" id="dsy16"><img src="../../assets/dsy/dsy16.png" alt="dsy16"></div>
+  <div class="pic" id="dsy17"><img src="../../assets/dsy/dsy17.png" alt="dsy17"></div>
+  <div class="pic" id="hyp1"><img src="../../assets/hyp/hyp1.png" alt="hyp1"></div>
+  <div class="pic" id="hyp2"><img src="../../assets/hyp/hyp2.png" alt="hyp2"></div>
+  <div class="pic" id="hyp3"><img src="../../assets/hyp/hyp3.png" alt="hyp3"></div>
+  <div class="pic" id="hyp4"><img src="../../assets/hyp/hyp4.png" alt="hyp4"></div>
+  <div class="pic" id="hyp5"><img src="../../assets/hyp/hyp5.png" alt="hyp5"></div>
+  <div class="pic" id="hyp6"><img src="../../assets/hyp/hyp6.png" alt="hyp6"></div>
+  <div class="pic" id="hyp7"><img src="../../assets/hyp/hyp7.png" alt="hyp7"></div>
+  <div class="pic" id="hyp8"><img src="../../assets/hyp/hyp8.png" alt="hyp8"></div>
+  <div class="pic" id="hyp9"><img src="../../assets/hyp/hyp9.png" alt="hyp9"></div>
+  <div class="pic" id="hyp10"><img src="../../assets/hyp/hyp10.png" alt="hyp10"></div>
+  <div class="pic" id="hyp11"><img src="../../assets/hyp/hyp11.png" alt="hyp11"></div>
+  <div class="pic" id="hyp12"><img src="../../assets/hyp/hyp12.png" alt="hyp12"></div>
+  <div class="pic" id="hyp13"><img src="../../assets/hyp/hyp13.png" alt="hyp13"></div>
+  <div class="pic" id="hyp14"><img src="../../assets/hyp/hyp14.png" alt="hyp14"></div>
+  <div class="pic" id="hyp15"><img src="../../assets/hyp/hyp15.png" alt="hyp15"></div>
+  <div class="pic" id="hyp16"><img src="../../assets/hyp/hyp16.png" alt="hyp16"></div>
+  <div class="pic" id="hyp17"><img src="../../assets/hyp/hyp17.png" alt="hyp17"></div>
+  <div class="pic" id="ns1"><img src="../../assets/ns/ns1.png" alt="ns1"></div>
+  <div class="pic" id="ns2"><img src="../../assets/ns/ns2.png" alt="ns2"></div>
+  <div class="pic" id="ns3"><img src="../../assets/ns/ns3.png" alt="ns3"></div>
+  <div class="pic" id="ns4"><img src="../../assets/ns/ns4.png" alt="ns4"></div>
+  <div class="pic" id="ns5"><img src="../../assets/ns/ns5.png" alt="ns5"></div>
+  <div class="pic" id="ns6"><img src="../../assets/ns/ns6.png" alt="ns6"></div>
+  <div class="pic" id="ns7"><img src="../../assets/ns/ns7.png" alt="ns7"></div>
+  <div class="pic" id="ns8"><img src="../../assets/ns/ns8.png" alt="ns8"></div>
+  <div class="pic" id="ns9"><img src="../../assets/ns/ns9.png" alt="ns9"></div>
+  <div class="pic" id="ns10"><img src="../../assets/ns/ns10.png" alt="ns10"></div>
+  <div class="pic" id="ns11"><img src="../../assets/ns/ns11.png" alt="ns11"></div>
+  <div class="pic" id="ns12"><img src="../../assets/ns/ns12.png" alt="ns12"></div>
+  <div class="pic" id="ns13"><img src="../../assets/ns/ns13.png" alt="ns13"></div>
+  <div class="pic" id="ns14"><img src="../../assets/ns/ns14.png" alt="ns14"></div>
+  <div class="pic" id="ns15"><img src="../../assets/ns/ns15.png" alt="ns15"></div>
+  <div class="pic" id="ns16"><img src="../../assets/ns/ns16.png" alt="ns16"></div>
+  <div class="pic" id="ns17"><img src="../../assets/ns/ns17.png" alt="ns17"></div>
+  <div class="pic" id="nor1"><img src="../../assets/nor/nor1.png" alt="nor1"></div>
+  <div class="pic" id="nor2"><img src="../../assets/nor/nor2.png" alt="nor2"></div>
+  <div class="pic" id="nor3"><img src="../../assets/nor/nor3.png" alt="nor3"></div>
+  <div class="pic" id="nor4"><img src="../../assets/nor/nor4.png" alt="nor4"></div>
+  <div class="pic" id="nor5"><img src="../../assets/nor/nor5.png" alt="nor5"></div>
+  <div class="pic" id="nor6"><img src="../../assets/nor/nor6.png" alt="nor6"></div>
+  <div class="pic" id="nor7"><img src="../../assets/nor/nor7.png" alt="nor7"></div>
+  <div class="pic" id="nor8"><img src="../../assets/nor/nor8.png" alt="nor8"></div>
+  <div class="pic" id="nor9"><img src="../../assets/nor/nor9.png" alt="nor9"></div>
+  <div class="pic" id="nor10"><img src="../../assets/nor/nor10.png" alt="nor10"></div>
+  <div class="pic" id="nor11"><img src="../../assets/nor/nor11.png" alt="nor11"></div>
+  <div class="pic" id="nor12"><img src="../../assets/nor/nor12.png" alt="nor12"></div>
+  <div class="pic" id="nor13"><img src="../../assets/nor/nor13.png" alt="nor13"></div>
+  <div class="pic" id="nor14"><img src="../../assets/nor/nor14.png" alt="nor14"></div>
+  <div class="pic" id="nor15"><img src="../../assets/nor/nor15.png" alt="nor15"></div>
+  <div class="pic" id="nor16"><img src="../../assets/nor/nor16.png" alt="nor16"></div>
+  <div class="pic" id="nor17"><img src="../../assets/nor/nor17.png" alt="nor17"></div>
+
+
+
+
+
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!--Legends-->
+  <div id="legends">
+    <img src="../../assets/Legends.png" alt="Legends">
+  </div>
+</div>
+</div>
+<div id="norbuttons">
+  Normal
+  <button class="form-control" type="button" class="allbutt" id="nor1b"  (click)="isValid = false" (click)="onClickNor1()" >1</button>
+  <button type="button" class="allbutt" id="nor2b" (click)="isValid = false" (click)="onClickNor2()" >2</button>
+  <button type="button" class="allbutt" id="nor3b" (click)="isValid = false" (click)="onClickNor3()" >3</button>
+  <button type="button" class="allbutt" id="nor4b" (click)="isValid = false" (click)="onClickNor4()" >4</button>
+  <button type="button" class="allbutt" id="nor5b" (click)="isValid = false" (click)="onClickNor5()" >5</button>
+  <button type="button" class="allbutt" id="nor6b" (click)="isValid = false" (click)="onClickNor6()" >6</button>
+  <button type="button" class="allbutt" id="nor7b" (click)="isValid = false" (click)="onClickNor7()" >7</button>
+  <button type="button" class="allbutt" id="nor8b" (click)="isValid = false" (click)="onClickNor8()" >8</button>
+  <button type="button" class="allbutt" id="nor9b" (click)="isValid = false" (click)="onClickNor9()" >9</button>
+  <button type="button" class="allbutt" id="nor10b" (click)="isValid = false" (click)="onClickNor10()" >10</button>
+  <button type="button" class="allbutt" id="nor11b" (click)="isValid = false" (click)="onClickNor11()" >11</button>
+  <button type="button" class="allbutt" id="nor12b" (click)="isValid = false" (click)="onClickNor12()" >12</button>
+  <button type="button" class="allbutt" id="nor13b" (click)="isValid = false" (click)="onClickNor13()" >13</button>
+  <button type="button" class="allbutt" id="nor14b" (click)="isValid = false" (click)="onClickNor14()" >14</button>
+  <button type="button" class="allbutt" id="nor15b" (click)="isValid = false" (click)="onClickNor15()" >15</button>
+  <button type="button" class="allbutt" id="nor16b" (click)="isValid = false" (click)="onClickNor16()" >16</button>
+  <button type="button" class="allbutt" id="nor17b" (click)="isValid = false" (click)="onClickNor17()" >17</button>
+
+</div>
+<div id="akibuttons">
+  Akinetic
+  <button class="form-control" type="button" class="allbutt" id="aki1b" (click)="isValid = false" (click)="onClickAki1()"  >1</button>
+  <button type="button" class="allbutt" id="aki2b" (click)="isValid = false" (click)="onClickAki2()" >2</button>
+  <button type="button" class="allbutt" id="aki3b" (click)="isValid = false" (click)="onClickAki3()" >3</button>
+  <button type="button" class="allbutt" id="aki4b" (click)="isValid = false" (click)="onClickAki4()" >4</button>
+  <button type="button" class="allbutt" id="aki5b" (click)="isValid = false" (click)="onClickAki5()" >5</button>
+  <button type="button" class="allbutt" id="aki6b" (click)="isValid = false" (click)="onClickAki6()" >6</button>
+  <button type="button" class="allbutt" id="aki7b" (click)="isValid = false" (click)="onClickAki7()" >7</button>
+  <button type="button" class="allbutt" id="aki8b" (click)="isValid = false" (click)="onClickAki8()" >8</button>
+  <button type="button" class="allbutt" id="aki9b" (click)="isValid = false" (click)="onClickAki9()" >9</button>
+  <button type="button" class="allbutt" id="aki10b" (click)="isValid = false" (click)="onClickAki10()" >10</button>
+  <button type="button" class="allbutt" id="aki11b" (click)="isValid = false" (click)="onClickAki11()" >11</button>
+  <button type="button" class="allbutt" id="aki12b" (click)="isValid = false" (click)="onClickAki12()" >12</button>
+  <button type="button" class="allbutt" id="aki13b" (click)="isValid = false" (click)="onClickAki13()" >13</button>
+  <button type="button" class="allbutt" id="aki14b" (click)="isValid = false" (click)="onClickAki14()" >14</button>
+  <button type="button" class="allbutt" id="aki15b" (click)="isValid = false" (click)="onClickAki15()" >15</button>
+  <button type="button" class="allbutt" id="aki16b" (click)="isValid = false" (click)="onClickAki16()" >16</button>
+  <button type="button" class="allbutt" id="aki17b" (click)="isValid = false" (click)="onClickAki17()" >17</button>
+
+</div>
+<div id="akibuttons">
+  Aneurysm
+  <button type="button" class="allbutt" id="ane1b" (click)="isValid = false" (click)="onClickAne1()" >1</button>
+  <button type="button" class="allbutt" id="ane2b" (click)="isValid = false" (click)="onClickAne2()" >2</button>
+  <button type="button" class="allbutt" id="ane3b" (click)="isValid = false" (click)="onClickAne3()" >3</button>
+  <button type="button" class="allbutt" id="ane4b" (click)="isValid = false" (click)="onClickAne4()" >4</button>
+  <button type="button" class="allbutt" id="ane5b" (click)="isValid = false" (click)="onClickAne5()" >5</button>
+  <button type="button" class="allbutt" id="ane6b" (click)="isValid = false" (click)="onClickAne6()" >6</button>
+  <button type="button" class="allbutt" id="ane7b" (click)="isValid = false" (click)="onClickAne7()" >7</button>
+  <button type="button" class="allbutt" id="ane8b" (click)="isValid = false" (click)="onClickAne8()" >8</button>
+  <button type="button" class="allbutt" id="ane9b" (click)="isValid = false" (click)="onClickAne9()" >9</button>
+  <button type="button" class="allbutt" id="ane10b" (click)="isValid = false" (click)="onClickAne10()" >10</button>
+  <button type="button" class="allbutt" id="ane11b" (click)="isValid = false" (click)="onClickAne11()" >11</button>
+  <button type="button" class="allbutt" id="ane12b" (click)="isValid = false" (click)="onClickAne12()" >12</button>
+  <button type="button" class="allbutt" id="ane13b" (click)="isValid = false" (click)="onClickAne13()" >13</button>
+  <button type="button" class="allbutt" id="ane14b" (click)="isValid = false" (click)="onClickAne14()" >14</button>
+  <button type="button" class="allbutt" id="ane15b" (click)="isValid = false" (click)="onClickAne15()" >15</button>
+  <button type="button" class="allbutt" id="ane16b" (click)="isValid = false" (click)="onClickAne16()" >16</button>
+  <button type="button" class="allbutt" id="ane17b" (click)="isValid = false" (click)="onClickAne17()" >17</button>
+
+</div>
+<div id="akibuttons">
+  Dyskinetic
+  <button type="button" class="allbutt" id="dsy1b" (click)="isValid = false" (click)="onClickDsy1()" >1</button>
+  <button type="button" class="allbutt" id="dsy2b" (click)="isValid = false" (click)="onClickDsy2()" >2</button>
+  <button type="button" class="allbutt" id="dsy3b" (click)="isValid = false" (click)="onClickDsy3()" >3</button>
+  <button type="button" class="allbutt" id="dsy4b" (click)="isValid = false" (click)="onClickDsy4()" >4</button>
+  <button type="button" class="allbutt" id="dsy5b" (click)="isValid = false" (click)="onClickDsy5()" >5</button>
+  <button type="button" class="allbutt" id="dsy6b" (click)="isValid = false" (click)="onClickDsy6()" >6</button>
+  <button type="button" class="allbutt" id="dsy7b" (click)="isValid = false" (click)="onClickDsy7()" >7</button>
+  <button type="button" class="allbutt" id="dsy8b" (click)="isValid = false" (click)="onClickDsy8()" >8</button>
+  <button type="button" class="allbutt" id="dsy9b" (click)="isValid = false" (click)="onClickDsy9()" >9</button>
+  <button type="button" class="allbutt" id="dsy10b" (click)="isValid = false" (click)="onClickDsy10()" >10</button>
+  <button type="button" class="allbutt" id="dsy11b" (click)="isValid = false" (click)="onClickDsy11()" >11</button>
+  <button type="button" class="allbutt" id="dsy12b" (click)="isValid = false" (click)="onClickDsy12()" >12</button>
+  <button type="button" class="allbutt" id="dsy13b" (click)="isValid = false" (click)="onClickDsy13()" >13</button>
+  <button type="button" class="allbutt" id="dsy14b" (click)="isValid = false" (click)="onClickDsy14()" >14</button>
+  <button type="button" class="allbutt" id="dsy15b" (click)="isValid = false" (click)="onClickDsy15()" >15</button>
+  <button type="button" class="allbutt" id="dsy16b" (click)="isValid = false" (click)="onClickDsy16()" >16</button>
+  <button type="button" class="allbutt" id="dsy17b" (click)="isValid = false" (click)="onClickDsy17()" >17</button>
+
+</div>
+<div id="akibuttons">
+  Hypokinetic
+  <button type="button" class="allbutt" id="hyp1b" (click)="isValid = false" (click)="onClickHyp1()" >1</button>
+  <button type="button" class="allbutt" id="hyp2b" (click)="isValid = false" (click)="onClickHyp2()" >2</button>
+  <button type="button" class="allbutt" id="hyp3b" (click)="isValid = false" (click)="onClickHyp3()" >3</button>
+  <button type="button" class="allbutt" id="hyp4b" (click)="isValid = false" (click)="onClickHyp4()" >4</button>
+  <button type="button" class="allbutt" id="hyp5b" (click)="isValid = false" (click)="onClickHyp5()" >5</button>
+  <button type="button" class="allbutt" id="hyp6b" (click)="isValid = false" (click)="onClickHyp6()" >6</button>
+  <button type="button" class="allbutt" id="hyp7b" (click)="isValid = false" (click)="onClickHyp7()" >7</button>
+  <button type="button" class="allbutt" id="hyp8b" (click)="isValid = false" (click)="onClickHyp8()" >8</button>
+  <button type="button" class="allbutt" id="hyp9b" (click)="isValid = false" (click)="onClickHyp9()" >9</button>
+  <button type="button" class="allbutt" id="hyp10b" (click)="isValid = false" (click)="onClickHyp10()" >10</button>
+  <button type="button" class="allbutt" id="hyp11b" (click)="isValid = false" (click)="onClickHyp11()" >11</button>
+  <button type="button" class="allbutt" id="hyp12b" (click)="isValid = false" (click)="onClickHyp12()" >12</button>
+  <button type="button" class="allbutt" id="hyp13b" (click)="isValid = false" (click)="onClickHyp13()" >13</button>
+  <button type="button" class="allbutt" id="hyp14b" (click)="isValid = false" (click)="onClickHyp14()" >14</button>
+  <button type="button" class="allbutt" id="hyp15b" (click)="isValid = false" (click)="onClickHyp15()" >15</button>
+  <button type="button" class="allbutt" id="hyp16b" (click)="isValid = false" (click)="onClickHyp16()" >16</button>
+  <button type="button" class="allbutt" id="hyp17b" (click)="isValid = false" (click)="onClickHyp17()" >17</button>
+
+</div>
+<div id="akibuttons">
+  Not Seen
+  <button type="button" class="allbutt" id="ns1b" (click)="isValid = false" (click)="onClickNs1()" >1</button>
+  <button type="button" class="allbutt" id="ns2b" (click)="isValid = false" (click)="onClickNs2()" >2</button>
+  <button type="button" class="allbutt" id="ns3b" (click)="isValid = false" (click)="onClickNs3()" >3</button>
+  <button type="button" class="allbutt" id="ns4b" (click)="isValid = false" (click)="onClickNs4()" >4</button>
+  <button type="button" class="allbutt" id="ns5b" (click)="isValid = false" (click)="onClickNs5()" >5</button>
+  <button type="button" class="allbutt" id="ns6b" (click)="isValid = false" (click)="onClickNs6()" >6</button>
+  <button type="button" class="allbutt" id="ns7b" (click)="isValid = false" (click)="onClickNs7()" >7</button>
+  <button type="button" class="allbutt" id="ns8b" (click)="isValid = false" (click)="onClickNs8()" >8</button>
+  <button type="button" class="allbutt" id="ns9b" (click)="isValid = false" (click)="onClickNs9()" >9</button>
+  <button type="button" class="allbutt" id="ns10b" (click)="isValid = false" (click)="onClickNs10()" >10</button>
+  <button type="button" class="allbutt" id="ns11b" (click)="isValid = false" (click)="onClickNs11()" >11</button>
+  <button type="button" class="allbutt" id="ns12b" (click)="isValid = false" (click)="onClickNs12()" >12</button>
+  <button type="button" class="allbutt" id="ns13b" (click)="isValid = false" (click)="onClickNs13()" >13</button>
+  <button type="button" class="allbutt" id="ns14b" (click)="isValid = false" (click)="onClickNs14()" >14</button>
+  <button type="button" class="allbutt" id="ns15b" (click)="isValid = false" (click)="onClickNs15()" >15</button>
+  <button type="button" class="allbutt" id="ns16b" (click)="isValid = false" (click)="onClickNs16()" >16</button>
+  <button type="button" class="allbutt" id="ns17b" (click)="isValid = false" (click)="onClickNs17()" >17</button>
+
+</div>
+<!-- <div class="pic" id="aki1"><img src=".../../assets/.../../assets/assets/Aki/aki1.png" alt="aki1"></div> -->
+<div id="allforms">
+
+  <form name="form1" id="form1" #form1="ngForm" [formGroup]="add" (ngSubmit)="clickme(add.value)"
+    enctype="multipart/form-data">
+    <div class="form-row">
+      <div class="form-group  col-md-4">
+        <label class="bold">1. Basal anteroseptal segment: </label><input class="form-control" name="f1"
+          value="normal"><br>
+        <label class="bold"> 2. Basal anterior segment</label> : <input class="form-control" type="text" name="f2"
+          value="normal"><br>
+        <label class="bold"> 3. Basal anterolateral segment:</label> <input class="form-control" type="text" name="f3"
+          value="normal"><br>
+        <label class="bold"> 4. Basal posterolateral segment:</label><input class="form-control" type="text" name="f4"
+          value="normal"><br>
+        <label class="bold"> 5. Basal inferior segment:</label> <input class="form-control" type="text" name="f5"
+          value="normal"><br>
+        <label class="bold"> 6. Basal infero septal segment:</label><input class="form-control" type="text" name="f6"
+          value="normal"><br>
+
+      </div>
+      <div class="form-group  col-md-4">
+        <label class="bold"> 7. Middle antero septal segment:</label> <input class="form-control" type="text" name="f7"
+          value="normal"><br>
+        <label class="bold"> 8. Middle anterior segment:</label> <input class="form-control" type="text" name="f8"
+          value="normal"><br>
+        <label class="bold"> 9. Middle anterolateral segment:</label> <input class="form-control" type="text" name="f9"
+          value="normal"><br>
+        <label class="bold"> 10. Middle Posterior segment:</label> <input class="form-control" type="text" name="f10"
+          value="normal"><br>
+        <label class="bold"> 11. Middle inferior segment:</label> <input class="form-control" type="text" name="f11"
+          value="normal"><br>
+        <label class="bold"> 12. Middle infero septal segment:</label> <input class="form-control" type="text"
+          name="f12" value="normal"><br>
+
+      </div>
+      <div class="form-group  col-md-4">
+        <label class="bold"> 13. Apical anterior segment:</label> <input class="form-control" type="text" name="f13"
+          value="normal"><br>
+        <label class="bold"> 14. Apical anterolateral segment:</label> <input class="form-control" type="text"
+          name="f14" value="normal"><br>
+        <label class="bold"> 15. Apical inferior segment:</label><input class="form-control" type="text" name="f15"
+          value="normal"><br>
+        <label class="bold"> 16. Apical anterior septal segment :</label> <input class="form-control" type="text"
+          name="f16" value="normal"><br>
+        <label class="bold"> 17. Apical cap:</label><input class="form-control" type="text" name="f17"
+          value="normal"><br>
+
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+<!-- <p>Form value: {{ addform.f1 | json }}</p> -->
+<div >
+<button (click)="clickme(add.value)"   class="btn btn-primary mb">Submit</button>
+</div>
+
+<div id="overlay">
+  <div class="loader"></div>
+
+</div>
+<!-- <img src={{capturedImage}}> -->

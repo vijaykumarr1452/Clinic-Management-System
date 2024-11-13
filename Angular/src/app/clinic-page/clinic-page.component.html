@@ -1,0 +1,150 @@
+<section class="navigation">
+    <div class="bg">
+
+    <div class="nav-container">
+      <!-- <div class="brand">
+  
+        <a routerLink="/login" class="navbar-brand title logo">
+          <img  src="../../assets/images/logo.png"  name="CG_Heart" class="img-responsive"   >    
+        {{ appTitle }} 
+        <p style="text-align: center;margin-top:-8%;">(ISO 9001:2015 Certified)</p>
+    </a>
+  
+    <a  class="navbar-brand title logo">
+      <img  src="../../assets/images/iso-9001.jpg"  width="65" height="65"  name="ISO"    >    
+    
+    </a>
+    <a class="navbar-brand border border-light p-2" href="#" style="border-width:3px !important;">
+            
+      <span style="vertical-align:super;">My</span><img src="../../assets/images/640px-CG_Heart.gif" width="65" height="50" alt="Golden Health Logo"/>
+            <span style="vertical-align:sub;">Echo</span>
+      </a>
+  
+  
+      </div> -->
+  
+  <div class="">
+    <div class="row border border-top-0 border-left-0 border-right-0 border-danger border-width-medium" style=" border-width:4px !important;">
+      <nav class="col navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">
+          <img src="../../assets/images/GH-05.png" width="100" height="100" alt="Golden Health Logo" style="float:left;" class="mr-3"/>
+          Golden Health Services Pvt. Ltd. <br>(ISO 9001:2015 Certified)
+        </a>
+     
+        
+      </nav>
+  <nav class="col navbar navbar-expand-lg navbar-dark justify-content-center">
+  <a >
+          <img src="../../assets/images/iso-9001.jpg" width="65" height="65" alt="" class="mr-5"/>
+          
+        </a>
+        <a class="navbar-brand border border-light p-2" href="#" style="border-width:3px !important;">
+          
+    <span style="vertical-align:super;">My</span><img src="../../assets/images/640px-CG_Heart.gif" width="65" height="50" alt="Golden Health Logo"/>
+          <span style="vertical-align:sub;">Echo</span>
+    </a>
+        
+      </nav>
+  
+          <nav class="col navbar  navbar-dark">
+              
+        <a class="navbar-brand ml-auto" href="#">
+    Dr. Digamber Naik
+          <img src="../../assets/images/picture.jpg" class="rounded-circle" width="50" height="50" alt="Golden Health Logo" />
+          
+        </a>
+       
+      </nav>
+    </div>
+    <div class="row border border-top-0 border-left-0 border-right-0 border-danger border-width-medium" style=" border-width:4px !important;">
+      <nav class="col navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand ">
+       Clinic Name:
+        </a>
+      </nav>
+      <nav class="col navbar  navbar-dark">
+              
+        <a class="navbar-brand ml-auto" href="#">
+         Clinic Doctor Name: 
+                  <img src="../../assets/images/picture.jpg" class="rounded-circle" width="30" height="30" alt="Golden Health Logo" />
+          
+        </a>
+       
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-------------------------------->
+  
+  <div class="container">
+
+    <nav *ngIf="isLogin">
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-dark btn-lg" routerLink="/clinicdashboard"   *ngIf="role==='CLINIC'" >Dashboard</button>     
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col">
+        <button type="button" class="btn btn-dark btn-lg" routerLink="/dicomupload"  *ngIf="role==='CLINIC'">Upload</button>
+        </div>
+        </div><br>
+        <div class="row">
+          <div class="col">
+        <button type="button" class="btn btn-dark btn-lg" routerLink="/clinicdashboard" *ngIf="role==='CLINIC'">Report</button>
+</div>
+</div><br>
+<div class="row">
+  <div class="col">
+
+  <!-- <button type="button" class="btn btn-outline-light btn-lg ml-auto" routerLink="/dashboard"   *ngIf="role==='ADMIN'"  >Dashboard</button>              -->
+  <!-- <button type="button" class="btn btn-outline-light btn-lg ml-auto" routerLink="/clinic-page"   *ngIf="role==='CLINIC'"  >Dashboard</button>      -->
+  <button type="button" class="btn btn-outline-light btn-lg ml-auto" routerLink="/doctordashboard"   *ngIf="role==='DOCTOR'"  >Dashboard</button>     
+
+  <!-- <button type="button" class="btn btn-outline-light btn-lg ml-auto" routerLink="/doctorprofile"   *ngIf="isLogin && role!='ADMIN' && role==='DOCTOR' " >Profile</button>      -->
+  <!-- <button type="button" class="btn btn-outline-light btn-lg ml-auto" routerLink="/profile"   *ngIf="isLogin && role!='ADMIN' && role==='CLINIC' " >Profile</button>      -->
+  
+
+  <button type="button" class="btn btn-dark btn-lg" (click)="logout()" >Log Out</button>     
+  </div>
+</div>
+
+        </nav>
+    
+    
+            <nav class="col navbar navbar-dark " *ngIf="!isLogin">                        
+              <button type="button" class="btn btn-outline-light btn-lg ml-auto" data-toggle="modal" data-target="#myModal" >Login</button>         
+            </nav>
+
+        <!-- <nav class="col navbar navbar-dark " *ngIf="isLogin">                        
+          <button type="button" class="btn btn-outline-light btn-lg ml-auto" routerLink="/dashboard"   *ngIf="role==='ADMIN'"  >Dashboard</button>     
+        </nav> -->
+        
+
+      </div>
+  
+  
+      
+    </div><div></div>
+    
+    <div>
+
+    </div>
+    <footer class="page-footer font-small blue ">  
+      <!-- fixed-bottom -->
+    
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© Rainbow Raiin Enterprises, Goa.
+          <a > All Rights Reserved</a>
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
+  </div>
+
+   
+
+
+</section> 
+

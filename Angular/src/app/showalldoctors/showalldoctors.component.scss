@@ -1,0 +1,73 @@
+.table{
+    width:90%;
+}
+
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
+.looprows:nth-of-type(even) {
+    background: #e0e0e0;
+}
+#page-content-wrapper {
+    //position: absolute;
+    padding: 15px;
+    //width: 100%;
+    width:80%;
+    float: right;
+    overflow-x: hidden;
+ }
+ #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0px;
+ }
+ 
+ .bgcolor{
+    background-color: #F0F0F0;
+    padding: 15px;
+    font-weight: bold;
+}
+.multirow{
+    padding-top: 20px;
+    padding-bottom: 20px;;
+} 
+.fulltableview{
+    //border: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+}
+.looprows{
+    padding: 15px 0;
+    border-bottom: 1px solid #ced4da;
+}
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+    float: right !important;
+    margin-top: 10px !important;
+}
+.ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #17a2b8 !important;
+    color: #fefefe;
+    cursor: default;
+}
+ 
+
+@media only screen and (max-width: 800px) {
+    .loopindiv{
+        //font-weight: bold;
+       padding: 10px;
+       
+        
+    }
+  }
+  .norecords{
+    color: #17a2b8;
+    padding-top: 3%;
+  }
+  .heading{
+    color: #17a2b8;
+    padding-left: 2%;
+  }
+ 

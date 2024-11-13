@@ -1,0 +1,2512 @@
+<div id="container">
+
+  <div class="total-container form-group" id="print-section">
+    <label *ngFor="let radiobutton of radioItems">
+      <input type="radio" name="options" (click)="model.option = radiobutton" [checked]="radiobutton === model.option"
+        [value]="radiobutton"
+        [(ngModel)]="favoriteSeason">&nbsp;{{radiobutton}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </label>
+    <div *ngIf="model.option === 'Abnormal Report'">
+
+
+      <form name="reportForm" #reportForm="ngForm">
+        <!--  (ngSubmit)="reportFormData()" -->
+        <h5 class="text-center">REPORT</h5>
+
+        <div class="patientdetails">
+
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <div>
+                <label>Name of The Patient :</label>
+                {{ patientDataObject?.patientname }}
+              </div>
+            </div>
+            <div class="form-group col-md-4">
+              <div>
+                <label>Patient Id :</label>
+                PATIENT {{ patientDataObject?.id }}
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <div>
+                <label>Date Of Birth :</label>
+                {{ patientDataObject?.dob | date:'MM-dd-yyyy'}}
+              </div>
+            </div>
+
+            <div class="form-group col-md-4">
+              <div>
+                <label>Age :</label>
+                {{ patientDataObject?.age }}
+              </div>
+            </div>
+
+            <div class="form-group col-md-4">
+              <div>
+                <label>BP :</label>
+                {{ patientDataObject?.bpsystolic }}/{{ patientDataObject?.bpdiastolic }} mmHg
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <div>
+                <label>Reffered By :</label>
+
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <div>
+                <label>Date of Reporting :</label>
+                {{ patientDataObject?.testdate | date:'MM-dd-yyyy'}}
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <div>
+                <label>Gender :</label>
+                {{ patientDataObject?.gender }}
+              </div>
+            </div>
+
+
+            <div class="form-group col-md-2">
+              <div>
+                <label>Height :</label>
+                {{ patientDataObject?.height }} cms
+              </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <div>
+                <label>Weight :</label>
+                {{ patientDataObject?.weight }} kgs
+              </div>
+            </div>
+            <div class="form-group col-md-2">
+              <div>
+                <label>BSA :</label>
+                {{ patientDataObject?.bsa }}
+              </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <div>
+                <label>BMI :</label>
+                {{ patientDataObject?.bmi }}
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <div>
+                <label>Type of Test :</label>
+                {{ patientDataObject?.testtype }}
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <div>
+                <label>Clinic Name :</label>
+                {{ clinicDataObject?.name }}
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <div>
+                <label>Clinic Observations :</label>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- <patientDetails form completes></patientDetails> -->
+
+
+        <hr />
+
+        <div class="total-container-report">
+
+          <div class="block-heading">
+            <h5>ECHO CARDIOGRAPHY REPORT</h5>
+          </div>
+          <div class="inner-head">
+            <p> ECHOCARDIOGRAPHIC STUDY WAS DONE BY USING </p>
+
+            <div>
+              <p>1. M Mode Echocardiography</p>
+              <p>2. Two Dimensional Echocardiography</p>
+              <p>3. Conventional and Color Doppler Echocardigraphy</p>
+              <p>4. Tissue Doppler</p>
+              <p>5. Speckle Tracking and Strain Imaging</p>
+            </div>
+            <hr />
+            <div *ngIf="patientDataObject?.ew != ''">
+              Echo Window : GOOD
+            </div>
+            <hr />
+
+            <div class="block-heading-observation">
+              <h5>FOLLOWING OBSERVATIONS WERE OBTAINED</h5>
+            </div>
+
+            <div class="observations-class">
+              <div>
+
+                <h4 class="maintype-head">
+                  VALVES
+                </h4>
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+                  <div class="form-group col-md-4">
+
+                    <h6> MITRAL VALVE </h6>
+
+
+                  </div>
+
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="mitralValve" [(ngModel)]="selectedItems9" [settings]="settings"
+                        name="mitralValvemastervalue" id="mitralValvemastervalue"
+                        (onSelect)="onItemSelect($event,'mitralValve')"
+                        (onDeSelect)="OnItemDeSelect($event,'mitralValve')"
+                        (onSelectAll)="onSelectAll($event,'mitralValve')"
+                        (onDeSelectAll)="onDeSelectAll($event,'mitralValve')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div *ngFor="let Observations of observationsObject">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'mitralValveObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngFor="let Observations of observationComments">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'mitralValveObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2" (click)="addMitralValveComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let mitralValvecomment of mitralValvecomments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>MitralValve {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeMitralValveComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="mitralValvecomment" name="mitralValvecomments_{{mitralValvecomment.id}}"
+                              class="form-control" placeholder="Comment" required
+                              [(ngModel)]="mitralValvecomment.comment" #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div *ngFor ="let Observations of observationsObject" >
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;" >
+                        
+                        <div *ngIf="Observations.type === 'mitralValveObservation' " >
+                
+                        <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{ Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                      </div>
+                    </div>
+                      </div> -->
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+                  <div class="form-group col-md-4">
+                    <h6> AORTIC VALVE </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="aorticValve" [(ngModel)]="selectedItems10" [settings]="settings"
+                        name="aorticValvemastervalue" id="aorticValvemastervalue"
+                        (onSelect)="onItemSelect($event,'aorticValve')"
+                        (onDeSelect)="OnItemDeSelect($event,'aorticValve')"
+                        (onSelectAll)="onSelectAll($event,'aorticValve')"
+                        (onDeSelectAll)="onDeSelectAll($event,'aorticValve')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div *ngFor="let Observations of observationsObject">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'aorticValveObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2" (click)="addAorticValveComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let aorticValvecomment of aorticValvecomments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>AorticValve {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeAorticValveComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="aorticValvecomment" name="aorticValvecomments_{{aorticValvecomment.id}}"
+                              class="form-control" placeholder="Comment" required
+                              [(ngModel)]="aorticValvecomment.comment" #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+                        <!-- <div *ngFor ="let Observations of observationsObject" >
+        <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;" >
+          
+          <div *ngIf="Observations.type === 'aorticValveObservation' " >
+  
+          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{ Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+        </div>
+      </div>
+        </div> -->
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+                  <div class="form-group col-md-4">
+
+                    <h6> PULMONARY VALVE </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="pulmonaryValve" [(ngModel)]="selectedItems11" [settings]="settings"
+                        name="pulmonaryValvemastervalue" id="pulmonaryValvemastervalue"
+                        (onSelect)="onItemSelect($event,'pulmonaryValve')"
+                        (onDeSelect)="OnItemDeSelect($event,'pulmonaryValve')"
+                        (onSelectAll)="onSelectAll($event,'pulmonaryValve')"
+                        (onDeSelectAll)="onDeSelectAll($event,'pulmonaryValve')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div *ngFor="let Observations of observationsObject">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'pulmonicValveObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2"
+                        (click)="addPulmonaryValveComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let pulmonaryValvecomment of pulmonaryValvecomments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>pulmonaryArtery {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removePulmonaryValveComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="pulmonaryValvecomment"
+                              name="pulmonaryValvecomments_{{pulmonaryValvecomment.id}}" class="form-control"
+                              placeholder="Comment" required [(ngModel)]="pulmonaryValvecomment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- <div *ngFor ="let Observations of observationsObject" >
+        <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;" >
+          
+          <div *ngIf="Observations.type === 'pulmonaryValveObservation' " >
+  
+          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{ Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+        </div>
+      </div>
+        </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+                  <div class="form-group col-md-4">
+
+                    <h6> TRICUSPID VALVE </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="tricuspidValve" [(ngModel)]="selectedItems12" [settings]="settings"
+                        name="tricuspidValvemastervalue" id="tricuspidValvemastervalue"
+                        (onSelect)="onItemSelect($event,'tricuspidValve')"
+                        (onDeSelect)="OnItemDeSelect($event,'tricuspidValve')"
+                        (onSelectAll)="onSelectAll($event,'tricuspidValve')"
+                        (onDeSelectAll)="onDeSelectAll($event,'tricuspidValve')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div *ngFor="let Observations of observationsObject">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'tricuspidValveObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2"
+                        (click)="addTricuspidValveComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let tricuspidValvecomment of tricuspidValvecomments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>TricuspidValve {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeTricuspidValveComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="tricuspidValvecomment"
+                              name="tricuspidValvecomments_{{tricuspidValvecomment.id}}" class="form-control"
+                              placeholder="Comment" required [(ngModel)]="tricuspidValvecomment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div *ngFor ="let Observations of observationsObject" >
+          <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;" >
+            
+            <div *ngIf="Observations.type === 'tricuspidValveObservation' " >
+    
+            <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{ Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+          </div>
+        </div>
+          </div> -->
+                  </div>
+                </div>
+              </div>
+              <div class="impressions-class">
+                <div>
+
+                  <h4 class="maintype-head">
+                    CHAMBERS
+                  </h4>
+                </div>
+                <div class="form-row  impressionsblock">
+                  <div class="form-group col-md-4">
+
+                    <h6> LEFT ATRIUM </h6>
+
+
+                  </div>
+
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="leftAtrium" [(ngModel)]="selectedItems5" [settings]="settings"
+                        name="leftAtriummastervalue" id="leftAtriummastervalue"
+                        (onSelect)="onItemSelect($event,'leftAtrium')"
+                        (onDeSelect)="OnItemDeSelect($event,'leftAtrium')"
+                        (onSelectAll)="onSelectAll($event,'leftAtrium')"
+                        (onDeSelectAll)="onDeSelectAll($event,'leftAtrium')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div *ngFor="let Observations of observationsObject">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'leftAtriumObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2" (click)="addLeftAtriumComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let leftAtriumcomment of leftAtriumcomments1; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>LeftAtrium {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeLeftAtriumComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="leftAtriumcomment" name="leftAtriumcomments_{{leftAtriumcomment.id}}"
+                              class="form-control" placeholder="Comment" required
+                              [(ngModel)]="leftAtriumcomment.comment" #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div *ngFor ="let Observations of observationsObject" >
+                    <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;" >
+                      
+                      <div *ngIf="Observations.type === 'leftAtriumObservation' " >
+
+                      <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{ Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                    </div>
+                  </div>
+                    </div> -->
+
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+
+                  <h6> LEFT VENTRICLE </h6>
+
+
+                </div>
+
+                <div class="form-group col-md-8">
+
+                  <div class="form-group col-md-4">
+
+                    <angular2-multiselect [data]="leftVentricle" [(ngModel)]="selectedItems6" [settings]="settings"
+                      name="leftVentriclemastervalue" id="leftVentriclemastervalue"
+                      (onSelect)="onItemSelect($event,'leftVentricle')"
+                      (onDeSelect)="OnItemDeSelect($event,'leftVentricle')"
+                      (onSelectAll)="onSelectAll($event,'leftVentricle')"
+                      (onDeSelectAll)="onDeSelectAll($event,'leftVentricle')">
+                      <c-badge>
+                        <ng-template let-item="item">
+                          <label style="margin: 0px;">{{item.itemName}}</label>
+                        </ng-template>
+                      </c-badge>
+                    </angular2-multiselect>
+                  </div>
+                  <div *ngFor="let Observations of observationsObject">
+                    <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                      <div *ngIf="Observations.type === 'leftVentricalObservation' ">
+
+                        <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                          Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-9">
+
+                    <button type="button" class="btn btn-primary mb-2" (click)="addLeftVentricleComment()">Add</button>
+
+                    <div class="addremove-class"
+                      *ngFor="let leftVentriclecomment of leftVentriclecomments; let ii = index;">
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <h4>LeftVentricle {{ii + 1}}</h4>
+                        </div>
+                        <div class="form-group col-md-6 text-right">
+                          <button type="button" class="btn btn-danger btn-sm"
+                            (click)="removeLeftVentricleComment(ii)">Remove</button>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <label>Comment</label>
+                          <textarea id="leftVentriclecomment" name="leftVentriclecomments_{{leftVentriclecomment.id}}"
+                            class="form-control" placeholder="Comment" required
+                            [(ngModel)]="leftVentriclecomment.comment" #leftVentriclecomment="ngModel"></textarea>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+
+                  <h6> RIGHT ATRIUM </h6>
+
+
+                </div>
+
+                <div class="form-group col-md-8">
+
+                  <div class="form-group col-md-4">
+
+                    <angular2-multiselect [data]="rightAtrium" [(ngModel)]="selectedItems7" [settings]="settings"
+                      name="rightAtriumsmastervalue" id="rightAtriumsmastervalue"
+                      (onSelect)="onItemSelect($event,'rightAtrium')"
+                      (onDeSelect)="OnItemDeSelect($event,'rightAtrium')"
+                      (onSelectAll)="onSelectAll($event,'rightAtrium')"
+                      (onDeSelectAll)="onDeSelectAll($event,'rightAtrium')">
+                      <c-badge>
+                        <ng-template let-item="item">
+                          <label style="margin: 0px;">{{item.itemName}}</label>
+                        </ng-template>
+                      </c-badge>
+                    </angular2-multiselect>
+                  </div>
+                  <div *ngFor="let Observations of observationsObject">
+                    <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                      <div *ngIf="Observations.type === 'rightAtriumObservation' ">
+
+                        <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                          Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-9">
+
+                    <button type="button" class="btn btn-primary mb-2" (click)="addRightAtriumComment()">Add</button>
+
+                    <div class="addremove-class"
+                      *ngFor="let rightAtriumcomment of rightAtriumcomments; let ii = index;">
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <h4>RightAtrium {{ii + 1}}</h4>
+                        </div>
+                        <div class="form-group col-md-6 text-right">
+                          <button type="button" class="btn btn-danger btn-sm"
+                            (click)="removeRightAtriumComment(ii)">Remove</button>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <label>Comment</label>
+                          <textarea id="rightAtriumcomment" name="rightAtriumcomments_{{rightAtriumcomment.id}}"
+                            class="form-control" placeholder="Comment" required [(ngModel)]="rightAtriumcomment.comment"
+                            #rightAtriumcomment="ngModel"></textarea>
+
+                        </div>
+                      </div>
+
+
+                    </div>
+
+
+                    <!-- <div class="text-right">
+                          <input type="submit" class="btn btn-success" value="Submit"/>
+                        </div> -->
+
+                  </div>
+
+                </div>
+
+
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+
+                  <h6> RIGHT VENTRICLE </h6>
+
+
+                </div>
+
+                <div class="form-group col-md-8">
+
+                  <div class="form-group col-md-4">
+
+                    <angular2-multiselect [data]="rightVentricle" [(ngModel)]="selectedItems8" [settings]="settings"
+                      name="rightVentriclesmastervalue" id="rightVentriclesmastervalue"
+                      (onSelect)="onItemSelect($event,'rightVentricle')"
+                      (onDeSelect)="OnItemDeSelect($event,'rightVentricle')"
+                      (onSelectAll)="onSelectAll($event,'rightVentricle')"
+                      (onDeSelectAll)="onDeSelectAll($event,'rightVentricle')">
+                      <c-badge>
+                        <ng-template let-item="item">
+                          <label style="margin: 0px;">{{item.itemName}}</label>
+                        </ng-template>
+                      </c-badge>
+                    </angular2-multiselect>
+                  </div>
+                  <div *ngFor="let Observations of observationsObject">
+                    <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                      <div *ngIf="Observations.type === 'rightVentricleObservation' ">
+
+                        <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                          Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngFor="let Observations of observationsObject">
+                    <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                      <div *ngIf="Observations.type === 'rightVentricalObservation' ">
+
+                        <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                          Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-9">
+
+                    <button type="button" class="btn btn-primary mb-2" (click)="addRightVentricleComment()">Add</button>
+
+                    <div class="addremove-class"
+                      *ngFor="let rightVentriclecomment of rightVentriclecomments; let ii = index;">
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <h4>RightVentricle {{ii + 1}}</h4>
+                        </div>
+                        <div class="form-group col-md-6 text-right">
+                          <button type="button" class="btn btn-danger btn-sm"
+                            (click)="removeRightVentricleComment(ii)">Remove</button>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <label>Comment</label>
+                          <textarea id="rightVentriclecomment"
+                            name="rightVentriclecomments_{{rightVentriclecomment.id}}" class="form-control"
+                            placeholder="Comment" required [(ngModel)]="rightVentriclecomment.comment"
+                            #rightVentriclecomment="ngModel"></textarea>
+
+                        </div>
+                      </div>
+
+
+                    </div>
+
+
+                    <!-- <div class="text-right">
+                            <input type="submit" class="btn btn-success" value="Submit"/>
+                          </div> -->
+
+                  </div>
+
+                </div>
+
+
+              </div>
+
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+                  <div class="form-group col-md-4">
+                    <h6> AORTA </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="aorta" [(ngModel)]="selectedItems13" [settings]="settings"
+                        name="aortamastervalve" id="aortamastervalve" (onSelect)="onItemSelect($event,'aorta')"
+                        (onDeSelect)="OnItemDeSelect($event,'aorta')" (onSelectAll)="onSelectAll($event,'aorta')"
+                        (onDeSelectAll)="onDeSelectAll($event,'aorta')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div *ngFor="let Observations of observationsObject">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'aortaObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2" (click)="addaortaComment()">Add</button>
+
+                      <div class="addremove-class" *ngFor="let aortacomment of aortaComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>aorta {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeaortaComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="aortacomment" name="aortacomments_{{aortacomment.id}}" class="form-control"
+                              placeholder="Comment" required [(ngModel)]="aortacomment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+                        <!-- <div *ngFor ="let Observations of observationsObject" >
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;" >
+                        
+                        <div *ngIf="Observations.type === 'aorticValveObservation' " >
+                
+                        <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{ Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                      </div>
+                    </div>
+                      </div> -->
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+                  <div class="form-group col-md-4">
+
+                    <h6> PERICARDIUM </h6>
+
+
+                  </div>
+
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="pericardium" [(ngModel)]="pericardiumReport" [settings]="settings"
+                        name="pericardiummastervalue" id="pericardiummastervalue"
+                        (onSelect)="onItemSelect($event,'pericardium')"
+                        (onDeSelect)="OnItemDeSelect($event,'pericardium')"
+                        (onSelectAll)="onSelectAll($event,'pericardium')"
+                        (onDeSelectAll)="onDeSelectAll($event,'pericardium')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div *ngFor="let Observations of observationsObject">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'pericardiumObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngFor="let Observations of observationComments">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'pericardiumObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2" (click)="addpericardiumComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let pericardiumcomment of pericardiumComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>pericardium {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removepericardiumComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="pericardiumcomment" name="pericardiumComments_{{pericardiumcomment.id}}"
+                              class="form-control" placeholder="Comment" required
+                              [(ngModel)]="pericardiumcomment.comment" #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div *ngFor ="let Observations of observationsObject" >
+                        <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;" >
+                          
+                          <div *ngIf="Observations.type === 'mitralValveObservation' " >
+                  
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{ Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                        </div> -->
+
+                  </div>
+                </div>
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+                  <div class="form-group col-md-4">
+
+                    <h6> PULMONARY ARTERY </h6>
+
+
+                  </div>
+
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="pulmonaryArtery" [(ngModel)]="pulmonaryArteryReport"
+                        [settings]="settings" name="pulmonaryArterymastervalue" id="pulmonaryArterymastervalue"
+                        (onSelect)="onItemSelect($event,'pulmonaryArtery')"
+                        (onDeSelect)="OnItemDeSelect($event,'pulmonaryArtery')"
+                        (onSelectAll)="onSelectAll($event,'pulmonaryArtery')"
+                        (onDeSelectAll)="onDeSelectAll($event,'pulmonaryArtery')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div *ngFor="let Observations of observationsObject">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'pulmonaryArteryObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngFor="let Observations of observationComments">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'pulmonaryArteryObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2"
+                        (click)="addpulmonaryArteryComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let pulmonaryArterycomment of pulmonaryArteryComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>pulmonaryArtery {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removepulmonaryArteryComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="pulmonaryArterycomment"
+                              name="pulmonaryArteryComments_{{pulmonaryArterycomment.id}}" class="form-control"
+                              placeholder="Comment" required [(ngModel)]="pulmonaryArterycomment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div *ngFor ="let Observations of observationsObject" >
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;" >
+                        
+                        <div *ngIf="Observations.type === 'mitralValveObservation' " >
+                
+                        <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{ Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                      </div>
+                    </div>
+                      </div> -->
+
+                  </div>
+                </div>
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+                  <div class="form-group col-md-4">
+                    <h6> VENOUS </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="venous" [(ngModel)]="venousReport" [settings]="settings"
+                        name="venousmastervalve" id="venousmastervalve" (onSelect)="onItemSelect($event,'venous')"
+                        (onDeSelect)="OnItemDeSelect($event,'venous')" (onSelectAll)="onSelectAll($event,'venous')"
+                        (onDeSelectAll)="onDeSelectAll($event,'venous')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div *ngFor="let Observations of observationsObject">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'venousObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2" (click)="addvenousComment()">Add</button>
+
+                      <div class="addremove-class" *ngFor="let venouscomment of venousComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>venous {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removevenousComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="venouscomment" name="venouscomments_{{venouscomment.id}}" class="form-control"
+                              placeholder="Comment" required [(ngModel)]="venouscomment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+                        <!-- <div *ngFor ="let Observations of observationsObject" >
+                        <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;" >
+                          
+                          <div *ngIf="Observations.type === 'aorticValveObservation' " >
+                  
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{ Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                        </div> -->
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+
+                  <div class="form-group col-md-4">
+                    <h6> INFERIOR VENACAVA </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="inferiorVenaCava" [(ngModel)]="ivcReport" [settings]="settings"
+                        name="ivcReport" id="ivcReport" (onSelect)="onItemSelect($event,'ivcReport')"
+                        (onDeSelect)="OnItemDeSelect($event,'ivcReport')"
+                        (onSelectAll)="onSelectAll($event,'ivcReport')"
+                        (onDeSelectAll)="onDeSelectAll($event,'ivcReport')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div *ngFor="let Observations of observationsObject">
+                      <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;">
+
+                        <div *ngIf="Observations.type === 'ivcObservation' ">
+
+                          <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{
+                            Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2" (click)="addivcComment()">Add</button>
+
+                      <div class="addremove-class" *ngFor="let ivcComment of ivcComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>inferiorVenaCava {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeivcComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="ivcComment" name="ivcComments_{{ivcComment.id}}" class="form-control"
+                              placeholder="Comment" required [(ngModel)]="ivcComment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+                        <!-- <div *ngFor ="let Observations of observationsObject" >
+                          <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;" >
+                            
+                            <div *ngIf="Observations.type === 'aorticValveObservation' " >
+                    
+                            <p>{{ Obsvalue.key.replace('select','').split('_').join('\t') | titlecase }} - {{ Obsvalue.value.split('-').join('\t')| titlecase }}</p>
+                          </div>
+                        </div>
+                          </div> -->
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+
+                  <div class="form-group col-md-4">
+                    <h6> INTERARTRIAL SEPTUM </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="InterartrialSeptumData" [(ngModel)]="InterartrialSeptum"
+                        [settings]="settings" name="InterartrialSeptum" id="InterartrialSeptum"
+                        (onSelect)="onItemSelect($event,'InterartrialSeptum')"
+                        (onDeSelect)="OnItemDeSelect($event,'InterartrialSeptum')"
+                        (onSelectAll)="onSelectAll($event,'InterartrialSeptum')"
+                        (onDeSelectAll)="onDeSelectAll($event,'InterartrialSeptum')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2"
+                        (click)="addInterartrialSeptumComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let ivcComment of InterartrialSeptumComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>Interartrial Septum {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeInterartrialSeptumComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="ivcComment" name="InterartrialSeptumComments_{{ivcComment.id}}"
+                              class="form-control" placeholder="Comment" required [(ngModel)]="ivcComment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+
+                  <div class="form-group col-md-4">
+                    <h6> INTERVENTRICULAR SEPTUM </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+                      <angular2-multiselect [data]="InterventricularSeptumData" [(ngModel)]="InterventricularSeptum"
+                        [settings]="settings" name="InterventricularSeptum" id="InterventricularSeptum"
+                        (onSelect)="onItemSelect($event,'InterventricularSeptum')"
+                        (onDeSelect)="OnItemDeSelect($event,'InterventricularSeptum')"
+                        (onSelectAll)="onSelectAll($event,'InterventricularSeptum')"
+                        (onDeSelectAll)="onDeSelectAll($event,'InterventricularSeptum')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2"
+                        (click)="addInterventricularSeptumComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let ivcComment of InterventricularSeptumComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>Interventricular Septum {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeInterventricularSeptumComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="ivcComment" name="InterventricularSeptumComments_{{ivcComment.id}}"
+                              class="form-control" placeholder="Comment" required [(ngModel)]="ivcComment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+
+                  <div class="form-group col-md-4">
+                    <h6>THE REDUCED PEAK SYSYTOLIC STRAIN OVER </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+
+                      <!-- <div class="form-group col-md-3"> -->
+                      <angular2-multiselect [data]="speckleTracking" [(ngModel)]="selectedItems1" [settings]="settings"
+                        name="peaksystolicstrain" id="peaksystolicstrain"
+                        (onSelect)="onItemSelect($event,'speckleTracking')"
+                        (onDeSelect)="OnItemDeSelect($event,'speckleTracking')"
+                        (onSelectAll)="onSelectAll($event,'speckleTracking')"
+                        (onDeSelectAll)="onDeSelectAll($event,'speckleTracking')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                      <!-- </div> -->
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2"
+                        (click)="addspeckleTrackingComment()">Add</button>
+
+                      <div class="addremove-class" *ngFor="let ivcComment of speckleTrackingComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>Speckle Tracking {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removespeckleTrackingComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="ivcComment" name="speckleTrackingComments_{{ivcComment.id}}"
+                              class="form-control" placeholder="Comment" required [(ngModel)]="ivcComment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+
+                  <div class="form-group col-md-4">
+                    <h6>LEFT VENTRICAL FUNCTION </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+
+                      <!-- <div class="form-group col-md-3"> -->
+                      <angular2-multiselect [data]="leftVentricalFunction" [(ngModel)]="leftVentricalFunctionReport"
+                        [settings]="settings" name="leftVentricalFunction" id="leftVentricalFunction"
+                        (onSelect)="onItemSelect($event,'leftVentricalFunction')"
+                        (onDeSelect)="OnItemDeSelect($event,'leftVentricalFunction')"
+                        (onSelectAll)="onSelectAll($event,'leftVentricalFunction')"
+                        (onDeSelectAll)="onDeSelectAll($event,'leftVentricalFunction')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                      <!-- </div> -->
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2"
+                        (click)="addleftVentricalFunctionComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let ivcComment of leftVentricalFunctionComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>leftVentricalFunction {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeleftVentricalFunctionComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="ivcComment" name="leftVentricalFunctionComments_{{ivcComment.id}}"
+                              class="form-control" placeholder="Comment" required [(ngModel)]="ivcComment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3"></div>
+                <div class="form-grup col-md-1"><b>TAPSE :</b></div>
+                <div class="form-group col-md-3" *ngIf="patientDataObject.tapse != ''; else elseBlock">
+
+                  <input type="text" name="tapse" id="tapse" value="" [(ngModel)]="patientDataObject.tapse"
+                    #tapse="ngModel" class="form-control" />
+
+                </div>
+
+                <ng-template #elseBlock>
+                  <div class="form-group col-md-3">
+
+                    <input type="text" name="tapse" id="tapse" [(ngModel)]="patientDataObject.tapse" #tapse="ngModel"
+                      class="form-control" />
+                  </div>
+
+
+                </ng-template>
+
+
+                <div class="form-grup col-md-1"><b>cm2</b></div>
+
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+
+                  <div class="form-group col-md-4">
+                    <h6>RIGHT VENTRICAL FUNCTION </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+
+                      <!-- <div class="form-group col-md-3"> -->
+                      <angular2-multiselect [data]="rightVentricalFunction" [(ngModel)]="rightVentricalFunctionReport"
+                        [settings]="settings" name="rightVentricalFunction" id="rightVentricalFunction"
+                        (onSelect)="onItemSelect($event,'rightVentricalFunction')"
+                        (onDeSelect)="OnItemDeSelect($event,'rightVentricalFunction')"
+                        (onSelectAll)="onSelectAll($event,'rightVentricalFunction')"
+                        (onDeSelectAll)="onDeSelectAll($event,'rightVentricalFunction')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                      <!-- </div> -->
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2"
+                        (click)="addrightVentricalFunctionComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let ivcComment of rightVentricalFunctionComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>rightVentricalFunction {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removerightVentricalFunctionComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="ivcComment" name="rightVentricalFunctionComments_{{ivcComment.id}}"
+                              class="form-control" placeholder="Comment" required [(ngModel)]="ivcComment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3"></div>
+                <div class="form-grup col-md-1"><b>MAPSE :</b></div>
+                <div class="form-group col-md-3" *ngIf="patientDataObject.mapse != ''; else elseBlock">
+
+                  <input type="text" name="mapse" id="mapse" value="" [(ngModel)]="patientDataObject.mapse"
+                    value="patientDataObject.mapse" class="form-control" />
+
+                </div>
+
+                <ng-template #elseBlock>
+                  <div class="form-group col-md-3">
+
+                    <input type="text" name="mapse" id="mapse" [(ngModel)]="patientDataObject.mapse" #mapse="ngModel"
+                      class="form-control" />
+                  </div>
+
+
+                </ng-template>
+
+
+                <div class="form-grup col-md-1"><b>cm2</b></div>
+
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+
+                  <div class="form-group col-md-4">
+                    <h6>PERICARDIAL EFFUSION </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+
+                      <!-- <div class="form-group col-md-3"> -->
+                      <angular2-multiselect [data]="PeriCardialEffusion" [(ngModel)]="pericardialEffusionReport"
+                        [settings]="settings" name="PeriCardialEffusion" id="PeriCardialEffusion"
+                        (onSelect)="onItemSelect($event,'PeriCardialEffusion')"
+                        (onDeSelect)="OnItemDeSelect($event,'PeriCardialEffusion')"
+                        (onSelectAll)="onSelectAll($event,'PeriCardialEffusion')"
+                        (onDeSelectAll)="onDeSelectAll($event,'PeriCardialEffusion')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                      <!-- </div> -->
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2"
+                        (click)="addPeriCardialEffusionComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let ivcComment of PeriCardialEffusionComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>Pericardial Effusion {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removePeriCardialEffusionComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="ivcComment" name="PeriCardialEffusionComments_{{ivcComment.id}}"
+                              class="form-control" placeholder="Comment" required [(ngModel)]="ivcComment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+
+                  <div class="form-group col-md-4">
+                    <h6> INTRA CARDIAC CLOT </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+
+                      <!-- <div class="form-group col-md-3"> -->
+                      <angular2-multiselect [data]="IntraCardiacClot" [(ngModel)]="IntraCardiacClotReport"
+                        [settings]="settings" name="IntraCardiacClot" id="IntraCardiacClot"
+                        (onSelect)="onItemSelect($event,'IntraCardiacClot')"
+                        (onDeSelect)="OnItemDeSelect($event,'IntraCardiacClot')"
+                        (onSelectAll)="onSelectAll($event,'IntraCardiacClot')"
+                        (onDeSelectAll)="onDeSelectAll($event,'IntraCardiacClot')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                      <!-- </div> -->
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2"
+                        (click)="addIntraCardiacClotComment()">Add</button>
+
+                      <div class="addremove-class" *ngFor="let ivcComment of IntraCardiacClotComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>Intra Cardiac Clot {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeIntraCardiacClotComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="ivcComment" name="IntraCardiacClotComments_{{ivcComment.id}}"
+                              class="form-control" placeholder="Comment" required [(ngModel)]="ivcComment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="impressions-class">
+
+                <div class="form-row  impressionsblock">
+
+                  <div class="form-group col-md-4">
+                    <h6>INTER CARDIAC TUMOUR </h6>
+
+
+                  </div>
+                  <div class="form-group col-md-8">
+
+                    <div class="form-group col-md-4">
+
+
+                      <!-- <div class="form-group col-md-3"> -->
+                      <angular2-multiselect [data]="IntraCardiacTumour" [(ngModel)]="intraCardiacTumourReport"
+                        [settings]="settings" name="IntraCardiacTumour" id="IntraCardiacTumour"
+                        (onSelect)="onItemSelect($event,'IntraCardiacTumour')"
+                        (onDeSelect)="OnItemDeSelect($event,'IntraCardiacTumour')"
+                        (onSelectAll)="onSelectAll($event,'IntraCardiacTumour')"
+                        (onDeSelectAll)="onDeSelectAll($event,'IntraCardiacTumour')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                      <!-- </div> -->
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2"
+                        (click)="addIntraCardiacTumourComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let ivcComment of IntraCardiacTumourComments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4> Inter Cardiac Tumour {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeIntraCardiacTumourComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="ivcComment" name="IntraCardiacTumourComments_{{ivcComment.id}}"
+                              class="form-control" placeholder="Comment" required [(ngModel)]="ivcComment.comment"
+                              #comment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wallclass">
+                <h5 class="wall-head">REGIONAL WALL MOTION </h5>
+                <div class="form-row">
+
+                  <div class="form-group col-md-3">
+                    ANTERIOR WALL
+                  </div>
+                  <div class="form-group col-md-3">
+                    <select class="form-control" name="anteriorwall" [(ngModel)]="updform.anteriorwall"
+                      #anteriorwall="ngModel">
+                      <option *ngFor="let wallmotions of regionalWallMotion" [ngValue]="wallmotions.itemName">
+                        {{wallmotions.itemName}}</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    POSTERIOR WALL
+                  </div>
+                  <div class="form-group col-md-3">
+                    <select class="form-control" name="posteriorwall" id="posteriorwall"
+                      [(ngModel)]="updform.posteriorwall" #posteriorwall="ngModel">
+                      <option *ngFor="let wallmotions of regionalWallMotion" [ngValue]="wallmotions.itemName">
+                        {{wallmotions.itemName}}</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                <div class="form-row">
+
+                  <div class="form-group col-md-3">
+                    INFERIOR WALL
+                  </div>
+                  <div class="form-group col-md-3">
+                    <select class="form-control" name="inferiorwall" id="inferiorwall"
+                      [(ngModel)]="updform.inferiorwall" #inferiorwall="ngModel">
+                      <option *ngFor="let wallmotions of regionalWallMotion" [ngValue]="wallmotions.itemName">
+                        {{wallmotions.itemName}}</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    LATERAL WALL
+                  </div>
+                  <div class="form-group col-md-3">
+                    <select class="form-control" name="lateralwall" id="lateralwall" [(ngModel)]="updform.lateralwall"
+                      #lateralwall="ngModel">
+                      <option *ngFor="let wallmotions of regionalWallMotion" [ngValue]="wallmotions.itemName">
+                        {{wallmotions.itemName}}</option>
+                    </select>
+                  </div>
+
+                </div>
+                <div class="form-row">
+
+                  <div class="form-group col-md-3">
+                    ANTERIOR SEPTUM
+                  </div>
+                  <div class="form-group col-md-3">
+                    <select class="form-control" name="anteriorseptum" [(ngModel)]="updform.anteriorseptum"
+                      #anteriorseptum="ngModel">
+                      <option *ngFor="let wallmotions of regionalWallMotion" [ngValue]="wallmotions.itemName">
+                        {{wallmotions.itemName}}</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    INFERIOR SEPTUM
+                  </div>
+                  <div class="form-group col-md-3">
+                    <select class="form-control" name="inferiorseptum" id="inferiorseptum"
+                      [(ngModel)]="updform.inferiorseptum" #inferiorseptum="ngModel">
+                      <option *ngFor="let wallmotions of regionalWallMotion" [ngValue]="wallmotions.itemName">
+                        {{wallmotions.itemName}}</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                <div class="form-row">
+
+                  <div class="form-group col-md-3">
+                    PULMONARY ARTERY PRESSURE :
+                  </div>
+                  <div class="form-group col-md-3">
+                    <!-- 00.00 mmHg   -->
+                    <input type="text" name="pulmonaryarterypressure" id="pulmonaryarterypressure"
+                      [(ngModel)]="updform.pulmonaryarterypressure" #pulmonaryarterypressure="ngModel" value=""
+                      class="form-control" />
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    VALUE OF EF :
+                  </div>
+                  <!-- <div class="form-group col-md-3" *ngIf="patientDataObject?.ef != ''">
+                    {{ patientDataObject?.ef }}  *ngIf="patientDataObject?.ef == ''"
+                  </div> -->
+                  <div class="form-group col-md-3" *ngIf="updform.valueofef != ''; else elseBlock">
+
+                    <input type="text" name="valueofef" id="valueofef" value="" [(ngModel)]="updform.valueofef"
+                      #valueofef="ngModel" class="form-control" />
+                  </div>
+                  <ng-template #elseBlock>
+                    <div class="form-group col-md-3">
+
+                      <input type="text" name="valueofef" id="valueofef" [(ngModel)]="patientDataObject.ef"
+                        #valueofef="ngModel" class="form-control" />
+                    </div>
+
+                  </ng-template>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    THE AVERAGE PEAK SYSTOLIC STRAIN IS
+                  </div>
+                  <div class="form-group col-md-3">
+                    <input type="text" name="avgsystolicstrain" id="avgsystolicstrain" value=""
+                      [(ngModel)]="updform.avgsystolicstrain" #avgsystolicstrain="ngModel" class="form-control" />
+                  </div>
+
+
+
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+
+                  </div>
+                  <div class="form-group col-md-3">
+
+                  </div>
+                  <div class="form-group col-md-3">
+                    <!-- Right Ventrical Function -->
+                  </div>
+                  <div class="form-group col-md-3">
+
+                  </div>
+
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <!-- Pericardial Effusion -->
+                  </div>
+                  <div class="form-group col-md-3">
+
+                  </div>
+                  <div class="form-group col-md-3">
+
+                  </div>
+                  <div class="form-group col-md-3">
+
+                  </div>
+
+                </div>
+                <div class="form-row">
+
+                  <div class="form-group col-md-3">
+                    <!-- Inter Cardiac Tumour -->
+                  </div>
+                  <div class="form-group col-md-3">
+
+                  </div>
+
+                </div>
+                <!-------- IMPRESSIONS ------->
+                <div class="impressions-class">
+                  <div class="block-heading-observation">
+                    <h5>IMPRESSIONS</h5>
+                  </div>
+                  <div class="form-row impressionsblock">
+
+                    <div class="form-group col-md-3">
+                      IMPRESSIONS
+
+                      <angular2-multiselect [data]="impression" [(ngModel)]="selectedItems2" [settings]="settings"
+                        name="impressionsmastervalue" id="impressionsmastervalue"
+                        (onSelect)="onItemSelect($event,'impression')"
+                        (onDeSelect)="OnItemDeSelect($event,'impression')"
+                        (onSelectAll)="onSelectAll($event,'impression')"
+                        (onDeSelectAll)="onDeSelectAll($event,'impression')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div style="padding: 12px;line-height: 5px;">
+
+                      <div *ngFor="let Obsvalue of impressionlv; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                      <div *ngFor="let Obsvalue of impressionrv; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                      <div *ngFor="let Obsvalue of impressionla; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                      <div *ngFor="let Obsvalue of impressionra; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                      <div *ngFor="let Obsvalue of impressionav; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                      <div *ngFor="let Obsvalue of impressionmv; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+               
+
+                      <div *ngFor="let Obsvalue of impressiontv; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    
+
+                      <div *ngFor="let Obsvalue of impressionpv; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                   
+
+                      <div *ngFor="let Obsvalue of impressionpc; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+               
+
+                      <div *ngFor="let Obsvalue of impressionao; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                  
+
+                      <div *ngFor="let Obsvalue of impressionpa; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                
+
+                      <div *ngFor="let Obsvalue of impressionpvein; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                  
+
+                      <div *ngFor="let Obsvalue of impressionivc; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                   
+                      <div *ngFor="let Obsvalue of impressionaw; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    
+
+                      <div *ngFor="let Obsvalue of impressionpw; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                   
+
+                      <div *ngFor="let Obsvalue of impressioniw; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                   
+
+                      <div *ngFor="let Obsvalue of impressionlav; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+            
+
+                      <div *ngFor="let Obsvalue of impressionas; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                  
+
+                      <div *ngFor="let Obsvalue of impressionis; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                   
+
+                      <div *ngFor="let Obsvalue of impressionicc; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                  
+
+                      <div *ngFor="let Obsvalue of impressionict; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    
+
+                      <div *ngFor="let Obsvalue of impressionpe; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    
+
+                      <div *ngFor="let Obsvalue of impressionlvf; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    
+
+                      <div *ngFor="let Obsvalue of impressionrvf; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                  
+
+                      <div *ngFor="let Obsvalue of impressionst; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                
+
+                      <div *ngFor="let Obsvalue of impressionias; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    
+
+                      <div *ngFor="let Obsvalue of impressionivs; let j = index;">
+
+                        <div>
+                          <br>
+                          <p>{{
+                            Obsvalue.itemName.split('-').join('\t')| titlecase }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2" (click)="addImpressionComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let impressioncomment of impressioncomments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>Comment {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeImpressionComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="impressioncomment" name="impressioncomments_{{impressioncomment.id}}"
+                              class="form-control" placeholder="Comment" required
+                              [(ngModel)]="impressioncomment.impressioncomment" #impressioncomment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+
+
+                      <!-- <div class="text-right">
+                        <input type="submit" class="btn btn-success" value="Submit"/>
+                      </div> -->
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+                <!--------------->
+
+
+                <!------- CONCLUSIONS -------->
+                <div class="impressions-class">
+                  <div class="block-heading-observation">
+                    <h5>CONCLUSIONS</h5>
+                  </div>
+                  <div class="form-row impressionsblock">
+
+                    <div class="form-group col-md-3">
+                      CONCLUSIONS
+
+                      <angular2-multiselect [data]="conclusion" [(ngModel)]="selectedItems3" [settings]="settings"
+                        name="conclusionsmastervalue" id="conclusionsmastervalue"
+                        (onSelect)="onItemSelect($event,'conclusion')"
+                        (onDeSelect)="OnItemDeSelect($event,'conclusion')"
+                        (onSelectAll)="onSelectAll($event,'conclusion')"
+                        (onDeSelectAll)="onDeSelectAll($event,'conclusion')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2" (click)="addConclusionComment()">Add</button>
+
+                      <div class="addremove-class"
+                        *ngFor="let conclusioncomment of conclusioncomments; let ii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>Comment {{ii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeConclusionComment(ii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="conclusioncomment" name="conclusioncomments_{{conclusioncomment.id}}"
+                              class="form-control" placeholder="Comment" required
+                              [(ngModel)]="conclusioncomment.conclusioncomment" #conclusioncomment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+
+
+                      <!-- <div class="text-right">
+                        <input type="submit" class="btn btn-success" value="Submit"/>
+                      </div> -->
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+                <!--------------->
+
+                <!------- DOCTORS ADVICE -------->
+                <div class="impressions-class">
+                  <div class="block-heading-observation">
+                    <h5>DOCTORS ADVICE</h5>
+                  </div>
+                  <div class="form-row impressionsblock">
+
+                    <div class="form-group col-md-3">
+                      DOCTORS ADVICE
+
+                      <angular2-multiselect [data]="doctorAdvice" [(ngModel)]="selectedItems4" [settings]="settings"
+                        name="doctoradvice" id="doctoradvicemastervalue" (onSelect)="onItemSelect($event,'docadvice')"
+                        (onDeSelect)="OnItemDeSelect($event,'docadvice')"
+                        (onSelectAll)="onSelectAll($event,'docadvice')"
+                        (onDeSelectAll)="onDeSelectAll($event,'docadvice')">
+                        <c-badge>
+                          <ng-template let-item="item">
+                            <label style="margin: 0px;">{{item.itemName}}</label>
+                          </ng-template>
+                        </c-badge>
+                      </angular2-multiselect>
+                    </div>
+                    <div class="form-group col-md-9">
+
+                      <button type="button" class="btn btn-primary mb-2" (click)="addDocAdviceComment()">Add</button>
+
+                      <div class="addremove-class" *ngFor="let docadvicecomment of docadvicecomments; let iii = index;">
+
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <h4>Comment {{iii + 1}}</h4>
+                          </div>
+                          <div class="form-group col-md-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm"
+                              (click)="removeDocAdviceComment(iii)">Remove</button>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label>Comment</label>
+                            <textarea id="docadvicecomment" name="docadvicecomments_{{docadvicecomment.id}}"
+                              class="form-control" placeholder="Comment" required
+                              [(ngModel)]="docadvicecomment.docadvicecomment" #docadvicecomment="ngModel"></textarea>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+
+                      <!-- 
+                      <div class="text-right">
+                        <input type="submit" class="btn btn-success" value="Submit"/>
+                      </div> -->
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+                <!--------------->
+                <hr />
+
+
+                <div id="overlay">
+                  <div class="loader"></div>
+                </div>
+
+                <div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-8">
+                      <p>
+                        Dr. Digamber Naik <br />
+                        MD (Medicine), DOIH, FIAE, DHA, FAIMP(cardiology)
+                      </p>
+                    </div>
+
+                    <div class="form-group col-md-4 text-right">
+                      <div class="form-row">
+                        <div class="form-group">
+                          <input type="submit" class="btn btn-success" (click)="reportFormData()" value="Submit" />
+                        </div>
+                        <!-- <div class=" form-group col-md-4">
+                          <input type="submit" class="btn btn-warning" (click)="generatePdf('download')" value="Download Report"/>
+                        </div> -->
+                        <!-- <div class=" form-group col-md-1"></div> -->
+                        <div class=" form-group">
+                          <input type="submit" class="btn btn-warning" (click)="generatePdf('open')"
+                            value="Preview Report" />
+                        </div>
+
+                        <div class="form-group">
+                          <input type="submit" class="btn btn-success" (click)="reportFormData1()"
+                            value="Upload To Server" />
+                        </div>
+                        <!-- <div *ngFor="let season of seasons; let i = index">
+                        <input id="season{{i}}" name="seasons" type="radio"
+                          [value]="season" [(ngModel)]="favoriteSeason" />
+                        <label for="">{{season}}</label>
+                      </div> -->
+                        <!-- <div>Your favorite season is: {{favoriteSeason}}</div> -->
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </form>
+    </div>
+    <div *ngIf="model.option === 'Normal Report'">
+      <form name="reportForm" #reportForm="ngForm">
+        <div class="form-row">
+          <div class="form-group col-md-3" style="font-weight: bold">
+            Value of EF :
+          </div>
+          <!-- <div class="form-group col-md-3" *ngIf="patientDataObject?.ef != ''">
+          {{ patientDataObject?.ef }}  *ngIf="patientDataObject?.ef == ''"
+        </div> -->
+          <div class="form-group col-md-3" *ngIf="updform.valueofef != ''; else elseBlock">
+
+            <input type="text" name="valueofef" id="valueofef" value="" [(ngModel)]="updform.valueofef"
+              #valueofef="ngModel" class="form-control" />
+          </div>
+          <ng-template #elseBlock>
+            <div class="form-group col-md-3">
+
+              <input type="text" name="valueofef" id="valueofef" [(ngModel)]="patientDataObject.ef" #valueofef="ngModel"
+                class="form-control" />
+            </div>
+
+          </ng-template>
+
+
+
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3" style="font-weight: bold">
+            THE AVERAGE PEAK SYSTOLIC STRAIN IS
+          </div>
+          <div class="form-group col-md-3">
+            <input type="text" name="avgsystolicstrain" id="avgsystolicstrain" value=""
+              [(ngModel)]="updform.avgsystolicstrain" #avgsystolicstrain="ngModel" class="form-control" />
+          </div>
+
+
+
+        </div>
+      </form>
+
+      <div class="form-group col-md-4 text-right">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="submit" class="btn btn-success" (click)="reportFormData()" value="Submit" />
+          </div>
+          <!-- <div class=" form-group col-md-4">
+          <input type="submit" class="btn btn-warning" (click)="generatePdf('download')" value="Download Report"/>
+        </div> -->
+          <!-- <div class=" form-group col-md-1"></div> -->
+          <div class=" form-group">
+            <input type="submit" class="btn btn-warning" (click)="generatePdf('open')" value="Preview Report" />
+          </div>
+
+          <div class="form-group">
+            <input type="submit" class="btn btn-success" (click)="reportFormData1()" value="Upload To Server" />
+          </div>
+          <!-- <div *ngFor="let season of seasons; let i = index">
+        <input id="season{{i}}" name="seasons" type="radio"
+          [value]="season" [(ngModel)]="favoriteSeason" />
+        <label for="">{{season}}</label>
+      </div> -->
+          <!-- <div>Your favorite season is: {{favoriteSeason}}</div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<ngx-spinner></ngx-spinner>
+
+<div id="overlay">
+  <div class="loader"></div>
+
+</div>

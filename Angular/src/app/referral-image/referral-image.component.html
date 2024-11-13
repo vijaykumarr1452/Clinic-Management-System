@@ -1,0 +1,70 @@
+<h3 class="textalign"> Referral Images</h3>
+<form  name="addCommentForm"   #addCommentForm="ngForm" (ngSubmit)="addComment(addCommentForm.value)" > 
+
+             
+  
+<div class="form-row align-center">
+    <div class="form-group col-md-12">
+      <div *ngIf ='referralImage != null'>
+      <img src='{{getReferralImages}}'/>
+    </div>
+    <div  *ngIf = 'referralImage === null'>
+        <img src="../../assets/images/heart-referral.jpg" name="Referral Images"
+              id="Referral Images" />
+              </div>
+    </div>
+
+    <div class="form-group col-md-6">
+       
+          <div class="form-row" >
+            <div class="form-group col-md-6"   >
+              <h4>Comment </h4>
+            </div>
+           
+            <div class="form-row" *ngIf="!comment || this.comment?.length === 0; else elseblock " >
+             
+              <div class="form-group col-md-12" >
+               
+                  <textarea id="comment" name="comment"  class="form-control" placeholder="Comment" 
+                  required  rows="6" cols="50"  [(ngModel)]="addform.comment" #comment="ngModel" ></textarea>
+         
+                </div>
+            </div>  
+
+            <ng-template #elseblock>
+
+          <div class="form-row"  *ngFor="let comment of this.comment"  >
+           
+            <div class="form-group col-md-12" >
+            <!-- *ngFor="let comment of this.comment"  
+            [(ngModel)]="comment.comment" #comment="ngModel"
+             [(ngModel)]="addform.comment" 
+            -->
+              <textarea id="comment" name="comment"  class="form-control" placeholder="Comment" 
+              required  rows="6" cols="50"  [(ngModel)]="comment.comment" #comment="ngModel" ></textarea>
+     
+            </div>
+          </div>  
+
+      </ng-template>
+         
+
+
+          </div>
+        
+          <div class="form-row">
+          <div class="form-group col-md-6">
+          <button type="submit" class="btn btn-primary  btn-block"  >Submit</button>
+          </div>
+         
+          </div>
+
+
+
+          
+      
+</div>
+
+</div>
+
+</form>

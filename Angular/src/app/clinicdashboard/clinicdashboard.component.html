@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">
+	<!-- Page Content -->
+	<div id="page-content-wrapper">
+		<div class="form-row">
+			<div class="form-group col-md-2">
+				
+					<div>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{profileimg}}" width="90" height="90" name="Logo" class="img-responsive">
+					</div>
+				
+			</div>
+  
+			   <br>
+			  <div class="form-group col-md-3">
+				<div> 
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Clinic Name :</b>
+				  {{ ClinicData?.name }}
+				</div>
+			  </div>
+		
+			  <div class="form-group col-md-3">
+				<div> 
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Phone Number :</b>
+				  {{ ClinicData?.mobNo }}
+				</div>
+			  </div>   
+			  <div class="form-group col-md-3">
+				<div> 
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Address :</b>
+				  {{ ClinicData?.address }}
+				</div>
+			  </div>
+  
+			 
+		
+			</div> 
+		<div class="col-md-12 fright flex">
+
+
+			<!----------------------------------------------------->
+			<div class="card">
+				<div class="tabs">
+					<input type="radio" name="tabs" id="tabthree" checked="checked">
+
+					<label for="tabthree">Dashboard</label>
+					<div class="tab">
+						<!-- <app-clnic-dashboard-tab></app-clnic-dashboard-tab>  -->
+						<app-case-completed></app-case-completed>
+					</div>
+					<input type="radio" name="tabs" id="tabtwo">
+					<label for="tabtwo" (click)="click()">Upload</label>
+					<div class="tab" style="min-height: 450px;">
+						<app-dicomupload></app-dicomupload>
+
+					</div>
+
+					<input type="radio" name="tabs" id="tabone">
+					<label for="tabone" (click)="click()">Cases To Be Assigned</label>
+					<div class="tab">
+						<app-showallpatients></app-showallpatients>
+					</div>
+
+					<input type="radio" name="tabs" id="tabfour">
+					<label for="tabfour" (click)="click()">Cases To Be Closed</label>
+					<div class="tab" style="min-height: 300px;">
+						<app-cases-to-be-closed></app-cases-to-be-closed>
+					</div>
+					<input type="radio" name="tabs" id="tabfive">
+					<label for="tabfive" (click)="click()">Cases To Be Reopened</label>
+					<div class="tab" style="min-height: 300px;">
+						<app-cases-to-be-opened></app-cases-to-be-opened>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	<!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<app-footer></app-footer>

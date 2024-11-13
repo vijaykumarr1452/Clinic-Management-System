@@ -1,0 +1,715 @@
+<form  name="observationsForm"   #observationsForm="ngForm"  (ngSubmit)="saveTricuspidValveData()"    >
+  <div class="observe">
+    <div id="container">
+      <h3 class="head-title">  Tricuspid Valve </h3> 
+      <div class="total-container">
+        
+        <div class="form-row">
+
+
+          <div class="container-fluid">
+            <div class="row">
+              <div layout="column">
+                <div>
+                                <div class="col-sm div-border">
+                <h3><label class="head-title">Tricuspid Valve</label></h3>
+          
+                <div class="form-row">
+
+                  <div class="form-group  col-md-4">
+                    <label> Structure </label>  
+                  </div>
+                  <div class="form-group col-md-8">
+                    <select [(ngModel)]="updform.selectStructure" name="selectStructure"  class="form-control"  placeholder="select" 
+        (ngModelChange)="onOptionsSelected('Structure',updform.selectStructure)">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of structure" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+    
+                </div>
+    
+                </div>
+    
+                
+              </div>
+              </div>
+              <div>
+                <div class="col-sm div-border">
+          
+                  <h3> <label class="head-title">Abnormal Vegetation</label></h3>
+            
+                  <div class="form-row">
+  
+                    <div class="form-group  col-md-4">
+                      <label> Anterior Leaflet</label>  
+                    </div>
+                    
+                    <div class="form-group col-md-8">
+                      <select [(ngModel)]="updform.selectAbnormal_Vegetation_Anterior_leaflet" name="selectAbnormal_Vegetation_Anterior_leaflet" id="selectAbnormal_Vegetation_Anterior_leaflet" placeholder="select" 
+                      (ngModelChange)="onOptionsSelected('Abnormal_Vegetation_Anterior_leaflet',updform.selectAbnormal_Vegetation_Anterior_leaflet)" class="form-control">
+                     <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+                      <option *ngFor="let sta of vegetationAnteriorleaflet" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                      </select>
+           
+      
+                  </div>
+      
+                  </div>
+                  <div class="form-row" >
+      
+                    <div class="form-group  col-md-4">
+                      <label>  Anterior leaflet-Other (Specify)</label>  
+                    </div>
+                    <div class="form-group col-md-8">
+                      <input type="text" placeholder="Anterior leaflet-Other (Specify)"  class="form-control"  name="Abnormal_Anterior_Leaflet_Other" id="Abnormal_Anterior_Leaflet_Other"
+            [(ngModel)]="updform.Abnormal_Anterior_Leaflet_Other" 
+            #Abnormal_Anterior_Leaflet_Other="ngModel" >
+      
+                  </div>
+      
+                  </div>
+                  <div class="form-row">
+  
+                    <!-- <div class="form-group  col-md-4">
+                      <label> Size</label>  
+                    </div>
+                    
+                    <div class="form-group col-md-8">
+                      <select [(ngModel)]="updform.selectAbnormal_Abnormal_Vegetation_Posterior_leaflet_size" name="selectAbnormal_Abnormal_Vegetation_Posterior_leaflet_size" id="selectAbnormal_Abnormal_Vegetation_Posterior_leaflet_size" placeholder="select" 
+                      (ngModelChange)="onOptionsSelected('Abnormal_Abnormal_Vegetation_Posterior_leaflet_size',updform.selectAbnormal_Abnormal_Vegetation_Posterior_leaflet_size)" class="form-control">
+                     <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+                      <option *ngFor="let sta of Abnormal_Abnormal_Vegetation_Posterior_leaflet_size" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                      </select>
+           
+      
+                  </div> -->
+      
+                  </div>
+                  
+                  <div class="form-row">
+      
+                    <div class="form-group  col-md-4">
+                      <label>  Posterior Leaflet </label>  
+                    </div>
+                    <div class="form-group col-md-8">
+                      <select [(ngModel)]="updform.selectAbnormal_Abnormal_Vegetation_Posterior_leaflet" name="selectAbnormal_Abnormal_Vegetation_Posterior_leaflet" id="selectAbnormal_Abnormal_Vegetation_Posterior_leaflet" placeholder="select" 
+                      (ngModelChange)="onOptionsSelected('Abnormal_Abnormal_Vegetation_Posterior_leaflet',updform.selectAbnormal_Abnormal_Vegetation_Posterior_leaflet)" class="form-control">
+                     <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+                      <option *ngFor="let sta of vegetationPosteriorleaflet" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                      </select>
+      
+                  </div>
+      
+                  </div>
+                  <div class="form-row"  >
+  
+                    <div class="form-group  col-md-4">
+                      <label> Posterior leaflet-Other (Specify)</label>  
+                    </div>
+                    <div class="form-group col-md-8">
+                      <input type="text" placeholder="Posterior leaflet-Other (Specify)" name="Abnormal_Posterior_Leaflet_Other" id="Abnormal_Posterior_Leaflet_Other" 
+                      class="form-control" [(ngModel)]="updform.Abnormal_Posterior_Leaflet_Other" 
+                     #Abnormal_Posterior_Leaflet_Other="ngModel"> 
+      
+                  </div>
+      
+                  </div>
+                  <div class="form-row">
+  
+                    <div class="form-group  col-md-4">
+                      <label> Size</label>  
+                    </div>
+                    
+                    <div class="form-group col-md-8">
+                      <select [(ngModel)]="updform.selectAbnormal_Abnormal_Vegetation_Posterior_leaflet_size" name="selectAbnormal_Abnormal_Vegetation_Posterior_leaflet_size" id="selectAbnormal_Abnormal_Vegetation_Posterior_leaflet_size" placeholder="select" 
+                      (ngModelChange)="onOptionsSelected('Abnormal_Abnormal_Vegetation_Posterior_leaflet_size',updform.selectAbnormal_Abnormal_Vegetation_Posterior_leaflet_size)" class="form-control">
+                     <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+                      <option *ngFor="let sta of vegetationPosteriorleafletsize" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                      </select>
+           
+      
+                  </div>
+      
+                  </div>
+                  <div class="form-row">
+  
+                    <div class="form-group  col-md-4">
+                      <label> Septal Leaflet </label>  
+                    </div>
+                    <div class="form-group col-md-8">
+                      <select [(ngModel)]="updform.selectvegetation_Septal_leaflet" name="vegetationSeptalleaflet" id="vegetationSeptalleaflet" placeholder="select" 
+              (ngModelChange)="onOptionsSelected('vegetation_Septal_leaflet',updform.selectvegetation_Septal_leaflet)" class="form-control">
+             <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+              <option *ngFor="let sta of vegetationSeptalleaflet" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+              </select>
+      
+                  </div>
+      
+                  </div>
+      
+                  
+  
+              
+      
+                  <div class="form-row" >
+      
+                    <div class="form-group  col-md-4">
+                      <label> Septal leaflet-Other (Specify) </label>  
+                    </div>
+                    <div class="form-group col-md-8">
+                      <input type="text" placeholder="Septal leaflet-Other (Specify)" class="form-control" 
+            [(ngModel)]="updform.septal_leaflet_Other"  name="septal_leaflet_Other" id="septal_leaflet_Other"
+            #septal_leaflet_Other="ngModel" >
+      
+                  </div>
+      
+                  </div>
+                  <div class="form-row">
+  
+                    <div class="form-group  col-md-4">
+                      <label> Size</label>  
+                    </div>
+                    
+                    <div class="form-group col-md-8">
+                      <select [(ngModel)]="updform.selectvegetation_Septal_leaflet_size" name="selectvegetation_Septal_leaflet_size" id="selectvegetation_Septal_leaflet_size" placeholder="select" 
+                      (ngModelChange)="onOptionsSelected('vegetation_Septal_leaflet_size',updform.selectvegetation_Septal_leaflet_size)" class="form-control">
+                     <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+                      <option *ngFor="let sta of vegetationSeptalleafletsize" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                      </select>
+           
+      
+                  </div>
+      
+                  </div>
+                  <div class="form-row" *ngIf="updform.selectAbnormal_Vegetation_Anterior_leaflet === 'Dimensions'">
+  
+                    <div class="form-group  col-md-4">
+                      <label>  Anterior leaflet-Size-Dimensions </label>  
+                    </div>
+                    <div class="form-group col-md-8">
+                      <input type="text" placeholder="Anterior leaflet-Size-Dimensions" class="form-control" 
+            [(ngModel)]="updform.anterior_leaflet_Size_Dimension"  name="anterior_leaflet_Size_Dimension" id="anterior_leaflet_Size_Dimension"
+            #anterior_leaflet_Size_Dimension="ngModel">
+      
+                  </div>
+      
+                  </div>
+      
+                  <div class="form-row" *ngIf="updform.selectedtv_Abnormal_Abnormal_Vegetation_Posterior_leaflet === 'Dimensions'">
+      
+                    <div class="form-group  col-md-4">
+                      <label> Posterior leaflet-Size-Dimensions </label>  
+                    </div>
+                    <div class="form-group col-md-8">
+                      <input type="text" placeholder="Posterior leaflet-Size-Dimensions" class="form-control"  
+              [(ngModel)]="updform.posterior_leaflet_Size_Dimension"  name="posterior_leaflet_Size_Dimension" id="posterior_leaflet_Size_Dimension"
+            #posterior_leaflet_Size_Dimension="ngModel">
+      
+                  </div>
+      
+                  </div>
+  
+                  <div class="form-row" *ngIf="updform.selectvegetation_Septal_leaflet === 'Dimensions'">
+  
+                    <div class="form-group  col-md-4">
+                      <label> Septal leaflet-Size-Dimensions </label>  
+                    </div>
+                    <div class="form-group col-md-8">
+                      <input type="text" placeholder="Septal leaflet-Size-Dimensions" class="form-control" 
+                      [(ngModel)]="updform.septal_leaflet_Size_Dimension"  name="septal_leaflet_Size_Dimension" id="septal_leaflet_Size_Dimension"
+                      #septal_leaflet_Size_Dimension="ngModel">
+      
+                  </div>
+      
+                  </div>
+      
+                  <!-- <div class="form-row">
+  
+                    <div class="form-group  col-md-4">
+                      <label> Tricuspid Valve Myxomatous (redundant)</label>  
+                    </div>
+                    <div class="form-group col-md-8">
+                     
+                      <select [(ngModel)]="updform.selectmy_xomatous_redundant" name="selectmy_xomatous_redundant" id="selectmy_xomatous_redundant" placeholder="select" 
+                      (ngModelChange)="onOptionsSelected('my_xomatous_redundant',updform.selectmy_xomatous_redundant)" class="form-control">
+                     <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+                      <option *ngFor="let sta of myxomatousredundant" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                      </select>
+                  </div>
+          
+                  </div> -->
+                
+                 
+                </div>
+              </div>
+<div>
+  <div class="col-sm div-border">
+    <h3><label class="head-title">Prolapse </label></h3>
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label> Anterior Leaflet</label>  
+      </div>
+      <div class="form-group col-md-8">
+        <select [(ngModel)]="updform.selectProlapse_Anterior_leaflet" name="selectProlapse_Anterior_leaflet" id="selectProlapse_Anterior_leaflet" placeholder="select" 
+    (ngModelChange)="onOptionsSelected('Prolapse_Anterior_leaflet',updform.selectProlapse_Anterior_leaflet)" class="form-control">
+   <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+    <option *ngFor="let sta of prolapseAnteriorleaflet" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+    </select>
+
+    </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label> Posterior Leaflet</label>  
+      </div>
+      <div class="form-group col-md-8">
+       
+        <select [(ngModel)]="updform.selectProlapse_Posterior_leaflet" name="selectProlapse_Posterior_leaflet" id="selectProlapse_Posterior_leaflet" placeholder="select" 
+        (ngModelChange)="onOptionsSelected('prolapse_Posterior_leaflet',updform.selectProlapse_Posterior_leaflet)" class="form-control">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of prolapsePosteriorleaflet" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+    </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label> Septal Leaflet </label>  
+      </div>
+      <div class="form-group col-md-8">
+        <select [(ngModel)]="updform.selectProlapse_Sepatl_leaflet" name="selectProlapse_Sepatl_leaflet" id="selectProlapse_Sepatl_leaflet" placeholder="select" 
+    (ngModelChange)="onOptionsSelected('Prolapse_Sepatl_leaflet',updform.selectProlapse_Sepatl_leaflet)" class="form-control">
+   <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+    <option *ngFor="let sta of prolapseSepatlleaflet" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+    </select>
+
+    </div>
+
+    </div>
+
+    <!-- <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label> Prolapse Holosystolic</label>  
+      </div>
+      <div class="form-group col-md-8">
+       
+        <select [(ngModel)]="updform.selectholo_systolic" name="selectholo_systolic" id="selectholo_systolic" placeholder="select" 
+        (ngModelChange)="onOptionsSelected('holo_systolic',updform.selectholo_systolic)" class="form-control">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of holosystolic" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+    </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label> Prolapse Late Systolic  </label>  
+      </div>
+      <div class="form-group col-md-8">
+       
+        <select [(ngModel)]="updform.selectlate_Systolic" name="selectlate_Systolic" id="selectlate_Systolic" placeholder="select" 
+        (ngModelChange)="onOptionsSelected('late_Systolic',updform.selectlate_Systolic)" class="form-control">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of lateSystolic" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+    </div>
+
+    </div> -->
+
+
+
+
+  </div>
+</div>
+            </div>
+             <div layout="column">
+<div>
+  <div class="col-sm div-border">
+  
+    <h3> <label class="head-title">Ruptured chordate / flail leaflet(s)</label></h3>
+
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label> Anterior Leaflet </label>  
+      </div>
+      <div class="form-group col-md-8">
+        <select [(ngModel)]="updform.selectruptured_chordate_Anterior_leaflet" name="selectruptured_chordate_Anterior_leaflet" id="selectruptured_chordate_Anterior_leaflet" placeholder="select" 
+    (ngModelChange)="onOptionsSelected('ruptured_chordate_Anterior_leaflet',updform.selectruptured_chordate_Anterior_leaflet)" class="form-control">
+   <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+    <option *ngFor="let sta of rupturedchordaeAnteriorleaflet" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+    </select>
+
+    </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label>  Posterior Leaflet</label>  
+      </div>
+      <div class="form-group col-md-8">
+        <select [(ngModel)]="updform.selectruptured_chordate_Posterior_leaflet" name="selectruptured_chordate_Posterior_leaflet" id="selectruptured_chordate_Posterior_leaflet" placeholder="select" 
+        (ngModelChange)="onOptionsSelected('ruptured_chordate_Posterior_leaflet',updform.selectruptured_chordate_Posterior_leaflet)" class="form-control">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of rupturedchordaePosteriorleaflet" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+
+    </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label> Septal Leaflet </label>  
+      </div>
+      <div class="form-group col-md-8">
+       
+        <select [(ngModel)]="updform.selectruptured_chordate_Sepatl_leaflet" name="selectruptured_chordate_Sepatl_leaflet" id="selectruptured_chordate_Sepatl_leaflet" placeholder="select" 
+        (ngModelChange)="onOptionsSelected('ruptured_chordate_Sepatl_leaflet',updform.selectruptured_chordate_Sepatl_leaflet)" class="form-control">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of rupturedchordaeSepatlleaflet" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+    </div>
+
+    </div>
+
+    <!-- <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label>Diluted Annulus Dimensions </label>  
+      </div>
+      <div class="form-group col-md-8">
+       
+        <input type="text" placeholder="Diluted Annulus Dimensions" class="form-control" 
+        [(ngModel)]="updform.ruptured_Diluted_Dimensions" name="ruptured_Diluted_Dimensions" id="ruptured_Diluted_Dimensions"
+        #ruptured_Diluted_Dimensions="ngModel">
+    </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label> Ebstein’s anomaly</label>  
+      </div>
+      <div class="form-group col-md-8">
+       
+        <select [(ngModel)]="updform.selectEbsteins_Anomaly" name="selectEbsteins_Anomaly" id="selectEbsteins_Anomaly" placeholder="select" 
+        (ngModelChange)="onOptionsSelected('Ebsteins_Anomaly',updform.selectEbsteins_Anomaly)" class="form-control">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of ebsteinsAnomaly" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+    </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label> Tricuspid atresia </label>  
+      </div>
+      <div class="form-group col-md-8">
+       
+        <select [(ngModel)]="updform.selecttricuspid_Atresia" name="selecttricuspid_Atresia" id="selecttricuspid_Atresia" placeholder="select" 
+        (ngModelChange)="onOptionsSelected('tricuspid_Atresia',updform.selecttricuspid_Atresia)" class="form-control">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of tricuspidAtresia" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+    </div>
+
+    </div> -->
+  
+   
+  </div>
+</div>
+<div>
+  <div class="col-sm div-border">
+    <h3><label class="head-title">Regurgitation</label></h3>
+    <div class="form-row">
+      <div class="form-group  col-md-4">
+      <label>Regurgitation</label>
+      </div>  
+      <div class="form-group col-md-8">
+        <select [(ngModel)]="updform.selectregurgitation" name="selectregurgitation" id="selectregurgitation" placeholder="select" 
+        (ngModelChange)="onOptionsSelected('regurgitation',updform.selectregurgitation)" class="form-control">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of regurgitation" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+
+    </div>
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label>Severity </label>  
+      </div>
+      <div class="form-group col-md-8">
+        <select [(ngModel)]="updform.selectRegurgitation_Severity" name="selectRegurgitation_Severity" id="selectRegurgitation_Severity" placeholder="select" 
+        (ngModelChange)="onOptionsSelected('Regurgitation_Severity',updform.selectRegurgitation_Severity)" class="form-control">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of severity" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+
+    </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label>Jet direction </label>  
+      </div>
+      <div class="form-group col-md-8">
+        <select [(ngModel)]="updform.selectRegurgitation_jet_direction" name="selectRegurgitation_jet_direction" id="selectRegurgitation_jet_direction" placeholder="select" 
+        (ngModelChange)="onOptionsSelected('Regurgitation_jet_direction',updform.selectRegurgitation_jet_direction)" class="form-control">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of jetdirection" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select> 
+
+    </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group  col-md-4">
+        <label> Hepatic vein systolicflow</label>  
+      </div>
+      <div class="form-group col-md-8">
+        <select [(ngModel)]="updform.selectRegurgitation_hepatic_vein_systolic_flow" name="selectRegurgitation_hepatic_vein_systolic_flow" id="selectRegurgitation_hepatic_vein_systolic_flow" placeholder="select" 
+        (ngModelChange)="onOptionsSelected('Regurgitation_hepatic_vein_systolic_flow',updform.selectRegurgitation_hepatic_vein_systolic_flow)" class="form-control">
+       <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+        <option *ngFor="let sta of hepaticveinsystolicflow" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+        </select>
+
+    </div>
+
+    </div>
+
+   
+
+
+  </div>
+</div>
+            <div>
+              <div class="col-sm div-border">
+
+                <h3> <label class="head-title">Stenosis</label></h3>
+          
+                    <div class="form-row">
+          
+                          <div class="form-group  col-md-4">
+                            <label> Severity </label>  
+                          </div>
+                          <div class="form-group col-md-8">
+                            <select [(ngModel)]="updform.selectstenosis_Severity" name="selectstenosis_Severity" id="selectstenosis_Severity" placeholder="select" 
+                      (ngModelChange)="onOptionsSelected('stenosis_Severity',updform.selectstenosis_Severity)" class="form-control">
+                     <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+                      <option *ngFor="let sta of stenosisSeverity" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                      </select>
+            
+                        </div>
+            
+                        </div>
+            
+                        <!-- <div class="form-row">
+            
+                          <div class="form-group  col-md-4">
+                            <label>Stenosis Quantitative Measurements </label>  
+                          </div>
+                          <div class="form-group col-md-8">
+                            <select [(ngModel)]="updform.selectquantitative_Measurements" name="selectquantitative_Measurements" id="selectquantitative_Measurements" placeholder="select" 
+                            (ngModelChange)="onOptionsSelected('quantitative_Measurements',updform.selectquantitative_Measurements)" class="form-control">
+                           <option  [ngValue]="undefined"> Not Applicable(N/A)</option>
+                            <option *ngFor="let sta of quantitativeMeasurements" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                            </select> 
+            
+                        </div>
+            
+                        </div>
+          
+                        <div class="form-row" *ngIf="updform.selectquantitative_Measurements === 'Quantitative Measurements-Peak tricuspid velocity (Doppler)'" >
+          
+                          <div class="form-group  col-md-4">
+                            <label> Quantitative Measurements-Peak tricuspid velocity (Doppler) </label>  
+                          </div>
+                          <div class="form-group col-md-8">
+                           
+                            <input type="text" placeholder="Quantitative Measurements-Peak tricuspid velocity (Doppler)" 
+                            [(ngModel)]="updform.quantitative_Measure_Peak_Tricuspid_Velocity"  name="quantitative_Measure_Peak_Tricuspid_Velocity" id="quantitative_Measure_Peak_Tricuspid_Velocity"
+                            #quantitative_Measure_Peak_Tricuspid_Velocity="ngModel"
+                            class="form-control">
+                        </div>
+            
+                        </div>
+            
+                        <div class="form-row" *ngIf="updform.selectquantitative_Measurements === 'Quantitative Measurements-Peak trans-fricuspid gradient (Doppler)'">
+            
+                          <div class="form-group  col-md-4">
+                            <label> Quantitative Measurements-Peak trans-fricuspid gradient (Doppler)</label>  
+                          </div>
+                          <div class="form-group col-md-8">
+                            <input type="text" placeholder="Quantitative Measurements-Peak trans-fricuspid gradient (Doppler)" class="form-control"
+                            [(ngModel)]="updform.quantitative_Measure_Peak_Fricuspid_Velocity"  name="quantitative_Measure_Peak_Fricuspid_Velocity" id="quantitative_Measure_Peak_Fricuspid_Velocity"
+                            #quantitative_Measure_Peak_Fricuspid_Velocity="ngModel">
+                
+            
+                        </div>
+            
+                        </div>
+          
+                        <div class="form-row" *ngIf="updform.selectquantitative_Measurements === 'Quantitative Measurements-Mean tricuspid velocity (Doppler)'" >
+          
+                          <div class="form-group  col-md-4">
+                            <label> Quantitative Measurements-Mean tricuspid velocity (Doppler)</label>  
+                          </div>
+                          <div class="form-group col-md-8">
+                            <input type="text" placeholder="Quantitative Measurements-Mean tricuspid velocity (Doppler)" class="form-control"
+                            [(ngModel)]="updform.quantitative_Measure_Mean_Tricuspid_Velocity"  name="quantitative_Measure_Mean_Tricuspid_Velocity" id="quantitative_Measure_Mean_Tricuspid_Velocity"
+                            #quantitative_Measure_Mean_Tricuspid_Velocity="ngModel">
+            
+                        </div>
+            
+                        </div>
+            
+                        <div class="form-row" *ngIf="updform.selectquantitative_Measurements === 'Quantitative Measurements-Mean trans-tricuspid gradient (Doppler)'" >
+            
+                          <div class="form-group  col-md-4">
+                            <label> Quantitative Measurements-Mean trans-tricuspid gradient (Doppler)</label>  
+                          </div>
+                          <div class="form-group col-md-8">
+                           
+                            <input type="text" placeholder="Quantitative Measurements-Mean trans-tricuspid gradient (Doppler)" class="form-control"
+                            [(ngModel)]="updform.quantitative_Measure_Mean_Fricuspid_Velocity"  name="quantitative_Measure_Mean_Fricuspid_Velocity" id="quantitative_Measure_Mean_Fricuspid_Velocity"
+                            #quantitative_Measure_Mean_Fricuspid_Velocity="ngModel">
+                        </div>
+            
+                        </div>
+          
+                        <div class="form-row" *ngIf="updform.selectquantitative_Measurements === 'Quantitative Measurements-Other (Specify)'">
+          
+                          <div class="form-group  col-md-4">
+                            <label> Quantitative Measurements-Other (Specify) </label>  
+                          </div>
+                          <div class="form-group col-md-8">
+                           
+                            <input type="text" placeholder="Quantitative Measurements-Other (Specify)" class="form-control"
+                            [(ngModel)]="updform.quantitative_Measurement_Other"  name="quantitative_Measurement_Other" id="quantitative_Measurement_Other"
+                            #quantitative_Measurement_Other="ngModel">
+                        </div>
+            
+                        </div> -->
+            
+                        
+              
+               
+              </div>
+            </div>
+             </div>
+          
+          
+             
+          
+            </div>  
+          
+          </div>
+         
+
+
+        </div>
+
+        <br/>
+
+        <br/>
+
+
+<div class="container-fluid">
+    <div class="row">
+     
+  
+  
+  
+  
+  
+
+
+
+
+      
+      
+  
+    </div>  
+  
+  </div>
+  
+  <br/>
+  <br/>
+
+  
+<div class="container-fluid">
+  <div class="row">
+
+
+
+  
+
+
+    
+
+  </div>  
+
+</div>
+
+<br/>
+<br/>
+ <!------------------------------->
+
+       
+
+        <div id="overlay">
+          <div class="loader"></div>
+                  
+         </div> 
+
+         
+        <div class="form-row"   >
+          <div class="form-group col-md-2" ></div>
+          <div class="form-group col-md-2" >
+            <button type="button" class="btn btn-warning  btn-block" onclick="$('#tabsix').trigger('click')" 
+            (click)="getAddPage('mitralValveObservation')"  >Previous</button>
+          </div>
+          <div class="form-group col-md-2" >
+            <button type="submit" class="btn btn-primary  btn-block" id="btnSubmit" >Submit</button>
+          </div>
+          <div class="form-group col-md-2" >
+            <button type="button" class="btn btn-danger  btn-block" onclick="$('#tabeight').trigger('click')" 
+            (click)="getAddPage('pulmonaryArteryObservation')" >Next</button>
+          </div>
+          <div class="form-group col-md-4" ></div>
+        </div> 
+
+      </div>
+      
+
+  </div>
+
+</div>
+
+
+
+
+</form>
+

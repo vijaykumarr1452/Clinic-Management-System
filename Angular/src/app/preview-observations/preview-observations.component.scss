@@ -1,0 +1,47 @@
+.observe{
+    width:100%;
+    //margin:0 auto;
+    padding-bottom: 3%;
+}
+
+.head-title{
+    color: #17a2b8 ;
+    text-align: center;
+}
+// label{
+//     font-weight: bold;
+// }
+
+.left-column
+{
+float:left;
+width:50%;
+//background-color:red;
+}
+.right-column
+{
+float:right;
+width:50%;
+//background-color:green;
+}
+.center-column
+{
+margin:auto;
+width:33.33%;
+//background-color:blue;
+}
+.firstdrop{
+    font-weight: bold;
+}
+.firstsub{
+    font-weight: bold;
+    //padding-left: 5px;
+}
+.firstsubdrop{
+    font-weight: bold;
+}
+
+optgroup {padding:1em}
+label{
+    font-weight: bold;
+}
