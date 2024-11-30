@@ -1,6 +1,6 @@
 # Clinic-Management-System
 
-![clinic](Golden Health Services Pvt Ltd.PNG)
+![PNG](GoldenHealthServices.png)
 #### Golden Health Services Pvt Ltd
 
 ---
