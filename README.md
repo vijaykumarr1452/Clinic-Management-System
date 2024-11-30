@@ -7,13 +7,13 @@
 ![PNG](GoldenHealthServices.png)
 
 
-#### Golden Health Services Pvt Ltd [**Link**](https://www.myecho.co.in/index.php)
+#### Golden Health Services Pvt Ltd [**  {Link}  **](https://www.myecho.co.in/index.php)
 
 
 ---
 
 
-# Clinic-Management-System [Visit](https://www.myecho.co.in/index.php)
+# Clinic-Management-System [ --{Visit}--](https://www.myecho.co.in/index.php)
 
 
 ### **Overview**
