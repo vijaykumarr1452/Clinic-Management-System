@@ -1,11 +1,12 @@
 # Clinic-Management-System
 
 ![PNG](GoldenHealthServices.png)
-#### Golden Health Services Pvt Ltd
+### Golden Health Services Pvt Ltd
+__https://www.myecho.co.in/index.php__ **Deployment**
 
 ---
 
-# Clinic-Management-System
+# Clinic-Management-System (__https://www.myecho.co.in/index.php__)
 
 ### **Overview**
 The Clinic Management System (CMS) is a full-stack web application designed to streamline clinic operations. It includes:
