@@ -1,0 +1,310 @@
+// .table{
+//     // width:100%;
+//     table-layout: fixed;
+// }
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+ span:nth-child(even) {background-color: #f2f2f2;}
+// tr:nth-child(even) {
+//      background: #CCC;
+//     //background-color: #ffffff80;
+    
+// }
+// tr:nth-child(odd) {background: #FFF}
+
+#page-content-wrapper {
+    //position: absolute;
+    padding: 15px;
+    //width: 100%;
+    width:85%;
+    float: right;
+    overflow-x: hidden;
+ }
+ #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0px;
+ }
+.bgcolor{
+    background-color: #F0F0F0;
+    padding: 15px;
+    font-weight: bold;
+}
+.multirow{
+    padding-top: 20px;
+    padding-bottom: 20px;;
+} 
+// .fulltableview{
+//     //border: 1px solid #ced4da;
+//     //border-bottom: 1px solid #ced4da;
+// }
+.looprows{
+    padding: 15px;
+    //border-bottom: 1px solid #ced4da;
+}
+
+.reqbg1 p{
+    background-color: pink;
+    padding: 15px;
+    border-radius: 30%;
+    width: 80%;
+}
+.reqbg2 p{
+    background-color: green;
+    padding: 15px;
+    border-radius: 30%;
+    width: 80%;
+}
+.reqbg3 p{
+    background-color: palegoldenrod;
+    padding: 15px;
+    border-radius: 30%;
+    width: 80%;
+}
+
+@media only screen and (max-width: 800px) {
+    .loopindiv{
+        //font-weight: bold;
+       padding: 10px;
+       
+        
+    }
+  }
+
+  .norecords{
+    color: #17a2b8;
+    padding-top: 3%;
+  }
+  .heading{
+    color: #17a2b8;
+    padding-left: 2%;
+  }
+
+  
+.wrapper {
+	position: relative;
+	overflow: auto;
+   	//border: 1px solid black;
+  	white-space: nowrap;
+}
+
+.bell {
+    display: inline-block;
+    position: relative;
+    //background-color: #eee;
+    width: 48px;
+    height: 42px;
+    text-align: center;
+    padding-top: 6px;
+}
+.bell img {
+    //width: 24px;
+    //height: 24px;
+    padding-top: 10px;
+}
+.bellnumbers {
+    font-size:12px;
+    background-color:#17a2b8;
+    width:16px;
+    line-height: 16px;
+    text-align: center;
+    color:#fff;
+    z-index: 2;
+    border-radius: 3px;
+    position: absolute;
+    //left: 28px;
+    left: 0;
+}
+.widthclass{
+    width:150px;
+}
+
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+    float: right !important;
+    padding-top: 2%;
+}
+.ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #17a2b8 !important;
+    color: #fefefe;
+    cursor: default;
+}
+
+
+
+@media (min-width: 960px){ 
+
+    
+.sticky-col {
+    position: sticky;
+    position: -webkit-sticky;    
+    background-color: white;    
+    // background: #CCC;
+    // background-color: #ffffff80;
+}
+
+    
+// .sticky-col {
+//     position: sticky;
+//     position: -webkit-sticky;    
+//     //background-color: white;    
+//     background: #CCC;
+//     //background-color: #ffffff80;
+// }
+
+.first-col {
+	width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+	left: 0px;    
+}
+
+.second-col {
+	width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+	left: 100px;    
+}
+
+.third-col {
+	width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+	left: 250px;    
+}
+.fourth-col {
+	width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+	left: 350px;    
+}
+.fifth-col {
+	width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+	left: 500px;    
+}
+.sixth-col {
+	width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+	left: 600px;    
+} 
+// th { width:100px;overflow: hidden;  }
+tr:nth-child(odd) {background: #CCC}
+tr:nth-child(even) {background: #FFF}
+    th{
+        background: #FFF;
+    }
+    .table tbody tr:nth-child(odd) td:nth-child(1)
+{
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    left: 0px;    
+    position: sticky;
+    background:#ccc;
+}
+    .table tbody tr:nth-child(odd) td:nth-child(2)
+{
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    left: 100px;
+    position: sticky;
+    background:#ccc;
+}
+.table tbody tr:nth-child(odd) td:nth-child(3)
+{
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    left: 250px;
+    position: sticky;
+    background: #ccc;
+}
+.table tbody tr:nth-child(odd) td:nth-child(4)
+{
+    width: 100px;
+    min-width: 100px;
+    max-width: 150px;
+    left: 350px;    
+position: sticky;
+background:#ccc;
+}
+.table tbody tr:nth-child(odd) td:nth-child(5)
+{
+    width: 100px;
+    min-width: 100px;
+    max-width:350px;
+    left: 450px;  
+position: sticky;
+background:#ccc;
+} .table tbody tr:nth-child(odd) td:nth-child(6)
+{
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    left: 550px;      
+position: sticky;
+background:#ccc;
+}
+.table tbody tr:nth-child(even) td:nth-child(1),th:nth-child(1)
+{
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    left: 0px;    
+    position: sticky;
+    background:#fff;
+}
+    .table tbody tr:nth-child(even) td:nth-child(2),th:nth-child(2)
+{
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    left: 100px;
+    position: sticky;
+    background:#fff;
+}
+.table tbody tr:nth-child(even) td:nth-child(3),th:nth-child(3)
+{
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    left: 250px;
+    position: sticky;
+    background: #fff;
+}
+.table tbody tr:nth-child(even) td:nth-child(4),th:nth-child(4)
+{
+    width: 100px;
+    min-width: 100px;
+    max-width: 150px;
+    left: 350px;    
+position: sticky;
+    background:#fff;
+}
+.table tbody tr:nth-child(even) td:nth-child(5),th:nth-child(5)
+{
+    width: 100px;
+    min-width: 100px;
+    max-width:350px;
+    left: 450px;  
+position: sticky;
+background:#fff;
+} .table tbody tr:nth-child(even) td:nth-child(6),th:nth-child(6)
+{
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    left: 550px;      
+position: sticky;
+background:#fff;
+
+}
+    }

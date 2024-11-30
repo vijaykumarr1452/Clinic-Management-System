@@ -1,0 +1,66 @@
+<section class="navigation">
+  <div class="nav-container">
+    <div class="brand">
+      <!-- <a href="#!">LOGO</a> -->
+      <a routerLink="/login" class="navbar-brand title logo">
+        <img src="../../assets/images/logo.png" name="CG_Heart" class="img-responsive">
+        {{ appTitle }}
+        <p style="text-align: center;margin-top:-15%;">(ISO 9001:2015 Certified)</p>
+      </a>
+    </div>
+    <nav>
+      <div class="nav-mobile">
+        <a id="nav-toggle" href="#!"><span></span></a>
+      </div>
+      <ul class="nav-list">
+
+        <li *ngIf="!isLogin"><a routerLink="/login" data-toggle="modal" data-target="#myModal">Login </a></li>
+        <!-- <li *ngIf="isLogin">                                 
+          <a   routerLink="/clinicdashboard"   *ngIf="role==='CLINIC'"   > 
+            Dashboard </a></li> -->
+        <li> <a routerLink="/dashboard" *ngIf="role==='ADMIN'"> Dashboard </a></li>
+        <!-- <li> <a routerLink="/dicomviewer"  *ngIf="role==='ADMIN'"   >  Dicom Viewer</a></li> -->
+
+        <li> <a *ngIf="role==='ADMIN'"> All General Master </a>
+
+          <ul class="nav-dropdown">
+            <!-- <li><a href="#!">General Clinic/Doctor</a>
+              <ul> -->
+                <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;"><a routerLink="/addclinicdoctor">Add
+                    General Clinic or Doctor</a></li>
+                <!-- <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;"><a routerLink="/showallclinics"  >Preview General All Clinics </a> </li> -->
+                <!-- <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" ><a routerLink="/general-previewdoctorall"  >Preview General All Doctors</a> </li> -->
+
+              <!-- </ul>
+            </li> -->
+
+            <!-- <li><a href="#!">All Masters</a> -->
+              <!-- <ul> -->
+                <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;"> <a [routerLink]=""
+                    queryParamsHandling="preserve" (click)="getgeneralAddPage('hospitalSpeciality');">Speciality</a>
+                </li>
+                <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;"> <a [routerLink]=""
+                    queryParamsHandling="preserve" (click)="getgeneralAddPage('hospitalService');"> Services</a></li>
+                <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;"> <a [routerLink]=""
+                    queryParamsHandling="preserve" (click)="getgeneralAddPage('hospitalType');"> Types</a></li>
+                <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;"> <a [routerLink]=""
+                    queryParamsHandling="preserve" (click)="getgeneralAddPage('branchMaster');"> Branches</a></li>
+                <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;"> <a [routerLink]=""
+                    queryParamsHandling="preserve" (click)="getgeneralAddPage('complaintsMaster');"> Complains</a></li>
+                <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;"> <a routerLink="/medicineform"
+                    queryParamsHandling="preserve"> Medicine Master</a></li>
+
+
+              <!-- </ul> -->
+            <!-- </li> -->
+
+
+          </ul>
+        </li>
+
+        <li *ngIf="isLogin"><a routerLink="" (click)="logout()">Log Out</a></li>
+
+      </ul>
+    </nav>
+  </div>
+</section>

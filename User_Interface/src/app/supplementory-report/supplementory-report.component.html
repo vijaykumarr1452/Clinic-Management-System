@@ -1,0 +1,48 @@
+<!-- <p>supplementory-report works!</p> -->
+<form name="supplimentaryReport" #supplimentaryReport="ngForm" (ngSubmit)="addReport(supplimentaryReport.value)">
+<div class="form-group col-md-6">
+       
+    <div class="form-row" >
+      <div class="form-group col-md-6"   >
+        <h4>Supplementary Reports </h4>
+      </div>
+     
+      <div class="form-row" >
+       
+        <div class="form-group col-md-12" >
+         
+            <textarea id="supplimentaryreport" name="supplimentaryreport"  class="form-control" placeholder="supplimentaryreport" 
+            required  [(ngModel)]="patientDataObjects.supplimentaryreport" #supplimentaryreport="ngModel" rows="6" cols="50" ></textarea>
+   
+          </div>
+      </div>  
+
+      <div class="form-group col-md-12" hidden>
+        <div>
+          <label>Next Visit On:</label>
+          <!-- <input type="date" class="form-control"  placeholder="Next Visit Date"
+            style="width: 20%;"    value="date"/> -->
+            <input type="date"  class="form-control" id="supplimentarytdate" name="supplimentarytdate" placeholder="Next Visit Date"
+            style="width: 20%;" [(ngModel)]="patientDataObject.supplimentarytdate" #supplimentarytdate="ngModel" />
+        </div>
+      </div>
+   
+
+
+    </div>
+  
+    <div class="form-row">
+    <!-- <div class="form-group col-md-6"> -->
+    <button type="submit" class="btn btn-primary mb"  >Submit</button>&nbsp;
+    <button class="btn btn-primary mb"(click)="generatePdf('open')" type="button">Open PDF</button>&nbsp;
+        <button class="btn btn-primary mb"(click)="generatePdf('download')" type="button">Download PDF</button>
+    <!-- </div> -->
+   
+    </div>
+
+
+
+    
+
+</div>
+</form>

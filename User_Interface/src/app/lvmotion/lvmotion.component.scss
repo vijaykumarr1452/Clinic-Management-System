@@ -1,0 +1,56 @@
+.bold{
+    font-weight:bold;
+}
+.pic{
+    position: absolute;
+}
+#akibuttons{
+
+   
+    position: relative;
+}
+.allbutt{   
+    margin-left: 10px;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+#form{
+  display: flex;
+    float: left;
+    position: relative;
+margin-right: 40px;
+}
+
+#legends{
+
+    margin-top: 300px;
+}
+#allforms{
+
+    margin-top:50px ;
+}
+
+#nextline{
+
+margin-right: 400px;
+  float: right;
+}
+div > img {
+    width: 90%;
+    height : 90%;
+    max-height: 100%;
+    max-width: 100%;
+  }
+  #overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}  

@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LVMotion</title>
+</head>
+<style>
+  .pic {
+    position: absolute;
+  }
+
+  input {
+    width: 20%;
+  }
+
+  #akibuttons {
+
+
+    position: relative;
+  }
+
+  .allbutt {
+    margin-left: 5px;
+    margin-bottom: 2px;
+    cursor: pointer;
+  }
+
+  #form {
+    display: flex;
+    float: left;
+    position: relative;
+    width: 350px;
+  }
+
+  #legends {
+
+    margin-top: 300px;
+  }
+
+  #allforms {
+
+    margin-top: 50px;
+  }
+
+  #nextline {
+
+    margin-right: 550px;
+    float: right;
+  }
+
+  .container {
+    padding-left: 20px;
+  }
+
+#fff{
+display: flex;
+}
+
+.ff{
+  width: 320px;
+    float: left;
+    padding: 10px;
+    
+}
+ 
+</style>
+
+<body>
+  <div class="container">
+    <!--image upload-->
+
+    <div class="pic" id="aki1"><img src="./Aki/aki1.png" alt="aki1"></div>
+    <div class="pic" id="aki2"><img src="./Aki/aki2.png" alt="aki2"></div>
+    <div class="pic" id="aki3"><img src="./Aki/aki3.png" alt="aki3"></div>
+    <div class="pic" id="aki4"><img src="./Aki/aki4.png" alt="aki4"></div>
+    <div class="pic" id="aki5"><img src="./Aki/aki5.png" alt="aki5"></div>
+    <div class="pic" id="aki6"><img src="./Aki/aki6.png" alt="aki6"></div>
+    <div class="pic" id="aki7"><img src="./Aki/aki7.png" alt="aki7"></div>
+    <div class="pic" id="aki8"><img src="./Aki/aki8.png" alt="aki8"></div>
+    <div class="pic" id="aki9"><img src="./Aki/aki9.png" alt="aki9"></div>
+    <div class="pic" id="aki10"><img src="./Aki/aki10.png" alt="aki10"></div>
+    <div class="pic" id="aki11"><img src="./Aki/aki11.png" alt="aki11"></div>
+    <div class="pic" id="aki12"><img src="./Aki/aki12.png" alt="aki12"></div>
+    <div class="pic" id="aki13"><img src="./Aki/aki13.png" alt="aki13"></div>
+    <div class="pic" id="aki14"><img src="./Aki/aki14.png" alt="aki14"></div>
+    <div class="pic" id="aki15"><img src="./Aki/aki15.png" alt="aki15"></div>
+    <div class="pic" id="aki16"><img src="./Aki/aki16.png" alt="aki16"></div>
+    <div class="pic" id="aki17"><img src="./Aki/aki17.png" alt="aki17"></div>
+    <div class="pic" id="ane1"><img src="./Ane/ane1.png" alt="ane1"></div>
+    <div class="pic" id="ane2"><img src="./Ane/ane2.png" alt="ane2"></div>
+    <div class="pic" id="ane3"><img src="./Ane/ane3.png" alt="ane3"></div>
+    <div class="pic" id="ane4"><img src="./Ane/ane4.png" alt="ane4"></div>
+    <div class="pic" id="ane5"><img src="./Ane/ane5.png" alt="ane5"></div>
+    <div class="pic" id="ane6"><img src="./Ane/ane6.png" alt="ane6"></div>
+    <div class="pic" id="ane7"><img src="./Ane/ane7.png" alt="ane7"></div>
+    <div class="pic" id="ane8"><img src="./Ane/ane8.png" alt="ane8"></div>
+    <div class="pic" id="ane9"><img src="./Ane/ane9.png" alt="ane9"></div>
+    <div class="pic" id="ane10"><img src="./Ane/ane10.png" alt="ane10"></div>
+    <div class="pic" id="ane11"><img src="./Ane/ane11.png" alt="ane11"></div>
+    <div class="pic" id="ane12"><img src="./Ane/ane12.png" alt="ane12"></div>
+    <div class="pic" id="ane13"><img src="./Ane/ane13.png" alt="ane13"></div>
+    <div class="pic" id="ane14"><img src="./Ane/ane14.png" alt="ane14"></div>
+    <div class="pic" id="ane15"><img src="./Ane/ane15.png" alt="ane15"></div>
+    <div class="pic" id="ane16"><img src="./Ane/ane16.png" alt="ane16"></div>
+    <div class="pic" id="ane17"><img src="./Ane/ane17.png" alt="ane17"></div>
+    <div class="pic" id="dsy1"><img src="./Dsy/dsy1.png" alt="dsy1"></div>
+    <div class="pic" id="dsy2"><img src="./Dsy/dsy2.png" alt="dsy2"></div>
+    <div class="pic" id="dsy3"><img src="./Dsy/dsy3.png" alt="dsy3"></div>
+    <div class="pic" id="dsy4"><img src="./Dsy/dsy4.png" alt="dsy4"></div>
+    <div class="pic" id="dsy5"><img src="./Dsy/dsy5.png" alt="dsy5"></div>
+    <div class="pic" id="dsy6"><img src="./Dsy/dsy6.png" alt="dsy6"></div>
+    <div class="pic" id="dsy7"><img src="./Dsy/dsy7.png" alt="dsy7"></div>
+    <div class="pic" id="dsy8"><img src="./Dsy/dsy8.png" alt="dsy8"></div>
+    <div class="pic" id="dsy9"><img src="./Dsy/dsy9.png" alt="dsy9"></div>
+    <div class="pic" id="dsy10"><img src="./Dsy/dsy10.png" alt="dsy10"></div>
+    <div class="pic" id="dsy11"><img src="./Dsy/dsy11.png" alt="dsy11"></div>
+    <div class="pic" id="dsy12"><img src="./Dsy/dsy12.png" alt="dsy12"></div>
+    <div class="pic" id="dsy13"><img src="./Dsy/dsy13.png" alt="dsy13"></div>
+    <div class="pic" id="dsy14"><img src="./Dsy/dsy14.png" alt="dsy14"></div>
+    <div class="pic" id="dsy15"><img src="./Dsy/dsy15.png" alt="dsy15"></div>
+    <div class="pic" id="dsy16"><img src="./Dsy/dsy16.png" alt="dsy16"></div>
+    <div class="pic" id="dsy17"><img src="./Dsy/dsy17.png" alt="dsy17"></div>
+    <div class="pic" id="hyp1"><img src="./Hyp/hyp1.png" alt="hyp1"></div>
+    <div class="pic" id="hyp2"><img src="./Hyp/hyp2.png" alt="hyp2"></div>
+    <div class="pic" id="hyp3"><img src="./Hyp/hyp3.png" alt="hyp3"></div>
+    <div class="pic" id="hyp4"><img src="./Hyp/hyp4.png" alt="hyp4"></div>
+    <div class="pic" id="hyp5"><img src="./Hyp/hyp5.png" alt="hyp5"></div>
+    <div class="pic" id="hyp6"><img src="./Hyp/hyp6.png" alt="hyp6"></div>
+    <div class="pic" id="hyp7"><img src="./Hyp/hyp7.png" alt="hyp7"></div>
+    <div class="pic" id="hyp8"><img src="./Hyp/hyp8.png" alt="hyp8"></div>
+    <div class="pic" id="hyp9"><img src="./Hyp/hyp9.png" alt="hyp9"></div>
+    <div class="pic" id="hyp10"><img src="./Hyp/hyp10.png" alt="hyp10"></div>
+    <div class="pic" id="hyp11"><img src="./Hyp/hyp11.png" alt="hyp11"></div>
+    <div class="pic" id="hyp12"><img src="./Hyp/hyp12.png" alt="hyp12"></div>
+    <div class="pic" id="hyp13"><img src="./Hyp/hyp13.png" alt="hyp13"></div>
+    <div class="pic" id="hyp14"><img src="./Hyp/hyp14.png" alt="hyp14"></div>
+    <div class="pic" id="hyp15"><img src="./Hyp/hyp15.png" alt="hyp15"></div>
+    <div class="pic" id="hyp16"><img src="./Hyp/hyp16.png" alt="hyp16"></div>
+    <div class="pic" id="hyp17"><img src="./Hyp/hyp17.png" alt="hyp17"></div>
+    <div class="pic" id="ns1"><img src="./Ns/ns1.png" alt="ns1"></div>
+    <div class="pic" id="ns2"><img src="./Ns/ns2.png" alt="ns2"></div>
+    <div class="pic" id="ns3"><img src="./Ns/ns3.png" alt="ns3"></div>
+    <div class="pic" id="ns4"><img src="./Ns/ns4.png" alt="ns4"></div>
+    <div class="pic" id="ns5"><img src="./Ns/ns5.png" alt="ns5"></div>
+    <div class="pic" id="ns6"><img src="./Ns/ns6.png" alt="ns6"></div>
+    <div class="pic" id="ns7"><img src="./Ns/ns7.png" alt="ns7"></div>
+    <div class="pic" id="ns8"><img src="./Ns/ns8.png" alt="ns8"></div>
+    <div class="pic" id="ns9"><img src="./Ns/ns9.png" alt="ns9"></div>
+    <div class="pic" id="ns10"><img src="./Ns/ns10.png" alt="ns10"></div>
+    <div class="pic" id="ns11"><img src="./Ns/ns11.png" alt="ns11"></div>
+    <div class="pic" id="ns12"><img src="./Ns/ns12.png" alt="ns12"></div>
+    <div class="pic" id="ns13"><img src="./Ns/ns13.png" alt="ns13"></div>
+    <div class="pic" id="ns14"><img src="./Ns/ns14.png" alt="ns14"></div>
+    <div class="pic" id="ns15"><img src="./Ns/ns15.png" alt="ns15"></div>
+    <div class="pic" id="ns16"><img src="./Ns/ns16.png" alt="ns16"></div>
+    <div class="pic" id="ns17"><img src="./Ns/ns17.png" alt="ns17"></div>
+    <div class="pic" id="nor1"><img src="./Nor/nor1.png" alt="nor1"></div>
+    <div class="pic" id="nor2"><img src="./Nor/nor2.png" alt="nor2"></div>
+    <div class="pic" id="nor3"><img src="./Nor/nor3.png" alt="nor3"></div>
+    <div class="pic" id="nor4"><img src="./Nor/nor4.png" alt="nor4"></div>
+    <div class="pic" id="nor5"><img src="./Nor/nor5.png" alt="nor5"></div>
+    <div class="pic" id="nor6"><img src="./Nor/nor6.png" alt="nor6"></div>
+    <div class="pic" id="nor7"><img src="./Nor/nor7.png" alt="nor7"></div>
+    <div class="pic" id="nor8"><img src="./Nor/nor8.png" alt="nor8"></div>
+    <div class="pic" id="nor9"><img src="./Nor/nor9.png" alt="nor9"></div>
+    <div class="pic" id="nor10"><img src="./Nor/nor10.png" alt="nor10"></div>
+    <div class="pic" id="nor11"><img src="./Nor/nor11.png" alt="nor11"></div>
+    <div class="pic" id="nor12"><img src="./Nor/nor12.png" alt="nor12"></div>
+    <div class="pic" id="nor13"><img src="./Nor/nor13.png" alt="nor13"></div>
+    <div class="pic" id="nor14"><img src="./Nor/nor14.png" alt="nor14"></div>
+    <div class="pic" id="nor15"><img src="./Nor/nor15.png" alt="nor15"></div>
+    <div class="pic" id="nor16"><img src="./Nor/nor16.png" alt="nor16"></div>
+    <div class="pic" id="nor17"><img src="./Nor/nor17.png" alt="nor17"></div>
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <!--Legends-->
+    <div id="legends">
+      <img src="./Legends.png" alt="Legends">
+    </div>
+    <!--Buttons-->
+
+    <div id="norbuttons">
+      Normal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="allbutt" id="nor1b" onclick="myFunctionNor1()">1</button>
+      <button type="button" class="allbutt" id="nor2b" onclick="myFunctionNor2()">2</button>
+      <button type="button" class="allbutt" id="nor3b" onclick="myFunctionNor3()">3</button>
+      <button type="button" class="allbutt" id="nor4b" onclick="myFunctionNor4()">4</button>
+      <button type="button" class="allbutt" id="nor5b" onclick="myFunctionNor5()">5</button>
+      <button type="button" class="allbutt" id="nor6b" onclick="myFunctionNor6()">6</button>
+      <button type="button" class="allbutt" id="nor7b" onclick="myFunctionNor7()">7</button>
+      <button type="button" class="allbutt" id="nor8b" onclick="myFunctionNor8()">8</button>
+      <button type="button" class="allbutt" id="nor9b" onclick="myFunctionNor9()">9</button>
+      <button type="button" class="allbutt" id="nor10b" onclick="myFunctionNor10()">10</button>
+      <button type="button" class="allbutt" id="nor11b" onclick="myFunctionNor11()">11</button>
+      <button type="button" class="allbutt" id="nor12b" onclick="myFunctionNor12()">12</button>
+      <button type="button" class="allbutt" id="nor13b" onclick="myFunctionNor13()">13</button>
+      <button type="button" class="allbutt" id="nor14b" onclick="myFunctionNor14()">14</button>
+      <button type="button" class="allbutt" id="nor15b" onclick="myFunctionNor15()">15</button>
+      <button type="button" class="allbutt" id="nor16b" onclick="myFunctionNor16()">16</button>
+      <button type="button" class="allbutt" id="nor17b" onclick="myFunctionNor17()">17</button>
+
+    </div>
+
+
+
+    <div id="akibuttons">
+      Akinetic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="allbutt" id="aki1b" onclick="myFunctionAki1()">1</button>
+      <button type="button" class="allbutt" id="aki2b" onclick="myFunctionAki2()">2</button>
+      <button type="button" class="allbutt" id="aki3b" onclick="myFunctionAki3()">3</button>
+      <button type="button" class="allbutt" id="aki4b" onclick="myFunctionAki4()">4</button>
+      <button type="button" class="allbutt" id="aki5b" onclick="myFunctionAki5()">5</button>
+      <button type="button" class="allbutt" id="aki6b" onclick="myFunctionAki6()">6</button>
+      <button type="button" class="allbutt" id="aki7b" onclick="myFunctionAki7()">7</button>
+      <button type="button" class="allbutt" id="aki8b" onclick="myFunctionAki8()">8</button>
+      <button type="button" class="allbutt" id="aki9b" onclick="myFunctionAki9()">9</button>
+      <button type="button" class="allbutt" id="aki10b" onclick="myFunctionAki10()">10</button>
+      <button type="button" class="allbutt" id="aki11b" onclick="myFunctionAki11()">11</button>
+      <button type="button" class="allbutt" id="aki12b" onclick="myFunctionAki12()">12</button>
+      <button type="button" class="allbutt" id="aki13b" onclick="myFunctionAki13()">13</button>
+      <button type="button" class="allbutt" id="aki14b" onclick="myFunctionAki14()">14</button>
+      <button type="button" class="allbutt" id="aki15b" onclick="myFunctionAki15()">15</button>
+      <button type="button" class="allbutt" id="aki16b" onclick="myFunctionAki16()">16</button>
+      <button type="button" class="allbutt" id="aki17b" onclick="myFunctionAki17()">17</button>
+
+    </div>
+
+    <div id="akibuttons">
+      Aneurysm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="allbutt" id="ane1b" onclick="myFunctionAne1()">1</button>
+      <button type="button" class="allbutt" id="ane2b" onclick="myFunctionAne2()">2</button>
+      <button type="button" class="allbutt" id="ane3b" onclick="myFunctionAne3()">3</button>
+      <button type="button" class="allbutt" id="ane4b" onclick="myFunctionAne4()">4</button>
+      <button type="button" class="allbutt" id="ane5b" onclick="myFunctionAne5()">5</button>
+      <button type="button" class="allbutt" id="ane6b" onclick="myFunctionAne6()">6</button>
+      <button type="button" class="allbutt" id="ane7b" onclick="myFunctionAne7()">7</button>
+      <button type="button" class="allbutt" id="ane8b" onclick="myFunctionAne8()">8</button>
+      <button type="button" class="allbutt" id="ane9b" onclick="myFunctionAne9()">9</button>
+      <button type="button" class="allbutt" id="ane10b" onclick="myFunctionAne10()">10</button>
+      <button type="button" class="allbutt" id="ane11b" onclick="myFunctionAne11()">11</button>
+      <button type="button" class="allbutt" id="ane12b" onclick="myFunctionAne12()">12</button>
+      <button type="button" class="allbutt" id="ane13b" onclick="myFunctionAne13()">13</button>
+      <button type="button" class="allbutt" id="ane14b" onclick="myFunctionAne14()">14</button>
+      <button type="button" class="allbutt" id="ane15b" onclick="myFunctionAne15()">15</button>
+      <button type="button" class="allbutt" id="ane16b" onclick="myFunctionAne16()">16</button>
+      <button type="button" class="allbutt" id="ane17b" onclick="myFunctionAne17()">17</button>
+
+    </div>
+
+    <div id="akibuttons">
+      Dyskinetic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="allbutt" id="dsy1b" onclick="myFunctionDsy1()">1</button>
+      <button type="button" class="allbutt" id="dsy2b" onclick="myFunctionDsy2()">2</button>
+      <button type="button" class="allbutt" id="dsy3b" onclick="myFunctionDsy3()">3</button>
+      <button type="button" class="allbutt" id="dsy4b" onclick="myFunctionDsy4()">4</button>
+      <button type="button" class="allbutt" id="dsy5b" onclick="myFunctionDsy5()">5</button>
+      <button type="button" class="allbutt" id="dsy6b" onclick="myFunctionDsy6()">6</button>
+      <button type="button" class="allbutt" id="dsy7b" onclick="myFunctionDsy7()">7</button>
+      <button type="button" class="allbutt" id="dsy8b" onclick="myFunctionDsy8()">8</button>
+      <button type="button" class="allbutt" id="dsy9b" onclick="myFunctionDsy9()">9</button>
+      <button type="button" class="allbutt" id="dsy10b" onclick="myFunctionDsy10()">10</button>
+      <button type="button" class="allbutt" id="dsy11b" onclick="myFunctionDsy11()">11</button>
+      <button type="button" class="allbutt" id="dsy12b" onclick="myFunctionDsy12()">12</button>
+      <button type="button" class="allbutt" id="dsy13b" onclick="myFunctionDsy13()">13</button>
+      <button type="button" class="allbutt" id="dsy14b" onclick="myFunctionDsy14()">14</button>
+      <button type="button" class="allbutt" id="dsy15b" onclick="myFunctionDsy15()">15</button>
+      <button type="button" class="allbutt" id="dsy16b" onclick="myFunctionDsy16()">16</button>
+      <button type="button" class="allbutt" id="dsy17b" onclick="myFunctionDsy17()">17</button>
+
+    </div>
+
+    <div id="akibuttons">
+      Hypokinetic&nbsp;&nbsp;&nbsp;
+      <button type="button" class="allbutt" id="hyp1b" onclick="myFunctionHyp1()">1</button>
+      <button type="button" class="allbutt" id="hyp2b" onclick="myFunctionHyp2()">2</button>
+      <button type="button" class="allbutt" id="hyp3b" onclick="myFunctionHyp3()">3</button>
+      <button type="button" class="allbutt" id="hyp4b" onclick="myFunctionHyp4()">4</button>
+      <button type="button" class="allbutt" id="hyp5b" onclick="myFunctionHyp5()">5</button>
+      <button type="button" class="allbutt" id="hyp6b" onclick="myFunctionHyp6()">6</button>
+      <button type="button" class="allbutt" id="hyp7b" onclick="myFunctionHyp7()">7</button>
+      <button type="button" class="allbutt" id="hyp8b" onclick="myFunctionHyp8()">8</button>
+      <button type="button" class="allbutt" id="hyp9b" onclick="myFunctionHyp9()">9</button>
+      <button type="button" class="allbutt" id="hyp10b" onclick="myFunctionHyp10()">10</button>
+      <button type="button" class="allbutt" id="hyp11b" onclick="myFunctionHyp11()">11</button>
+      <button type="button" class="allbutt" id="hyp12b" onclick="myFunctionHyp12()">12</button>
+      <button type="button" class="allbutt" id="hyp13b" onclick="myFunctionHyp13()">13</button>
+      <button type="button" class="allbutt" id="hyp14b" onclick="myFunctionHyp14()">14</button>
+      <button type="button" class="allbutt" id="hyp15b" onclick="myFunctionHyp15()">15</button>
+      <button type="button" class="allbutt" id="hyp16b" onclick="myFunctionHyp16()">16</button>
+      <button type="button" class="allbutt" id="hyp17b" onclick="myFunctionHyp17()">17</button>
+
+    </div>
+
+    <div id="akibuttons">
+      Not Seen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="allbutt" id="ns1b" onclick="myFunctionNs1()">1</button>
+      <button type="button" class="allbutt" id="ns2b" onclick="myFunctionNs2()">2</button>
+      <button type="button" class="allbutt" id="ns3b" onclick="myFunctionNs3()">3</button>
+      <button type="button" class="allbutt" id="ns4b" onclick="myFunctionNs4()">4</button>
+      <button type="button" class="allbutt" id="ns5b" onclick="myFunctionNs5()">5</button>
+      <button type="button" class="allbutt" id="ns6b" onclick="myFunctionNs6()">6</button>
+      <button type="button" class="allbutt" id="ns7b" onclick="myFunctionNs7()">7</button>
+      <button type="button" class="allbutt" id="ns8b" onclick="myFunctionNs8()">8</button>
+      <button type="button" class="allbutt" id="ns9b" onclick="myFunctionNs9()">9</button>
+      <button type="button" class="allbutt" id="ns10b" onclick="myFunctionNs10()">10</button>
+      <button type="button" class="allbutt" id="ns11b" onclick="myFunctionNs11()">11</button>
+      <button type="button" class="allbutt" id="ns12b" onclick="myFunctionNs12()">12</button>
+      <button type="button" class="allbutt" id="ns13b" onclick="myFunctionNs13()">13</button>
+      <button type="button" class="allbutt" id="ns14b" onclick="myFunctionNs14()">14</button>
+      <button type="button" class="allbutt" id="ns15b" onclick="myFunctionNs15()">15</button>
+      <button type="button" class="allbutt" id="ns16b" onclick="myFunctionNs16()">16</button>
+      <button type="button" class="allbutt" id="ns17b" onclick="myFunctionNs17()">17</button>
+
+    </div>
+
+
+    <!--down text cells-->
+    <div id="allforms">
+      <div id="form">
+        <form name="form1" action="">
+          <div id="fff">
+            <div class="ff">
+              1. Basal anteroseptal segment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type="text" name="f1"
+                value="Normal"><br>
+              2. Basal anterior segment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+              <input type="text" name="f2" value="Normal"><br>
+              3. Basal anterolateral segment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type="text" name="f3"
+                value="Normal"><br>
+              4. Basal posterolateral segment&nbsp;&nbsp;&nbsp;&nbsp; : <input type="text" name="f4" value="Normal"><br>
+              5. Basal inferior
+              segment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              : <input type="text" name="f5" value="Normal"><br>
+              6. Basal infero septal segment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type="text" name="f6"
+                value="Normal"><br>
+              7. Middle antero septal segment&nbsp;&nbsp;&nbsp; : <input type="text" name="f7" value="Normal"><br>
+              8. Middle anterior segment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input
+                type="text" name="f8" value="Normal"><br>
+            </div>
+            <div class="ff">
+
+              9. Middle anterolateral segment&nbsp;&nbsp;&nbsp;&nbsp; : <input type="text" name="f9" value="Normal"><br>
+              10. Middle Posterior segment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text"
+                name="f10" value="Normal"><br>
+              11. Middle inferior segment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input
+                type="text" name="f11" value="Normal"><br>
+              12. Middle infero septal segment&nbsp;&nbsp; : <input type="text" name="f12" value="Normal"><br>
+              13. Apical anterior segment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input
+                type="text" name="f13" value="Normal"><br>
+              14. Apical anterolateral segment&nbsp;&nbsp;&nbsp; : <input type="text" name="f14" value="Normal"><br>
+              15. Apical inferior segment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input
+                type="text" name="f15" value="Normal"><br>
+              16. Apical anterior septal segment : <input type="text" name="f16" value="Normal"><br>
+              17. Apical
+              cap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              : <input type="text" name="f17" value="Normal"><br>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+  <script>
+    //aki function
+
+    function myFunctionAki1() {
+      document.getElementById('aki1').style.opacity = "1.0";
+      document.getElementById('ane1').style.opacity = "0.0";
+      document.getElementById('dsy1').style.opacity = "0.0";
+      document.getElementById('hyp1').style.opacity = "0.0";
+      document.getElementById('ns1').style.opacity = "0.0";
+      document.getElementById('nor1').style.opacity = "0.0";
+      document.form1.f1.value = "Akinetic";
+    }
+
+    function myFunctionAki2() {
+      document.getElementById('aki2').style.opacity = "1.0";
+      document.getElementById('ane2').style.opacity = "0.0";
+      document.getElementById('dsy2').style.opacity = "0.0";
+      document.getElementById('hyp2').style.opacity = "0.0";
+      document.getElementById('ns2').style.opacity = "0.0";
+      document.getElementById('nor2').style.opacity = "0.0";
+      document.form1.f2.value = "Akinetic";
+    }
+
+    function myFunctionAki3() {
+      document.getElementById('aki3').style.opacity = "1.0";
+      document.getElementById('ane3').style.opacity = "0.0";
+      document.getElementById('dsy3').style.opacity = "0.0";
+      document.getElementById('hyp3').style.opacity = "0.0";
+      document.getElementById('ns3').style.opacity = "0.0";
+      document.getElementById('nor3').style.opacity = "0.0";
+      document.form1.f3.value = "Akinetic";
+    }
+
+    function myFunctionAki4() {
+      document.getElementById('aki4').style.opacity = "1.0";
+      document.getElementById('ane4').style.opacity = "0.0";
+      document.getElementById('dsy4').style.opacity = "0.0";
+      document.getElementById('hyp4').style.opacity = "0.0";
+      document.getElementById('ns4').style.opacity = "0.0";
+      document.getElementById('nor4').style.opacity = "0.0";
+      document.form1.f4.value = "Akinetic";
+    }
+
+    function myFunctionAki5() {
+      document.getElementById('aki5').style.opacity = "1.0";
+      document.getElementById('ane5').style.opacity = "0.0";
+      document.getElementById('dsy5').style.opacity = "0.0";
+      document.getElementById('hyp5').style.opacity = "0.0";
+      document.getElementById('ns5').style.opacity = "0.0";
+      document.getElementById('nor5').style.opacity = "0.0";
+      document.form1.f5.value = "Akinetic";
+    }
+
+    function myFunctionAki6() {
+      document.getElementById('aki6').style.opacity = "1.0";
+      document.getElementById('ane6').style.opacity = "0.0";
+      document.getElementById('dsy6').style.opacity = "0.0";
+      document.getElementById('hyp6').style.opacity = "0.0";
+      document.getElementById('ns6').style.opacity = "0.0";
+      document.getElementById('nor6').style.opacity = "0.0";
+      document.form1.f6.value = "Akinetic";
+    }
+
+    function myFunctionAki7() {
+      document.getElementById('aki7').style.opacity = "1.0";
+      document.getElementById('ane7').style.opacity = "0.0";
+      document.getElementById('dsy7').style.opacity = "0.0";
+      document.getElementById('hyp7').style.opacity = "0.0";
+      document.getElementById('ns7').style.opacity = "0.0";
+      document.getElementById('nor7').style.opacity = "0.0";
+      document.form1.f7.value = "Akinetic";
+    }
+
+    function myFunctionAki8() {
+      document.getElementById('aki8').style.opacity = "1.0";
+      document.getElementById('ane8').style.opacity = "0.0";
+      document.getElementById('dsy8').style.opacity = "0.0";
+      document.getElementById('hyp8').style.opacity = "0.0";
+      document.getElementById('ns8').style.opacity = "0.0";
+      document.getElementById('nor8').style.opacity = "0.0";
+      document.form1.f8.value = "Akinetic";
+    }
+
+    function myFunctionAki9() {
+      document.getElementById('aki9').style.opacity = "1.0";
+      document.getElementById('ane9').style.opacity = "0.0";
+      document.getElementById('dsy9').style.opacity = "0.0";
+      document.getElementById('hyp9').style.opacity = "0.0";
+      document.getElementById('ns9').style.opacity = "0.0";
+      document.getElementById('nor9').style.opacity = "0.0";
+      document.form1.f9.value = "Akinetic";
+    }
+
+    function myFunctionAki10() {
+      document.getElementById('aki10').style.opacity = "1.0";
+      document.getElementById('ane10').style.opacity = "0.0";
+      document.getElementById('dsy10').style.opacity = "0.0";
+      document.getElementById('hyp10').style.opacity = "0.0";
+      document.getElementById('ns10').style.opacity = "0.0";
+      document.getElementById('nor10').style.opacity = "0.0";
+      document.form1.f10.value = "Akinetic";
+    }
+
+    function myFunctionAki11() {
+      document.getElementById('aki11').style.opacity = "1.0";
+      document.getElementById('ane11').style.opacity = "0.0";
+      document.getElementById('dsy11').style.opacity = "0.0";
+      document.getElementById('hyp11').style.opacity = "0.0";
+      document.getElementById('ns11').style.opacity = "0.0";
+      document.getElementById('nor11').style.opacity = "0.0";
+      document.form1.f11.value = "Akinetic";
+    }
+
+    function myFunctionAki12() {
+      document.getElementById('aki12').style.opacity = "1.0";
+      document.getElementById('ane12').style.opacity = "0.0";
+      document.getElementById('dsy12').style.opacity = "0.0";
+      document.getElementById('hyp12').style.opacity = "0.0";
+      document.getElementById('ns12').style.opacity = "0.0";
+      document.getElementById('nor12').style.opacity = "0.0";
+      document.form1.f12.value = "Akinetic";
+    }
+
+    function myFunctionAki13() {
+      document.getElementById('aki13').style.opacity = "1.0";
+      document.getElementById('ane13').style.opacity = "0.0";
+      document.getElementById('dsy13').style.opacity = "0.0";
+      document.getElementById('hyp13').style.opacity = "0.0";
+      document.getElementById('ns13').style.opacity = "0.0";
+      document.getElementById('nor13').style.opacity = "0.0";
+      document.form1.f13.value = "Akinetic";
+    }
+
+    function myFunctionAki14() {
+      document.getElementById('aki14').style.opacity = "1.0";
+      document.getElementById('ane14').style.opacity = "0.0";
+      document.getElementById('dsy14').style.opacity = "0.0";
+      document.getElementById('hyp14').style.opacity = "0.0";
+      document.getElementById('ns14').style.opacity = "0.0";
+      document.getElementById('nor14').style.opacity = "0.0";
+      document.form1.f14.value = "Akinetic";
+    }
+
+    function myFunctionAki15() {
+      document.getElementById('aki15').style.opacity = "1.0";
+      document.getElementById('ane15').style.opacity = "0.0";
+      document.getElementById('dsy15').style.opacity = "0.0";
+      document.getElementById('hyp15').style.opacity = "0.0";
+      document.getElementById('ns15').style.opacity = "0.0";
+      document.getElementById('nor15').style.opacity = "0.0";
+      document.form1.f15.value = "Akinetic";
+    }
+
+    function myFunctionAki16() {
+      document.getElementById('aki16').style.opacity = "1.0";
+      document.getElementById('ane16').style.opacity = "0.0";
+      document.getElementById('dsy16').style.opacity = "0.0";
+      document.getElementById('hyp16').style.opacity = "0.0";
+      document.getElementById('ns16').style.opacity = "0.0";
+      document.getElementById('nor16').style.opacity = "0.0";
+      document.form1.f16.value = "Akinetic";
+    }
+
+    function myFunctionAki17() {
+      document.getElementById('aki17').style.opacity = "1.0";
+      document.getElementById('ane17').style.opacity = "0.0";
+      document.getElementById('dsy17').style.opacity = "0.0";
+      document.getElementById('hyp17').style.opacity = "0.0";
+      document.getElementById('ns17').style.opacity = "0.0";
+      document.getElementById('nor17').style.opacity = "0.0";
+      document.form1.f17.value = "Akinetic";
+    }
+
+
+    //ane Fuction
+
+
+    function myFunctionAne1() {
+      document.getElementById('aki1').style.opacity = "0.0";
+      document.getElementById('ane1').style.opacity = "1.0";
+      document.getElementById('dsy1').style.opacity = "0.0";
+      document.getElementById('hyp1').style.opacity = "0.0";
+      document.getElementById('ns1').style.opacity = "0.0";
+      document.getElementById('nor1').style.opacity = "0.0";
+      document.form1.f1.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne2() {
+      document.getElementById('aki2').style.opacity = "0.0";
+      document.getElementById('ane2').style.opacity = "1.0";
+      document.getElementById('dsy2').style.opacity = "0.0";
+      document.getElementById('hyp2').style.opacity = "0.0";
+      document.getElementById('ns2').style.opacity = "0.0";
+      document.getElementById('nor2').style.opacity = "0.0";
+      document.form1.f2.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne3() {
+      document.getElementById('aki3').style.opacity = "0.0";
+      document.getElementById('ane3').style.opacity = "1.0";
+      document.getElementById('dsy3').style.opacity = "0.0";
+      document.getElementById('hyp3').style.opacity = "0.0";
+      document.getElementById('ns3').style.opacity = "0.0";
+      document.getElementById('nor3').style.opacity = "0.0";
+      document.form1.f3.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne4() {
+      document.getElementById('aki4').style.opacity = "0.0";
+      document.getElementById('ane4').style.opacity = "1.0";
+      document.getElementById('dsy4').style.opacity = "0.0";
+      document.getElementById('hyp4').style.opacity = "0.0";
+      document.getElementById('ns4').style.opacity = "0.0";
+      document.getElementById('nor4').style.opacity = "0.0";
+      document.form1.f4.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne5() {
+      document.getElementById('aki5').style.opacity = "0.0";
+      document.getElementById('ane5').style.opacity = "1.0";
+      document.getElementById('dsy5').style.opacity = "0.0";
+      document.getElementById('hyp5').style.opacity = "0.0";
+      document.getElementById('ns5').style.opacity = "0.0";
+      document.getElementById('nor5').style.opacity = "0.0";
+      document.form1.f5.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne6() {
+      document.getElementById('aki6').style.opacity = "0.0";
+      document.getElementById('ane6').style.opacity = "1.0";
+      document.getElementById('dsy6').style.opacity = "0.0";
+      document.getElementById('hyp6').style.opacity = "0.0";
+      document.getElementById('ns6').style.opacity = "0.0";
+      document.getElementById('nor6').style.opacity = "0.0";
+      document.form1.f6.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne7() {
+      document.getElementById('aki7').style.opacity = "0.0";
+      document.getElementById('ane7').style.opacity = "1.0";
+      document.getElementById('dsy7').style.opacity = "0.0";
+      document.getElementById('hyp7').style.opacity = "0.0";
+      document.getElementById('ns7').style.opacity = "0.0";
+      document.getElementById('nor7').style.opacity = "0.0";
+      document.form1.f7.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne8() {
+      document.getElementById('aki8').style.opacity = "0.0";
+      document.getElementById('ane8').style.opacity = "1.0";
+      document.getElementById('dsy8').style.opacity = "0.0";
+      document.getElementById('hyp8').style.opacity = "0.0";
+      document.getElementById('ns8').style.opacity = "0.0";
+      document.getElementById('nor8').style.opacity = "0.0";
+      document.form1.f8.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne9() {
+      document.getElementById('aki9').style.opacity = "0.0";
+      document.getElementById('ane9').style.opacity = "1.0";
+      document.getElementById('dsy9').style.opacity = "0.0";
+      document.getElementById('hyp9').style.opacity = "0.0";
+      document.getElementById('ns9').style.opacity = "0.0";
+      document.getElementById('nor9').style.opacity = "0.0";
+      document.form1.f9.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne10() {
+      document.getElementById('aki10').style.opacity = "0.0";
+      document.getElementById('ane10').style.opacity = "1.0";
+      document.getElementById('dsy10').style.opacity = "0.0";
+      document.getElementById('hyp10').style.opacity = "0.0";
+      document.getElementById('ns10').style.opacity = "0.0";
+      document.getElementById('nor10').style.opacity = "0.0";
+      document.form1.f10.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne11() {
+      document.getElementById('aki11').style.opacity = "0.0";
+      document.getElementById('ane11').style.opacity = "1.0";
+      document.getElementById('dsy11').style.opacity = "0.0";
+      document.getElementById('hyp11').style.opacity = "0.0";
+      document.getElementById('ns11').style.opacity = "0.0";
+      document.getElementById('nor11').style.opacity = "0.0";
+      document.form1.f11.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne12() {
+      document.getElementById('aki12').style.opacity = "0.0";
+      document.getElementById('ane12').style.opacity = "1.0";
+      document.getElementById('dsy12').style.opacity = "0.0";
+      document.getElementById('hyp12').style.opacity = "0.0";
+      document.getElementById('ns12').style.opacity = "0.0";
+      document.getElementById('nor12').style.opacity = "0.0";
+      document.form1.f12.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne13() {
+      document.getElementById('aki13').style.opacity = "0.0";
+      document.getElementById('ane13').style.opacity = "1.0";
+      document.getElementById('dsy13').style.opacity = "0.0";
+      document.getElementById('hyp13').style.opacity = "0.0";
+      document.getElementById('ns13').style.opacity = "0.0";
+      document.getElementById('nor13').style.opacity = "0.0";
+      document.form1.f13.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne14() {
+      document.getElementById('aki14').style.opacity = "0.0";
+      document.getElementById('ane14').style.opacity = "1.0";
+      document.getElementById('dsy14').style.opacity = "0.0";
+      document.getElementById('hyp14').style.opacity = "0.0";
+      document.getElementById('ns14').style.opacity = "0.0";
+      document.getElementById('nor14').style.opacity = "0.0";
+      document.form1.f14.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne15() {
+      document.getElementById('aki15').style.opacity = "0.0";
+      document.getElementById('ane15').style.opacity = "1.0";
+      document.getElementById('dsy15').style.opacity = "0.0";
+      document.getElementById('hyp15').style.opacity = "0.0";
+      document.getElementById('ns15').style.opacity = "0.0";
+      document.getElementById('nor15').style.opacity = "0.0";
+      document.form1.f15.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne16() {
+      document.getElementById('aki16').style.opacity = "0.0";
+      document.getElementById('ane16').style.opacity = "1.0";
+      document.getElementById('dsy16').style.opacity = "0.0";
+      document.getElementById('hyp16').style.opacity = "0.0";
+      document.getElementById('ns16').style.opacity = "0.0";
+      document.getElementById('nor16').style.opacity = "0.0";
+      document.form1.f16.value = "Aneurysm";
+    }
+
+
+    function myFunctionAne17() {
+      document.getElementById('aki17').style.opacity = "0.0";
+      document.getElementById('ane17').style.opacity = "1.0";
+      document.getElementById('dsy17').style.opacity = "0.0";
+      document.getElementById('hyp17').style.opacity = "0.0";
+      document.getElementById('ns17').style.opacity = "0.0";
+      document.getElementById('nor17').style.opacity = "0.0";
+      document.form1.f17.value = "Aneurysm";
+    }
+
+
+    //dys function
+
+
+
+
+    function myFunctionDsy1() {
+      document.getElementById('aki1').style.opacity = "0.0";
+      document.getElementById('ane1').style.opacity = "0.0";
+      document.getElementById('dsy1').style.opacity = "1.0";
+      document.getElementById('hyp1').style.opacity = "0.0";
+      document.getElementById('ns1').style.opacity = "0.0";
+      document.getElementById('nor1').style.opacity = "0.0";
+      document.form1.f1.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy2() {
+      document.getElementById('aki2').style.opacity = "0.0";
+      document.getElementById('ane2').style.opacity = "0.0";
+      document.getElementById('dsy2').style.opacity = "1.0";
+      document.getElementById('hyp2').style.opacity = "0.0";
+      document.getElementById('ns2').style.opacity = "0.0";
+      document.getElementById('nor2').style.opacity = "0.0";
+      document.form1.f2.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy3() {
+      document.getElementById('aki3').style.opacity = "0.0";
+      document.getElementById('ane3').style.opacity = "0.0";
+      document.getElementById('dsy3').style.opacity = "1.0";
+      document.getElementById('hyp3').style.opacity = "0.0";
+      document.getElementById('ns3').style.opacity = "0.0";
+      document.getElementById('nor3').style.opacity = "0.0";
+      document.form1.f3.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy4() {
+      document.getElementById('aki4').style.opacity = "0.0";
+      document.getElementById('ane4').style.opacity = "0.0";
+      document.getElementById('dsy4').style.opacity = "1.0";
+      document.getElementById('hyp4').style.opacity = "0.0";
+      document.getElementById('ns4').style.opacity = "0.0";
+      document.getElementById('nor4').style.opacity = "0.0";
+      document.form1.f4.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy5() {
+      document.getElementById('aki5').style.opacity = "0.0";
+      document.getElementById('ane5').style.opacity = "0.0";
+      document.getElementById('dsy5').style.opacity = "1.0";
+      document.getElementById('hyp5').style.opacity = "0.0";
+      document.getElementById('ns5').style.opacity = "0.0";
+      document.getElementById('nor5').style.opacity = "0.0";
+      document.form1.f5.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy6() {
+      document.getElementById('aki6').style.opacity = "0.0";
+      document.getElementById('ane6').style.opacity = "0.0";
+      document.getElementById('dsy6').style.opacity = "1.0";
+      document.getElementById('hyp6').style.opacity = "0.0";
+      document.getElementById('ns6').style.opacity = "0.0";
+      document.getElementById('nor6').style.opacity = "0.0";
+      document.form1.f6.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy7() {
+      document.getElementById('aki7').style.opacity = "0.0";
+      document.getElementById('ane7').style.opacity = "0.0";
+      document.getElementById('dsy7').style.opacity = "1.0";
+      document.getElementById('hyp7').style.opacity = "0.0";
+      document.getElementById('ns7').style.opacity = "0.0";
+      document.getElementById('nor7').style.opacity = "0.0";
+      document.form1.f7.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy8() {
+      document.getElementById('aki8').style.opacity = "0.0";
+      document.getElementById('ane8').style.opacity = "0.0";
+      document.getElementById('dsy8').style.opacity = "1.0";
+      document.getElementById('hyp8').style.opacity = "0.0";
+      document.getElementById('ns8').style.opacity = "0.0";
+      document.getElementById('nor8').style.opacity = "0.0";
+      document.form1.f8.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy9() {
+      document.getElementById('aki9').style.opacity = "0.0";
+      document.getElementById('ane9').style.opacity = "0.0";
+      document.getElementById('dsy9').style.opacity = "1.0";
+      document.getElementById('hyp9').style.opacity = "0.0";
+      document.getElementById('ns9').style.opacity = "0.0";
+      document.getElementById('nor9').style.opacity = "0.0";
+      document.form1.f9.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy10() {
+      document.getElementById('aki10').style.opacity = "0.0";
+      document.getElementById('ane10').style.opacity = "0.0";
+      document.getElementById('dsy10').style.opacity = "1.0";
+      document.getElementById('hyp10').style.opacity = "0.0";
+      document.getElementById('ns10').style.opacity = "0.0";
+      document.getElementById('nor10').style.opacity = "0.0";
+      document.form1.f10.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy11() {
+      document.getElementById('aki11').style.opacity = "0.0";
+      document.getElementById('ane11').style.opacity = "0.0";
+      document.getElementById('dsy11').style.opacity = "1.0";
+      document.getElementById('hyp11').style.opacity = "0.0";
+      document.getElementById('ns11').style.opacity = "0.0";
+      document.getElementById('nor11').style.opacity = "0.0";
+      document.form1.f11.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy12() {
+      document.getElementById('aki12').style.opacity = "0.0";
+      document.getElementById('ane12').style.opacity = "0.0";
+      document.getElementById('dsy12').style.opacity = "1.0";
+      document.getElementById('hyp12').style.opacity = "0.0";
+      document.getElementById('ns12').style.opacity = "0.0";
+      document.getElementById('nor12').style.opacity = "0.0";
+      document.form1.f12.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy13() {
+      document.getElementById('aki13').style.opacity = "0.0";
+      document.getElementById('ane13').style.opacity = "0.0";
+      document.getElementById('dsy13').style.opacity = "1.0";
+      document.getElementById('hyp13').style.opacity = "0.0";
+      document.getElementById('ns13').style.opacity = "0.0";
+      document.getElementById('nor13').style.opacity = "0.0";
+      document.form1.f13.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy14() {
+      document.getElementById('aki14').style.opacity = "0.0";
+      document.getElementById('ane14').style.opacity = "0.0";
+      document.getElementById('dsy14').style.opacity = "1.0";
+      document.getElementById('hyp14').style.opacity = "0.0";
+      document.getElementById('ns14').style.opacity = "0.0";
+      document.getElementById('nor14').style.opacity = "0.0";
+      document.form1.f14.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy15() {
+      document.getElementById('aki15').style.opacity = "0.0";
+      document.getElementById('ane15').style.opacity = "0.0";
+      document.getElementById('dsy15').style.opacity = "1.0";
+      document.getElementById('hyp15').style.opacity = "0.0";
+      document.getElementById('ns15').style.opacity = "0.0";
+      document.getElementById('nor15').style.opacity = "0.0";
+      document.form1.f15.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy16() {
+      document.getElementById('aki16').style.opacity = "0.0";
+      document.getElementById('ane16').style.opacity = "0.0";
+      document.getElementById('dsy16').style.opacity = "1.0";
+      document.getElementById('hyp16').style.opacity = "0.0";
+      document.getElementById('ns16').style.opacity = "0.0";
+      document.getElementById('nor16').style.opacity = "0.0";
+      document.form1.f16.value = "Dyskinetic";
+    }
+
+
+    function myFunctionDsy17() {
+      document.getElementById('aki17').style.opacity = "0.0";
+      document.getElementById('ane17').style.opacity = "0.0";
+      document.getElementById('dsy17').style.opacity = "1.0";
+      document.getElementById('hyp17').style.opacity = "0.0";
+      document.getElementById('ns17').style.opacity = "0.0";
+      document.getElementById('nor17').style.opacity = "0.0";
+      document.form1.f17.value = "Dyskinetic";
+    }
+
+
+    //hyp function
+
+
+    function myFunctionHyp1() {
+      document.getElementById('aki1').style.opacity = "0.0";
+      document.getElementById('ane1').style.opacity = "0.0";
+      document.getElementById('dsy1').style.opacity = "0.0";
+      document.getElementById('hyp1').style.opacity = "1.0";
+      document.getElementById('ns1').style.opacity = "0.0";
+      document.getElementById('nor1').style.opacity = "0.0";
+      document.form1.f1.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp2() {
+      document.getElementById('aki2').style.opacity = "0.0";
+      document.getElementById('ane2').style.opacity = "0.0";
+      document.getElementById('dsy2').style.opacity = "0.0";
+      document.getElementById('hyp2').style.opacity = "1.0";
+      document.getElementById('ns2').style.opacity = "0.0";
+      document.getElementById('nor2').style.opacity = "0.0";
+      document.form1.f2.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp3() {
+      document.getElementById('aki3').style.opacity = "0.0";
+      document.getElementById('ane3').style.opacity = "0.0";
+      document.getElementById('dsy3').style.opacity = "0.0";
+      document.getElementById('hyp3').style.opacity = "1.0";
+      document.getElementById('ns3').style.opacity = "0.0";
+      document.getElementById('nor3').style.opacity = "0.0";
+      document.form1.f3.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp4() {
+      document.getElementById('aki4').style.opacity = "0.0";
+      document.getElementById('ane4').style.opacity = "0.0";
+      document.getElementById('dsy4').style.opacity = "0.0";
+      document.getElementById('hyp4').style.opacity = "1.0";
+      document.getElementById('ns4').style.opacity = "0.0";
+      document.getElementById('nor4').style.opacity = "0.0";
+      document.form1.f4.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp5() {
+      document.getElementById('aki5').style.opacity = "0.0";
+      document.getElementById('ane5').style.opacity = "0.0";
+      document.getElementById('dsy5').style.opacity = "0.0";
+      document.getElementById('hyp5').style.opacity = "1.0";
+      document.getElementById('ns5').style.opacity = "0.0";
+      document.getElementById('nor5').style.opacity = "0.0";
+      document.form1.f5.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp6() {
+      document.getElementById('aki6').style.opacity = "0.0";
+      document.getElementById('ane6').style.opacity = "0.0";
+      document.getElementById('dsy6').style.opacity = "0.0";
+      document.getElementById('hyp6').style.opacity = "1.0";
+      document.getElementById('ns6').style.opacity = "0.0";
+      document.getElementById('nor6').style.opacity = "0.0";
+      document.form1.f6.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp7() {
+      document.getElementById('aki7').style.opacity = "0.0";
+      document.getElementById('ane7').style.opacity = "0.0";
+      document.getElementById('dsy7').style.opacity = "0.0";
+      document.getElementById('hyp7').style.opacity = "1.0";
+      document.getElementById('ns7').style.opacity = "0.0";
+      document.getElementById('nor7').style.opacity = "0.0";
+      document.form1.f7.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp8() {
+      document.getElementById('aki8').style.opacity = "0.0";
+      document.getElementById('ane8').style.opacity = "0.0";
+      document.getElementById('dsy8').style.opacity = "0.0";
+      document.getElementById('hyp8').style.opacity = "1.0";
+      document.getElementById('ns8').style.opacity = "0.0";
+      document.getElementById('nor8').style.opacity = "0.0";
+      document.form1.f8.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp9() {
+      document.getElementById('aki9').style.opacity = "0.0";
+      document.getElementById('ane9').style.opacity = "0.0";
+      document.getElementById('dsy9').style.opacity = "0.0";
+      document.getElementById('hyp9').style.opacity = "1.0";
+      document.getElementById('ns9').style.opacity = "0.0";
+      document.getElementById('nor9').style.opacity = "0.0";
+      document.form1.f9.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp10() {
+      document.getElementById('aki10').style.opacity = "0.0";
+      document.getElementById('ane10').style.opacity = "0.0";
+      document.getElementById('dsy10').style.opacity = "0.0";
+      document.getElementById('hyp10').style.opacity = "1.0";
+      document.getElementById('ns10').style.opacity = "0.0";
+      document.getElementById('nor10').style.opacity = "0.0";
+      document.form1.f10.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp11() {
+      document.getElementById('aki11').style.opacity = "0.0";
+      document.getElementById('ane11').style.opacity = "0.0";
+      document.getElementById('dsy11').style.opacity = "0.0";
+      document.getElementById('hyp11').style.opacity = "1.0";
+      document.getElementById('ns11').style.opacity = "0.0";
+      document.getElementById('nor11').style.opacity = "0.0";
+      document.form1.f11.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp12() {
+      document.getElementById('aki12').style.opacity = "0.0";
+      document.getElementById('ane12').style.opacity = "0.0";
+      document.getElementById('dsy12').style.opacity = "0.0";
+      document.getElementById('hyp12').style.opacity = "1.0";
+      document.getElementById('ns12').style.opacity = "0.0";
+      document.getElementById('nor12').style.opacity = "0.0";
+      document.form1.f12.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp13() {
+      document.getElementById('aki13').style.opacity = "0.0";
+      document.getElementById('ane13').style.opacity = "0.0";
+      document.getElementById('dsy13').style.opacity = "0.0";
+      document.getElementById('hyp13').style.opacity = "1.0";
+      document.getElementById('ns13').style.opacity = "0.0";
+      document.getElementById('nor13').style.opacity = "0.0";
+      document.form1.f13.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp14() {
+      document.getElementById('aki14').style.opacity = "0.0";
+      document.getElementById('ane14').style.opacity = "0.0";
+      document.getElementById('dsy14').style.opacity = "0.0";
+      document.getElementById('hyp14').style.opacity = "1.0";
+      document.getElementById('ns14').style.opacity = "0.0";
+      document.getElementById('nor14').style.opacity = "0.0";
+      document.form1.f14.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp15() {
+      document.getElementById('aki15').style.opacity = "0.0";
+      document.getElementById('ane15').style.opacity = "0.0";
+      document.getElementById('dsy15').style.opacity = "0.0";
+      document.getElementById('hyp15').style.opacity = "1.0";
+      document.getElementById('ns15').style.opacity = "0.0";
+      document.getElementById('nor15').style.opacity = "0.0";
+      document.form1.f15.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp16() {
+      document.getElementById('aki16').style.opacity = "0.0";
+      document.getElementById('ane16').style.opacity = "0.0";
+      document.getElementById('dsy16').style.opacity = "0.0";
+      document.getElementById('hyp16').style.opacity = "1.0";
+      document.getElementById('ns16').style.opacity = "0.0";
+      document.getElementById('nor16').style.opacity = "0.0";
+      document.form1.f16.value = "Hypokinetic";
+    }
+
+
+    function myFunctionHyp17() {
+      document.getElementById('aki17').style.opacity = "0.0";
+      document.getElementById('ane17').style.opacity = "0.0";
+      document.getElementById('dsy17').style.opacity = "0.0";
+      document.getElementById('hyp17').style.opacity = "1.0";
+      document.getElementById('ns17').style.opacity = "0.0";
+      document.getElementById('nor17').style.opacity = "0.0";
+      document.form1.f17.value = "Hypokinetic";
+    }
+
+
+    //ns function
+
+
+    function myFunctionNs1() {
+      document.getElementById('aki1').style.opacity = "0.0";
+      document.getElementById('ane1').style.opacity = "0.0";
+      document.getElementById('dsy1').style.opacity = "0.0";
+      document.getElementById('hyp1').style.opacity = "0.0";
+      document.getElementById('ns1').style.opacity = "1.0";
+      document.getElementById('nor1').style.opacity = "0.0";
+      document.form1.f1.value = "Not Seen";
+    }
+
+
+    function myFunctionNs2() {
+      document.getElementById('aki2').style.opacity = "0.0";
+      document.getElementById('ane2').style.opacity = "0.0";
+      document.getElementById('dsy2').style.opacity = "0.0";
+      document.getElementById('hyp2').style.opacity = "0.0";
+      document.getElementById('ns2').style.opacity = "1.0";
+      document.getElementById('nor2').style.opacity = "0.0";
+      document.form1.f2.value = "Not Seen";
+    }
+
+
+    function myFunctionNs3() {
+      document.getElementById('aki3').style.opacity = "0.0";
+      document.getElementById('ane3').style.opacity = "0.0";
+      document.getElementById('dsy3').style.opacity = "0.0";
+      document.getElementById('hyp3').style.opacity = "0.0";
+      document.getElementById('ns3').style.opacity = "1.0";
+      document.getElementById('nor3').style.opacity = "0.0";
+      document.form1.f3.value = "Not Seen";
+    }
+
+
+    function myFunctionNs4() {
+      document.getElementById('aki4').style.opacity = "0.0";
+      document.getElementById('ane4').style.opacity = "0.0";
+      document.getElementById('dsy4').style.opacity = "0.0";
+      document.getElementById('hyp4').style.opacity = "0.0";
+      document.getElementById('ns4').style.opacity = "1.0";
+      document.getElementById('nor4').style.opacity = "0.0";
+      document.form1.f4.value = "Not Seen";
+    }
+
+
+    function myFunctionNs5() {
+      document.getElementById('aki5').style.opacity = "0.0";
+      document.getElementById('ane5').style.opacity = "0.0";
+      document.getElementById('dsy5').style.opacity = "0.0";
+      document.getElementById('hyp5').style.opacity = "0.0";
+      document.getElementById('ns5').style.opacity = "1.0";
+      document.getElementById('nor5').style.opacity = "0.0";
+      document.form1.f5.value = "Not Seen";
+    }
+
+
+    function myFunctionNs6() {
+      document.getElementById('aki6').style.opacity = "0.0";
+      document.getElementById('ane6').style.opacity = "0.0";
+      document.getElementById('dsy6').style.opacity = "0.0";
+      document.getElementById('hyp6').style.opacity = "0.0";
+      document.getElementById('ns6').style.opacity = "1.0";
+      document.getElementById('nor6').style.opacity = "0.0";
+      document.form1.f6.value = "Not Seen";
+    }
+
+
+    function myFunctionNs7() {
+      document.getElementById('aki7').style.opacity = "0.0";
+      document.getElementById('ane7').style.opacity = "0.0";
+      document.getElementById('dsy7').style.opacity = "0.0";
+      document.getElementById('hyp7').style.opacity = "0.0";
+      document.getElementById('ns7').style.opacity = "1.0";
+      document.getElementById('nor7').style.opacity = "0.0";
+      document.form1.f7.value = "Not Seen";
+    }
+
+
+    function myFunctionNs8() {
+      document.getElementById('aki8').style.opacity = "0.0";
+      document.getElementById('ane8').style.opacity = "0.0";
+      document.getElementById('dsy8').style.opacity = "0.0";
+      document.getElementById('hyp8').style.opacity = "0.0";
+      document.getElementById('ns8').style.opacity = "1.0";
+      document.getElementById('nor8').style.opacity = "0.0";
+      document.form1.f8.value = "Not Seen";
+    }
+
+
+    function myFunctionNs9() {
+      document.getElementById('aki9').style.opacity = "0.0";
+      document.getElementById('ane9').style.opacity = "0.0";
+      document.getElementById('dsy9').style.opacity = "0.0";
+      document.getElementById('hyp9').style.opacity = "0.0";
+      document.getElementById('ns9').style.opacity = "1.0";
+      document.getElementById('nor9').style.opacity = "0.0";
+      document.form1.f9.value = "Not Seen";
+    }
+
+
+    function myFunctionNs10() {
+      document.getElementById('aki10').style.opacity = "0.0";
+      document.getElementById('ane10').style.opacity = "0.0";
+      document.getElementById('dsy10').style.opacity = "0.0";
+      document.getElementById('hyp10').style.opacity = "0.0";
+      document.getElementById('ns10').style.opacity = "1.0";
+      document.getElementById('nor10').style.opacity = "0.0";
+      document.form1.f10.value = "Not Seen";
+    }
+
+
+    function myFunctionNs11() {
+      document.getElementById('aki11').style.opacity = "0.0";
+      document.getElementById('ane11').style.opacity = "0.0";
+      document.getElementById('dsy11').style.opacity = "0.0";
+      document.getElementById('hyp11').style.opacity = "0.0";
+      document.getElementById('ns11').style.opacity = "1.0";
+      document.getElementById('nor11').style.opacity = "0.0";
+      document.form1.f11.value = "Not Seen";
+    }
+
+
+    function myFunctionNs12() {
+      document.getElementById('aki12').style.opacity = "0.0";
+      document.getElementById('ane12').style.opacity = "0.0";
+      document.getElementById('dsy12').style.opacity = "0.0";
+      document.getElementById('hyp12').style.opacity = "0.0";
+      document.getElementById('ns12').style.opacity = "1.0";
+      document.getElementById('nor12').style.opacity = "0.0";
+      document.form1.f12.value = "Not Seen";
+    }
+
+
+    function myFunctionNs13() {
+      document.getElementById('aki13').style.opacity = "0.0";
+      document.getElementById('ane13').style.opacity = "0.0";
+      document.getElementById('dsy13').style.opacity = "0.0";
+      document.getElementById('hyp13').style.opacity = "0.0";
+      document.getElementById('ns13').style.opacity = "1.0";
+      document.getElementById('nor13').style.opacity = "0.0";
+      document.form1.f13.value = "Not Seen";
+    }
+
+
+    function myFunctionNs14() {
+      document.getElementById('aki14').style.opacity = "0.0";
+      document.getElementById('ane14').style.opacity = "0.0";
+      document.getElementById('dsy14').style.opacity = "0.0";
+      document.getElementById('hyp14').style.opacity = "0.0";
+      document.getElementById('ns14').style.opacity = "1.0";
+      document.getElementById('nor14').style.opacity = "0.0";
+      document.form1.f14.value = "Not Seen";
+    }
+
+
+    function myFunctionNs15() {
+      document.getElementById('aki15').style.opacity = "0.0";
+      document.getElementById('ane15').style.opacity = "0.0";
+      document.getElementById('dsy15').style.opacity = "0.0";
+      document.getElementById('hyp15').style.opacity = "0.0";
+      document.getElementById('ns15').style.opacity = "1.0";
+      document.getElementById('nor15').style.opacity = "0.0";
+      document.form1.f15.value = "Not Seen";
+    }
+
+
+    function myFunctionNs16() {
+      document.getElementById('aki16').style.opacity = "0.0";
+      document.getElementById('ane16').style.opacity = "0.0";
+      document.getElementById('dsy16').style.opacity = "0.0";
+      document.getElementById('hyp16').style.opacity = "0.0";
+      document.getElementById('ns16').style.opacity = "1.0";
+      document.getElementById('nor16').style.opacity = "0.0";
+      document.form1.f16.value = "Not Seen";
+    }
+
+
+    function myFunctionNs17() {
+      document.getElementById('aki17').style.opacity = "0.0";
+      document.getElementById('ane17').style.opacity = "0.0";
+      document.getElementById('dsy17').style.opacity = "0.0";
+      document.getElementById('hyp17').style.opacity = "0.0";
+      document.getElementById('ns17').style.opacity = "1.0";
+      document.getElementById('nor17').style.opacity = "0.0";
+      document.form1.f17.value = "Not Seen";
+    }
+
+
+    //nor function
+
+
+    function myFunctionNor1() {
+      document.getElementById('aki1').style.opacity = "0.0";
+      document.getElementById('ane1').style.opacity = "0.0";
+      document.getElementById('dsy1').style.opacity = "0.0";
+      document.getElementById('hyp1').style.opacity = "0.0";
+      document.getElementById('ns1').style.opacity = "0.0";
+      document.getElementById('nor1').style.opacity = "1.0";
+      document.form1.f1.value = "Normal";
+    }
+
+
+    function myFunctionNor2() {
+      document.getElementById('aki2').style.opacity = "0.0";
+      document.getElementById('ane2').style.opacity = "0.0";
+      document.getElementById('dsy2').style.opacity = "0.0";
+      document.getElementById('hyp2').style.opacity = "0.0";
+      document.getElementById('ns2').style.opacity = "0.0";
+      document.getElementById('nor2').style.opacity = "1.0";
+      document.form1.f2.value = "Normal";
+    }
+
+
+    function myFunctionNor3() {
+      document.getElementById('aki3').style.opacity = "0.0";
+      document.getElementById('ane3').style.opacity = "0.0";
+      document.getElementById('dsy3').style.opacity = "0.0";
+      document.getElementById('hyp3').style.opacity = "0.0";
+      document.getElementById('ns3').style.opacity = "0.0";
+      document.getElementById('nor3').style.opacity = "1.0";
+      document.form1.f3.value = "Normal";
+    }
+
+
+    function myFunctionNor4() {
+      document.getElementById('aki4').style.opacity = "0.0";
+      document.getElementById('ane4').style.opacity = "0.0";
+      document.getElementById('dsy4').style.opacity = "0.0";
+      document.getElementById('hyp4').style.opacity = "0.0";
+      document.getElementById('ns4').style.opacity = "0.0";
+      document.getElementById('nor4').style.opacity = "1.0";
+      document.form1.f4.value = "Normal";
+    }
+
+
+    function myFunctionNor5() {
+      document.getElementById('aki5').style.opacity = "0.0";
+      document.getElementById('ane5').style.opacity = "0.0";
+      document.getElementById('dsy5').style.opacity = "0.0";
+      document.getElementById('hyp5').style.opacity = "0.0";
+      document.getElementById('ns5').style.opacity = "0.0";
+      document.getElementById('nor5').style.opacity = "1.0";
+      document.form1.f5.value = "Normal";
+    }
+
+
+    function myFunctionNor6() {
+      document.getElementById('aki6').style.opacity = "0.0";
+      document.getElementById('ane6').style.opacity = "0.0";
+      document.getElementById('dsy6').style.opacity = "0.0";
+      document.getElementById('hyp6').style.opacity = "0.0";
+      document.getElementById('ns6').style.opacity = "0.0";
+      document.getElementById('nor6').style.opacity = "1.0";
+      document.form1.f6.value = "Normal";
+    }
+
+
+    function myFunctionNor7() {
+      document.getElementById('aki7').style.opacity = "0.0";
+      document.getElementById('ane7').style.opacity = "0.0";
+      document.getElementById('dsy7').style.opacity = "0.0";
+      document.getElementById('hyp7').style.opacity = "0.0";
+      document.getElementById('ns7').style.opacity = "0.0";
+      document.getElementById('nor7').style.opacity = "1.0";
+      document.form1.f7.value = "Normal";
+    }
+
+
+    function myFunctionNor8() {
+      document.getElementById('aki8').style.opacity = "1.0";
+      document.getElementById('ane8').style.opacity = "0.0";
+      document.getElementById('dsy8').style.opacity = "0.0";
+      document.getElementById('hyp8').style.opacity = "0.0";
+      document.getElementById('ns8').style.opacity = "0.0";
+      document.getElementById('nor8').style.opacity = "1.0";
+      document.form1.f8.value = "Normal";
+    }
+
+
+    function myFunctionNor9() {
+      document.getElementById('aki9').style.opacity = "0.0";
+      document.getElementById('ane9').style.opacity = "0.0";
+      document.getElementById('dsy9').style.opacity = "0.0";
+      document.getElementById('hyp9').style.opacity = "0.0";
+      document.getElementById('ns9').style.opacity = "0.0";
+      document.getElementById('nor9').style.opacity = "1.0";
+      document.form1.f9.value = "Normal";
+    }
+
+
+    function myFunctionNor10() {
+      document.getElementById('aki10').style.opacity = "0.0";
+      document.getElementById('ane10').style.opacity = "0.0";
+      document.getElementById('dsy10').style.opacity = "0.0";
+      document.getElementById('hyp10').style.opacity = "0.0";
+      document.getElementById('ns10').style.opacity = "0.0";
+      document.getElementById('nor10').style.opacity = "1.0";
+      document.form1.f10.value = "Normal";
+    }
+
+
+    function myFunctionNor11() {
+      document.getElementById('aki11').style.opacity = "0.0";
+      document.getElementById('ane11').style.opacity = "0.0";
+      document.getElementById('dsy11').style.opacity = "0.0";
+      document.getElementById('hyp11').style.opacity = "0.0";
+      document.getElementById('ns11').style.opacity = "0.0";
+      document.getElementById('nor11').style.opacity = "1.0";
+      document.form1.f11.value = "Normal";
+    }
+
+
+    function myFunctionNor12() {
+      document.getElementById('aki12').style.opacity = "0.0";
+      document.getElementById('ane12').style.opacity = "0.0";
+      document.getElementById('dsy12').style.opacity = "0.0";
+      document.getElementById('hyp12').style.opacity = "0.0";
+      document.getElementById('ns12').style.opacity = "0.0";
+      document.getElementById('nor12').style.opacity = "1.0";
+      document.form1.f12.value = "Normal";
+    }
+
+
+    function myFunctionNor13() {
+      document.getElementById('aki13').style.opacity = "0.0";
+      document.getElementById('ane13').style.opacity = "0.0";
+      document.getElementById('dsy13').style.opacity = "0.0";
+      document.getElementById('hyp13').style.opacity = "0.0";
+      document.getElementById('ns13').style.opacity = "0.0";
+      document.getElementById('nor13').style.opacity = "1.0";
+      document.form1.f13.value = "Normal";
+    }
+
+
+    function myFunctionNor14() {
+      document.getElementById('aki14').style.opacity = "0.0";
+      document.getElementById('ane14').style.opacity = "0.0";
+      document.getElementById('dsy14').style.opacity = "0.0";
+      document.getElementById('hyp14').style.opacity = "0.0";
+      document.getElementById('ns14').style.opacity = "0.0";
+      document.getElementById('nor14').style.opacity = "1.0";
+      document.form1.f14.value = "Normal";
+    }
+
+
+    function myFunctionNor15() {
+      document.getElementById('aki15').style.opacity = "0.0";
+      document.getElementById('ane15').style.opacity = "0.0";
+      document.getElementById('dsy15').style.opacity = "0.0";
+      document.getElementById('hyp15').style.opacity = "0.0";
+      document.getElementById('ns15').style.opacity = "0.0";
+      document.getElementById('nor15').style.opacity = "1.0";
+      document.form1.f15.value = "Normal";
+    }
+
+
+    function myFunctionNor16() {
+      document.getElementById('aki16').style.opacity = "0.0";
+      document.getElementById('ane16').style.opacity = "0.0";
+      document.getElementById('dsy16').style.opacity = "0.0";
+      document.getElementById('hyp16').style.opacity = "0.0";
+      document.getElementById('ns16').style.opacity = "0.0";
+      document.getElementById('nor16').style.opacity = "1.0";
+      document.form1.f16.value = "Normal";
+    }
+
+
+    function myFunctionNor17() {
+      document.getElementById('aki17').style.opacity = "0.0";
+      document.getElementById('ane17').style.opacity = "0.0";
+      document.getElementById('dsy17').style.opacity = "0.0";
+      document.getElementById('hyp17').style.opacity = "0.0";
+      document.getElementById('ns17').style.opacity = "0.0";
+      document.getElementById('nor17').style.opacity = "1.0";
+      document.form1.f17.value = "Normal";
+    }
+  </script>
+</body>
+
+</html>

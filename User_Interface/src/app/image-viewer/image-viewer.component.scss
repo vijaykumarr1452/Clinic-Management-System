@@ -1,0 +1,739 @@
+body {
+	background-color: #7B1FA2;
+}
+.gallary {
+  display: block;
+  // padding: 0 20px;
+  line-height: 60px;
+  background: #17a2b8;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+// .navbar-toggler{
+//   width: 47px;
+//   height: 34px;
+//   // background-color: #fff;
+//   border:none;
+// }
+// .navbar-toggler .line{
+//   width: 100%;
+//   float: left;
+//   height: 2px;
+//   background-color: #fff;
+//   margin-bottom: 5px;
+// }
+.container {
+	margin-top: 10px;
+	margin-bottom: 100px;
+}
+.carousel-inner {
+	img {
+		width: 1000%;
+		height: 100%;
+	}
+}
+.patientdetails{
+  line-height: 1.5;
+
+}
+.iframe-style {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+}
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+  .d-table {
+    display:table;
+  }
+  .d-table-cell {
+    display:table-cell;
+  }
+  span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+  }
+  .w-100 {
+    width: 100%;
+  }
+  
+  .tar {
+    text-align: right;
+  }
+body {
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+/* Toggle Styles */
+
+#viewport {
+  padding-left: 250px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#content {
+  width: 100%;
+  position: relative;
+  margin-right: 0;
+}
+
+/* Sidebar Styles */
+
+#sidebar {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 15%;
+  height: 90%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #37474F;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#sidebar header {
+  background-color: #263238;
+  font-size: 20px;
+  line-height: 52px;
+  text-align: center;
+}
+
+#sidebar header a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+
+#sidebar header a:hover {
+  color: #fff;
+}
+.center {  width: 77%; height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1% 0 0% 15%
+}
+#sidebar .nav{
+  
+}
+.top-left {
+  position: absolute;
+  margin-top: -45%;
+  left: 16%;
+  color: #fff;
+  font-size: 80%;
+}
+.top-right {
+  position: absolute;
+  margin-top: -20%;
+  right: 20%;
+  color: #fff;
+}
+#sidebar .nav a{
+  background: none;
+  border-bottom: 1px solid #455A64;
+  color: #CFD8DC;
+  font-size: 14px;
+  padding: 16px 24px;
+}
+
+#sidebar .nav a:hover{
+  background: none;
+  color: #ECEFF1;
+}
+
+#sidebar .nav a i{
+  margin-right: 16px;
+}
+#custCarousel {
+	.carousel-indicators {
+		position: static;
+		margin-top: 20px;
+		>li {
+			width: 100px;
+		}
+		li {
+			img {
+				display: block;
+				opacity: 0.5;
+			}
+			&:hover {
+				img {
+					opacity: 0.75;
+				}
+			}
+		}
+		li.active {
+			img {
+				opacity: 1;
+			}
+		}
+	}
+}
+.carousel-item {
+	img {
+		width: 100%;
+	}
+}
+$breakpoint: 480px;
+// You also need to change the JS breakpoint.
+
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #000;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  @media (min-width: $breakpoint) {
+    min-height: 320px;
+  }
+  &-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    @media (min-width: $breakpoint) {
+      flex-flow: row nowrap;
+    }
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+.swiper-button {
+  &-next,
+  &-prev {
+    color: #000;
+  }
+}
+
+.swiper-slide-duplicate,
+.swiper-slide {
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-color: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  /* Slide content */
+  .description,
+  .title {
+    display: block;
+    opacity: 0;
+    transition: 0.5s ease 0.5s;
+  }
+  &-active {
+    .description,
+    .title {
+      opacity: 1;
+    }
+    .title {
+      // margin-bottom: 0.5rem;
+      font-size: 24px;
+      color: #000;
+      transition: opacity 0.5s ease 0.5s;
+    }
+    .description {
+      font-size: 16px;
+      color: #777;
+      transition: opacity 0.5s ease 0.75s;
+    }
+  }
+}
+
+.gallery-top {
+  width: 100%;
+  height: 75vh;
+  @media (min-width: $breakpoint) {
+    width: 80%;
+    height: 100vh;
+    margin-right: 10px;
+  }
+}
+
+.gallery-thumbs {
+  width: 100%;
+  height: 25vh;
+  padding-top: 10px;
+  @media (min-width: $breakpoint) {
+    width: 20%;
+    height: 100vh;
+    padding: 0;
+  }
+  .swiper-wrapper {
+    flex-direction: row;
+    @media (min-width: $breakpoint) {
+      flex-direction: column;
+    }
+  }
+  .swiper-slide {
+    width: 25%;
+    flex-flow: row nowrap;
+    @media (min-width: $breakpoint) {
+      flex-flow: column nowrap;
+      width: 100%;
+    }
+    height: 100%;
+    opacity: 0.75;
+    cursor: pointer;
+  }
+  .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+}
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+}
+
+input[type="checkbox"][id^="cb"] {
+  display: none;
+}
+
+label {
+  width: 1000%;
+  height: 100%;
+}
+
+label::before {
+  background-color: white;
+  color: white;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid grey;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+// label img {
+//   height: 100px;
+//   width: 200px;
+//   transition-duration: 0.2s;
+//   transform-origin: 50% 50%;
+// }
+
+:checked+label {
+  border-color: #ddd;
+}
+
+:checked+label::before {
+  // content: "✓%%%%";
+  // background-color: grey;
+  // transform: scale(1);
+}
+
+:checked+label img{
+  transform: scale(0.8);
+  box-shadow: 0 0 20px rgb(255, 2, 2);
+  z-index: -1;
+}
+:checked+label video {
+  transform: scale(0.8);
+  box-shadow: 0 0 20px rgb(255, 2, 2);
+  z-index: -1;
+}
+.c {
+  line-height: 100%;
+  margin-top: 0;
+  margin-left: 80px;
+}
+// .center {
+//   margin: auto;
+//   width: 60%;
+ 
+//   padding: 10px;
+// }
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}  
+// @charset "UTF-8";
+/* 
+$content-width will be the max width of the content within the navigation bar. 
+$breakpoint determines at which width the media query breakpoint will take effect.
+*/
+
+body {
+  background-color: #17a2b8;
+}
+nav {
+  float: right;
+
+  padding-top: 2%;
+  font-weight: 400;
+
+}
+// .logo {
+//             font-weight: bold;
+//         }
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  float: left;
+  position: relative;
+}
+nav ul li a {
+  display: block;
+  padding: 0 20px;
+  //line-height: 70px;
+  line-height: 60px;
+  background: #17a2b8;
+  color: #fff;
+  text-decoration: none;
+  
+
+  border: 1px solid #fff;
+  margin-right: 10px;
+  border-radius: 10px;
+  
+  /*
+  The full path of this code is nav ul li a:not(:only-child):after. This means that the code will apply to any a tag in our nav list that is NOT an only child, aka any dropdown. The :after means it comes after the output of the tag. I’ve decided that to specify any nav item as a dropdown, it will be followed by a unicode arrow – ▾ (#9662).
+  */
+}
+nav ul li a:hover {
+  background: #f2f2f2;
+  color: #17a2b8;
+}
+nav ul li a:not(:only-child):after {
+  padding-left: 4px;
+  content: ' ▾';
+}
+nav ul li ul li {
+  //min-width: 190px;
+  min-width: 225px;
+}
+nav ul li ul li a {
+  padding: 15px;
+  line-height: 20px;
+}
+
+.nav-dropdown {
+  position: absolute;
+  z-index: 1;
+  /* Guarantees that the dropdown will display on top of any content. */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  display: none;
+}
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  //top: 0;
+  top:8px;
+  right: 0;
+  //background: #fff;
+  background: #17a2b8;
+  height: 70px;
+  width: 70px;
+}
+
+@media only screen and (max-width: 800px) {
+  .nav-mobile {
+    display: block;
+  }
+
+  nav {
+    width: 100%;
+    padding: 70px 0 15px;
+  }
+  nav ul {
+    display: none;
+  }
+  nav ul li {
+    float: none;
+  }
+  nav ul li a {
+    padding: 15px;
+    line-height: 20px;
+  }
+  nav ul li ul li a {
+    padding-left: 30px;
+  }
+
+  
+/* Second, Third and more Tiers	
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+nav ul ul ul li {
+	position: relative;
+	top:-60px;
+	/* has to be the same number as the "width" of "nav ul ul li" */ 
+	//left:170px; 
+}
+
+
+}
+#nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px;
+}
+#nav-toggle span,
+#nav-toggle span:before,
+#nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  //background: #17a2b8;
+  background:#fff;
+  position: absolute;
+  display: block;
+  content: '';
+  transition: all 300ms ease-in-out;
+}
+#nav-toggle span:before {
+  top: -10px;
+}
+#nav-toggle span:after {
+  bottom: -10px;
+}
+#nav-toggle.active span {
+  background-color: transparent;
+}
+#nav-toggle.active span:before, #nav-toggle.active span:after {
+  top: 0;
+}
+#nav-toggle.active span:before {
+  transform: rotate(45deg);
+}
+#nav-toggle.active span:after {
+  transform: rotate(-45deg);
+}
+
+@media screen and (min-width: 0px) {
+  .nav-list {
+    display: block !important;
+  }
+}
+/* 
+.navigation – the outer wrapper for the navbar. Specifies the height and color, and will stretch the full width of the viewport.
+*/
+.navigation {
+  //height: 70px;
+  height: 125px;
+  background: #17a2b8;
+  
+
+}
+
+/*
+.nav-container – the inner wrapper for the navbar. Defines how far the actual content should stretch.
+*/
+.nav-container {
+  max-width: 1150px;
+  margin: 0 auto;
+ 
+}
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+}
+.navbar-brand {
+  float: left;
+  height: 57px;
+  padding: 0px 0px;
+  font-size: 20px;
+  line-height: 20px;
+  margin: 0px 0px 14px 8px;
+}
+.brand {
+  // position: absolute;
+  // padding-left: 20px;
+  float: center;
+  // line-height: 70px;
+  text-transform: uppercase;
+  font-size: 1.4em;
+}
+.brand a,
+.brand a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+nav ul li ul li:hover { background: #f2f2f2; }
+
+/* Background color change on Hover */
+nav a:hover { 
+	background-color: #f2f2f2; 
+}
+
+/* Hide Dropdowns by Default
+ * and giving it a position of absolute */
+nav ul ul {
+	display: none;
+	position: absolute; 
+	/* has to be the same number as the "line-height" of "nav a" */
+	top: 60px; 
+}
+	
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+	display:inherit;
+}
+	
+/* Fisrt Tier Dropdown */
+nav ul ul li {
+	width:170px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+
+/* Second, Third and more Tiers	
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+nav ul ul ul li {
+	position: relative;
+	top:-60px;
+	/* has to be the same number as the "width" of "nav ul ul li" */ 
+    left:170px; 
+    z-index: 1;
+}
+
+.img-responsive{
+  padding-top: -16%;
+  height: 100px;
+  width: 100px;
+}
+
+// .border-class{
+//   border-bottom: 4px solid #dc3545;
+
+// }
+section.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color:  #17a2b8;
+  display: block;
+  // padding: 50px;
+  // font-size: 20px;
+}
+p {
+  margin: -9% -10% -15% 46%;
+}
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #17a2b8;
+  // padding: 3%;
+  font-size: 17px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #17a2b8
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #17a2b8;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}

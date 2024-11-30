@@ -1,0 +1,75 @@
+<app-nav></app-nav>
+<app-sidenav></app-sidenav> 
+
+<div id="wrapper">       
+ 	
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <!-- <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button> -->
+            <div  class="col-md-11 fright" >
+        
+              <div class="row">
+                <div class="col-md-9  "> <h1> {{ ttype | titlecase }}</h1> </div>
+              
+                <div class="col-md-3 searchsty">
+                  <button type="submit" class="btn btn-warning  " (click)="goToAdd(gtype)"  >Add </button>
+                </div>
+                </div>
+
+
+             
+            
+            <div class="float-container">
+                
+               
+              <table class="table">
+                  <thead>
+                    
+                    <tr>
+                      <th scope="col">S.Nos</th>                     
+                      <th scope="col">Details</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngIf="!AllMastersList || AllMastersList.length === 0">
+                      <td colspan="9"> <h4 class="norecords"> No Records Found </h4> </td>
+                    </tr>
+
+                    <tr *ngFor="let alllist of AllMastersList |filter:filter | paginate: { itemsPerPage: 10, currentPage: p };index as i " >
+                      <td>{{i+1}}</td>
+
+                      <td> {{alllist.itemName}} </td>
+                      
+                      <td>
+                            <button type="button" class="btn btn-primary btn-sm" (click)="goToEditMaster(alllist,gtype)"  >Edit</button>  
+
+                           <!-- <a [routerLink]="['/editassignment', list.id]" class="btn btn-info btn-sm">Edit</a>  -->
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="delete(alllist,gtype)"  >Delete</button>  
+
+                      </td>
+                      <!-- <td><button type="button" class="btn btn-danger btn-sm"  >delete</button></td> -->
+                    </tr>
+                  </tbody>
+                </table>
+                             
+                              
+                           </div>     
+	
+
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+ <!-- <app-footer></app-footer> -->

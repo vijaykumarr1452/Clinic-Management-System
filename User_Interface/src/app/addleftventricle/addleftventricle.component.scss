@@ -1,0 +1,53 @@
+.dasgboard-section
+{
+    width: 80% !important;
+    margin: 0 auto;
+    padding: 2em;
+    //min-height: 100vh;
+}
+.float-container {
+    //border: 3px solid #fff;
+    padding: 20px;
+   
+}
+
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    //border: 2px solid red;
+}  
+.green h2{
+    color: #17a2b8;
+    //border-bottom: 1px dotted #17a2b8;
+    padding-bottom: 1%;
+}
+#page-content-wrapper {
+    //position: absolute;
+    //padding: 15px;
+    //width: 100%;
+    width:85%;
+    float: right;
+    overflow-x: hidden;
+ }
+ #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0px;
+ }
+.add-form{
+    max-width: 100%;
+    font-size: 15px;
+    width: 38%;
+    margin-right: -33px;
+    margin-left: -33px;
+    margin: 0 auto;
+}
+.add-form form {
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    //padding: 10%;
+    //height: 60.5vh;
+    padding: 15% 10% 25% 10%;
+}

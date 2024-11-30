@@ -1,0 +1,536 @@
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+<app-nav></app-nav>
+<!-- <app-medicine-details></app-medicine-details> -->
+<div #wrapper id="wrapper">
+  <app-sidenav></app-sidenav>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <!-- <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+      <span class="hamb-top"></span>
+      <span class="hamb-middle"></span>
+      <span class="hamb-bottom"></span>
+    </button> -->
+    <div class="col-md-12 fright">
+      <div class="login-form">
+        <form name="addform" [formGroup]="addform">
+
+          <h2 class="text-center">Prescription</h2>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <div>
+                <label>Name of The Patient :</label>
+                {{ patientDataObject?.patientname | titlecase}}
+              </div>
+            </div>
+
+            <div class="form-group col-md-4">
+              <div>
+                <label>Gender :</label>
+                {{ patientDataObject?.gender }}
+              </div>
+            </div>
+
+            <div class="form-group col-md-4">
+              <div>
+                <label>Date Of Birth :</label>
+                {{ patientDataObject?.dob }}
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <div>
+                <label>Reffered By :</label>
+
+              </div>
+            </div>
+
+            <div class="form-group col-md-4">
+              <div>
+                <label>Clinic Observations :</label>
+
+              </div>
+            </div>
+
+            <div class="form-group col-md-4">
+              <div>
+                <label>Patient Id :</label>
+                PATIENT {{ patientDataObject?.id }}
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <div>
+                <label>BMI :</label>
+                {{ patientDataObject?.bmi }}
+              </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <div>
+                <label>BSA :</label>
+                {{ patientDataObject?.bsa }}
+              </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <div>
+                <label>Height :</label>
+                {{ patientDataObject?.height }} cms
+              </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <div>
+                <label>Weight :</label>
+                {{ patientDataObject?.weight }} kgs
+              </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <div>
+                <label>BP :</label>
+                {{ patientDataObject?.bpsystolic }} mmHg /
+                {{ patientDataObject?.bpdiastolic }} mmHg
+              </div>
+            </div>
+
+          </div>
+
+          <hr />
+
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <div>
+                <label>Chief Complaints :</label>
+                <!-- <input type="text" class="form-control" formControlName='chiefComplaints' /> -->
+                <select id="chiefComplaints" name="chiefComplaints" class="form-control"
+                  formControlName="chiefComplaints">
+                  <option value="">Select Complain</option>
+                  <option *ngFor="let complaintsMaster of this.complaintsMaster" [value]="complaintsMaster['itemName']">
+                    {{complaintsMaster['itemName']}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <div>
+                <label>Diagnosis :</label>
+                <!-- <input type="text" class="form-control" formControlName='diagnosis' /> -->
+                <select id="diagnosis" name="diagnosis" class="form-control" formControlName="diagnosis">
+                  <option value="">Select Complain</option>
+                  <option *ngFor="let diagnosis of this.diagnosis" [value]="diagnosis['itemName']">
+                    {{diagnosis['itemName']}}</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- <div class="form-group col-md-6">
+              <div>
+                <label>Rx :</label>
+                <input type="text" class="form-control" formControlName='rx'/>
+
+              </div>
+            </div> -->
+
+          </div>
+
+          <!-- <label>ADD</label> -->
+          <button class="btn btn-primary mb" type="button" (click)="addPrecription()">ADD</button>
+
+          <table class="table">
+            <thead>
+
+              <tr>
+                <th scope="col">Medicine Name</th>
+                <th scope="col">Dose</th>
+                <th scope="col">Type of Drug</th>
+                <!-- <th scope="col">Regime</th> -->
+                <!-- <th scope="col">Duration</th> -->
+                <th scope="col">Days</th>
+                <th scope="col">Period</th>
+                <!-- <th scope="col">ADD</th> -->
+                <th scope="col">DELETE</th>
+
+              </tr>
+
+              <!-- <tr style="border-bottom:1px solid #ccc;"> -->
+              <!-- <td scope="row"> 
+                  <select id="medicineListObjects" name="medicineListObjects" class="form-control" formControlName="medicineListObjects" >
+                    <option value="">Select Medicine</option>
+                      <option *ngFor="let medicinelist of this.medicineListObject; let i = index" [value]="medicinelist.medicinename">{{medicinelist.medicinename}}</option>
+                </select>
+                </td>
+                <td scope="row"> 
+                  <select id="doselist" name="doselist" class="form-control"  formControlName="doselist">
+                    <option value="">Select Dose</option>
+                      <option *ngFor="let doselist of this.doselistObject" [value]="doselist">{{doselist}}</option>
+                </select>
+                </td>
+                <td scope="row"> 
+                  
+                  <select id="typeofdrug" name="typeofdrug" class="form-control"  >
+                    <option value="">Select Type of Drug</option>
+                      <option *ngFor="let typeofdrug of this.tabletListObject" [value]="typeofdrug['id']">{{typeofdrug['itemName']}}</option>
+                </select>
+
+                </td>
+                <td scope="row"> 
+                <select id="regimelist" name="regimelist" class="form-control"  >
+                    <option value="">Select Regime</option>
+                      <option *ngFor="let regimelist of this.regimeListObject" [value]="regimelist['id']">{{regimelist['itemName']}}</option>
+                </select>
+                
+                </td>
+                <td scope="row"> 
+                <select id="durationlist" name="durationlist" class="form-control"  >
+                    <option value="">Select Duration</option>
+                      <option *ngFor="let durationlist of this.durationListObject" [value]="durationlist['id']">{{durationlist['itemName']}}</option>
+                </select>
+                </td>
+                <td scope="row"> 
+                  Timings
+                </td>
+                <td scope="row"> 
+                  Remarks
+                </td> -->
+              <!-- <tr> -->
+              <ng-container formArrayName="prescription">
+                <tr *ngFor="let item of addform.get('prescription')['controls']; let i = index;">
+                  <ng-container [formGroupName]="i">
+                    <td scope="row">
+                      <button type="button" class="btn btn-primary" data-toggle="modal"
+                        [attr.data-target]="'#exampleModal'+ i" data-whatever="@getbootstrap">Select</button>
+                      <!-- <input type="text" class="form-control"  formControlName='timing' class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"/> -->
+
+                      <div class="modal fade" id="exampleModal{{i}}" aria-labelledby="exampleModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header d-block">
+                              <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                              <h5 class="modal-title text-center" id="exampleModalLabel">Medicine Details</h5>
+                            </div>
+                            <div class="modal-body">
+                              <div class="form-row">
+                       
+                                <b>Medicine Name</b> <select id="medicineListObjects" name="medicineListObject"
+                                  class="form-control col-md-3" formControlName="medicineListObjects">
+                                  <option value="">Select Medicine</option>
+                                  <option *ngFor="let medicinelist of this.medicineListObject; let i = index"
+                                    [value]="medicinelist.medicinename">{{medicinelist.medicinename}}</option>
+                                </select>&nbsp;
+                                <b>Regime</b> <select id="regimelist" name="regimelist" class="form-control col-md-3"
+                                  formControlName="regimelist">
+                                  <option value="">Select Regime</option>
+                                  <option *ngFor="let medicinelist of regime; let i = index"
+                                    [value]="medicinelist">{{medicinelist}}</option>
+                                </select>
+                              </div>
+
+                              <table class="table">
+                                <thead>
+
+                                  <tr>
+                                    <th scope="col">Time</th>
+                                    <th scope="col">No of Tablets</th>
+                                    <th scope="col">In Take</th>
+                                    <th scope="col">No of Minutes</th>
+
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td scope="col">Morning</td>
+                                    <td scope="col">
+                                      <input type="text" class="form-control col-md-9" id="no of  tablets"
+                                        placeholder="No of  tablets" formControlName='morningnoOfTablets'>
+                                    </td>
+                                    <td scope="col">
+                                      <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                                        formControlName='morningInTake'>
+                                        <option value="before">Before</option>
+                                        <option value="after">After</option>
+
+                                      </select>
+                                    </td>
+                                    <td scope="col">
+                                      <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                                        formControlName='morningMinutes'>
+                                        <option value="0">0</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                        <option value="60">60</option>
+
+
+                                      </select>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="col">Aftenoon</td>
+                                    <td scope="col">
+                                      <input type="text" class="form-control col-md-9" id="no of  tablets"
+                                        placeholder="No of tablets" formControlName='afternoonnoOfTablets'>
+                                    </td>
+                                    <td scope="col">
+                                      <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                                        formControlName='afternoonInTake'>
+                                        <option value="before">Before</option>
+                                        <option value="after">After</option>
+
+                                      </select>
+                                    </td>
+                                    <td scope="col">
+                                      <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                                        formControlName='afternoonMinutes'>
+                                        <option value="0">0</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                        <option value="60">60</option>
+
+                                      </select>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="col">Evneing</td>
+                                    <td scope="col">
+                                      <input type="text" class="form-control col-md-9" id="no of  tablets"
+                                        placeholder="No of tablets" formControlName='eveningnoOfTablets'>
+                                    </td>
+                                    <td scope="col">
+                                      <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                                        formControlName='eveningInTake'>
+                                        <option value="before">Before</option>
+                                        <option value="after">After</option>
+
+                                      </select>
+                                    </td>
+                                    <td scope="col">
+                                      <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                                        formControlName='eveningMinutes'>
+                                        <option value="0">0</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                        <option value="60">60</option>
+
+                                      </select>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="col">Dinner</td>
+                                    <td scope="col">
+                                      <input type="text" class="form-control col-md-9" id="no of  tablets"
+                                        placeholder="No of tablets" formControlName='dinnernoOfTablets'>
+                                    </td>
+                                    <td scope="col">
+                                      <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                                        formControlName='dinnerInTake'>
+                                        <option value="before">Before</option>
+                                        <option value="after">After</option>
+
+                                      </select>
+                                    </td>
+                                    <td scope="col">
+                                      <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                                        formControlName='dinnerMinutes'>
+                                        <option value="0">0</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                        <option value="60">60</option>
+
+                                      </select>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" (click)="prescriptionDetailsForm(addform.value)"
+                                class="btn btn-secondary" data-dismiss="modal">Submit</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </td>
+                    <td scope="row">
+                      <select id="doselist" name="doselist" class="form-control" formControlName="doselist">
+                        <option value="">Select Dose</option>
+                        <option *ngFor="let doselist of doselistObject" [value]="doselist['itemName']">
+                          {{doselist['itemName']}}</option>
+                      </select>
+                    </td>
+
+                    <td scope="row">
+
+                      <select id="typeofdrug" name="typeofdrug" class="form-control" formControlName="typeofdrug">
+                        <option value="">Select Type of Drug</option>
+                        <option *ngFor="let typeofdrug of this.tabletListObject" [value]="typeofdrug['itemName']">
+                          {{typeofdrug['itemName']}}</option>
+                      </select>
+
+                    </td>
+                    <!-- <td scope="row">
+                  <select id="regimelist" name="regimelist" class="form-control" formControlName="regimelist">
+                    <option value="">Select Regime</option>
+                    <option *ngFor="let regimelist of this.regimeListObject" [value]="regimelist['itemName']">
+                      {{regimelist['itemName']}}</option>
+                  </select>
+
+                </td> -->
+                    <!-- <td scope="row">
+                      <select id="durationlist" name="durationlist" class="form-control" formControlName="durationlist">
+                        <option value="">Select Duration</option>
+                        <option *ngFor="let durationlist of this.durationListObject" [value]="durationlist['itemName']">
+                          {{durationlist['itemName']}}</option>
+                      </select>
+                    </td> -->
+                    <td scope="row">
+                      <select id="day" name="day" class="form-control" formControlName="day">
+                        <option value="">Select Day</option>
+                        <option *ngFor="let day of this.day" [value]="day['itemName']">
+                          {{day['itemName']}}</option>
+                      </select>
+                    </td>
+                    <td scope="row">
+                      <select id="period" name="period" class="form-control" formControlName="period">
+                        <option value="">Select Period</option>
+                        <option *ngFor="let periodMaster of this.periodMaster" [value]="periodMaster['itemName']">
+                          {{periodMaster['itemName']}}</option>
+                      </select>
+                    </td>
+                    <td scope="row">
+                      <button type="button" class="btn btn-primary mb" (click)="removePrescription(i)">Delete</button>
+
+                    </td>
+                    <!-- <button type="button" class="btn btn-primary mb" (click)="removecbc(i)">Remove</button> -->
+                  </ng-container>
+
+                </tr>
+              </ng-container>
+              <!-- </tr> -->
+              <!-- <td scope="row"> 
+                  <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">-</button>
+                </td> -->
+
+              <!-- </tr> -->
+
+
+            </thead>
+
+          </table>
+
+          <div class="form-row">
+            <!-- <div class="form-group col-md-12">
+        <div>
+          <label>Recommended Clinical Tests:</label>
+          <input type="text" class="form-control col-md-4" formControlName='rct'/>
+
+        </div>
+      </div> -->
+
+            <div class="form-group col-md-12">
+              <div>
+                <label>Diet If Any:</label>
+                <input type="text" placeholder="Diet If Any" class="form-control col-md-4" formControlName='diet' />
+
+              </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <div>
+                <label>Next Visit On : </label>
+                <!-- <input type="date" class="form-control"  placeholder="Next Visit Date"
+            style="width: 20%;"    value="date"/> -->
+
+                <div class="form-row">
+                  <input type="number" (blur)="changed(addform.value)" class="form-control" id="date" name="date"
+                    placeholder="Next Visit Date" style="width: 20%;" placeholder="{{date}}"
+                    formControlName='date' /><label>days</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <div>
+                <label>Follow Up Date:</label>
+                <input type="date" class="form-control" name="followdate" id="followdate" placeholder="Follow Up Date"
+                  formControlName='followdate' style="width: 20%;">
+              </div>
+            </div>
+
+            <div class="form-group col-md-12" style="text-align: right;">
+              <div>
+                <label>Signature Of Doctor:</label>
+
+
+              </div>
+              <button type="submit" class="btn btn-primary mb"
+                (click)="prescriptionDetails(addform.value)">Submit</button>&nbsp;
+              <button type="button" class="btn btn-primary mb" (click)="click()" (click)="generatePdf('open')">Open PDF</button>&nbsp;
+              <!-- <div class=" form-group">
+                <input type="submit" class="btn btn-warning" (click)="generatePdf('open')"
+                  value="Preview Report" />
+              </div> -->
+              <button class="btn btn-primary mb" (click)="generatePdf('download')">Download PDF</button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+
+<!-- /#wrapper -->
+<!-- <button type="submit" class="btn btn-primary mb" (click)="prescriptionDetails(addform.value)">Submit</button>
+<button class="btn btn-primary mb"(click)="generatePdf('download')">Open PDF</button> -->
+<!-- <button class="btn btn-success btn-block" (click)="openPDF()">Open PDF</button>
+<button pButton type="button" label="Pdf" (click)="downloadPdf()">Pdf Export</button> -->

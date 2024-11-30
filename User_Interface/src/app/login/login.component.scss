@@ -1,0 +1,258 @@
+.side-form {
+    margin-bottom: 5px;
+    //background: #f7f7f7;
+    //background-color: #000;
+    background-color: #6c737dc4;
+    opacity: 0.6;
+    //box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    //height: 60.5vh;
+    padding: 5% 8% 5% 5%;
+    width: 100%;
+    color:#fff;
+    //height:452px;
+    height: 370px;
+    overflow: auto;
+}
+.bodymodal{
+    width: 70%;
+    margin: 30% auto;
+}
+.autocenter{
+    margin: 0 auto;
+}
+.inndiv{
+    width: 82%;
+    margin: 0 auto;
+    //padding: 2em;
+    //border:1px solid red;
+    padding-top: 5%;
+   // height: 72vh;
+}
+// .row .imgg {
+//     margin-right: -15px;
+//     margin-left: -15px;
+// }
+
+.col-sm-6{
+    //padding: 0px !important;
+    //border:1px solid green;
+    padding: 1% !important;
+ }
+.login-form {
+    max-width: 100%;
+    //width: 70%;
+    //margin: 25% auto;
+    font-size: 15px;
+    width: 95%;
+    //margin-right: -33px;
+    //margin-left: -33px;
+}
+.login-form form {
+    margin-bottom: 15px;
+    //background: #f7f7f7;
+    //box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    //padding: 10%;
+    //height: 60.5vh;
+    //padding: 15% 10% 25% 10%;
+}
+.login-form h2 {
+    margin: 0 0 15px;
+}
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.btn {        
+    font-size: 15px;
+    font-weight: bold;
+}
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    width: 70%;
+    float: left;
+    padding: 20px;
+}  
+
+.float-child1 {
+    width: 30%;
+    float: left;
+    padding: 20px;
+}  
+
+.green h2{
+    color: #17a2b8;
+    //border-bottom: 1px dotted #17a2b8;
+    padding-bottom: 1%;;
+}
+
+.img-responsive{
+    // max-height:90%;
+    // max-width: 100%;
+    margin: 15px 15px;
+    width:100%;
+    float: right;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("../../assets/images/DIG.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x:hidden
+    // background-repeat: repeat;
+    // /* Full height */
+    // height: 100%;
+  
+    // /* Center and scale the image nicely */
+    // background-position: center;
+    // background-repeat: repeat;
+   // background-size: cover;
+  }
+  label{
+    color: #17a2b8;
+    font-weight: bold;
+  }
+.text-center{
+    color: #17a2b8;
+    font-weight: bold;
+}
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .login-form {
+        width: 65%;
+        margin:  auto;
+          font-size: 15px;
+          padding: 1rem;
+    }
+
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .login-form {
+        width: 65%;
+        margin:  auto;
+          font-size: 15px;
+          padding: 1rem;
+    }
+}
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .login-form {
+        width: 65%;
+        margin:  auto;
+          font-size: 15px;
+          padding: 1rem;
+    }
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .login-form {
+        width: 65%;
+        margin:  auto;
+          font-size: 15px;
+          padding: 1rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .login-form {
+        width: 100%;
+        margin:  auto;
+          font-size: 15px;
+          padding: 1rem;
+          max-width: 100%;
+    }
+    
+    .login-form form {
+        //margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        //padding: 10%;
+        height: auto;
+        padding: 15% 10% 25% 10%;
+    }
+
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    /* For mobile phones: */
+    .login-form {
+        width: 90%;
+        margin:  auto;
+          font-size: 15px;
+          padding: 1rem;
+    }
+  }
+
+
+  ////////////////////////////
+
+  
+  [class^="col"] {
+    //padding: 1rem;
+    padding: 1rem;
+    //padding-bottom: 2%;
+  }
+  
+
+
+// .bg {
+// /* The image used */
+// background-image: url("../../assets/images/DIG.jpg");
+
+// /* Full height */
+// height: 100%;
+
+// /* Center and scale the image nicely */
+// background-position: center;
+// background-repeat: no-repeat;
+// background-size: cover;
+
+
+
+// }
+.container1 {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em;
+    // display: grid;
+    grid-template-columns: 30% auto;
+}
+.navigation{
+width: 100%
+}
+.navbar {
+    position: relative;
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+.work {
+     display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}

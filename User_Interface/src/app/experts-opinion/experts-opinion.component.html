@@ -1,0 +1,172 @@
+
+    <!-- <p>image-viewer works!</p> -->
+    <!-- <app-nav></app-nav> -->
+    <!-- <pre>{{this.result | json}}</pre> -->
+    <div class="column">
+        <div class="row">
+        
+            <div >
+                <!-- Sidebar -->
+                <div class="box">
+                    <!-- <header>
+                        <a href="#">Viewer</a>
+                    </header> -->
+                    <div id="grid-container">
+                        <div  *ngFor="let img of localImg; let i = index; ">
+                            <div *ngIf="img.type.mime === 'video/webm' || 'image' " class="row mt-1">
+                                <ng-container  >
+                            <a  class="thumbnail" *ngIf="img.type.mime === 'video/webm'" href="javascript:void(0)" (click)="onClick(img.src)">
+                                <input type="checkbox"  [(ngModel)]="img.checked" />
+                                        <label for="cb[i]">
+                                            <video style="width:200px;height:200px;" >
+                                    <source [src]="img.src" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                </label>
+                                <!-- <div class="top-left" >{{[i+1]}}/{{length}}</div> -->
+                                <!-- <input type="checkbox" [(ngModel)]="img.checked"> -->
+                                  <!-- <div class="top-right" > <i class="fa fa-video-camera" style="font-size:20px;color:red"></i></div> -->
+                            </a>
+                            </ng-container>
+                            <ng-container  >
+                            <a  class="thumbnail" *ngIf="img.type == 'image'" href="javascript:void(0)" (click)="onClick(img)">
+                                <div >
+                                    <input class="top-left" type="checkbox"  [(ngModel)]="img.checked" />
+                                    <label for="cb[i]">
+                                         <img [src]="img.src" style="width:200px;height:200px;" alt="Hills"/>
+                                      </label>
+                                <!-- <div class="top-left" >{{[i+1]}}/{{length}}</div> -->
+                                <!-- <input type="checkbox" [(ngModel)]="img.checked"> -->
+                                <!-- <div class="top-right" > <i class="fa fa-camera" style="font-size:20px;color:red"></i></div> -->
+                                </div>
+                            </a>
+                        </ng-container>
+                            <!-- <li><input type="checkbox" />
+                                <label for="cb{{i}}"><img [src]="img.src" /></label>
+                              </li> -->
+                            </div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+        
+        <!-- 
+            <img  src="{{imageSrc}}" id="imagepreview" style="width:77%;height:50%" />
+            <video *ngIf="imgType == 'video'" class='center'   controls>
+                <source src="{{vidsrc}}" type="video/mp4" align="center"style="width:77%"/>
+                Browser not supported
+            </video> -->
+       
+        
+            <div >
+                <!-- Sidebar -->
+                <div class="box1" >
+                    <header>
+                        <label>CRITICAL IMAGES</label>
+                    </header>
+                    <div id="grid-container1">
+                        <div  *ngFor="let img of result; let i = index; ">
+                            <div *ngIf="img.type.mime === 'video/webm' || 'image' " class="row mt-1">
+                                <ng-container  >
+                            <a  class="thumbnail" *ngIf="img.type.mime === 'video/webm'" href="javascript:void(0)" (click)="onClick(img.src)">
+                                <!-- <input type="checkbox"  [(ngModel)]="img.checked" /> -->
+                                        <label for="cb[i]">
+                                            <video style="width:100px;height:100px;" >
+                                    <source [src]="img.src" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                </label>
+                                <!-- <div class="top-left" >{{[i+1]}}/{{length}}</div> -->
+                                <!-- <input type="checkbox" [(ngModel)]="img.checked"> -->
+                                  <!-- <div class="top-right" > <i class="fa fa-video-camera" style="font-size:20px;color:red"></i></div> -->
+                            </a>
+                            </ng-container>
+                            <ng-container  >
+                            <a  class="thumbnail" *ngIf="img.type == 'image'" href="javascript:void(0)" (click)="onClick(img)">
+                                <div >
+                                    <!-- <input class="top-left" type="checkbox"  [(ngModel)]="img.checked" /> -->
+                                    <label for="cb[i]">
+                                         <img [src]="img.src" style="width:100px;height:100px;" alt="Hills"/>
+                                      </label>
+                                <!-- <div class="top-left" >{{[i+1]}}/{{length}}</div> -->
+                                <!-- <input type="checkbox" [(ngModel)]="img.checked"> -->
+                                <!-- <div class="top-right" > <i class="fa fa-camera" style="font-size:20px;color:red"></i></div> -->
+                                </div>
+                            </a>
+                        </ng-container>
+                            <!-- <li><input type="checkbox" />
+                                <label for="cb{{i}}"><img [src]="img.src" /></label>
+                              </li> -->
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+                <div >    
+                    <select class="form-control" (change)="onSelect($event.target.value)">
+                        <option disabled value='null'>-- Select One --</option>
+<option  *ngFor="let img of doctor" [value]="img.email">{{img.name}}
+    <!-- <input type="email" [(ngModel)]="img.email" class=" form-control col-md-12"/> -->
+</option>
+   
+
+                    </select>
+                    <h4>Email</h4>
+                    <input type="email" [(ngModel)]="text" class=" form-control col-md-12"/>
+                </div>
+                
+                <button (click)="onsubmit(this.result,text)" class=" form-control col-md-12 btn btn-warning">Submit</button>
+    
+            </div>
+        
+        <!-- 
+            <img  src="{{imageSrc}}" id="imagepreview" style="width:77%;height:50%" />
+            <video *ngIf="imgType == 'video'" class='center'   controls>
+                <source src="{{vidsrc}}" type="video/mp4" align="center"style="width:77%"/>
+                Browser not supported
+            </video> -->
+            <!-- <button (click)="onsubmit(this.result)" class=" form-control col-md-2">Submit</button> -->
+    
+        </div>
+        <div id="overlay">
+            <div class="loader"></div>
+        
+          </div>
+    
+        </div>
+    
+    
+        <!-- <div class="row mt-4">
+            <div *ngFor="let img of localImg" class="col-xs-6">
+                <a class="thumbnail"  *ngIf="img.type == 'image'" href="javascript:void(0)" (click)="onClick(img)">
+                    <div >
+                        <input type="checkbox"  [(ngModel)]="img.checked" />
+                            <label for="cb[i]"><img [src]="img.src"  style="width:5%;height:5%" alt="Hills"/></label>
+                          
+                    <div class="top-left" >{{[i+1]}}/{{length}}</div>
+                    <input type="checkbox" [(ngModel)]="img.checked">
+                    <div class="top-right" > <i class="fa fa-camera" style="font-size:20px;color:red"></i></div>
+                    </div>
+                </a>
+                <div >
+                    <div  >
+                <a  class="thumbnail" *ngIf="img.type == 'video'" href="javascript:void(0)" (click)="onClick(img)">
+                    <input type="checkbox"  [(ngModel)]="img.checked" />
+                            <label for="cb[i]"><video style="width:5%;height:5%" controls>
+                        <source [src]="img.src" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    </label>
+                    <div class="top-left" >{{[i+1]}}/{{length}}</div>
+                    <input type="checkbox" [(ngModel)]="img.checked">
+                    <div class="top-right" > <i class="fa fa-video-camera" style="font-size:20px;color:red"></i></div>
+                </a>
+                </div>
+            </div>
+        </div> -->
+    
+    <!-- </div> -->
+    
+    <!-- <pre>{{this.result | json}}</pre> -->
+    

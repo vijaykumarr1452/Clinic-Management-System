@@ -1,0 +1,147 @@
+<form name="venousForm"   #venousForm="ngForm" (ngSubmit)="venous()">
+    <div class="observe">
+        <div id="container">
+            <h3 class="head-title"> VENOUS OBSERVATIONS </h3>
+            <div class="total-container">
+                <!-- <div class="form-row"> -->
+
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- <div class="col-sm-6"> -->
+                        <div class="col-sm div-border">
+                            <h3><label class="head-title">Venous </label></h3>
+                            <!-- </div> -->
+                            <div class="form-row">
+                                <div class="form-group  col-md-4">
+                                    <label>Pulmonary vein </label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select [(ngModel)]="updform.selectPulmonary_vein_structure_normal" class="form-control" name="selectPulmonary_vein_structure_normal"
+                                        placeholder="select"
+                                        (ngModelChange)="onOptionsSelected('Pulmonary_vein_structure_normal',updform.selectPulmonary_vein_structure_normal)">
+                                        <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                                        <option *ngFor="let sta of PulmonaryVein" [ngValue]="sta.itemName">{{sta.itemName}}
+                                        </option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group  col-md-4">
+                                    <label>Size </label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select [(ngModel)]="updform.selectPulmonary_vein_size" class="form-control" name="selectPulmonary_vein_size"
+                                        placeholder="select"
+                                        (ngModelChange)="onOptionsSelected('Pulmonary_vein_size',updform.selectPulmonary_vein_size)">
+                                        <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                                        <option *ngFor="let sta of Size" [ngValue]="sta.itemName">{{sta.itemName}}
+                                        </option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group  col-md-4">
+                                    <label>Location</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select [(ngModel)]="updform.selectPulmonary_vein_location" class="form-control" name="selectPulmonary_vein_location"
+                                        placeholder="select"
+                                        (ngModelChange)="onOptionsSelected('Pulmonary_vein_location',updform.selectPulmonary_vein_location)">
+                                        <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                                        <option *ngFor="let sta of SizeLocation" [ngValue]="sta.itemName">{{sta.itemName}}
+                                        </option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group  col-md-4">
+                                    <label>Flow patterns Doppler</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select [(ngModel)]="updform.selectPulmonary_vein_flow_patterns" class="form-control" name="selectPulmonary_vein_flow_patterns"
+                                        placeholder="select"
+                                        (ngModelChange)="onOptionsSelected('Pulmonary_vein_flow_patterns',updform.selectPulmonary_vein_flow_patterns)">
+                                        <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                                        <option *ngFor="let sta of FlowpatternsDoppler" [ngValue]="sta.itemName">{{sta.itemName}}
+                                        </option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group  col-md-4">
+                                    <label>Thrombus</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select [(ngModel)]="updform.selectThrombus" class="form-control" name="selectThrombus"
+                                        placeholder="select"
+                                        (ngModelChange)="onOptionsSelected('Thrombus',updform.selectThrombus)">
+                                        <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                                        <option *ngFor="let sta of Thrombus" [ngValue]="sta.itemName">{{sta.itemName}}
+                                        </option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group  col-md-4">
+                                    <label>Mass</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select [(ngModel)]="updform.selectThrombus_Mass" class="form-control" name="selectThrombus_Mass"
+                                        placeholder="select"
+                                        (ngModelChange)="onOptionsSelected('Thrombus_Mass',updform.selectThrombus_Mass)">
+                                        <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                                        <option *ngFor="let sta of Mass" [ngValue]="sta.itemName">{{sta.itemName}}
+                                        </option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group  col-md-4">
+                                    <label>Location</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select [(ngModel)]="updform.selectThrombus_Mass_Location" class="form-control" name="selectThrombus_Mass_Location"
+                                        placeholder="select"
+                                        (ngModelChange)="onOptionsSelected('Thrombus_Mass_Location',updform.selectThrombus_Mass_Location)">
+                                        <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                                        <option *ngFor="let sta of MassLocation" [ngValue]="sta.itemName">{{sta.itemName}}
+                                        </option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group  col-md-4">
+                                    <label>Congenital anomalies</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select [(ngModel)]="updform.selectCongenital_anomalies" class="form-control" name="selectCongenital_anomalies"
+                                        placeholder="select"
+                                        (ngModelChange)="onOptionsSelected('Congenital_anomalies',updform.selectCongenital_anomalies)">
+                                        <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                                        <option *ngFor="let sta of Congenitalanomalies" [ngValue]="sta.itemName">{{sta.itemName}}
+                                        </option>
+                                    </select>
+
+                                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+<div class="form-row center">
+    <!-- <div class="form-group col-md-2" ></div>
+    <div class="form-group col-md-2" ></div> -->
+    <div class="form-group col-md-2">
+        <button type="button" class="btn btn-warning  btn-block" onclick="$('#tableseventeen').trigger('click')"
+          (click)="getAddPage('pericardiumObservation')">Previous</button>
+      </div>
+    <div class="form-group col-md-2">
+      <button type="submit" class="btn btn-primary  btn-block" id="btnSubmit">Submit</button>
+    </div>
+    <div class="form-group col-md-2">
+      <button type="button" class="btn btn-danger  btn-block" onclick="$('#tabtwelve').trigger('click')"
+        (click)="getAddPage('ivcObservation')">Next</button>
+    </div>
+    <!-- <div class="form-group col-md-4"></div> -->
+  </div>
+</form>
+<div id="overlay">
+<div class="loader"></div>
+
+</div>

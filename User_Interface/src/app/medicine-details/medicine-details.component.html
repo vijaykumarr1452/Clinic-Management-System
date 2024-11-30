@@ -1,0 +1,192 @@
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-block">
+          <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5 class="modal-title text-center" id="exampleModalLabel">Medicine Details</h5>
+        </div>
+        <div class="modal-body">
+          <form name="addform" [formGroup]="addform" (ngSubmit)="prescriptionDetails(addform.value)">
+              <b>Medicine Name</b> <select class="form-control col-md-6"id="medicineListObjects" name="medicineListObject" class="form-control"
+                          formControlName="medicineName" >
+                          <option value="">Select Medicine</option>
+                          <option  *ngFor="let medicinelist of this.medicineListObject; let i = index"
+                            [value]="medicinelist.medicinename" >{{medicinelist.medicinename}}</option>
+                        </select>
+            <table class="table">
+                <thead>
+    
+                  <tr>
+                    <th scope="col">Time</th>
+                    <th scope="col">No of Tablets</th>
+                    <th scope="col">In Take</th>
+                    <th scope="col">No of Minutes</th>
+                    <!-- <th scope="col">Duration</th>
+                    <th scope="col">Timings</th>
+                    <th scope="col">Remarks</th>
+                    <th scope="col">ADD</th>
+                    <th scope="col">DELETE</th> -->
+    
+                  </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                        <td scope="col">Morning</td>
+                        <td scope="col">
+                            <input type="text" class="form-control col-md-9" id="no of  tablets" placeholder="No of  tablets" formControlName='morningnoOfTablets'>
+                        </td>
+                        <td scope="col">
+                             <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                             formControlName='morningInTake'>
+                          <option value="before">Before</option>
+                          <option value="after">After</option>
+
+                          <!-- <option  *ngFor="let medicinelist of this.medicineListObject; let i = index"
+                            [value]="medicinelist.medicinename" >{{medicinelist.medicinename}}</option> -->
+                        </select>
+                        </td>
+                        <td scope="col">
+                            <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                            formControlName='morningMinutes'>
+                            <option value="0">0</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                            <option value="60">60</option>
+                         
+
+                            <!-- <option  *ngFor="let medicinelist of this.medicineListObject; let i = index"
+                              [value]="medicinelist.medicinename" >{{medicinelist.medicinename}}</option> -->
+                          </select>
+                        </td>  
+                      </tr>
+                      <tr>
+                        <td scope="col">Aftenoon</td>
+                        <td scope="col">
+                            <input type="text" class="form-control col-md-9" id="no of  tablets" placeholder="No of tablets"  formControlName='afternoonnoOfTablets'>
+                        </td>
+                        <td scope="col">
+                             <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                             formControlName='afternoonInTake' >
+                             <option value="before">Before</option>
+                             <option value="after">After</option>
+
+                          <!-- <option  *ngFor="let medicinelist of this.medicineListObject; let i = index"
+                            [value]="medicinelist.medicinename" >{{medicinelist.medicinename}}</option> -->
+                        </select>
+                        </td>
+                        <td scope="col">
+                            <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                            formControlName='afternoonMinutes'>
+                            <option value="0">0</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                            <option value="60">60</option>
+  
+                            <!-- <option  *ngFor="let medicinelist of this.medicineListObject; let i = index"
+                              [value]="medicinelist.medicinename" >{{medicinelist.medicinename}}</option> -->
+                          </select>
+                        </td>  
+                      </tr>
+                      <tr>
+                        <td scope="col">Evneing</td>
+                        <td scope="col">
+                            <input type="text" class="form-control col-md-9" id="no of  tablets" placeholder="No of tablets"  formControlName='eveningnoOfTablets'>
+                        </td>
+                        <td scope="col">
+                             <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                             formControlName='eveningInTake'>
+                             <option value="before">Before</option>
+                             <option value="after">After</option>
+
+                          <!-- <option  *ngFor="let medicinelist of this.medicineListObject; let i = index"
+                            [value]="medicinelist.medicinename" >{{medicinelist.medicinename}}</option> -->
+                        </select>
+                        </td>
+                        <td scope="col">
+                            <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                            formControlName='eveningMinutes'>
+                            <option value="0">0</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                            <option value="60">60</option>
+  
+                            <!-- <option  *ngFor="let medicinelist of this.medicineListObject; let i = index"
+                              [value]="medicinelist.medicinename" >{{medicinelist.medicinename}}</option> -->
+                          </select>
+                        </td>  
+                      </tr>
+                      <tr>
+                        <td scope="col">Dinner</td>
+                        <td scope="col">
+                            <input type="text" class="form-control col-md-9" id="no of  tablets" placeholder="No of tablets"  formControlName='dinnernoOfTablets'>
+                        </td>
+                        <td scope="col">
+                             <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                             formControlName='dinnerInTake'>
+                             <option value="before">Before</option>
+                             <option value="after">After</option>
+
+                          <!-- <option  *ngFor="let medicinelist of this.medicineListObject; let i = index"
+                            [value]="medicinelist.medicinename" >{{medicinelist.medicinename}}</option> -->
+                        </select>
+                        </td>
+                        <td scope="col">
+                            <select id="medicineListObjects" name="medicineListObject" class="form-control"
+                            formControlName='dinnerMinutes' >
+                            <option value="0">0</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                            <option value="60">60</option>
+  
+                            <!-- <option  *ngFor="let medicinelist of this.medicineListObject; let i = index"
+                              [value]="medicinelist.medicinename" >{{medicinelist.medicinename}}</option> -->
+                          </select>
+                        </td>  
+                      </tr>
+                  </tbody>
+            </table>
+         
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+          <button type="submit" class="btn btn-primary"(click)="prescriptionDetails(addform.value)">Send message</button>
+        </div>
+      </div>
+    </div>
+  </div>

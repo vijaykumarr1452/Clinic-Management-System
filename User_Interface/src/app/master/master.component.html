@@ -1,0 +1,669 @@
+<div>
+    <div class="card">
+        <div class="tabs">
+            <input type="radio" name="tab2" id="tabgeneral" checked="checked">
+            <label for="tabgeneral">General Master</label>
+            <div class="tab">
+                <table align="center" cellpadding="0">
+                    <!-- <th>S.no</th> -->
+                    <th>Masters</th>
+                    <th>Add</th>
+                    <th>View</th>
+                    <tr>
+                        <th>Anterior Septum</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('anteriorSeptum');">Add</button> </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('anteriorSeptum')">View</button>
+                            <!-- <td><button (click)="delete('anteriorSeptum')">delete</button></td>     -->
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>Anterior Wall</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('anteriorWall')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('anteriorWall')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Aorta</th>
+                        <td><button type="button" class="btn btn-primary btn-sm" (click)="goToAdd('aorta')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('aorta')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Aortic Valve</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('aorticValve')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('aorticValve')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Conclusion</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('conclusion')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('conclusion')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Doctor Advice</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('doctorAdvice')">Add</button></td>
+
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('doctorAdvice')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Inferior Septum</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('inferiorSeptum')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('inferiorSeptum')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Inferior Venacava</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('inferiorVenaCava')">Add</button> </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('inferiorVenaCava')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Interior Wall</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('inferiorWall')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('inferiorWall')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Impressions</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressions')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressions')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Intracardiac Data</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('intracardiacData')">Add</button> </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('intracardiacData')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>IntraCardiac Tumour</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('intraCardiacTumour')">Add</button> </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('intraCardiacTumour')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Lateral Wall</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('lateralWall')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('lateralWall')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Left Atrium</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('leftAtrium')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('leftAtrium')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Left Ventrical</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('leftVentrical')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('leftVentrical')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Left Ventrical Function</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('leftVentricalFunction')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('leftVentricalFunction')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Mitral Valve</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('mitralValve')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('mitralValve')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>PeriCardium</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('pericardium')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('pericardium')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>PeriCardial Effusion</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('pericardialEffusion')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('pericardialEffusion')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Posterior Wall</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('posteriorWall')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('posteriorWall')">View</button></td>
+
+                    </tr>
+                    <!-- <tr>
+                        <td> Posterior Wall</td>
+                        <td><button type="button" class="btn btn-primary btn-sm" (click)="getAddPage('posteriorWall')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm" (click)="getAddPage('inferiorSeptum')">Add</button></td>
+            
+                    </tr> -->
+                    <tr>
+                        <th>Pulmonary Artery</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('pulmonaryArtery')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('pulmonaryArtery')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Pulmonary Vein</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('pulmonaryVein')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('pulmonaryVein')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Pulmonic Valve</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('pulmonicValve')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('pulmonicValve')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Right Atrium</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('rightAtrium')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('rightAtrium')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Right Ventricle</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('rightVentricle')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('rightVentricle')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Right Ventrical Function</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('rightVentricalFunction')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('rightVentricalFunction')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Tricuspid Valve</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('tricuspidValve')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('tricuspidValve')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Speckle Tracking</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('speckleTracking')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('speckleTracking')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Venous</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('venous')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('venous')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Reason List</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('reasonList')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('reasonList')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Reference Doctor</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('referenceDoctor')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('referenceDoctor')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Reason For Echo</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('reasonForEcho')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('reasonForEcho')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Clinic Observation</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('clinicObservation')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('clinicObservation')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Interventricular Septum</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('InterventricularSeptum')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('InterventricularSeptum')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Interartrial Septum</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('InterartrialSeptum')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('InterartrialSeptum')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Type of Medicine</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('typeOfMedicine')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('typeOfMedicine')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th> Unit of Measure</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('unitOfMeasure')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('unitOfMeasure')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Manufacturer Details</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('manufacturerDetails')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('manufacturerDetails')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Dose List</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('doselist')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('doselist')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Days Master</th>
+                        <td><button type="button" class="btn btn-primary btn-sm" (click)="goToAdd('day')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('day')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Period Master</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('periodMaster')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('periodMaster')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Complaints Master</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('complaintsMaster')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('complaintsMaster')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Diagnosis Master</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('diagnosis')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('diagnosis')">View</button></td>
+
+                    </tr>
+                </table>
+                <!-- <app-viewpatientdetails></app-viewpatientdetails> -->
+            </div>
+            <input type="radio" name="tab2" id="tabimpression">
+            <label for="tabimpression">Impression Master</label>
+            <div class="tab">
+                <table align="center" cellpadding="0">
+                    <!-- <th>S.no</th> -->
+                    <th>Masters</th>
+                    <th>Add</th>
+                    <th>View</th>
+                    <tr>
+                        <th>Left Ventrical</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionLeftVentricle');">Add</button> </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionLeftVentricle')">View</button>
+                            <!-- <td><button (click)="delete('anteriorSeptum')">delete</button></td>     -->
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>Right Ventricle</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionRightVentricle')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionRightVentricle')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Left Atrium</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionLeftAtrium')">Add</button> </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionLeftAtrium')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Right Atrium</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionRightAtrium')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionRightAtrium')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Aortic Valve</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionAorticValve')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionAorticValve')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Mitral Valve</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionMitralValve')">Add</button></td>
+
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionMitralValve')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tricuspid Valve</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionTricuspidValve')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionTricuspidValve')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Pulmonic Valve</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionPulmonicValve')">Add</button> </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionPulmonicValve')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Pericardium</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionPericardium')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionPericardium')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Aorta</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionAorta')">Add</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionAorta')">View</button>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Pulmonary Artery</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionPulmonaryArtery')">Add</button> </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionPulmonaryArtery')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Pulmonary Vein</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionPulmonaryVein')">Add</button> </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionPulmonaryVein')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Inferior VenaCava</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionInferiorVenaCava')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionInferiorVenaCava')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Anterior Wall</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionAnteriorWall')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionAnteriorWall')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Posterior Wall</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionPosteriorWall')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionPosteriorWall')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Inferior Wall</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionInferiorWall')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionInferiorWall')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Lateral Valve</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionLateralValve')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionLateralValve')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Anterior Septum</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionAnteriorSeptum')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionAnteriorSeptum')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Inferior Septum</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionInferiorSeptum')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionInferiorSeptum')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Intra Cardiac Clots</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionIntraCardiacClots')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionIntraCardiacClots')">View</button></td>
+
+                    </tr>
+                    <!-- <tr>
+                        <td> Posterior Wall</td>
+                        <td><button type="button" class="btn btn-primary btn-sm" (click)="getAddPage('posteriorWall')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm" (click)="getAddPage('inferiorSeptum')">Add</button></td>
+            
+                    </tr> -->
+                    <tr>
+                        <th>IntraCardiac Tumour</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionIntraCardiacTumour')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionIntraCardiacTumour')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Pericardial Effusion</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionPericardialEffusion')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionPericardialEffusion')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Left Ventricular Function</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionLeftVentricularFunction')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionLeftVentricularFunction')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Right Ventrical Function</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionRightVentricalFunction')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionRightVentricalFunction')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Speckle Tracking</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionSpeckleTracking')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionSpeckleTracking')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Intra Artrial Septum</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionIntraArtrialSeptum')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionIntraArtrialSeptum')">View</button></td>
+
+                    </tr>
+                    <tr>
+                        <th>Intra Ventricular Septum</th>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="goToAdd('impressionIntraVentricularSeptum')">Add</button>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm"
+                                (click)="getAddPage('impressionIntraVentricularSeptum')">View</button></td>
+
+                    </tr>
+                         </table>
+            </div>
+
+        </div>
+
+    </div>

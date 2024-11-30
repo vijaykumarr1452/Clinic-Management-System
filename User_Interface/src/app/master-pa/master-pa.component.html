@@ -1,0 +1,193 @@
+<form  name="observationsForm"   #observationsForm="ngForm" (ngSubmit)="savePulmonaryArteryData()"  >
+  <div class="observe">
+    <div id="container">
+<form  name="observationsForm"   #observationsForm="ngForm" (ngSubmit)="savePulmonaryArteryData()"  >
+  <div class="observe">
+    <div id="container">
+      <h3 class="head-title">  Pulmonary Artery Observations </h3> 
+  
+      <div class="total-container">
+
+        <div class="form-row">
+
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm div-border">
+                <!-- <h3><label class="head-title">Pulmonary Artery Observations </label></h3> -->
+          
+                <div class="form-row">
+
+                  <div class="form-group  col-md-4">
+                    <label>Structure  </label>  
+                  </div>
+                  <div class="form-group col-md-6">
+                    <select [(ngModel)]="updform.selectStructure"  class="form-control" name="selectStructure" placeholder="select" 
+          (ngModelChange)="onOptionsSelected('Structure',updform.selectStructure)">
+         <option [ngValue]="undefined"> Not Applicable(N/A)</option>  
+              <option *ngFor="let sta of observation" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+          </select>
+    
+                </div>
+    
+                </div>
+                <div class="form-row">
+    
+                  <div class="form-group  col-md-4">
+                    <label>Suspect Thromboembolism </label>  
+                  </div>
+                  <div class="form-group col-md-6">
+                    <select [(ngModel)]="updform.selectSuspect_Thromboembolism"  class="form-control" name="selectSuspect_Thromboembolism" placeholder="select" 
+      (ngModelChange)="onOptionsSelected('Suspect_Thromboembolism',updform.selectSuspect_Thromboembolism)">
+     <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+          <option *ngFor="let sta of Suspectthromboembolism" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+      </select>
+    
+                </div>
+    
+                </div>
+                <div class="form-row" *ngIf="updform.selectStructure === 'Estimated pulmonary artery systolic pressure'">
+    
+                  <div class="form-group  col-md-4">
+                    <label> Estimated pulmonary artery systolic pressure</label>  
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input class="form-control" id="Dimensions" name="Dimensions"type=text
+         placeholder="Estimated pulmonary artery systolic pressure" [(ngModel)]="updform.Dimensions"
+         #Dimensions="ngModel"/>
+    
+                </div>
+    
+                </div>
+                <!-- <div class="form-row">
+
+                  <div class="form-group  col-md-4">
+                    <label>Pulmonary Artery Dialated </label>  
+                  </div>
+                  <div class="form-group col-md-6">
+                    <select [(ngModel)]="updform.selectDilated"  class="form-control" name="selectDilated" placeholder="select" 
+                    (ngModelChange)="onOptionsSelected('Dilated',updform.selectDilated)">
+                   <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                        <option *ngFor="let sta of dilated" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                    </select> 
+    
+                </div>
+    
+                </div> -->
+    
+                
+                <div class="form-row">
+
+                  <div class="form-group  col-md-4">
+                    <label>Pulmonary hypertension </label>  
+                  </div>
+                  <div class="form-group col-md-6">
+                   
+                    <select [(ngModel)]="updform.selectPulmonary_Hypertension"  class="form-control" name="selectPulmonary_Hypertension" placeholder="select" 
+                    (ngModelChange)="onOptionsSelected('Pulmonary_Hypertension',updform.selectPulmonary_Hypertension)">
+                   <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                        <option *ngFor="let sta of pulmonaryhypertension" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                    </select>
+                </div>
+    
+                </div>
+    
+                <div class="form-row">
+    
+                  <div class="form-group  col-md-4">
+                    <label> Pulmonary branch Stenosis</label>  
+                  </div>
+                  <div class="form-group col-md-6">
+                    <select [(ngModel)]="updform.selectPulmonary_branch_stenosis"  class="form-control" name="selectPulmonary_branch_stenosis" placeholder="select" 
+                    (ngModelChange)="onOptionsSelected('Pulmonary_branch_stenosis',updform.selectPulmonary_branch_stenosis)">
+                   <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                        <option *ngFor="let sta of Pulmonarybranchstenosis" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                    </select> 
+    
+                </div>
+    
+                </div>
+                <div class="form-row">
+
+                  <div class="form-group  col-md-4">
+                    <label> Pulomnary artery hypoplasia </label>  
+                  </div>
+                  <div class="form-group col-md-6">
+                    <select [(ngModel)]="updform.selectPulmonary_branch_hypoplasia"  class="form-control" name="selectPulmonary_branch_hypoplasia" placeholder="select" 
+                    (ngModelChange)="onOptionsSelected('Pulmonary_branch_hypoplasia',updform.selectPulmonary_branch_hypoplasia)">
+                   <option [ngValue]="undefined"> Not Applicable(N/A)</option>
+                        <option *ngFor="let sta of Patentductusarteriosus" [ngValue]="sta.itemName">{{sta.itemName}}</option>
+                    </select>
+    
+                </div>
+    
+                </div>
+    
+
+              </div>
+          
+          
+            
+          
+          
+             
+          
+            </div>  
+          
+          </div>
+          
+          <br/>
+          <br/>
+
+
+
+
+
+
+      </div>
+
+       
+      <br/>
+      <br/>
+
+
+
+      <div id="overlay">
+        <div class="loader"></div>
+                
+       </div> 
+
+      <div class="form-row"   >
+        <div class="form-group col-md-2" ></div>
+        <div class="form-group col-md-2" >
+          <button type="button" class="btn btn-warning  btn-block" onclick="$('#tabseven').trigger('click')"  
+          (click)="getAddPage('tricuspidValveObservation')" >Previous</button>
+        </div>
+        <div class="form-group col-md-2" >
+          <button type="submit" class="btn btn-primary  btn-block" id="btnSubmit" >Submit</button>
+        </div>
+        <div class="form-group col-md-2" >
+          <button type="button" class="btn btn-danger  btn-block" onclick="$('#tabnine').trigger('click')"  
+          (click)="getAddPage('pulmonicValveObservation')"  >Next</button>
+        </div>
+        <div class="form-group col-md-4" ></div>
+      </div>
+      
+      </div>
+      </div>
+    
+  </div>
+  
+  
+  </form>  
+    
+      </div>
+    
+  </div>
+  
+  
+  </form>
+  
+  
+  
+

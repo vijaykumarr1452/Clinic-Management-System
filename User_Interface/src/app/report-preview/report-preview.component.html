@@ -1,0 +1,637 @@
+<!-- <app-report></app-report> --> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<app-sidenav></app-sidenav> 	
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div  class="col-md-12 " >
+            
+              <div id="container">
+
+                <div class="total-container" id="print-section">
+            
+                    <form  name="reportForm"   #reportForm="ngForm"      >
+                      <!--  (ngSubmit)="reportFormData()" -->
+                        <h5 class="text-center">REPORT</h5>
+            
+                      <div class="patientdetails"> 
+            
+                        <div class="form-row">
+                          <div class="form-group col-md-8">
+                            <div> 
+                              <label>Name of The Patient :</label>
+                              {{ patientDataObject['patientname'] }}
+                            </div>
+                          </div>
+                          <div class="form-group col-md-4">
+                            <div> 
+                              <label>Patient Id :</label>
+                              PATIENT {{ patientDataObject['id'] }}
+                            </div>
+                          </div>
+                            
+                        </div>   
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <div> 
+                                  <label>Date Of Birth :</label>
+                                  {{ patientDataObject['dob'] }}
+                                </div>
+                            </div>
+            
+                            <div class="form-group col-md-4">
+                                <div> 
+                                  <label>Age :</label>
+                                  {{ patientDataObject['age'] }}
+                                </div>
+                            </div>
+            
+                            <div class="form-group col-md-4">                   
+                                <div> 
+                                <label>BP :</label>
+                                {{ patientDataObject['bpsystolic'] }}/ {{ patientDataObject['bpdiastolic'] }}  mmHg 
+                                </div>              
+                          </div>
+                    
+                        </div>
+                        
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <div> 
+                              <label>Referred By :</label>
+                              
+                            </div>
+                          </div>
+                    
+                          <div class="form-group col-md-6">
+                            <div> 
+                              <label>Date of Reporting :</label>
+                              {{ patientDataObject['testdate'] }}
+                            </div>
+                          </div>
+                    
+                        </div>    
+                    
+                        <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <div> 
+                                <label>Gender :</label>
+                                {{ patientDataObject['gender'] }}
+                            </div>
+                        </div>
+            
+                           
+                          <div class="form-group col-md-2">
+                            <div> 
+                              <label>Height :</label>
+                              {{ patientDataObject['height'] }} cms
+                            </div>
+                          </div>
+                    
+                          <div class="form-group col-md-2">
+                            <div> 
+                              <label>Weight :</label>
+                              {{ patientDataObject['weight'] }} kgs
+                            </div>
+                          </div>   
+                          <div class="form-group col-md-2">
+                            <div> 
+                              <label>BSA :</label>
+                              {{ patientDataObject['bsa'] }}
+                            </div>
+                          </div>
+            
+                          <div class="form-group col-md-2">
+                            <div> 
+                              <label>BMI :</label>
+                              {{ patientDataObject['bmi'] }}
+                            </div>
+                          </div>
+                    
+                        </div> 
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div> 
+                                    <label>Type of Test :</label>
+                                    {{ patientDataObject['testtype'] }}
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <div> 
+                                <label>Clinic Name :</label>
+                                {{ clinicDataObject['name'] }}
+                            </div>
+                        </div>
+                            <div class="form-group col-md-6">
+                                <div> 
+                                    <label>Clinic Observations :</label>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+            
+                    <!-- <patientDetails form completes></patientDetails> -->
+            
+                        <hr/>
+            
+                        <div class="total-container-report">
+            
+                        <div class="block-heading">
+                        <h5>ECHOCARDIOGRAPHY REPORT</h5>
+                        </div>
+                        <div class="inner-head">
+                            <p> ECHOCARDIOGRAPHIC STUDY WAS DONE BY USING </p>
+            
+                            <div>
+                                <p>1. M Mode Echocardiography</p>
+                                <p>2. Two Dimensional Echocardiography</p>
+                                <p>3. Conventional and Color Doppler Echocardigraphy</p>
+                                <p>4. Tissue Doppler</p>
+                                <p>5. Speckle Tracking and Strain Imaging</p>
+                            </div>
+                            <hr/>
+                                <div *ngIf="patientDataObject['ew'] != ''">
+                                    Echo Window :   {{ patientDataObject['ew'] }}
+                                </div>
+                            <hr/>
+            
+                            <div class="block-heading-observation">
+                              <h5>FOLLOWING OBSERVATIONS WERE OBTAINED</h5>
+                            </div>
+            
+                            <div class="observations-class">
+                             
+                              <div *ngFor="let Observations of observationsObject; let k = index" > 
+                               
+                                <h4 class="maintype-head" *ngIf="Observations.type === 'leftVentricalObservation' || 
+                                Observations.type === 'rightVentricleObservation' || Observations.type === 'leftAtriumObservation' ||
+                                Observations.type === 'rightAtriumObservation' "> 
+                                    CHAMBERS
+                                </h4>   
+            
+                                <h4 class="maintype-head" *ngIf="Observations.type === 'mitralValveObservation' || 
+                                Observations.type === 'tricuspidValveObservation' || Observations.type === 'pulmonicValveObservation' ||
+                                Observations.type === 'aortaObservation' "> 
+                                    VALUES
+                                </h4> 
+            
+                                <h4 class="maintype-head" *ngIf="Observations.type === 'pulmonaryArteryObservation' "> 
+                                    GREAT ARTERY RELATION
+                                </h4> 
+            
+                                <div class="form-row" style="border-bottom: 1px dotted #ccc;">
+                                  <div class="form-group col-md-4"   >
+                                    <h6> {{ Observations.ttype  | titlecase}} </h6> 
+                                    <!-- <h6>{{ Observations.type | titlecase }} </h6> -->
+                                  </div>
+                                 
+                                  <div class="form-group col-md-8"   >
+            
+                                    <div class="form-group col-md-4"   >
+                                    
+                                      <h6>Data : </h6>         
+                                      <angular2-multiselect [data]="Observations.masterValues" 
+                                      [(ngModel)]="selectedItemsObservations[k]" [settings]="settings" 
+                                      name="mastervalue_{{k}}" id="mastervalue_{{k}}"  
+                                      (onSelect)="onItemSelect($event,Observations.type)"
+                                      (onDeSelect)="OnItemDeSelect($event,Observations.type)" 
+                                      (onSelectAll)="onSelectAll($event,Observations.type)" 
+                                      (onDeSelectAll)="onDeSelectAll($event,Observations.type)"
+                                      >
+                                        <c-badge>
+                                                 <ng-template let-item="item">
+                                                  <label style="margin: 0px;color:#fff;" >{{item.itemName}}</label>                               
+                                                 </ng-template>
+                                        </c-badge>  
+                                      </angular2-multiselect>
+            
+                                      
+                                       
+                                    </div>                       
+            
+                                   
+                                    <div *ngFor="let Obsvalue of Observations.value| keyvalue; let j = index;" class="observationvalues">
+                                      
+                                      <p>{{ Obsvalue.key.replace('select','') | titlecase }} - {{ Obsvalue.value | titlecase }}</p>
+                                    </div>
+            
+                                    <!------------------------------>
+                                    
+                                    
+                                    <!-- <button type="button" class="btn btn-primary mb-2" (click)="addComment(k,Observations.type)">Add</button>
+             -->
+                                    <div  class="addremove-class" *ngFor="let observationComment of Observations.comments; let i = index;">
+            
+                                    <div class="form-row" >
+                                      <div class="form-group col-md-6"   >
+                                        <h4>Comment {{i + 1}}</h4>
+                                      </div>
+                                      <!-- <div class="form-group col-md-6 text-right"   >
+                                        <button type="button" class="btn btn-danger btn-sm" (click)="removeComment(k)">Remove</button>
+                                      </div> -->
+                                    </div>
+            
+                                    <div class="form-row" >
+                                      <div class="form-group col-md-12"   >
+                                        <label>Comment</label>                                   
+                                        <textarea id="comment"   class="form-control" placeholder="Comment" 
+                                        required [(ngModel)]="observationComment.comment"   ></textarea>
+                                     
+                                        <!-- <textarea id="comment" name="observationComment_{{comment.id}}"  
+                                        class="form-control" placeholder="Comment" 
+                                         [(ngModel)]="comment.comment" #comment="ngModel"  >
+                                      </textarea> -->
+                                     
+                                    
+                                     
+            
+                                      </div>
+                                    </div>  
+            
+            
+                                    </div>
+                                  
+                                    <!------------------------------>
+            
+                                    
+                                  </div>
+                                 
+                                  
+                                </div>  
+                                
+                              </div>
+            
+                              <!-- Close Observtaions -->
+                              <div class="wallclass"> 
+                                <h5 class="wall-head">REGIONAL WALL MOTION </h5>
+                              <div class="form-row">
+            
+                                <div class="form-group col-md-3">
+                                  ANTERIOR WALL 
+                                </div>
+                                <div class="form-group col-md-3">
+                                  <select  class="form-control"  name="anteriorwall" [(ngModel)]="updform.anteriorwall" #anteriorwall="ngModel"  >  
+                                    <option *ngFor="let wallmotions of regionalWallMotion" [ngValue]="wallmotions.itemName"  >{{wallmotions.itemName}}</option>
+                                  </select>
+                                </div>
+            
+                                <div class="form-group col-md-3">
+                                  POSTERIOR WALL 
+                                </div>
+                                <div class="form-group col-md-3">
+                                  <select  class="form-control"  name="posteriorwall" id="posteriorwall" [(ngModel)]="updform.posteriorwall" #posteriorwall="ngModel" >  
+                                    <option *ngFor="let wallmotions of regionalWallMotion"  [ngValue]="wallmotions.itemName">{{wallmotions.itemName}}</option>
+                                  </select>
+                                </div>
+            
+                              </div>
+            
+                              <div class="form-row">
+            
+                                <div class="form-group col-md-3">
+                                  INFERIOR WALL 
+                                </div>
+                                <div class="form-group col-md-3">
+                                  <select  class="form-control"  name="inferiorwall" id="inferiorwall" [(ngModel)]="updform.inferiorwall" #inferiorwall="ngModel" >  
+                                    <option *ngFor="let wallmotions of regionalWallMotion"  [ngValue]="wallmotions.itemName">{{wallmotions.itemName}}</option>
+                                  </select>
+                                </div>
+            
+                                <div class="form-group col-md-3">
+                                  LATERAL WALL 
+                                </div>
+                                <div class="form-group col-md-3">
+                                  <select  class="form-control"  name="lateralwall" id="lateralwall" [(ngModel)]="updform.lateralwall" #lateralwall="ngModel" >  
+                                    <option *ngFor="let wallmotions of regionalWallMotion"  [ngValue]="wallmotions.itemName">{{wallmotions.itemName}}</option>
+                                  </select>
+                                </div>
+            
+                              </div>
+            
+            
+                              <div class="form-row">
+            
+                                <div class="form-group col-md-3">
+                                  PULMONARY ARTERY PRESSURE   :
+                                </div>
+                                <div class="form-group col-md-3">
+                                   <!-- 00.00 mmHg   -->
+                                   <input type="text" name="pulmonaryarterypressure" id="pulmonaryarterypressure" 
+                                   [(ngModel)]="updform.pulmonaryarterypressure" #pulmonaryarterypressure="ngModel"value=""  class="form-control" />
+                                </div>
+            
+                                <div class="form-group col-md-3">
+                                  VALUE OF EF  :
+                                </div>
+                                <!-- <div class="form-group col-md-3" *ngIf="patientDataObject['ef'] != ''">
+                                  {{ patientDataObject['ef'] }}  *ngIf="patientDataObject['ef'] == ''"
+                                </div> -->
+                                <div class="form-group col-md-3" >
+                                  <input type="text" name="valueofef" id="valueofef" value=""
+                                  [(ngModel)]="patientDataObject.ef" #valueofef="ngModel"  class="form-control" />
+                                </div>
+            
+                              </div>
+            
+                              <div class="form-row">
+                                <div class="form-group col-md-3">
+                                  The average peak systolic strain is
+                                </div>
+                                <div class="form-group col-md-3">
+                                  <input type="text" name="avgsystolicstrain" id="avgsystolicstrain" value="" 
+                                  [(ngModel)]="updform.avgsystolicstrain" #avgsystolicstrain="ngModel" class="form-control" />
+                                </div>
+            
+                                <div class="form-group col-md-3">
+                                  The reduced peak systolic strain over 
+                                </div>
+                                <div class="form-group col-md-3">
+                                  <angular2-multiselect [data]="speckleTracking" 
+                                      [(ngModel)]="selectedItems1" [settings]="settings" 
+                                      name="peaksystolicstrain" id="peaksystolicstrain"  
+                                      (onSelect)="onItemSelect($event,'speckleTracking')"
+                                      (onDeSelect)="OnItemDeSelect($event,'speckleTracking')" 
+                                      (onSelectAll)="onSelectAll($event,'speckleTracking')" 
+                                      (onDeSelectAll)="onDeSelectAll($event,'speckleTracking')"
+                                      >
+                                        <c-badge>
+                                                 <ng-template let-item="item">
+                                                  <label style="margin: 0px; color:#fff;">{{item.itemName}}</label>                               
+                                                 </ng-template>
+                                        </c-badge>  
+                                      </angular2-multiselect>
+                                </div>
+            
+                              </div>
+            
+                              <!-------- IMPRESSIONS ------->
+                              <div class="impressions-class">
+                                <div class="block-heading-observation">
+                                  <h5>IMPRESSIONS</h5>
+                                </div>
+                                <div class="form-row impressionsblock"> 
+            
+                                <div class="form-group col-md-3">
+                                  Impressions 
+            
+                                  <angular2-multiselect [data]="impression" 
+                                      [(ngModel)]="selectedItems2" [settings]="settings" 
+                                      name="impressionsmastervalue" id="impressionsmastervalue"  
+                                      (onSelect)="onItemSelect($event,'impression')"
+                                      (onDeSelect)="OnItemDeSelect($event,'impression')" 
+                                      (onSelectAll)="onSelectAll($event,'impression')" 
+                                      (onDeSelectAll)="onDeSelectAll($event,'impression')"
+                                      >
+                                        <c-badge>
+                                                 <ng-template let-item="item">
+                                                  <label style="margin: 0px;color:#fff;">{{item.itemName}}</label>                               
+                                                 </ng-template>
+                                        </c-badge>  
+                                      </angular2-multiselect>
+                                </div>
+                                 <div class="form-group col-md-9">
+            
+                                  <!-- <button type="button" class="btn btn-primary mb-2" (click)="addImpressionComment()">Add</button>
+             -->
+                                    <div  class="addremove-class" *ngFor="let impressioncomment of impressioncomments; let ii = index;">
+            
+                                    <div class="form-row" >
+                                      <div class="form-group col-md-6"   >
+                                        <h4>Comment {{ii + 1}}</h4>
+                                      </div>
+                                      <!-- <div class="form-group col-md-6 text-right"   >
+                                        <button type="button" class="btn btn-danger btn-sm" (click)="removeImpressionComment(ii)">Remove</button>
+                                      </div> -->
+                                    </div>
+            
+                                    <div class="form-row" >
+                                      <div class="form-group col-md-12"   >
+                                        <label>Comment</label>                                   
+                                        <textarea id="impressioncomment" name="impressioncomments_{{impressioncomment.id}}"  class="form-control" placeholder="Comment" 
+                                        required [(ngModel)]="impressioncomment.impressioncomment" #impressioncomment="ngModel"  ></textarea>
+                                     
+                                      </div>
+                                    </div>  
+            
+            
+                                    </div>
+                                  
+            
+                                    <!-- <div class="text-right">
+                                      <input type="submit" class="btn btn-success" value="Submit"/>
+                                    </div> -->
+                                    
+                                 </div>
+                                
+                                </div>
+            
+            
+                              </div>
+                               <!--------------->
+            
+            
+                                <!------- CONCLUSIONS -------->
+                              <div class="impressions-class">
+                                <div class="block-heading-observation">
+                                  <h5>CONCLUSIONS</h5> 
+                                </div>
+                                <div class="form-row impressionsblock"> 
+            
+                                <div class="form-group col-md-3">
+                                  Conclusions 
+            
+                                  <angular2-multiselect [data]="conclusion" 
+                                      [(ngModel)]="selectedItems3" [settings]="settings" 
+                                      name="conclusionsmastervalue" id="conclusionsmastervalue"  
+                                      (onSelect)="onItemSelect($event,'conclusion')"
+                                      (onDeSelect)="OnItemDeSelect($event,'conclusion')" 
+                                      (onSelectAll)="onSelectAll($event,'conclusion')" 
+                                      (onDeSelectAll)="onDeSelectAll($event,'conclusion')"
+                                      >
+                                        <c-badge>
+                                                 <ng-template let-item="item">
+                                                  <label style="margin: 0px;color:#fff;">{{item.itemName}}</label>                               
+                                                 </ng-template>
+                                        </c-badge>  
+                                      </angular2-multiselect>
+                                </div>
+                                 <div class="form-group col-md-9">
+            
+                                  <!-- <button type="button" class="btn btn-primary mb-2" (click)="addConclusionComment()">Add</button>
+             -->
+                                    <div  class="addremove-class" *ngFor="let conclusioncomment of conclusioncomments; let ii = index;">
+            
+                                    <div class="form-row" >
+                                      <div class="form-group col-md-6"   >
+                                        <h4>Comment {{ii + 1}}</h4>
+                                      </div>
+                                      <!-- <div class="form-group col-md-6 text-right"   >
+                                        <button type="button" class="btn btn-danger btn-sm" (click)="removeConclusionComment(ii)">Remove</button>
+                                      </div> -->
+                                    </div>
+            
+                                    <div class="form-row" >
+                                      <div class="form-group col-md-12"   >
+                                        <label>Comment</label>                                   
+                                        <textarea id="conclusioncomment" name="conclusioncomments_{{conclusioncomment.id}}"  class="form-control" placeholder="Comment" 
+                                        required [(ngModel)]="conclusioncomment.conclusioncomment" #conclusioncomment="ngModel"  ></textarea>
+                                     
+                                      </div>
+                                    </div>  
+            
+            
+                                    </div>
+                                  
+            
+                                    <!-- <div class="text-right">
+                                      <input type="submit" class="btn btn-success" value="Submit"/>
+                                    </div> -->
+                                    
+                                 </div>
+                                
+                                </div>
+            
+            
+                              </div>
+                               <!--------------->
+            
+                              <!------- DOCTORS ADVICE -------->
+                              <div class="impressions-class">
+                                <div class="block-heading-observation">
+                                  <h5>DOCTORS ADVICE</h5> 
+                                </div>
+                                <div class="form-row impressionsblock"> 
+            
+                                <div class="form-group col-md-3">
+                                  Doctors Advice 
+            
+                                  <angular2-multiselect [data]="doctorAdvice" 
+                                      [(ngModel)]="selectedItems4" [settings]="settings" 
+                                      name="doctoradvice" id="doctoradvicemastervalue"  
+                                      (onSelect)="onItemSelect($event,'docadvice')" 
+                                      (onDeSelect)="OnItemDeSelect($event,'docadvice')" 
+                                      (onSelectAll)="onSelectAll($event,'docadvice')" 
+                                      (onDeSelectAll)="onDeSelectAll($event,'docadvice')"
+                                      >
+                                        <c-badge>
+                                                 <ng-template let-item="item">
+                                                  <label style="margin: 0px;color:#fff;">{{item.itemName}}</label>                               
+                                                 </ng-template>
+                                        </c-badge>  
+                                      </angular2-multiselect>
+                                </div>
+                                 <div class="form-group col-md-9">
+            
+                                  <!-- <button type="button" class="btn btn-primary mb-2" (click)="addDocAdviceComment()">Add</button>
+             -->
+                                    <div  class="addremove-class" *ngFor="let docadvicecomment of docadvicecomments; let iii = index;">
+            
+                                    <div class="form-row" >
+                                      <div class="form-group col-md-6"   >
+                                        <h4>Comment {{iii + 1}}</h4>
+                                      </div>
+                                      <!-- <div class="form-group col-md-6 text-right"   >
+                                        <button type="button" class="btn btn-danger btn-sm" (click)="removeDocAdviceComment(iii)">Remove</button>
+                                      </div> -->
+                                    </div>
+            
+                                    <div class="form-row" >
+                                      <div class="form-group col-md-12"   >
+                                        <label>Comment</label>                                   
+                                        <textarea id="docadvicecomment" name="docadvicecomments_{{docadvicecomment.id}}"  class="form-control" placeholder="Comment" 
+                                        required [(ngModel)]="docadvicecomment.docadvicecomment" #docadvicecomment="ngModel"  ></textarea>
+                                     
+                                      </div>
+                                    </div>  
+            
+            
+                                    </div>
+                                  
+            <!-- 
+                                    <div class="text-right">
+                                      <input type="submit" class="btn btn-success" value="Submit"/>
+                                    </div> -->
+                                    
+                                 </div>
+                                
+                                </div>
+            
+            
+                              </div>
+                               <!--------------->    
+                              <hr/>
+            
+                              <div>
+            
+                                <div class="form-row">
+                                  <div class="form-group col-md-8">
+                                    <p>
+                                      {{ DoctorData.name }} <br/>
+                                      {{ DoctorData.qualification }} 
+                                    </p>
+                                  </div>
+            
+                                  <!-- <div class="form-group col-md-4 text-right">
+                                    <div class="form-row">
+                                     
+                                      <div class=" form-group col-md-4">
+                                        <input type="submit" class="btn btn-warning" (click)="generatePdf('download')" value="Download Report"/>
+                                      </div>
+                                      <div class=" form-group col-md-1"></div>
+                                    <div class=" form-group col-md-4">
+                                      <input type="submit" class="btn btn-warning" (click)="generatePdf('open')" value="Preview Report"/>
+                                    </div>
+            
+                                    <div class="form-group col-md-3">
+                                      <input type="submit" class="btn btn-success"   (click)="reportFormData()" value="Submit"/>
+                                    </div>
+            
+                                  </div>
+            
+                                  </div> -->
+                                </div>
+                                
+                              </div>
+                             
+                              </div>
+            
+            
+                            </div>
+            
+                        </div>
+                            
+                        </div>        
+            
+            
+            
+                    </form>
+            
+                </div>
+                
+            
+            </div>
+               
+               
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+ <!-- <app-footer></app-footer> -->

@@ -1,0 +1,274 @@
+<!-- <router-outlet></router-outlet> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <p>image-viewer works!</p> -->
+<!-- <app-nav></app-nav> -->
+<!-- <div class="sticky">
+	<div class="nav-mobile">
+        <a id="nav-toggle" href="#!"><span></span></a>
+      </div>
+	<div class="form-row">
+		<div class="form-group col-md-1">
+			
+			
+		</div>
+		<div class="form-group col-md-1"></div>
+		   <br>
+		  <div class="form-group col-md-3">
+			<div> 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Patient Name :</b>
+				{{ this.patientDataObject.patientname | titlecase}}
+			</div>
+		  </div>
+	
+		  <div class="form-group col-md-2">
+			<div> 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Gender :</b>
+				{{ this.patientDataObject.gender | titlecase}}
+			</div>
+		  </div>   
+		  <div class="form-group col-md-3">
+			<div> 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Date Of Birth :</b>
+				{{ this.patientDataObject.dob | date:'dd-MM-yyyy'}} 	
+			</div>
+		  </div>
+		
+	
+		</div> 
+		 <div class="form-row">
+				<div class="form-group col-md-2">
+					
+						<div>
+\						</div>
+					
+				</div>
+		
+				   <br>
+				   <div *ngIf="this.patientDataObject.weight != 'null';else elseBlock" class="form-group col-md-3">
+					<div> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Weight :</b>
+						{{ this.patientDataObject.weight}}kgs
+					</div>
+				  </div>
+				  <ng-template #elseBlock class="form-group col-md-3">
+					<div> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Weight :</b>
+					-
+					</div>
+				  </ng-template>
+				  <div *ngIf="this.patientDataObject.height != 'null';else elseBlock1"class="form-group col-md-2">
+					<div> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Height :</b>
+						{{ this.patientDataObject.height}}cms
+					</div>
+				  </div>   
+				  <ng-template #elseBlock1 class="form-group col-md-2">
+					<div> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Height :</b>
+					  -
+					</div>
+				  </ng-template>   
+				  <div class="form-group col-md-3">
+					<div> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Date Of Uploading :</b>
+						{{ this.patientDataObject.testdate | date:'MM-dd-yyyy'}} 	
+					</div>
+				  </div>
+		
+				 
+			
+				</div> 
+	
+</div> -->
+<div class="navbar sticky navbar-expand-sm">
+	<div class="navbar-brand">
+		<img src="../../assets/images/logo.png" width="70" height="70" alt="Golden Health Logo" style="float:left;"
+			class="mr-3" />
+		Golden Health Services Pvt. Ltd. <br>(ISO 9001:2015 Certified)
+	</div>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarContent">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<div class="form-group">
+					<div>
+						<b>Name :</b>
+						{{ this.patientDataObject.patientname | titlecase}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</div>
+			</li>
+			<li class="nav-item">
+				<div class="form-group">
+					<div>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Gender :</b>
+						{{ this.patientDataObject.gender | titlecase}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</div>
+			</li>
+			<li class="nav-item">
+				<div class="form-group">
+					<div>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Date of Birth :</b>
+						{{ this.patientDataObject.dob | date:'dd-MM-yyyy'}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</div>
+			</li>
+
+		</ul><br>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<div *ngIf="this.patientDataObject.weight != 'null';else elseBlock" class="form-group">
+					<div>
+						<b>Weight :</b>
+						{{ this.patientDataObject.weight}}kgs
+					</div>
+				</div>
+				<ng-template #elseBlock class="form-group">
+					<div>
+						<b>Weight :</b>
+						-
+					</div>
+				</ng-template>
+			</li>
+			<li class="nav-item">
+
+				<div *ngIf="this.patientDataObject.height != 'null';else elseBlock1" class="form-group">
+					<!-- <div>  -->
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Height :</b>
+					{{ this.patientDataObject.height}}cms
+					<!-- </div> -->
+				</div>
+				<ng-template #elseBlock1 class="form-group">
+					<!-- <div>  -->
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Height :</b>
+					-
+					<!-- </div> -->
+				</ng-template>
+			</li>
+			<li class="nav-item">
+				<div class="form-group">
+					<div>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Uploading Date:</b>
+						{{ this.patientDataObject.testdate | date:'MM-dd-yyyy'}}
+					</div>
+				</div>
+			</li>
+
+		</ul>
+		<!-- <li class="logout" *ngIf="isLogin"><a routerLink="" (click)="logout()">Log Out</a></li> -->
+
+	</div>
+	<div class="navbar-brand">
+		<li class="gallary" (click)="goToImageViewer()">Gallary</li>
+
+	</div>
+</div>
+<div class="row">
+
+	<div id="viewport">
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<header>
+				<a href="#">Viewer</a>
+			</header>
+			<form name="form1" id="form1" #form1="ngForm" [formGroup]="add" enctype="multipart/form-data">
+
+				<div class="col-md-12">
+					<div *ngFor="let img of localImg; let i = index; ">
+						<div *ngIf="img.type.mime === 'video/webm' || 'image' ">
+							<a class="thumbnail" (click)="isValid = true" *ngIf="img.type.mime === 'video/webm'"
+								href="javascript:void(0)" (click)="onClick(img)">
+								<video style="width:100%">
+									<source [src]="img.src" type="video/webm">
+									Your browser does not support the video tag.
+								</video>
+								<div class="top-left" style="
+						font-size: 100%;">{{[i+1]}}/{{length}}</div>
+								<div class="top-right"> <i class="fa fa-video-camera"
+										style="font-size:100%;color:red"></i></div>
+								<!-- <div  > <i class="fa fa-edit" style="font-size:20px;color:red" (click)="clickme(add.value)" (click)="onEdit(img)"></i></div> -->
+								<!-- <div  > <button class="fa fa-edit" style="font-size:20px;color:red" (click)="takeSnapshot()"  ></button></div> -->
+
+							</a>
+							<a class="thumbnail" (click)="isValid = true" (click)="referral = false"
+								*ngIf="img.type == 'image'" href="javascript:void(0)" (click)="onClick(img)">
+								<div>
+									<img [src]='img.src' style="width:100%" alt="Hills">
+									<div class="top-left" style="
+						font-size: 100%;">{{[i+1]}}/{{length}}</div>
+									<div class="top-right"> <i class="fa fa-camera"
+											style="font-size:100%;color:red"></i></div>
+									<!-- <div  > <i class="fa fa-edit" style="font-size:20px;color:red" (click)="onEdit(img)"></i></div> -->
+								</div>
+							</a>
+						</div>
+					</div>
+					<a class="thumbnail" (click)="isValid = true" (click)="referral = false" href="javascript:void(0)"
+						(click)="onEdit1()">
+						<div>
+							<img src='../../assets/images/heart-referral.jpg' style="width:100%" alt="Hills">
+							<!-- <div class="top-left" >{{[i+1]}}/{{length}}</div> -->
+							<div class="top-right"> <i class="fa fa-camera" style="font-size:100%;color:red"></i></div>
+
+						</div>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- <header>  -->
+	<!-- <div class="col"></div> -->
+
+	<!-- </header> -->
+
+
+	<div *ngIf="imgType === 'image' " class='center'>
+		<img isValid src="{{imageSrc}}" id="imagepreview" style="width:70%;" />
+		<span>
+			<br>
+			<button class="btn btn-success" (click)="isValid = false" (click)="onEdit(imageSrc)" type="button"
+				value="EDIT">EDIT</button>
+		</span>
+	</div>
+	<!-- <div *ngIf="url != 'null'"> -->
+
+	<!-- </div> -->
+
+	<div *ngIf="vidType === 'video/webm' && vidType != undefined && referral == true && isValid == true" class='center'>
+		<!-- <div >{{vidsrc}} -->
+		<video #videoElement style="width:70%" crossorigin controls [src]="vidsrc">
+			<!-- <source isValid  type="video/webm" /> -->
+			Browser not supported
+		</video>
+		<!-- <div  ><button class="d-table-cell tar" class="fa fa-edit" style="font-size:20px;color:red" (click)="takeSnapshot()"  ></button></div> -->
+		<span>
+			<button class="btn btn-success" (click)="takeSnapshot(vidsrc)" type="button" value="EDIT">EDIT</button>
+
+			<!-- <input class="form-group"  (click)="takeSnapshot(vidsrc)" type="button" value="EDIT"/> -->
+		</span>
+		<!-- </div> -->
+	</div>
+	<a style="width: 100%;" *ngIf="!isValid">
+		<iframe class="iframe-style" [src]="url"></iframe>
+	</a>
+	<!-- </div> -->
+	<!-- <button class="btn btn-info downloadBtn" (click)="takeSnapshot()" *ngIf="videoLoaded">Download Snapshot</button> -->
+</div>
+
+<!-- <div class="row"> -->
+<!-- <div>
+		<div class="editor"> -->
+<!-- <iframe class="iframe-style" [src]="url"></iframe> -->
+<!-- </div>
+	</div> -->
+<!-- </div> -->
+
+<div id="overlay">
+	<div class="loader"></div>
+
+</div>

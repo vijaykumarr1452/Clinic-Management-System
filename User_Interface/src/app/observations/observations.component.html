@@ -1,0 +1,245 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+<div id="wrapper">       
+	<!-- <app-sidenav></app-sidenav> 	 -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <!-- <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button> -->
+            <div  class="col-md-12 fright" >			
+        <div >
+      <form  name="observationsForm"   #observationsForm="ngForm" >
+        <br>
+          <h2 class="text-center">WORKSHEET OF THE PATIENT</h2> 
+          <div class="c">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <div> 
+                <label>Name of The Patient :</label>
+                {{ this.patientDataObject.patientname | titlecase}}
+              </div>
+            </div>
+
+            <div class="form-group col-md-4">
+              <div> 
+                <label>Gender :</label>
+                {{ this.patientDataObject.gender }}
+              </div>
+            </div>
+
+            <div class="form-group col-md-4">
+              <div> 
+                <label>Date Of Birth :</label>
+                {{ this.patientDataObject.testdate | date:'MM-dd-yyyy' }}
+              </div>
+            </div>
+
+          </div>    
+          
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <div> 
+                <label>Referred By :</label>
+                
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <div> 
+                <label>Clinic Observations :</label>
+               
+              </div>
+            </div>
+
+          </div>    
+
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <div> 
+                <label>BMI :</label>
+                {{ patientDataObject?.bmi }}
+              </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <div> 
+                <label>BSA :</label>
+                {{ patientDataObject?.bsa }}
+              </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <div> 
+                <label>Height :</label>
+                {{ patientDataObject?.height }} cms
+              </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <div> 
+                <label>Weight :</label>
+                {{ patientDataObject?.weight }} kgs
+              </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <div> 
+                <label>BP :</label>
+               {{ patientDataObject?.bpsystolic }}/{{ patientDataObject?.bpdiastolic }}  mmHg 
+              </div>
+            </div>
+
+          </div>    
+</div>
+          <hr/>
+
+          <!------------------------------------------------------------------>
+
+          <div class="tabs">
+            <input type="radio" name="tabs" id="tabone" checked="checked">
+            <label for="tabone">LV Motion Diagram</label>
+            <div class="tab" style="min-height: 300px;"> 
+              <app-lvmotion></app-lvmotion>
+             
+            
+            </div>
+            
+            <input type="radio" name="tabs" id="tabtwo" queryParamsHandling="preserve" (click)="getAddPage('leftVentricalObservation')" >
+            <label for="tabtwo">LV</label>
+            <div class="tab" *ngIf="isDataLoadedInLV" >              
+              <app-master-lv></app-master-lv> 
+
+            </div>
+            
+            <input type="radio" name="tabs" id="tabthree"  queryParamsHandling="preserve" (click)="getAddPage('rightVentricleObservation')">
+            <label for="tabthree">RV</label>
+            <div class="tab" *ngIf="isDataLoadedInRV">
+              <app-master-rv></app-master-rv>
+            </div>
+
+            <input type="radio" name="tabs" id="tabfour" queryParamsHandling="preserve" (click)="getAddPage('leftAtriumObservation')">
+            <label for="tabfour">LA</label>
+            <div class="tab" *ngIf="isDataLoadedInLA">
+              <app-master-la></app-master-la>
+            </div>
+
+            <input type="radio" name="tabs" id="tabfive" queryParamsHandling="preserve" (click)="getAddPage('rightAtriumObservation')">
+            <label for="tabfive">RA</label>
+            <div class="tab" *ngIf="isDataLoadedInRA">
+              <app-master-ra></app-master-ra>
+            </div>
+
+            <input type="radio" name="tabs" id="tabsix" queryParamsHandling="preserve" (click)="getAddPage('mitralValveObservation')" >
+            <label for="tabsix">MV</label>
+            <div class="tab" *ngIf="isDataLoadedInMV">
+              <app-master-mv></app-master-mv>
+            </div>
+
+
+            <input type="radio" name="tabs" id="tabseven" queryParamsHandling="preserve"  (click)="getAddPage('tricuspidValveObservation')">
+            <label for="tabseven">TV</label>
+            <div class="tab" *ngIf="isDataLoadedInTV">
+              <app-master-tv></app-master-tv>
+            </div>
+
+
+            <input type="radio" name="tabs" id="tabnine" queryParamsHandling="preserve"  (click)="getAddPage('pulmonicValveObservation')">
+            <label for="tabnine">PV</label>
+            <div class="tab" *ngIf="isDataLoadedInPV">
+              <app-master-pv></app-master-pv>
+            </div>
+
+            <input type="radio" name="tabs" id="tablesixteen" queryParamsHandling="preserve"  (click)="getAddPage('aorticValveObservation')">
+            <label for="tablesixteen">AV</label>
+            <div class="tab" *ngIf="isDataLoadedInAORTICVALVE">
+              <app-master-aortic-valve></app-master-aortic-valve>
+            </div>
+            <input type="radio" name="tabs" id="tabeight" queryParamsHandling="preserve"  (click)="getAddPage('pulmonaryArteryObservation')">
+            <label for="tabeight">PA</label>
+            <div class="tab" *ngIf="isDataLoadedInPA">
+              <app-master-pa></app-master-pa>
+            </div>
+            <input type="radio" name="tabs" id="tabeleven" queryParamsHandling="preserve"  (click)="getAddPage('pericardiumObservation')">
+            <label for="tabeleven">PC</label>
+            <div class="tab" *ngIf="isDataLoadedInPC">
+              <app-master-pc></app-master-pc>
+            </div>
+
+
+            <input type="radio" name="tabs" id="tabten" queryParamsHandling="preserve"  (click)="getAddPage('aortaObservation')">
+            <label for="tabten">Aorta</label>
+            <div class="tab" *ngIf="isDataLoadedInAORTA">
+              <app-master-aorta></app-master-aorta>
+            </div>
+
+           
+
+            <input type="radio" name="tabs" id="tableseventeen" queryParamsHandling="preserve"  (click)="getAddPage('ivcObservation')">
+            <label for="tableseventeen">IVC</label>
+            <div class="tab" *ngIf="isDataLoadedInIVC">
+              <app-ivc></app-ivc>
+            </div> <input type="radio" name="tabs" id="tableeightteen" queryParamsHandling="preserve"  (click)="getAddPage('venousObservation')">
+            <label for="tableeightteen">Venous</label>
+            <div class="tab" *ngIf="isDataLoadedInVENOUS">
+              <app-venous></app-venous>
+            </div>
+            <input type="radio" name="tabs" id="tabtwelve" queryParamsHandling="preserve"  (click)="getAddPage('report')">
+            <label for="tabtwelve" (click)="click()"> Reports</label>
+            <!--  *ngIf="isDataLoadedInREPORT" --> 
+            <div class="tab" >
+              <app-report></app-report>
+            </div>
+
+
+            <input type="radio" name="tabs" id="tabsixteen" queryParamsHandling="preserve"  (click)="getAddPage('referralImage')">
+            <label for="tabsixteen">Referral Image</label>
+            <div class="tab" *ngIf="isDataLoadedInRI">              
+              <app-referral-image></app-referral-image>
+            </div>
+            <input type="radio" name="tabs" id="tabthirteen" queryParamsHandling="preserve"  (click)="getAddPage('supplimentaryreport')">
+            <label for="tabthirteen">Supplementary Reports</label>
+            <div class="tab" style="min-height: 300px;">
+              <app-supplementory-report></app-supplementory-report>
+            </div>
+            
+
+            <input type="radio" name="tabs" id="tabfourteen" queryParamsHandling="preserve"  (click)="getAddPage('measurements')">
+            <label for="tabfourteen">Measurements</label>
+            <div class="tab" *ngIf="isDataLoadedInME">              
+              <app-measurements></app-measurements>
+            </div>
+            <input type="radio" name="tabs" id="tabfifteen" queryParamsHandling="preserve"  (click)="getAddPage('critical')">
+            <label for="tabfifteen">Critical Images</label>
+            <div class="tab" *ngIf="isDataLoadedInCritical">              
+              <app-critical-images></app-critical-images>
+            </div>
+            <input type="radio" name="tabs" id="tabseventeen" queryParamsHandling="preserve"  (click)="getAddPage('expert')">
+            <label for="tabseventeen">Experts Opinion</label>
+            <div class="tab" *ngIf="isDataLoadedInExpert">              
+              <app-experts-opinion></app-experts-opinion>
+            </div>
+            <input type="radio" name="tabs" id="tabsimpression" queryParamsHandling="preserve"  (click)="getAddPage('impression')">
+            <label for="tabsimpression">Impression</label>
+            <div class="tab" *ngIf="isDataLoadedImpression">              
+              <app-impression></app-impression>
+            </div>
+          </div>
+
+
+          <!------------------------------------------------------------------>
+
+
+      </form> 
+     
+      </div>
+			
+	
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->

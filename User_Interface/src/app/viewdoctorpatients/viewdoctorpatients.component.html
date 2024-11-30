@@ -1,0 +1,141 @@
+<form name="updatedocpatientForm"  #updatedocpatientForm="ngForm"  >
+      
+  <div class="row">
+    <!-- <div class="col-md-7  "> <h1 class="heading">My Patients List </h1> </div> -->
+    <!-- <div class="col-md-2 searchsty"> -->
+    <div class="col-md-6  searchsty" >
+     <h3 class="heading">Search</h3> <input type="text" [(ngModel)]="searchString"  [ngModelOptions]="{standalone: true}" 
+                class="form-control" placeholder="Search......"   [(ngModel)]="filter" />
+       <!-- <button (click)="getResultData()">GetSearchResults</button>   -->
+    </div>
+    <!-- <div class="col-md-2 searchsty">
+      <button type="submit" class="btn btn-warning  " (click)="getResultData()"  >Get Search Results</button>
+    </div> -->
+    </div>
+ 
+    <div class="wrapper">
+<table class="table">
+<thead>
+  
+  <tr>
+    <th scope="col" class="sticky-col first-col" (click)="sort('id')" >Patient Id&nbsp;<i class="fa fa-sort"></i></th>
+    <th scope="col" class="sticky-col second-col">Patient Name</th>
+    <th scope="col" class="sticky-col third-col">Reports</th>
+    <th scope="col"(click)="sort('dob')">Date of birth&nbsp;<i class="fa fa-sort"></i></th>
+
+    <th scope="col" (click)="sort('age')">Age&nbsp;<i class="fa fa-sort"></i></th>
+    <th scope="col" >Worksheet</th>
+    <th scope="col"> Dicom Viewer</th>
+    <th scope="col">Prescription</th> 
+    <th scope="col">Date of report </th>
+    <th scope="col" >Requirement</th>
+    <!-- <th scope="col">Report <i class="fa fa-arrow-circle-up"></i> </th>
+    <th scope="col">Report <i class="fa fa-check" aria-hidden="true"></i></th> -->
+    
+    <th scope="col">Height</th>
+    <th scope="col">Weight</th>
+    <th scope="col">BSA</th>
+    <th scope="col">BMI</th>
+    <th scope="col" (click)="sort('gender')">Gender&nbsp;<i class="fa fa-sort"></i></th>
+
+    <!-- <th scope="col"(click)="sort('dob')">Date of birth&nbsp;<i class="fa fa-sort"></i></th> -->
+    <th scope="col">Clinic ID</th>
+    <!-- <th scope="col">Echo ID</th> -->
+    <!-- <th scope="col">Case ID</th> -->
+    <th scope="col">Window</th>
+    <th scope="col">Protocol</th>
+    <th scope="col">Test Type</th>
+    <th scope="col">Uploading Date</th>
+    <!-- <th scope="col">Report Date</th> -->
+    <!-- <th scope="col">BMI Type</th>     -->
+    <th scope="col">Supplementory Report Date</th>
+    <th scope="col">Status</th>
+    <!-- <th scope="col">Remark</th> -->
+    <!-- <th scope="col">MobileNumber</th> -->
+    <!-- <th scope="col">View</th>-->
+
+  </tr>
+</thead>
+<tbody>
+   
+  <tr *ngIf="!AllDoctorPatientsList || AllDoctorPatientsList.length === 0">
+    <td colspan="9"> <h4 class="norecords"> No Records Found </h4> </td>
+  </tr>
+
+  <tr *ngFor="let alllist of AllDoctorPatientsList |filter:filter  | paginate: { itemsPerPage: 5, currentPage: p };index as i " >
+    <td scope="row" class="sticky-col first-col" >P {{alllist.id}}  </td>
+    <td scope="row" class="sticky-col second-col">{{ alllist.patientname | titlecase }}</td>
+    <td scope="row" class="sticky-col third-col"> 
+      <span class="bell">
+        <!-- <img  src="assets/images/mail.png"  name="Reports" class="img-responsive1"   > -->
+        <!-- <span class="bellnumbers">{{ alllist.length }}</span> -->
+
+        <a *ngIf="alllist.totalCount > 0 ;else other_content"  (click)="goToViewObservations(alllist)" style="cursor: pointer;" ><img  src="assets/images/mail.png"  name="Reports" class="img-responsive1"   ></a>
+        <!-- <span class="bellnumbers">{{ alllist.length }}</span>  routerLink="/report-preview/{{alllist.id}}"  -->
+        <ng-template #other_content>
+          <a><img  src="assets/images/mail.png"  name="Reports" class="img-responsive1"   ></a>
+        </ng-template>
+
+        <span *ngIf="alllist.totalCount > 0" class="bellnumbers">1</span>
+
+      </span>
+    </td> 
+    <td scope="row">{{ alllist.dob | date:'dd-MM-yyyy'}}</td>
+    <td scope="row" >{{ alllist.age}}</td>
+    <td ><img  src="assets/images/work.png"  height="50" width="50" (click)="goToViewObservations(alllist)"  ></td>
+    <td scope="row"  ><button class="form-control" (click)="goToImageViewer(alllist)">Dicom Viewer</button></td>
+    <td><button class="form-control" (click)="goToViewPatientDetailsPrescription(alllist)"  >Prescription</button></td>
+
+    <td scope="row"> {{ alllist.testdate | date:'MM-dd-yyyy'}} </td>
+
+    <td scope="row" >
+      <div class="loopindiv reqbg1" *ngIf="alllist.requirement === 'Very Urgent'">
+        <p>{{ alllist.requirement }}</p></div>
+        <div class="loopindiv reqbg2" *ngIf="alllist.requirement === 'With in a Day'">
+          <p>{{ alllist.requirement }}</p></div>  
+
+          <div class="loopindiv reqbg3" *ngIf="alllist.requirement === 'Routine'">
+            <p>{{ alllist.requirement }}</p></div>   
+    </td>
+    <!-- <td scope="row"> {{ alllist.reportdate}} </td>
+    <td scope="row"> {{ alllist.reportnew}} </td> -->
+  
+    <td scope="row" >{{ alllist.height}}</td>
+    <td scope="row">{{ alllist.weight}}</td>
+    <td scope="row"> {{ alllist.bsa}} </td>
+    <td scope="row"> {{ alllist.bmi}} </td>  
+    <td scope="row" >{{ alllist.gender}}</td>
+
+    <!-- <td scope="row"> {{ alllist.echoid}} </td> -->
+    <td scope="row"> C {{ alllist.clinicId }} </td>
+    <!-- <td scope="row"> {{ alllist.caseId}} </td> -->
+    <td scope="row"> {{ alllist.ew}} </td>
+    <td scope="row"> {{ alllist.protocol}} </td>
+    <td scope="row"> {{ alllist.testtype }} </td>
+      
+    <!-- <td scope="row"> {{ alllist.bmitype}} </td> -->
+    
+    <td scope="row"> {{ alllist.reportdate| date:'dd-MM-yyyy'}} </td>
+    <!-- <td scope="row"> {{ alllist.testdate | date:'dd-MM-yyyy'}} </td> -->
+    <td scope="row"> {{ alllist.supplimentarytdate | date:'dd-MM-yyyy'}} </td>
+        <td scope="row"> {{ alllist.status | titlecase }} </td>
+    <!-- <td scope="row"> {{ alllist.reason}} </td> -->
+    <!-- <td scope="row">{{ alllist.mobileno }}</td> -->
+    <!-- <td><button type="submit" class="btn btn-primary  btn-block" (click)="goToViewPatientDetails(alllist)"  >View</button></td>-->
+  </tr>
+</tbody>
+
+</table>
+
+</div>
+
+<ul class="pagination">  
+  <pagination-controls (pageChange)="p = $event" ></pagination-controls>  
+  </ul> 
+
+</form>
+
+<!-- /#page-content-wrapper -->
+
+<!-- <app-footer></app-footer> -->
+

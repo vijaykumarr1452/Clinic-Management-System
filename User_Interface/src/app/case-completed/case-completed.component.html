@@ -1,0 +1,147 @@
+
+<form name="updatedocpatientForm"  #updatedocpatientForm="ngForm"  >
+ 
+    <div class="row">
+      <div class="col-md-6  "> <input type="text" [(ngModel)]="searchString"  [ngModelOptions]="{standalone: true}" 
+        class="form-control" placeholder="Search ......"   [(ngModel)]="filter" /></div>
+      <div class="col-md-2  searchsty">
+        <b>Pending Cases : {{pending}}</b>
+      </div>
+      <div class="col-md-2 searchsty">
+       <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+       
+      </div>
+      </div>
+   
+      <div class="wrapper">
+<table class="table">
+  <thead>
+    
+    <tr>
+      <th scope="col" class="sticky-col first-col " (click)="sort('id')">Code&nbsp;<i class="fa fa-sort"></i></th>
+      <th scope="col" class="sticky-col second-col" >Patient Name</th>
+      <th scope="col" class="sticky-col third-col">Requirement</th>
+      <th scope="col" class="sticky-col fourth-col" >Reports</th>
+      <!-- <th scope="col" class="sticky-col fifth-col"> Report Box</th> -->
+      <th scope="col" class="sticky-col sixth-col">Date of Uploading</th>
+      <th scope="col" (click)="sort('gender')">Gender&nbsp;<i class="fa fa-sort"></i></th>
+      <th scope="col">Age</th>
+      <th scope="col">Height</th>
+      <th scope="col">Weight</th>
+      <th scope="col">BSA</th>
+      <th scope="col">BMI</th>
+      <!-- <th scope="col">BMI Type</th> -->
+      
+      <th scope="col" (click)="sort('dob')">DOB&nbsp;<i class="fa fa-sort"></i></th>
+      <th scope="col">Clinic ID</th>
+      <!-- <th scope="col">Case ID</th> -->
+      <th scope="col">Window</th>
+      <th scope="col">Protocol</th>
+      <th scope="col">Test Type</th>
+      <!-- <th scope="col">Date of Uploading</th> -->
+      <th scope="col">Supplementory Report Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Examination Doctor</th>
+      <th scope="col">Printing Report Date</th>
+     
+     
+      
+      
+      
+      <!-- <th scope="col">Report <i class="fa fa-check" aria-hidden="true"></i></th>
+      <th scope="col">Report <i class="fa fa-arrow-circle-up"></i> </th>
+      <th scope="col">Supp. Report <i class="fa fa-arrow-circle-up"></i></th>
+      
+      <th scope="col">Remark</th>
+      <th scope="col">MobileNumber</th> -->
+      <th scope="col">Date of Closure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="!AllClinicPatientsList || AllClinicPatientsList.length === 0" >
+      <td colspan="9"> <h4 class="norecords"> No Records Found </h4> </td>
+    </tr>
+     
+    <tr *ngFor="let alllist of AllClinicPatientsList |filter:filter | paginate: {id:'completed', itemsPerPage: 5, currentPage: p };index as i " >
+      <td scope="row" class="sticky-col first-col ">P {{alllist.id}}</td>
+      <td scope="row" class="sticky-col second-col">{{ alllist.patientname | titlecase }}</td>
+
+      <td scope="row" class="sticky-col third-col">
+        <div class="loopindiv reqbg1" *ngIf="alllist.requirement === 'Very Urgent'">
+          <p>{{ alllist.requirement }}</p></div>
+
+          <div class="loopindiv reqbg2" *ngIf="alllist.requirement === 'With in a Day'">
+            <p>{{ alllist.requirement }}</p></div>  
+
+            <div class="loopindiv reqbg3" *ngIf="alllist.requirement === 'Routine'">
+              <p>{{ alllist.requirement }}</p></div>   
+      </td>
+    <td scope="row" class="sticky-col fourth-col"> 
+        <span class="bell">
+          <a *ngIf="alllist.reportdate != null ;else other_content"  (click)="goToViewObservations(alllist); " style="cursor: pointer;" ><img  src="assets/images/mail.png"  name="Reports" class="img-responsive1"   ></a>
+           <ng-template #other_content>
+            <a><img  src="assets/images/mail.png"  name="Reports" class="img-responsive1"   ></a>
+          </ng-template>
+
+          <span *ngIf="alllist.reportdate != null" class="bellnumbers">1</span>
+
+        </span>  
+      </td>
+      <!-- <td scope="row" class="sticky-col fifth-col"></td> -->
+      <td scope="row" class="sticky-col sixth-col">{{alllist.testdate | date:'MM-dd-yyyy'}}</td> 
+      <td scope="row" >{{ alllist.gender}}</td>
+      <td scope="row" >{{ alllist.age}}</td> 
+      <td scope="row">{{ alllist.height}}</td>
+      <td scope="row">{{ alllist.weight}}</td>
+      <td scope="row"> {{ alllist.bsa}} </td>
+      <td scope="row"> {{ alllist.bmi}} </td>
+      <!-- <td scope="row"> {{ alllist.bmitype}} </td> -->
+      <td scope="row">{{ alllist.dob | date:'dd-MM-yyyy'}}</td>
+      <td scope="row"> C {{ alllist.clinicId }} </td>
+      <!-- <td scope="row"> {{ alllist.caseId}} </td> -->
+      <td scope="row"> {{ alllist.ew}} </td>
+      <td scope="row"> {{ alllist.protocol}} </td>
+
+      <td scope="row"> {{ alllist.testtype}} </td>
+      <!-- <td scope="row"> {{ alllist.testdate | date:'dd-MM-yyyy'}} </td> -->
+      <td scope="row"> {{ alllist.supplimentarytdate | date:'dd-MM-yyyy'}} </td>
+      <td scope="row"> {{ alllist.status | titlecase }} </td>
+      <td scope="row"> 
+        <!-- <select class="custom-select"   [(ngModel)]="AllClinicPatientsList[i].docId"  [ngModelOptions]="{standalone: true}" style="width: 150px;" >
+          <option  [value]="item.id"  *ngFor="let item of AllClinicPatientsList[i].doctorList"  >
+                {{ item.name }}
+            </option>
+      </select> -->
+      {{alllist.doctorName}}
+      </td>
+      <td scope="row"> {{ alllist.reportdate | date:'dd-MM-yyyy'}} </td>
+
+      <td scope="row">  </td>
+      
+      
+     
+ 
+      <!-- <td scope="row"> {{ alllist.reportnew}} </td>
+      <td scope="row"> {{ alllist.reason}} </td>
+      <td scope="row">{{ alllist.mobileno }}</td>
+     <td><button type="submit" class="btn btn-primary  btn-block" (click)="goToUpdatePatientDoc(alllist)"  style="width: 110px;"  >Close Case</button></td>
+   -->
+    </tr>
+  </tbody>
+
+  
+  
+</table>
+
+</div>
+
+<ul class="pagination">  
+  <pagination-controls maxSize='5' id='completed' (pageChange)="p = $event" ></pagination-controls>  
+  </ul> 
+
+</form>
+
+<!-- /#page-content-wrapper -->
+
+<!-- <app-footer></app-footer> -->
+

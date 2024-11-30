@@ -1,0 +1,151 @@
+
+<form name="updatedocpatientForm"  #updatedocpatientForm="ngForm"  >
+ 
+    <!-- <div class="row">
+      <div class="col-md-6  "> <input type="text" [(ngModel)]="searchString"  [ngModelOptions]="{standalone: true}" 
+        class="form-control" placeholder="Search ......"   [(ngModel)]="filter" /></div>
+      <div class="col-md-2  searchsty">
+        <b>Pending Cases : {{pending}}</b>
+      </div>
+      <div class="col-md-2 searchsty">
+       <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+       
+      <!-- </div>
+      </div> --> 
+   
+      <div class="wrapper">
+<table class="table">
+  <thead>
+    
+    <tr>
+      <th scope="col"  >Code</th>
+      <!-- <th scope="col" class="sticky-col second-col">Requirement</th> -->
+      <!-- <th scope="col" class="sticky-col third-col" >Reports</th> -->
+      <th scope="col">Patient Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Age</th>
+      <th scope="col">Status</th>
+      <th scope="col">Date of Printing Report</th>
+      <th scope="col"  >Reports</th>
+
+      <!-- <th scope="col">Height</th>
+      <th scope="col">Weight</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Clinic ID</th>
+      <th scope="col">Echo ID</th>
+      <th scope="col">Case ID</th>
+      <th scope="col">E.W</th>
+      <th scope="col">Protocol</th>
+      <th scope="col">Test Type</th>
+      <th scope="col">Test Date</th>
+      <th scope="col">BSA</th>
+      <th scope="col">BMI</th>
+      <th scope="col">BMI Type</th>
+      <th scope="col">Doctor</th>
+      <th scope="col">Report <i class="fa fa-check" aria-hidden="true"></i></th>
+      <th scope="col">Report <i class="fa fa-arrow-circle-up"></i> </th>
+      <th scope="col">Supp. Report <i class="fa fa-arrow-circle-up"></i></th>
+      <th scope="col">Status</th>
+      <th scope="col">Remark</th>
+      <th scope="col">MobileNumber</th>-->
+      <th scope="col">Action</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="!allPatients1 || allPatients1.length === 0">
+      <td colspan="9"> <h4 class="norecords"> No Records Found </h4> </td>
+    </tr>
+     
+    <tr *ngFor="let alllist of allPatients1  | paginate: { itemsPerPage: 5, currentPage: p }" >
+      <td scope="row" >PATIENT {{alllist.id}}</td>
+      <!-- <td scope="row" class="sticky-col second-col">
+        <div class="loopindiv reqbg1" *ngIf="alllist.requirement === 'Very Urgent'">
+          <p>{{ alllist.requirement }}</p></div>
+
+          <div class="loopindiv reqbg2" *ngIf="alllist.requirement === 'With in a Day'">
+            <p>{{ alllist.requirement }}</p></div>  
+
+            <div class="loopindiv reqbg3" *ngIf="alllist.requirement === 'Routine'">
+              <p>{{ alllist.requirement }}</p></div>   
+      </td> -->
+    <!-- <td scope="row" class="sticky-col third-col"> 
+        <span class="bell">
+          <a *ngIf="alllist.totalCount > 0 ;else other_content"  (click)="goToViewObservations(alllist); " style="cursor: pointer;" ><img  src="assets/images/mail.png"  name="Reports" class="img-responsive1"   ></a>
+           <ng-template #other_content>
+            <a><img  src="assets/images/mail.png"  name="Reports" class="img-responsive1"   ></a>
+          </ng-template>
+
+          <span *ngIf="alllist.totalCount > 0" class="bellnumbers">1</span>
+
+        </span>  
+      </td> -->
+      <td scope="row" >{{ alllist.patientname | titlecase }}</td>
+      <td scope="row" >{{ alllist.gender}}</td>
+      <td scope="row" >{{ alllist.age}}</td> 
+      <td scope="row" >{{ alllist.status | titlecase}}</td> 
+      <td scope="row" >{{ alllist.reportdate| date:'dd-MM-yyyy'}}</td> 
+      <td scope="row" > 
+        <span class="bell">
+          <a *ngIf="alllist.reportdate != null ;else other_content"  (click)="goToViewObservations(alllist); " style="cursor: pointer;" >YES</a>
+           <ng-template #other_content>
+            <a>NO</a>
+          </ng-template>
+
+          <!-- <span *ngIf="alllist.totalCount > 0" class="bellnumbers">1</span> -->
+
+        </span>  
+      </td>
+      <!-- <td scope="row">{{ alllist.height}}</td>
+      <td scope="row">{{ alllist.weight}}</td>
+      <td scope="row">{{ alllist.dob}}</td>
+      <td scope="row"> CLINIC {{ alllist.clinicId }} </td>
+      <td scope="row"> {{ alllist.echoid}} </td>
+      <td scope="row"> {{ alllist.caseId}} </td>
+      <td scope="row"> {{ alllist.ew}} </td>
+      <td scope="row"> {{ alllist.protocol}} </td>
+      <td scope="row"> {{ alllist.testtype}} </td>
+      <td scope="row"> {{ alllist.testdate | date:'dd-MM-yyyy'}} </td>
+      <td scope="row"> {{ alllist.bsa}} </td>
+      <td scope="row"> {{ alllist.bmi}} </td>
+      <td scope="row"> {{ alllist.bmitype}} </td>
+      <td scope="row"> 
+        <select class="custom-select"   [(ngModel)]="AllClinicPatientsList[i].docId"  [ngModelOptions]="{standalone: true}" style="width: 150px;" >
+          <option  [value]="item.id"  *ngFor="let item of AllClinicPatientsList[i].doctorList"  >
+                {{ item.name }}
+            </option>
+      </select>
+      </td>
+      <td scope="row"> {{ alllist.reportnew}} </td>
+      <td scope="row"> {{ alllist.reportdate}} </td>
+      <td scope="row"> {{ alllist.supplimentarytdate}} </td>
+      <td scope="row"> {{ alllist.status | titlecase }} </td>
+      <td scope="row"> {{ alllist.reason}} </td>
+      <td scope="row">{{ alllist.mobileno }}</td>-->
+     <td><button type="submit" class="btn btn-primary  btn-block" (click)="goToUpdatePatientDoc(alllist)"  style="width: 110px;"  >Open Case</button></td>
+  
+    </tr>
+  </tbody>
+
+  
+  
+</table>
+
+</div>
+
+<ul class="pagination1">  
+  <pagination-controls maxSize="5" (pageChange)="p = $event" ></pagination-controls>  
+  </ul> 
+  <!-- <ul class="pagination">
+    <li class="page-item"><a (click)="prevIndex(allPatients1.length)" class="page-link" href="#">Previous</a></li>
+    <li class="page-item" *ngFor="let i of getArrayLenght(allPatients1.length) let n = index">
+      <a class="page-link"  (click)="getIndex(n)" >{{n+1}}</a>
+      </li>
+    <li class="page-item"><a class="page-link" (click)="nextIndex(allPatients1.length)" href="#">Next</a></li>
+  </ul> -->
+  <!-- <ngb-pagination [pageSize] = "5" [collectionSize]="100" [(page)]="page" aria-label="Default pagination"></ngb-pagination> -->
+</form>
+
+<!-- /#page-content-wrapper -->
+
+<!-- <app-footer></app-footer> -->
+

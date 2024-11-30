@@ -1,0 +1,486 @@
+<div class="bg">
+  <section class="navigation">
+    <div class="nav-container">
+      <div _ngcontent-caj-c81=""
+        class="row border border-top-0 border-left-0 border-right-0 border-danger border-width-medium"
+        style="border-width: 4px !important;">
+        <div class="col-md-4">
+          <nav _ngcontent-caj-c81="" class="col navbar navbar-expand-lg navbar-dark"><a _ngcontent-caj-c81=""
+              href="index.html" class="navbar-brand"><img _ngcontent-caj-c81="" src="../../assets/images/GH-05.png"
+                width="100" height="100" alt="Golden Health Logo" class="mr-3" style="float: left;"> Golden Health
+              Services Pvt. Ltd. <br _ngcontent-caj-c81="">(ISO 9001:2015 Certified) </a></nav>
+        </div>
+        <div class="col-md-4">
+          <nav _ngcontent-caj-c81="" class="col navbar navbar-expand-lg navbar-dark justify-content-center"><a
+              _ngcontent-caj-c81=""><img _ngcontent-caj-c81="" src="../../assets/images/ISO_logo.jpg" width="65"
+                height="65" alt="" class="mr-5"></a><a _ngcontent-caj-c81="" href="#"
+              class="navbar-brand border border-light p-2" style="border-width: 3px !important;"><span
+                _ngcontent-caj-c81="" style="vertical-align: super;">My</span><img _ngcontent-caj-c81=""
+                src="../../assets/images/640px-CG_Heart.gif" width="65" height="50" alt="Golden Health Logo"><span
+                _ngcontent-caj-c81="" style="vertical-align: sub;">Echo</span></a></nav>
+        </div>
+        <div class="col-md-4">
+          <nav _ngcontent-caj-c81="" class="col navbar navbar-dark"><a _ngcontent-caj-c81="" href="#"
+              class="navbar-brand ml-auto"> Dr. Digamber Naik <img _ngcontent-caj-c81=""
+                src="../../assets/images/picture.jpg" width="100" height="100" alt="Dr name"
+                class="rounded-circle doctor"></a></nav>
+        </div>
+      </div>
+
+      <!-- <div class="">
+        <div class="row border border-top-0 border-left-0 border-right-0 border-danger border-width-medium"
+          style=" border-width:4px !important;">
+          <nav class="col navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="index.html">
+              <img src="../../assets/images/GH-05.png" width="100" height="100" alt="Golden Health Logo"
+                style="float:left;" class="mr-3" />
+              Golden Health Services Pvt. Ltd. <br>(ISO 9001:2015 Certified)
+            </a>
+
+
+          </nav>
+          <nav class="col navbar navbar-expand-lg navbar-dark justify-content-center">
+            <a>
+              <img src="../../assets/images/ISO_logo.jpg" width="65" height="65" alt="" class="mr-5" />
+
+            </a>
+            <a class="navbar-brand border border-light p-2" href="#" style="border-width:3px !important;">
+
+              <span style="vertical-align:super;">My</span><img src="../../assets/images/640px-CG_Heart.gif" width="65"
+                height="50" alt="Golden Health Logo" />
+              <span style="vertical-align:sub;">Echo</span>
+            </a>
+
+          </nav>
+
+          <nav class="col navbar  navbar-dark">
+
+            <a class="navbar-brand ml-auto" href="#">
+              Dr. Digamber Naik
+              <img src="../../assets/images/picture.jpg" class="rounded-circle" width="50" height="50"
+                alt="Golden Health Logo" />
+
+            </a>
+
+          </nav>
+        </div>
+      </div>  -->
+
+
+      <!-------------------------------->
+      <div class="container1">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-color">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse show" id="navbarSupportedContent">
+
+            <ul class="navbar-nav nav-pills">
+              <li class="nav-item ">
+                <button type="button" (click)="isValid = true" class="btn btn-outline-light btn-lg ">Home</button>
+              </li>
+
+              <!-- <li class="nav-item ">
+                <button href="views/aboutus.php" type="button" class="btn btn-outline-light btn-lg shift">About
+                  Us</button>
+              </li> -->
+
+              <li class="nav-item ">
+                <button type="button" (click)="isValid = !isValid" class="btn btn-outline-light btn-lg ">Location
+                  Map</button>
+
+              </li>
+
+              <li class="nav-item ">
+                <a href="#myModal1" role="button" class="btn btn-outline-light btn-lg" data-toggle="modal">ISO
+                  Certificate</a>
+              </li>
+
+              <li class="nav-item ">
+                <button type="button" class="btn btn-outline-light btn-lg" class="btn btn-outline-light btn-lg ml-auto"
+                  data-toggle="modal" data-target="#myModal3">Contact Us</button>
+              </li>
+              <li class="nav-item " *ngIf="isLogin">
+                <button type="button" class="btn btn-outline-light btn-lg ml-auto" routerLink="/dashboard"
+                  *ngIf="role==='ADMIN'">Dashboard</button>
+              </li>
+              <li class="nav-item " *ngIf="isLogin">
+                <button type="button" class="btn btn-outline-light btn-lg ml-auto" routerLink="/dashboard"
+                  *ngIf="role==='CLINIC'">Dashboard</button>
+              </li>
+              <li class="nav-item " *ngIf="isLogin">
+                <button type="button" class="btn btn-outline-light btn-lg ml-auto" routerLink="/dashboard"
+                  *ngIf="role==='DOCTOR'">Dashboard</button>
+              </li>
+              <li class="nav-item " *ngIf="isLogin">
+                <button type="button" class="btn btn-outline-light btn-lg ml-auto" (click)="logout()">Log Out</button>
+
+              </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto " *ngIf="!isLogin">
+              <li class="nav-item ">
+                <a class=" btn btn-outline-light btn-lg" type="button" data-toggle="modal" data-target="#myModal"
+                  href="#">Login</a>
+
+              </li>
+
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+
+
+
+      <!--------------------->
+
+
+
+      <!-- <nav>
+        <div class="nav-mobile">
+          <a id="nav-toggle" href="#!"><span></span></a>
+        </div>
+        <ul class="nav-list"> 
+          
+          <!-- <li *ngIf="!isLogin"><a routerLink="/login"    data-toggle="modal" data-target="#myModal" >Login </a></li>               -->
+      <!-- <li *ngIf="isLogin">                                 
+            <a   routerLink="/clinicdashboard"   *ngIf="role==='CLINIC'"   > 
+              Dashboard </a></li>
+          <li> <a routerLink="/dashboard"   *ngIf="role==='ADMIN'"    >  Dashboard </a></li>
+          <li> <a routerLink="/dicomviewer"  *ngIf="role==='ADMIN'"   >  Dicom Viewer</a></li>
+  
+          <li> <a   *ngIf="role==='ADMIN'"    >  All General Master </a>
+          
+            <ul class="nav-dropdown">
+              <li><a href="#!">General Clinic/Doctor</a>
+                <ul >
+                  <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;"><a routerLink="/general-addclinicdoctor" >Add General Clinic or Doctor</a></li>
+                  <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;"><a routerLink="/general-previewclinicall"  >Preview General All Clinics </a> </li>
+                  <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" ><a routerLink="/general-previewdoctorall"  >Preview General All Doctors</a> </li>
+  
+                </ul>
+              </li>
+             
+              <li><a href="#!">All Masters</a>
+                    <ul >
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('hospitalSpeciality');"  >Speciality</a></li>
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('hospitalService');"  > Services</a></li>
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('hospitalType');"  > Types</a></li>
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('branchMaster');"  > Branches</a></li>
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('complaintsMaster');"  > Complains</a></li>
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('educationalMaster');"  > Education</a></li>
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('religionMaster');"  > Religion</a></li>
+  
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('country');"  > Country</a></li>
+                      <!-- <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('state');"  > State</a></li> -->
+      <!-- <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('occupationMaster');"  > Occupation</a></li>
+  
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('regimeMaster');"  > Regime Master</a></li>
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('tabletsMaster');"  > Tablets Master</a></li>
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('durationMaster');"  > Duration Master</a></li>
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('syrupMaster');"  > Syrup Master</a></li>
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a [routerLink]="" queryParamsHandling="preserve" (click)="getgeneralAddPage('periodMaster');"  > Period Master</a></li>                    
+  
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a routerLink="/medicineform" queryParamsHandling="preserve" > Medicine Master</a></li>                    
+                      <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a routerLink="/previewmedicine" queryParamsHandling="preserve" > Preview All Medicine </a></li>                    
+  
+  
+                    </ul>
+              </li>
+  
+               <li><a href="#!">Other Details Form</a>
+                <ul>
+                  <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a routerLink="/previewallotherdetails"  > Preview Other Details Form</a></li> 
+                  <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a routerLink="/addotherdetails"  > Add Other Details Form</a></li>                 
+                </ul>
+              </li>
+  
+              <li><a href="#!">Family Details Form</a>
+                <ul>
+                  <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a routerLink="/previewallfamilyhistory"  > Preview Family Details Form</a></li> 
+                  <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a routerLink="/addfamilyhistory"  > Add Family Details Form</a></li>
+                </ul>
+              </li>
+  
+              <li><a href="#!">LifeStyle Details Form</a>
+                <ul>
+                  <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a routerLink="/previewalllifestyle"  > Preview Life Style Form</a></li> 
+                  <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a routerLink="/addlifestyle"  > Add Life Style Form</a></li>
+                </ul>
+              </li>
+  
+              <li><a href="#!">Investigation Form</a>
+                <ul>
+                  <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a routerLink="/previewinvestigationreport"  > Preview Investigation Form</a></li>
+                  <li *ngIf="role === 'ADMIN'" style="border-top:1px dotted #fff;" >  <a routerLink="/addinvestigationreport"  > Add Investigation Report</a></li>                
+                </ul>
+              </li>
+  
+  
+            </ul>
+          </li>
+          
+  
+          <li> <a routerLink="/doctordashboard"   *ngIf="role==='DOCTOR'"    >  Dashboard  &nbsp;|</a></li>
+          <li> <a routerLink="/registerpatient"   *ngIf="role==='CLINIC'"    >  Register  Patient &nbsp; |</a></li>
+          <li *ngIf="isLogin && role!='ADMIN' && role==='CLINIC'"><a routerLink="/profile"   >Profile &nbsp; |</a></li>
+          <li *ngIf="isLogin && role!='ADMIN' && role==='DOCTOR' "><a routerLink="/doctorprofile"   >Profile &nbsp; |</a></li>
+          <li *ngIf="isLogin"><a routerLink=""   (click)="logout()">Log Out</a></li>
+  
+        </ul>
+      </nav> -->
+      <div class="row">
+        <div class="col col-12 col-lg-6" *ngIf="isValid">
+
+
+          <div class="row">
+            <div class="col-sm-6">
+              <img src="assets/images/echo_gif3.gif" name="echo_gif3" class="img-responsive">
+            </div>
+            <div class="col-sm-6">
+              <img src="assets/images/echo_gif2.gif" name="echo_gif" class="img-responsive">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <img src="assets/images/echo_gif3.gif" name="echo_gif3" class="img-responsive">
+            </div>
+            <div class="col-sm-6">
+              <img src="assets/images/echo_gif2.gif" name="echo_gif2" class="img-responsive">
+            </div>
+          </div>
+
+        </div>
+        <div *ngIf="!isValid" class="col col-12 col-lg-6 google-maps">
+          <br>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15379.78540902183!2d73.8137845!3d15.4873176!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x2bcac6a3b5202c94!2sGolden Health Services Private Limited!5e0!3m2!1sen!2sin!4v1618820137699!5m2!1sen!2sin"
+            class="map" style="height: 100%;width: 100%;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="col col-12 col-lg-6">
+          <div class="side-form">
+            <marquee behavior="scroll" direction="up">
+              <h5>Please get the echocardiogram done before you do any procedure on your body.</h5>
+              <br />
+
+              <ul>
+                <li>Echocardiography is a diagnostic tool that uses ultrasound waves to create a visual image of the
+                  heart. It indicates the muscles and the layers of the heart, the valves, the flow of blood, evidence
+                  of
+                  blockage and many others.</li>
+                <li>Echocardiography is a routine test which is used in diagnosis , management as well as follow up of
+                  any
+                  kind of the suspected heart disease.</li>
+                <li>It provides the wealth of information about your heart , its size, shape and condition of all the
+                  layers of the heart, damage to any tissue of the heart. It finds the pumping capacity of the heart and
+                  tells you if the heart is failing or has failed.</li>
+                <li>It tells you if you are on the way to get any blockage or already have blockage.</li>
+                <li>It tells you the conditions of various valves and arteries – whether the valves are stiff , narrow
+                  or
+                  leaking.</li>
+                <li>It tells you about the flow of blood , its speed and the pressure as its flows through the various
+                  chambers , valves and vessels.</li>
+                <li>It gives you a good idea about the aging of the heart.</li>
+                <li>It gives the sufficient understanding of the lung condition.</li>
+                <li>Echocardiographic study is essential in understanding every heart condition from womb to tomb</li>
+                <li>Toady echocardiography is used by every anaesthetics in every situation. During the fitness test in
+                  any situation echocardiography is essential. </li>
+                <li>Science of echocardiography is very well developed and it has gone to the various branches like TEE,
+                  TTE, CONTRAST ECHO, 3D, 4D, SPECKLE TRACKING etc.</li>
+                <li>In the management of the cancer echo is used in every step to monitor the various treatment we
+                  offer.
+                </li>
+                <li>Echocardiogram help us to access the various biomedical conditions that affect the heart like high
+                  or
+                  low sodium, high or low potassium, kidney failure , stroke etc.</li>
+                <li>Echocardiography is simple to do, safe to do, cost least and can be repeated any number of times. It
+                  is the most cost effective expert investigation.</li>
+                <li>You can see your own heart while doing the echo, without opening the chest.</li>
+              </ul>
+
+
+
+            </marquee>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <br><br>
+
+  <div>
+    <!-- class="bg" -->
+    <div class="container-fluid">
+
+      <div class="row inndiv">
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog autocenter">
+
+            <!-- Modal content-->
+            <div class="modal-content bodymodal">
+              <div class="modal-header">
+                <h4 class="modal-title"> Login </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+              </div>
+              <div class="modal-body">
+
+                <div class="login-form">
+                  <form name="loginForm" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+
+                    <div class="form-group">
+                      <label for="username">Username:</label>
+
+                      <input type="text" placeholder="username" name="username" class="form-control" id="username"
+                        required [(ngModel)]="loginform.username" #username="ngModel">
+                      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                        <div *ngIf="username.errors.required">
+                          UserName is required.
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password:</label>
+
+                      <input type="password" placeholder="password" name="password" class="form-control" id="password"
+                        required [(ngModel)]="loginform.password" #password="ngModel">
+                      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                        <div *ngIf="password.errors.required">
+                          Password is required.
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                      <div class="form-group col-md-6">
+                        <button type="submit" class="btn btn-primary  btn-block">Login</button>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <button type="button" class="btn btn-danger  btn-block"
+                          (click)="loginForm.resetForm({})">Reset</button>
+                      </div>
+
+
+                    </div>
+
+
+                  </form>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal fade" id="myModal3" role="dialog">
+          <div class="modal-dialog autocenter">
+
+            <!-- Modal content-->
+            <div class="modal-content bodymodal">
+              <div class="modal-header">
+                <h4 class="modal-title"> Contact Us </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+              </div>
+              <div class="modal-body">
+
+                <div class="login-form">
+                  <form name="contactForm" #contactForm="ngForm" (ngSubmit)="submit(contactForm.value)">
+
+                    <div class="form-group">
+                      <label for="name">Name:</label>
+
+                      <input type="text" placeholder="name" name="name" class="form-control" id="name" required
+                        [(ngModel)]="contactform.name">
+
+
+                    </div>
+                    <div class="form-group">
+                      <label for="emailId">Email id:</label>
+
+                      <input type="emailId" placeholder="emailId" name="emailId" class="form-control" id="emailId"
+                        required [(ngModel)]="contactform.emailId">
+
+
+                    </div>
+                    <div class="form-group">
+                      <label for="phoneno">Phone No:</label>
+
+                      <input type="phoneno" placeholder="phoneno" name="phoneno" class="form-control" id="phoneno"
+                        required [(ngModel)]="contactform.phoneno">
+
+
+                    </div>
+                    <div class="form-group">
+                      <label for="purpose">Purpose:</label>
+
+                      <input type="purpose" placeholder="purpose" name="purpose" class="form-control" id="purpose"
+                        required [(ngModel)]="contactform.purpose">
+
+
+                    </div>
+                    <div class="form-row">
+
+                      <div class="form-group col-md-6">
+                        <button type="submit" class="btn btn-primary  btn-block">Submit</button>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <button type="button" class="btn btn-danger  btn-block"
+                          (click)="contactForm.resetForm({})">Reset</button>
+                      </div>
+
+
+                    </div>
+
+                  </form>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <!--------------------------------->
+
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="modal fade bd-example-modal-lg show" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="dynamic-content">
+          <img src="../../assets/images/Capture.PNG" class="img-fluid" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

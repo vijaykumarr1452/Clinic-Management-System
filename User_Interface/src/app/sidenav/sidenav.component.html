@@ -1,0 +1,58 @@
+<div class="overlay"></div>
+    
+<!-- Sidebar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+    <!-- <ul class="nav sidebar-nav">
+        <li class="sidebar-brand">
+            <a href="#">
+               Management
+            </a>
+         </li>           
+         <li *ngIf="isLogin"><a routerLink="/clinicdashboard" *ngIf="role==='CLINIC'" >Dashboard</a></li>
+         <li *ngIf="isLogin"> <a routerLink="/dashboard"   *ngIf="role==='ADMIN'"  >  Dashboard</a></li>
+         <li *ngIf="isLogin"> <a routerLink="/doctordashboard"   *ngIf="role==='DOCTOR'"   >  Dashboard</a></li>
+         <li *ngIf="role === 'ADMIN'"><a routerLink="/addclinicdoctor"  >Add Clinic or Doctor</a> </li>
+        
+        <li *ngIf="role === 'ADMIN'" class="dropdown-header">Master Tables </li>
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('anteriorSeptum');"  > - Anterior Septum</a></li>
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('anteriorWall')"    >- Anterior Wall</a></li>   
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('aorta')"  >- Aorta </a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('aorticValve')"  >- Aortic Valve</a></li>  
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('conclusion')"  >- Conclusion</a></li>   
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('doctorAdvice')"  >- Doctor Advice</a></li>
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('inferiorSeptum')"  >- Inferior Septum</a></li>
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('inferiorVenaCava')"  > - Inferior Venacava</a></li>  
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('inferiorWall')"  >- Interior Wall</a></li>        
+     
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('impressions')"  >- Impressions</a></li>     
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('intracardiacData')"  >- Intracardiac Data</a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('intraCardiacTumour')"  >- IntraCardiac Tumour</a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('lateralWall')"  >- Lateral Wall</a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('leftAtrium')"  >- Left Atrium</a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('leftVentrical')" >- Left Ventrical  </a></li>
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('leftVentricalFunction')"  >- Left Ventrical Function</a></li>
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('mitralValve')"  >- Mitral Valve</a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('pericardium')"  >- PeriCardium</a></li>  
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('pericardialEffusion')"  >- PeriCardial Effusion</a></li> 
+      
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('posteriorWall')"  >- Posterior Wall</a></li>    
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('pulmonaryArtery')"  > - Pulmonary Artery</a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('pulmonaryVein')"  >- Pulmonary Vein</a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('pulmonicValve')"  > - Pulmonic Valve</a></li>  
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('rightAtrium')"  >- Right Atrium</a></li>  
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('rightVentricle')"  >- Right Ventricle</a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('rightVentricalFunction')"  >- Right Ventrical Function</a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('tricuspidValve')"  >- Tricuspid Valve</a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('speckleTracking')"  >- Speckle Tracking</a></li> 
+        <li *ngIf="role === 'ADMIN'">  <a [routerLink]="" queryParamsHandling="preserve" (click)="getAddPage('venous')"  >- Venous</a></li>
+    
+
+        <li  *ngIf="role === 'CLINIC'" routerLink="/registerpatient"><a routerLink="/registerpatient"  > Patient Master </a></li>
+        <li  *ngIf="role === 'CLINIC'" routerLink="/previewregpatient"><a routerLink="/previewregpatient"  >Show All Patient Master</a></li>
+        <li  *ngIf="role === 'CLINIC'" routerLink="/registerkin"><a routerLink="/registerkin"  >Register Kin </a></li>
+        <li  *ngIf="role === 'CLINIC'" routerLink="/previewregkin"><a routerLink="/previewregkin"  >Show All Registered Kin</a></li>
+        
+
+    </ul> -->
+</nav>
+<!-- /#sidebar-wrapper -->

@@ -1,0 +1,149 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+<div class="container-fluid" >
+   <app-sidenav></app-sidenav> 
+
+   <!-- Page Content -->
+ <div id="page-content-wrapper">
+   <div class="container-fluid xyz">
+      <div class="row">
+         <div class="col-lg-12">
+             <h1>Add Left Ventricles</h1> 
+
+
+            
+            <div class="float-container">
+
+                 <div class="add-form">
+                <form action="" method="post"   >
+                    <h2 class="text-center">Add</h2>       
+                    <div class="form-group">
+                        <label  >Key</label>
+                        <input type="text" class="form-control" placeholder="Key" name="key" id="key" autocomplete="off" required="required"  >
+                    </div>
+                    <div class="form-group">
+                        <label >Value</label>
+                        <input type="text" class="form-control" name="val" id="val" autocomplete="off" placeholder="value" required="required"  >
+                    </div>
+
+                     
+                        <!----------------------------------------------->
+
+                      <div *ngFor="let item of leftventricle | keyvalue">
+
+                        <!-- <label>Select  {{item.value}} ===1</label>  -->
+
+
+                      <div class="form-group"  *ngFor="let inItems of item.value | keyvalue; "  >
+
+                        <div class="form-group"  *ngIf="inItems.value"  >
+                          
+                         <!-- <label  >Select  {{inItems.value}} ===2</label> -->
+                       
+                        <div class="form-group"  *ngFor="let nestItems of inItems.value | keyvalue; "  >
+                            <label>Select {{nestItems.key}}  </label> 
+
+                            <select class="form-control"  *ngIf="nestItems.value!='' && nestItems.value != undefined " >                         
+                                <option *ngFor="let iiItems1 of nestItems.value | keyvalue; let i = index" value="{{i}}" > {{iiItems1.value }} </option> 
+                            </select>  
+
+                            <div class="form-group"  *ngFor="let nestItems1 of nestItems.value | keyvalue;"  >
+
+                                <!-- <label  *ngIf="nestItems1.value"  >Select  {{nestItems1.value}} ====4 </label> -->
+
+                                <!-- <select class="form-control"  *ngIf="nestItems1.value!=''" >                         
+                                    <option *ngFor="let iiItems1 of nestItems1.value | keyvalue; let i = index" value="{{i}}" > {{iiItems1.value }} </option> 
+                                </select>   -->
+                               
+
+                                <div class="form-group"  *ngIf="nestItems1.value"  >
+
+                                    <div class="form-group"  *ngFor="let nestItems11 of nestItems1.value | keyvalue; "  >
+                                        <label>Select  {{nestItems.key}} ==== {{nestItems11.key}}   </label>  
+                                        
+                                        <select class="form-control"  >                         
+                                            <option *ngFor="let iiItems11 of nestItems11.value | keyvalue; let j = index" value="{{j}}" > {{iiItems11.value }} </option> 
+                                        </select> 
+                                        
+                                        <div class="form-group"  *ngFor="let iiItems11 of nestItems11.value | keyvalue; "  >
+                                             
+                                             <!-- <label>Select  {{iiItems11.value}} </label>  -->
+                                                                                           
+                                            <div class="form-group"  *ngFor="let nest1 of iiItems11.value | keyvalue; "  >
+                                            
+                                                <label>Select  {{nest1.key}}   </label>
+
+                                                <select class="form-control"  >                         
+                                                    <option *ngFor="let nest11 of nest1.value | keyvalue; let k = index" value="{{k}}" > {{nest11.value }} </option> 
+                                                </select> 
+
+                                                <div class="form-group"  *ngFor="let nest2 of nest1.value | keyvalue; "  >
+                                            
+                                                    <!-- <label>Select  {{nest2.key}}  || {{nest2.value}}  </label> -->
+                                                    
+                                                    <div class="form-group"  *ngFor="let nest3 of nest2.value | keyvalue; "  >
+                                                        <label>Select  {{nest3.key}}   </label>
+
+                                                            <select class="form-control"  >                         
+                                                                <option *ngFor="let nest4 of nest3.value | keyvalue; let l = index" value="{{l}}" > {{nest4.value }} </option> 
+                                                            </select> 
+
+
+                                                            <div class="form-group"  *ngFor="let nest5 of nest3.value | keyvalue; "  >
+                                                                
+                                                                <!-- <label>Select  {{nest5.key}} ||  {{nest5.value}} ====9 </label> -->
+
+                                                                <!-- <div class="form-group"  *ngFor="let nest6 of nest5.value | keyvalue; "  >
+                                                                    <p>++++++++</p>
+                                                                    <label>Select  {{nest6.key}} ||  {{nest6.value}} ====10 </label>
+
+
+                                                                </div>     -->
+                                                            </div>    
+
+                                                    </div>    
+                                                </div>    
+                                            
+                                            </div>    
+                                           
+                                  
+                                        </div> 
+
+                                    </div>    
+
+
+                                </div>
+
+                            </div>
+
+                        </div> 
+                     
+                    </div> 
+
+                </div> 
+
+            </div>    
+                   
+
+                  
+                <!-------------------------------------------->
+
+
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"  >Submit</button>
+                    </div>
+                  
+                </form>
+                </div>
+
+
+             </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+</div>
+ <!-- <app-footer></app-footer> -->

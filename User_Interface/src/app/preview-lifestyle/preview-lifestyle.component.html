@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<app-sidenav></app-sidenav> 	
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div  class="col-md-12 fright" >
+                
+                
+<form name="patientForm"  #patientForm="ngForm"  >
+      
+    <div class="row fright">
+      <div class="col-md-7  "> <h1>All LifeStyle List </h1> </div>
+      <div class="col-md-3  searchsty">
+        <input type="text" [(ngModel)]="searchString"  [ngModelOptions]="{standalone: true}" 
+                  class="form-control" placeholder="Search ......"  [(ngModel)]="filter" />
+      </div>
+      <!-- <div class="col-md-2 searchsty">
+        <button type="submit" class="btn btn-warning  " (click)="getResultData()"  >Get Search Results</button>
+      </div> -->
+      </div>
+   
+   
+<table class="table">
+  <thead>
+    
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Patient Name/No</th>
+      <th scope="col">Type of Lifestyle</th>
+      <th scope="col">Smoking</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+     
+    <tr *ngFor="let alllist of AllLifeStyleDetails  |filter:filter | paginate: { itemsPerPage: 10, currentPage: p };index as i">
+        <td scope="row">{{ alllist.id}}</td>
+        <td>{{ alllist.lifestyle.patientId }}</td>
+        <td>{{ alllist.lifestyle.typelifestyle}}</td>
+        <td>{{ alllist.lifestyle.smoking }}</td>
+        <td><button type="button" class="btn btn-primary btn-sm" (click)="goToEditOtherDetails(alllist)"  >Edit</button>   </td>
+        <td> <button type="button" class="btn btn-danger btn-sm" (click)="goToDeleteOtherDetails(alllist)" >delete</button></td>
+      </tr>
+  </tbody>
+    
+</table>
+<ul class="pagination">  
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>  
+  </ul> 
+
+</form>
+
+	
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+<!-- <app-footer></app-footer> -->

@@ -1,0 +1,197 @@
+
+    <!-- <p>image-viewer works!</p> -->
+    <!-- <app-nav></app-nav> -->
+    <!-- <pre>{{this.result | json}}</pre> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<app-nav></app-nav> 
+<form  name="observationsForm"   #observationsForm="ngForm" >
+    <h2 class="text-center">GALLARY OF THE PATIENT</h2> 
+
+<div id="wrapper" class="c">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <div> 
+          <label>Name of The Patient :</label>
+          {{ this.patientDataObject.patientname | titlecase}}
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <div> 
+          <label>Gender :</label>
+          {{ this.patientDataObject.gender }}
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <div> 
+          <label>Date Of Birth :</label>
+          {{ this.patientDataObject.testdate | date:'MM-dd-yyyy' }}
+        </div>
+      </div>
+
+    </div>    
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <div> 
+          <label>Referred By :</label>
+          
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <div> 
+          <label>Clinic Observations :</label>
+         
+        </div>
+      </div>
+
+    </div>    
+
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <div> 
+          <label>BMI :</label>
+          {{ patientDataObject?.bmi }}
+        </div>
+      </div>
+
+      <div class="form-group col-md-2">
+        <div> 
+          <label>BSA :</label>
+          {{ patientDataObject?.bsa }}
+        </div>
+      </div>
+
+      <div class="form-group col-md-2">
+        <div> 
+          <label>Height :</label>
+          {{ patientDataObject?.height }} cms
+        </div>
+      </div>
+
+      <div class="form-group col-md-2">
+        <div> 
+          <label>Weight :</label>
+          {{ patientDataObject?.weight }} kgs
+        </div>
+      </div>
+
+      <div class="form-group col-md-2">
+        <div> 
+          <label>BP :</label>
+         {{ patientDataObject?.bpsystolic }}/{{ patientDataObject?.bpdiastolic }}  mmHg 
+        </div>
+      </div>
+
+    </div>    
+</div>
+<div class="">
+        <div class="">
+        
+            <div >
+                <!-- Sidebar -->
+                <div class="box">
+                   
+                    <div id="grid-container">
+                        <div  *ngFor="let img of localImg; let i = index; ">
+                            <div *ngIf="img.type.mime === 'video/webm' || 'image' " class="row mt-1">
+                                <ng-container  >
+                            <a  *ngIf="img.type.mime === 'video/webm'" href="javascript:void(0)" (click)="onClick(img.src)">
+                                <!-- <input type="checkbox"  [(ngModel)]="img.checked" /> -->
+                                        <!-- <label for="cb[i]"> -->
+                                            <video  controls autoplay loop>
+                                    <source [src]="img.src" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <!-- </label> -->
+                                <!-- <div class="top-left" >{{[i+1]}}/{{length}}</div> -->
+                                <!-- <input type="checkbox" [(ngModel)]="img.checked"> -->
+                                  <!-- <div class="top-right" > <i class="fa fa-video-camera" style="font-size:20px;color:red"></i></div> -->
+                            </a>
+                            </ng-container>
+                            <ng-container  >
+                            <a   *ngIf="img.type == 'image'" href="javascript:void(0)" (click)="onClick(img)">
+                                <!-- <div > -->
+                                    <!-- <input class="top-left" type="checkbox"  [(ngModel)]="img.checked" />
+                                    <label for="cb[i]"> -->
+                                         <img [src]="img.src"  alt="Hills"/>
+                                      <!-- </label> -->
+                                <!-- <div class="top-left" >{{[i+1]}}/{{length}}</div> -->
+                                <!-- <input type="checkbox" [(ngModel)]="img.checked"> -->
+                                <!-- <div class="top-right" > <i class="fa fa-camera" style="font-size:20px;color:red"></i></div> -->
+                                <!-- </div> -->
+                            </a>
+                        </ng-container>
+                            <!-- <li><input type="checkbox" />
+                                <label for="cb{{i}}"><img [src]="img.src" /></label>
+                              </li> -->
+                            </div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+        
+        <!-- 
+            <img  src="{{imageSrc}}" id="imagepreview" style="width:77%;height:50%" />
+            <video *ngIf="imgType == 'video'" class='center'   controls>
+                <source src="{{vidsrc}}" type="video/mp4" align="center"style="width:77%"/>
+                Browser not supported
+            </video> -->
+       
+        
+          
+        
+        <!-- 
+            <img  src="{{imageSrc}}" id="imagepreview" style="width:77%;height:50%" />
+            <video *ngIf="imgType == 'video'" class='center'   controls>
+                <source src="{{vidsrc}}" type="video/mp4" align="center"style="width:77%"/>
+                Browser not supported
+            </video> -->
+            <!-- <button (click)="onsubmit(this.result)" class=" form-control col-md-2">Submit</button> -->
+    
+        </div>
+      
+    
+        </div>
+    
+    </form>
+        <!-- <div class="row mt-4">
+            <div *ngFor="let img of localImg" class="col-xs-6">
+                <a class="thumbnail"  *ngIf="img.type == 'image'" href="javascript:void(0)" (click)="onClick(img)">
+                    <div >
+                        <input type="checkbox"  [(ngModel)]="img.checked" />
+                            <label for="cb[i]"><img [src]="img.src"  style="width:5%;height:5%" alt="Hills"/></label>
+                          
+                    <div class="top-left" >{{[i+1]}}/{{length}}</div>
+                    <input type="checkbox" [(ngModel)]="img.checked">
+                    <div class="top-right" > <i class="fa fa-camera" style="font-size:20px;color:red"></i></div>
+                    </div>
+                </a>
+                <div >
+                    <div  >
+                <a  class="thumbnail" *ngIf="img.type == 'video'" href="javascript:void(0)" (click)="onClick(img)">
+                    <input type="checkbox"  [(ngModel)]="img.checked" />
+                            <label for="cb[i]"><video style="width:5%;height:5%" controls>
+                        <source [src]="img.src" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    </label>
+                    <div class="top-left" >{{[i+1]}}/{{length}}</div>
+                    <input type="checkbox" [(ngModel)]="img.checked">
+                    <div class="top-right" > <i class="fa fa-video-camera" style="font-size:20px;color:red"></i></div>
+                </a>
+                </div>
+            </div>
+        </div> -->
+    
+    <!-- </div> -->
+    
+    <!-- <pre>{{this.result | json}}</pre> -->
+    

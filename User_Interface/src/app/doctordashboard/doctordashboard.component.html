@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<!-- <app-sidenav></app-sidenav>  	 -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					
+						<div>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{profileImg}}" width="90" height="90" name="Logo" class="img-responsive">
+						</div>
+					
+				</div>
+	  
+				   <br>
+				  <div class="form-group col-md-3">
+					<div> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Doctor Name :</b>
+						{{ DoctorData?.name | titlecase}}
+					</div>
+				  </div>
+			
+				  <div class="form-group col-md-3">
+					<div> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Phone Number :</b>
+						{{ DoctorData?.mobNo }}
+					</div>
+				  </div>   
+				  <div class="form-group col-md-3">
+					<div> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Address :</b>
+						{{ DoctorData?.address }}
+					</div>
+				  </div>
+	  
+				 
+			
+				</div>    
+            <div  class="col " >
+				
+				
+				<!-- <div class="form-row">
+					<div class="form-group col-md-3">
+
+					</div> 
+					<div class="form-group col-md-3">
+						<div>
+							<img  src="{{profileImg}}" width="100" height="100" name="Logo" class="img-responsive"   > 
+						</div>
+						<div style="padding-top: 10px;">
+							<h5> Welcome  {{ DoctorData?.name | titlecase}}</h5>
+						</div>
+					</div> 
+
+				 <div class="form-group col-md-6">
+						<div>
+							<table class="tablestyleinn">
+								<tr>
+									<td> <h5>Doctor Name </h5></td>
+									<td> <h5>: {{ DoctorData?.name | titlecase }}  </h5></td>
+								</tr>
+								<tr>
+									<td> <h5>Phone Number </h5></td>
+									<td>: {{ DoctorData?.mobNo }}</td>
+								</tr>
+								<tr>
+									<td> <h5>Address</h5> </td>
+									<td>: {{ DoctorData?.address }}</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+
+				</div>				 -->
+		   
+<!----------------------------------------------------->
+<div class="card">
+<div class="tabs">
+	<input type="radio" name="tabs" id="tabone" checked="checked">
+	<label for="tabone">Dashboard</label>
+	<div class="tab">
+		<app-viewdoctorpatients></app-viewdoctorpatients>
+	</div>
+	
+	<input type="radio" name="tabs" id="tabtwo">
+	<label for="tabtwo">Reference Values</label>
+	<div class="tab" style="min-height: 300px;">
+	  <app-reference></app-reference>
+	  
+	</div>
+	
+	<!-- <input type="radio" name="tabs" id="tabthree">
+	<label for="tabthree">Supplementary Reports</label>
+	<div class="tab" style="min-height: 300px;">
+	  <h1>Supplementary Reports</h1>
+	</div> -->
+  </div>
+
+</div>
+<!--------------------------------------------------->
+
+
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+ <!-- <app-footer></app-footer> -->

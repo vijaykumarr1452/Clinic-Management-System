@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<app-nav></app-nav>
+
+<div id="wrapper">       
+	<!-- <app-sidenav></app-sidenav> 	 -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <!-- <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span> -->
+            </button>
+            <div  class="col-md-11 fright" >
+				<!-- style="margin-top:-200px; float:right;" -->
+				<!-- <h2>Welcome Admin</h2> -->
+
+
+	<!----------------------------------------------------->
+<div class="card">
+	<div class="tabs">
+		<input type="radio" name="tabs" id="tabzero" checked="checked" >
+		<label for="tabzero">All Patients</label>
+		<div class="tab">
+			<app-viewpatientdetails></app-viewpatientdetails>
+		</div>
+		<input type="radio" name="tabs" id="tabone" >
+		<label for="tabone">All Clinics</label>
+		<div class="tab">
+			<app-showallclinics></app-showallclinics>
+		</div>
+		
+		<input type="radio" name="tabs" id="tabtwo">
+		<label for="tabtwo">All Doctors</label>
+		<div class="tab" style="min-height: 300px;">
+			<app-showalldoctors></app-showalldoctors>
+		  
+		</div>
+		
+		<input type="radio" name="tabs" id="tabthree">
+		<label for="tabthree">Masters</label>
+		<div class="tab" style="min-height: 300px;">
+		<app-master></app-master>
+			</div>
+
+		<input type="radio" name="tabs" id="tabfour">
+		<label for="tabfour">Force Closures</label>
+		<div class="tab" style="min-height: 300px;">
+		 <app-forceclosure></app-forceclosure>
+		</div>
+
+
+		<input type="radio" name="tabs" id="tabfive">
+		<label for="tabfive">Transfers</label>
+		<div class="tab" style="min-height: 300px;">
+		  <app-transfer></app-transfer>
+		</div>
+		<input type="radio" name="tabs" id="tabsix">
+		<label for="tabsix">Open Force Closed</label>
+		<div class="tab" style="min-height: 300px;">
+		  <app-open-force-closed></app-open-force-closed>
+		</div>
+		<input type="radio" name="tabs" id="tabseven">
+		<label for="tabseven">Delete Patient</label>
+		<div class="tab" style="min-height: 300px;">
+		  <app-delete-patient></app-delete-patient>
+		</div>
+	  </div>
+	
+	</div>
+	<!--------------------------------------------------->			
+
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+ <!-- <app-footer></app-footer> -->
