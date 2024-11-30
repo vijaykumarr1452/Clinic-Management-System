@@ -1,13 +1,13 @@
 # Clinic-Management-System 
 
 
-### [Link](https://www.myecho.co.in/index.php)
+### [  #Link  ](https://www.myecho.co.in/index.php)
 
 
 ![PNG](GoldenHealthServices.png)
 
 
-#### Golden Health Services Pvt Ltd [**  {Link}  **](https://www.myecho.co.in/index.php)
+#### Golden Health Services Pvt Ltd [   {Link}   ](https://www.myecho.co.in/index.php)
 
 
 ---
